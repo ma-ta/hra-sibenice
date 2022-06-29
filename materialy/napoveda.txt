@@ -1,0 +1,72 @@
+
++------------------------------------------------------------------------+
+|                                                                        |
+|                   ~~~  VITEJTE VE HRE SIBENICE!  ~~~                   |
+|                                                                        |
++------------------------------------------------------------------------+
+
+
+Cilem  hry je  postupnym hadanim  pismen odhalit  vsechna  slova,  jejichz
+delka je zprvu naznacena zastupnymi znaky  _  (resp. prazdnymi policky).
+
+Na  zacatku  kazdeho  z  9  kol  jste vybaveni 11 zivoty. Ty vam ubyvaji s
+kazdym  chybnym  pokusem.  Z  daneho  kola  hry  si  odnesete  pocet  bodu
+rovnajici se zbyvajicimu poctu zivotu.
+Plneho  poctu  11  bodu v danem kole tedy dosahnete, kdyz pri hadani slova
+neudelate  ani jednu chybu. Po vycerpani vsech pokusu ovsem cela hra konci.
+
+
+POPIS PRVKU HERNI OBRAZOVKY
+
+
+Dale  jsou  popsany  graficke  prvky  vyskytujici  se  na  herni obrazovce
+a uveden jejich vyznam.
+
+
+
+                                +--------+
+                                | ZIVOTY |
+                                | / BODY |
+                                |--------|
+ukazatel zbyvajicich zivotu ->  | 01 /   |
+v aktualnim kole                |   / 11 |  <- celkovy  pocet  nasbiranych
+                                +--------+     bodu z minulych kol
+
+
+
+          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
+          |  1  | >2< |  3  |  4  |  5  |  6  |  7  |  8  |  9  |
+          +-----+--|--+-----+-----+-----+-----+-----+-----+-----+
+                   |
+                   +--> ukazatel aktualne probihajiciho
+                        kola hry
+
+
+
+                   +--> hadane slovo s delkou vyznacenou
+                   |    znaky ________
+                   |
+          +-----+--|--+-----+-----+-----+-----+-----+-----+-----+
+          |        |                                |           |
+          |     >  _I_E_ICE                         |   ZASAH   |
+          |                                         |     |     |
+          +-----+-----+-----+-----+-----+-----+-----+-----|-----+
+                                                          |
+                 informace o vysledku predchoziho tahu <--+
+
+
+
+             +--> seznam aktualne dostupnych pismen
+             |
+          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
+          |  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |  I  |
+          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
+          |  J  |  K  |  L  |  M  |  N  |  O  |  P  |  Q  |  R  |
+          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
+          |  S  |  T  |  U  |  V  |  W  |  X  |  Y  |  Z  |
+          +-----+-----+-----+-----+-----+-----+-----+-----+
+
+
+
+                                                             Mnoho stesti!
+                                                    (c) 2022  Martin TABOR
