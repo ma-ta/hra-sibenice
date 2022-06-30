@@ -13,12 +13,13 @@ Jednoduše rozbalte archiv ZIP do vámi zvolené složky a klikněte na spustite
 
 #### Binárky dostupné pro platformy:
 - MS Windows:
-  - Windows 95 - ME
-  - Windows 2k - 11
+  - Windows 8.1 &ndash; 11
 - GNU/Linux:
   - Ubuntu 22.04 (LTS)
   - Fedora 36
-- DOS (FreeDOS/DOSBox)
+- ~~DOS:~~
+  - ~~FreeDOS 1.3~~
+  - ~~DOSBox 0.74~~
 
 
 #### Herní obrazovka:
