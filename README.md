@@ -22,4 +22,4 @@ Jednoduše rozbalte archiv ZIP do vámi zvolené složky a klikněte na spustite
 
 
 #### Herní obrazovka:
-![Šibenice 0.0.1](/screenshots/screenshot_0.0.1-uni.webp)
+![Šibenice 0.0.1](/screenshoty/screenshot_0.0.1-uni.webp)
