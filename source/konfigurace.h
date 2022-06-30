@@ -43,6 +43,8 @@
   #endif
 #elif defined(_WIN32) || defined(_WIN64)
   #define OSNAME  "Windows"
+#elif defined(__DOS__)
+  #define OSNAME  "DOS"
 #else
   #define OSNAME  ""
 #endif
@@ -50,6 +52,9 @@
 #if defined(_MSC_VER)
   #define CCNAME  "MSVC"
   #define CCVER   _MSC_VER
+#elif defined(__WATCOMC__)
+  #define CCNAME  "Watcom"
+  #define CCVER   (-1)
 #elif defined(__clang__)
   #define CCNAME  "Clang"
   #define CCVER   __clang_major__
@@ -58,7 +63,7 @@
   #define CCVER   __GNUC__
 #else
   #define CCNAME  "?"
-  #define CCVER   "?"
+  #define CCVER   (-1)
 #endif
 
 /* detekce OS pro příkaz vymazání obrazovky */
