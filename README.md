@@ -8,7 +8,7 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 - **[Nápověda ke hře](/materialy/napoveda.txt)**
 
-### Binárky ke stažení:
+### Binárky ke stažení
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
