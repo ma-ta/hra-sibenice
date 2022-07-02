@@ -1,10 +1,11 @@
 # Hra&nbsp;&nbsp;Š I _ E _ I C E
 > Terminálová implementace známé slovní hry Šibenice/Oběšenec
 
+![Šibenice 0.0.1](/screenshoty/screenshot_0.0.1-uni.webp)
+
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
-
 
 - **[Nápověda ke hře](/materialy/napoveda.txt)**
 
@@ -26,7 +27,3 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 - ~~DOS&nbsp;&nbsp;*(překladač Open Watcom)*:~~
   - ~~FreeDOS 1.3~~
   - ~~DOSBox 0.74~~
-
-
-#### Herní obrazovka:
-![Šibenice 0.0.1](/screenshoty/screenshot_0.0.1-uni.webp)
