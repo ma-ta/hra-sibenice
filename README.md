@@ -15,7 +15,7 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.1/sibenice_0.0.1_all.zip)**
+- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.1/sibenice_0.0.1_bin.zip)**
 
 
 #### Zahrnuté platformy:
