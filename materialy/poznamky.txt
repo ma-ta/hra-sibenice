@@ -7,10 +7,10 @@ ZNÁMÉ CHYBY:
 NÁPADY K DALŠÍMU VÝVOJI:
 
 1) přidání "Síně slávy" do hlavního menu - výsledky úspěšně dokončených
-   her se budou ukládat spolu se jménem hráče
+   her se budou ukládat spolu se jménem hráče / zobrazení statistik,
+   výsledku poslední hry apod. na obrazovce s hlavním menu
 
-2) zobrazení statistik, výsledku poslední hry apod. na obrazovce s hlavním
-   menu
+2) funkce nápovědy během hádání slov (např. za cenu jednoho života)
 
 3) možnost volby různých kategorií hádaných slov / vícejazyčná verze
 
