@@ -5,19 +5,25 @@
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
-Jednoduše rozbalte archiv ZIP do vámi zvolené složky a klikněte na spustitelný soubor pro daný operační systém.
 
-- [Binárky ke stažení (soubor ZIP)](/bin/sibenice_0.0.1_all.zip)
-- [Nápověda ke hře](/materialy/napoveda.txt)
+- **[Nápověda ke hře](/materialy/napoveda.txt)**
+
+### Binárky ke stažení:
+
+Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
+
+- **[All-in-one řešení (soubor ZIP)](/bin/sibenice_0.0.1_all.zip)**
+- [Pouze konkrétní platforma](/bin)
+- [Datové soubory (umístit do složky se spustitelným souborem)](/bin/data)
 
 
-#### Binárky dostupné pro platformy:
-- MS Windows:
-  - Windows 8.1 &ndash; 11
-- GNU/Linux:
+#### Zahrnuté platformy:
+- MS Windows&nbsp;&nbsp;*(překladač MSVC)*:
+  - Windows 10 &ndash; 11 (x86, x64)
+- GNU/Linux&nbsp;&nbsp;*(překladač GNU GCC)*:
   - Ubuntu 22.04 (LTS)
   - Fedora 36
-- ~~DOS:~~
+- ~~DOS&nbsp;&nbsp;*(překladač Open Watcom)*:~~
   - ~~FreeDOS 1.3~~
   - ~~DOSBox 0.74~~
 
