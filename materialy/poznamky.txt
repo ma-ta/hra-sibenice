@@ -1,10 +1,16 @@
 ZNÁMÉ CHYBY:
 
-1) nefunkční hledání písmene CH (hra se buď ukončuje brzy nebo je potřeba
-   navíc zmáčknout 'C' či 'H', i když je slovo již odkryto
+1) nefunkční hledání písmene 'CH' pomocí kódu v souboru:
+   ukazatel_slov.c -> int ukazatelslov_hadej(int znak);
+
+   => funkce prozatím vypnuta preprocesorem pomocí konstanty:
+   UKAZATELSLOV_PISMENO_CH v souboru konfigurace.h
+
+   (hra se buď ukončuje brzy nebo je potřeba nadbytečné stlačení
+   písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
 
-NÁPADY K DALŠÍMU VÝVOJI:
+NÁPADY NA DALŠÍ VÝVOJ:
 
 1) přidání "Síně slávy" do hlavního menu - výsledky úspěšně dokončených
    her se budou ukládat spolu se jménem hráče / zobrazení statistik,

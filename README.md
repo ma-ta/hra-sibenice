@@ -8,6 +8,7 @@ Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotli
 Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
 - **[Nápověda ke hře](/materialy/napoveda.txt)**
+- [Známé chyby a nápady na další vývoj](materialy/poznamky.txt)
 
 
 ### Binárky ke stažení
