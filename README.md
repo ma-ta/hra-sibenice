@@ -2,6 +2,8 @@
 
 > Terminálová implementace známé slovní hry Šibenice/Oběšenec
 
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
+![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
 
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
