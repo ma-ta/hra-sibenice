@@ -17,7 +17,7 @@
 #define DEBUG_HADANE_SLOVO  "Ad hoc Chrochrohcroch..."
 
 #define NAZEV         "Hra Sibenice"
-#define VERZE         "0.0.1"
+#define VERZE         "0.0.2"
 #define AUTOR         "Martin TABOR (Ma-TA)"
 #define WEB           "github.com/ma-ta"
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
@@ -43,10 +43,10 @@
   #endif
 #elif defined(_WIN32) || defined(_WIN64)
   #define OSNAME  "Windows"
-#elif defined(__DOS__)
+#elif defined(__MSDOS__)
   #define OSNAME  "DOS"
 #else
-  #define OSNAME  ""
+  #define OSNAME  "?"
 #endif
 
 #if defined(_MSC_VER)
@@ -59,7 +59,11 @@
   #define CCNAME  "Clang"
   #define CCVER   __clang_major__
 #elif defined(__GNUC__)
-  #define CCNAME  "GNU GCC"
+  #if defined(__DJGPP__)
+    #define CCNAME  "DJGPP"
+  #else
+    #define CCNAME  "GNU GCC"
+  #endif
   #define CCVER   __GNUC__
 #else
   #define CCNAME  "?"
@@ -68,7 +72,7 @@
 
 /* detekce OS pro příkaz vymazání obrazovky */
 #if (DEBUG == 0)
-  #if (defined(_WIN32) || defined(_WIN64))
+  #if (defined(_WIN32) || defined(_WIN64) || defined(__MSDOS__))
     #define vymaz_obr()  system("cls")
   #else
     #define vymaz_obr()  system("clear")
