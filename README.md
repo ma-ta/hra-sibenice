@@ -20,15 +20,15 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 - **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.1/sibenice_0.0.1_bin.zip)**
 
 
-#### Zahrnuté platformy:
+#### Zahrnuté (testované) platformy:
 - MS Windows&nbsp;&nbsp;*(překladač MSVC)*:
   - Windows 10 &ndash; 11 (x86, x64)
 - GNU/Linux&nbsp;&nbsp;*(překladač GNU GCC)*:
   - Ubuntu 22.04 (LTS)
   - Fedora 36
-- ~~DOS&nbsp;&nbsp;*(překladač Open Watcom)*:~~
+- ~~DOS&nbsp;&nbsp;*(překladač DJGPP)*:~~
   - ~~FreeDOS 1.3~~
-  - ~~DOSBox 0.74~~
+  - ~~DOSBox 0.74-3~~
 
 
 ### Snímky obrazovky

@@ -1,0 +1,5 @@
+OPRAVENÉ CHYBY:
+
+1) opravena chyba při vypnutí ansi_format v konfiguraci
+   (makro musí vracet prázdný řetězec "")
+

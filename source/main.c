@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
   /* inicializace generátoru pseudonáhodných čísel */
   srand((unsigned) time(NULL));
 
+  /* hlavní menu */
+
   while (volba_menu != MENU_KONEC)
   {
     switch (volba_menu = menu())

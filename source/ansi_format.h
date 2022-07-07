@@ -65,12 +65,12 @@
   #define ansi_cursor_off()         CSI "?25l"
   #define ansi_cursor_on()          CSI "?25h"
 #else
-  #define ansi_format(format)
-  #define ansi_light(color)
-  #define ansi_frcolor(color)
-  #define ansi_bgcolor(color)
-  #define ansi_cursor_off()
-  #define ansi_cursor_on()
+  #define ansi_format(format)       ""
+  #define ansi_light(color)         ""
+  #define ansi_frcolor(color)       ""
+  #define ansi_bgcolor(color)       ""
+  #define ansi_cursor_off()         ""
+  #define ansi_cursor_on()          ""
 #endif
 
 #define ansi_scroll(mode, count)  CSI #count mode
