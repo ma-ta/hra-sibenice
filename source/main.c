@@ -8,11 +8,18 @@
 #include "./game/hra.h"
 #include "./game/ukazatele/ukazatel_sibenice.h"
 
-/* globální proměnné a konstanty */
+
+/* GLOBÁLNÍ PROMĚNNÉ */
+
+
 int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
 #ifdef OS_DOS
   nastaveni_tabskore = 1;
 #endif
+
+
+/**/
+
 
 int main(int argc, char *argv[])
 {

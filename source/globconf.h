@@ -6,6 +6,7 @@
 #ifndef KONFIGURACE_H
 #define KONFIGURACE_H
 
+
 #include <stdbool.h>
 
 /* globální nastavení */
