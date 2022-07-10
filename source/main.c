@@ -2,11 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "konfigurace.h"
-#include "menu.h"
-#include "napoveda.h"
-#include "hra.h"
-#include "ukazatel_sibenice.h"
+#include "./globconf.h"
+#include "./menu/menu_main.h"
+#include "./help/napoveda.h"
+#include "./game/hra.h"
+#include "./game/ukazatele/ukazatel_sibenice.h"
+
+/* globální proměnné a konstanty */
+int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
+#ifdef OS_DOS
+  nastaveni_tabskore = 1;
+#endif
 
 int main(int argc, char *argv[])
 {

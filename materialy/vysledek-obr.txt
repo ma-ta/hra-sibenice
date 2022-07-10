@@ -1,9 +1,9 @@
 VYHRA:
 
    ooooooooo
- oo   o o   oo
+ oo   O o   oo
 ooo    |    ooo
-oo  ~  O  ~  oo  ->  " OK. Uff... "
+oo  ~~ O ~~  oo  ->  " Uff... OK. "
  ooooooooooooo
 
 

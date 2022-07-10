@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include "konfigurace.h"
-#include "ukazatele.h"
-#include "hra.h"
-#include "ansi_format.h"
-#include "hlavicka.h"
+#include "../globconf.h"
+#include "./ukazatele/ukazatele.h"
+#include "./hra.h"
+#include "../libs/ansi_format.h"
+#include "../tui/hlavicka.h"
 
 
 static FILE *f_slova = NULL;  /* soubor se slovy k hádání */

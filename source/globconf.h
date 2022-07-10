@@ -13,13 +13,24 @@
 /* 0 - LADĚNÍ VYPNUTO
    1 - OBRAZOVKA NENÍ MAZÁNA
    2 - HÁDÁ SE JEDNO PŘEDNASTAVENÉ SLOVO */
+/* součástí sestavovacího skriptu *//*
 #define DEBUG               0
-#define DEBUG_HADANE_SLOVO  "Ad hoc Chrochrohcroch..."
+*/
+#define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
 
 #define NAZEV         "Hra Sibenice"
+/* součástí sestavovacího skriptu *//*
 #define VERZE         "0.0.2"
+*/
 #define AUTOR         "Martin TABOR (Ma-TA)"
 #define WEB           "github.com/ma-ta"
+
+/* volitelné externí soubory */
+#define UKAZATELSIBENICE_SOUBOR  "./data/sibenice.dat"
+#define NAPOVEDA_SOUBOR          "./data/napoveda.dat"
+/* nezbytné externí soubory */
+#define HRA_SLOVA_SOUBOR         "./data/slovcz1k.dat"
+
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
 #define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 #define ANSI_FORMAT   1       /* zapne formátování ESC sekvencemi */
@@ -28,11 +39,6 @@
 #define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
 
-/* externí soubory */
-#define UKAZATELSIBENICE_SOUBOR  "./sibenice.dat"
-#define NAPOVEDA_SOUBOR          "./napoveda.dat"
-/* nezbytné externí soubory */
-#define HRA_SLOVA_SOUBOR         "./slovnik_1000.dat"
 
 /* detekce vývojového prostředí */
 #if defined(__linux__) || defined(__APPLE__)
@@ -44,6 +50,7 @@
 #elif defined(_WIN32) || defined(_WIN64)
   #define OSNAME  "Windows"
 #elif defined(__MSDOS__)
+  #define OS_DOS
   #define OSNAME  "DOS"
 #else
   #define OSNAME  "?"
@@ -150,9 +157,9 @@
 
 #define HRA_OBR_VYHRA  \
 "          ooooooooo\n"  \
-"        oo   o o   oo\n"  \
+"        oo   O o   oo\n"  \
 "       ooo    |    ooo\n"  \
-"       oo  ~  O  ~  oo  ->  \" OK. Uff... \"\n"  \
+"       oo  ~~ O ~~  oo  ->  \" Uff... OK. \"\n"  \
 "        ooooooooooooo\n"
 
 #define HRA_HLASKA_VYHRA   "VYHRAL JSI S CELKOVYM SKORE "  \
@@ -162,7 +169,7 @@
 /* nápověda */
 
 #define NAPOVEDA_ZARAZKA    '#'
-#define NAPOVEDA_OBRAZOVEK  3
+#define NAPOVEDA_OBRAZOVEK  4
 
 
 #endif

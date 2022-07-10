@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "ansi_format.h"
-#include "konfigurace.h"
+#include "../../globconf.h"
+#include "../../libs/ansi_format.h"
+#include "./ukazatele.h"
+
+extern int nastaveni_tabskore;
 
 /* zbývající životy */
 static int zbyvajici_zivoty = 0;
@@ -58,6 +61,82 @@ bool ukazatelsibenice_nahrajobr(void)
 }
 
 
+/* vykreslí obrázek s šibenicí
+   a hodnotami skóre */
+void vykresli_sibenici(void)
+{
+   printf((const char *) sibenice_obr[zbyvajici_zivoty]
+          , CSI ANSI_ULINE SGR
+          , CSI ANSI_RESET SGR
+          , CSI ANSI_ULINE SGR
+          , zbyvajici_zivoty
+          , CSI ANSI_RESET SGR
+          , celkove_body);
+}
+
+/* vykreslí tabulku
+   s hodnotami skóre */
+void vykresli_tabskore(bool vykreslit_obr)
+{
+  /* nové řešení */
+  /*
+  +--------+
+  | ZIVOTY |
+  | / BODY |
+  |--------|    <------<<<<   S * K * O * R * E
+  | 11 /   |
+  |   / 00 |
+  +--------+
+  */
+
+  /* vykreslí samostatnou obrazovku s šibenicí při ztrátě života */
+  if (vykreslit_obr) {
+    #if ZVUKY == 1
+      putchar('\a');
+    #endif
+    vykresli_sibenici();
+    fputs(ansi_cursor_off(), stdout);
+    fputs("\n\n" ansi_format(ANSI_INVER) "Prisel jsi o zivot!" ansi_format(ANSI_RESET)
+          "  " HRA_PROPOKRACOVANI
+          , stdout);
+    cekej_enter();
+    fputs(ansi_cursor_on(), stdout);
+    vymaz_obr();
+  }
+
+  /* vykreslí ukazatel - tabulku se skóre */
+  ukazatele_oramuj(1, 8);
+  printf(
+    "| ZIVOTY |\n"
+    "| / BODY |\n"
+    "|--------|    <------<<<<   S * K * O * R * E\n"
+    "| %02d /   |\n"
+    "|   / %02d |\n"
+
+    , zbyvajici_zivoty
+    , celkove_body
+  );
+  ukazatele_oramuj(1, 8);
+
+
+  /* původní nouzová tabulka */
+  /*
+  +-----------------+
+  |  ZIVOTY  :  11  |
+  +-----------------+
+  |  BODY    :  00  |
+  +-----------------+
+  */
+  
+  /*
+  puts  ("+-----------------+");
+  printf("|  ZIVOTY  :  %02d  |\n+-----------------+\n|  BODY    :  %02d  |\n"
+         , zbyvajici_zivoty, celkove_body);
+  puts  ("+-----------------+");
+  */
+}
+
+
 /* veřejné funkce */
 
 void ukazatelsibenice_vycisti(void)
@@ -78,7 +157,7 @@ void ukazatelsibenice_nastav(int zivoty, int body)
     if (!ukazatelsibenice_nahrajobr()) {
       nastaveno = false;
       return;
-    }   
+    }
   }
 
   nastaveno = true;
@@ -93,26 +172,20 @@ int ukazatelsibenice_zjisti_body(void) {
 }
 
 
-/* vykreslování šibenice */
-
-
+/* vykreslování hodnot skóre na obrazovku
+   pomocí šibenice nebo tabulky */
 void ukazatelsibenice_vykresli(void) {
+  
   if (nastaveno) {
-
-   printf((const char *) sibenice_obr[zbyvajici_zivoty]
-          , CSI ANSI_ULINE SGR
-          , CSI ANSI_RESET SGR
-          , CSI ANSI_ULINE SGR
-          , zbyvajici_zivoty
-          , CSI ANSI_RESET SGR
-          , celkove_body);
+    if (!nastaveni_tabskore) {
+      vykresli_sibenici();
+    }
+    else {
+      vykresli_tabskore(true);
+    }
   }
   else {
     fputs(ERR_SIGN "Modul sibenice neni spravne inicializovan...\n\n", stderr);
-    
-    puts  ("+-----------------+");
-    printf("|  ZIVOTY  :  %02d  |\n+-----------------+\n|  BODY    :  %02d  |\n",
-           zbyvajici_zivoty, celkove_body);
-    puts  ("+-----------------+");
+    vykresli_tabskore(false);
   }
 }

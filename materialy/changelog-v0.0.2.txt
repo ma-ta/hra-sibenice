@@ -1,5 +1,7 @@
 OPRAVENÉ CHYBY:
 
-1) opravena chyba při vypnutí ansi_format v konfiguraci
+1) při vypnutí ansi_format v konfiguraci chyba kompilace
    (makro musí vracet prázdný řetězec "")
 
+2) po vstupu do nápovědy se opětovně nezaplo zobrazení
+   kurzoru v případě chyby otevření souboru s nápovědou

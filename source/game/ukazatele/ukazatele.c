@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
-#include "konfigurace.h"
-#include "ukazatele.h"
+#include "../../globconf.h"
+#include "./ukazatele.h"
 
 
 void ukazatele_vykresli(void)

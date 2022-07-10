@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "konfigurace.h"
+#include "../globconf.h"
 
 static const char *hlavicka = \
 "+-----------------------------------------------------+\n"

@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include "konfigurace.h"
-#include "menu.h"
-#include "hlavicka.h"
+#include "../globconf.h"
+#include "./menu_main.h"
+#include "../tui/hlavicka.h"
 
 static char *polozky_menu[] = { MENU_POLOZKY };
 static int i;  /* pomocné iterátory */

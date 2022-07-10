@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "konfigurace.h"
-#include "ansi_format.h"
-#include "hlavicka.h"
-#include "napoveda.h"
+#include "../globconf.h"
+#include "../libs/ansi_format.h"
+#include "../tui/hlavicka.h"
+#include "./napoveda.h"
 
 #define napoveda_titulek(strana)  printf(ansi_format(ANSI_INVER)  \
                                          "\nNAPOVEDA  (strana %d/%d)\n\n"  \
@@ -18,7 +18,6 @@ void napoveda(void)
   register int c = '\0';
   int cislo_strany = 1;
 
-  fputs(ansi_cursor_off(), stdout);
   vymaz_obr();
 
   /* otevře soubor s nápovědou */
@@ -32,6 +31,9 @@ void napoveda(void)
     vymaz_obr();
     return;
   }
+
+  /* vypne zobrazení kurzoru */
+  fputs(ansi_cursor_off(), stdout);
 
   /* vypíše číslo stránky s nápovědou */
   napoveda_titulek(cislo_strany);
@@ -67,6 +69,7 @@ void napoveda(void)
         , stdout);
   /* čekání na stisk klávesy enter */
   cekej_enter();
+  /* zapne zobrazení kurzoru */
   fputs(ansi_cursor_on(), stdout);
 
   vymaz_obr();

@@ -17,7 +17,7 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.1/sibenice_0.0.1_bin.zip)**
+- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.2/sibenice_0.0.2_bin.zip)**
 
 
 #### Zahrnuté (testované) platformy:
@@ -26,13 +26,13 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 - GNU/Linux&nbsp;&nbsp;*(překladač GNU GCC)*:
   - Ubuntu 22.04 (LTS)
   - Fedora 36
-- ~~DOS&nbsp;&nbsp;*(překladač DJGPP)*:~~
-  - ~~FreeDOS 1.3~~
-  - ~~DOSBox 0.74-3~~
+- DOS&nbsp;&nbsp;*(překladač DJGPP)*:
+  - FreeDOS 1.3
+  - DOSBox 0.74-3
 
 
 ### Snímky obrazovky
 
 - [Všechny dostupné screenshoty zde](/screenshoty)
 
-![Šibenice 0.0.1](/screenshoty/screenshot_0.0.1-uni.webp)
+![Šibenice 0.0.2](/screenshoty/screenshot_0.0.2-uni.webp)

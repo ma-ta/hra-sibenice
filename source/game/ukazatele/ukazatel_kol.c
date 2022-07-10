@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include "konfigurace.h"
-#include "ansi_format.h"
-#include "ukazatel_kol.h"
+#include "../../globconf.h"
+#include "../../libs/ansi_format.h"
+#include "./ukazatel_kol.h"
 
 
 /* určuje, zda byl modul inicializován */
