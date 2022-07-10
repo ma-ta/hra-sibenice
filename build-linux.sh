@@ -29,6 +29,8 @@
   bin_nazev='sibenice_'$VERZE
 
 # parametry překladače
+  # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address -DVERZE=\"'$VERZE'\" -DDEBUG='$DBGLEVEL
+  # release: '-DVERZE=\"'$VERZE'\" -DDEBUG='$DBGLEVEL
   cc_param='-Wall -Wextra -pedantic -g -fsanitize=address -DVERZE=\"'$VERZE'\" -DDEBUG='$DBGLEVEL
 
 # kořenový adresář se zdrojovými kódy
