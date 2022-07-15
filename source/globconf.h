@@ -9,38 +9,6 @@
 
 #include <stdbool.h>
 
-/* globální nastavení */
-
-/* 0 - LADĚNÍ VYPNUTO
-   1 - OBRAZOVKA NENÍ MAZÁNA
-   2 - HÁDÁ SE JEDNO PŘEDNASTAVENÉ SLOVO */
-/* součástí sestavovacího skriptu *//*
-#define DEBUG               0
-*/
-#define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
-
-#define NAZEV         "Hra Sibenice"
-/* součástí sestavovacího skriptu *//*
-#define VERZE         "0.0.2"
-*/
-#define AUTOR         "Martin TABOR (Ma-TA)"
-#define WEB           "github.com/ma-ta"
-
-/* volitelné externí soubory */
-#define UKAZATELSIBENICE_SOUBOR  "./data/sibenice.dat"
-#define NAPOVEDA_SOUBOR          "./data/napoveda.dat"
-/* nezbytné externí soubory */
-#define HRA_SLOVA_SOUBOR         "./data/slovcz1k.dat"
-
-#define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
-#define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
-#define ANSI_FORMAT   1       /* zapne formátování ESC sekvencemi */
-#define ZVUKY         1       /* zapne vkládání znaku '\a' */
-
-#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
-#define POCET_ZIVOTU  11  /* počet životů v jednom kole */
-
-
 /* detekce vývojového prostředí */
 #if defined(__linux__) || defined(__APPLE__)
   #ifdef __APPLE__
@@ -78,6 +46,36 @@
   #define CCVER   (-1)
 #endif
 
+
+/* globální nastavení */
+
+/* úroveň ladění:
+     0 - vypnuto
+     1 - obrazovka není mazána
+     2 - hádá se jedno přednastavené slovo */
+#define DEBUG               0
+#define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
+
+#define NAZEV         "Hra Sibenice"
+#define VERZE         "0.0.2"
+#define AUTOR         "Martin TABOR (Ma-TA)"
+#define WEB           "github.com/ma-ta"
+
+/* volitelné externí soubory */
+#define UKAZATELSIBENICE_SOUBOR  "./data/sibenice.dat"
+#define NAPOVEDA_SOUBOR          "./data/napoveda.dat"
+/* nezbytné externí soubory */
+#define HRA_SLOVA_SOUBOR         "./data/slovcz1k.dat"
+
+#define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
+#define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
+#define ANSI_FORMAT   1       /* zapne formátování ESC sekvencemi */
+#define ZVUKY         1       /* zapne vkládání znaku '\a' */
+
+#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
+#define POCET_ZIVOTU  11  /* počet životů v jednom kole */
+
+
 /* detekce OS pro příkaz vymazání obrazovky */
 #if (DEBUG == 0)
   #if (defined(_WIN32) || defined(_WIN64) || defined(__MSDOS__))
@@ -89,9 +87,22 @@
   #define vymaz_obr()
 #endif
 
+
 #define cekej_enter()  while (getchar() != '\n')  ;
 
 #define konec()  { hra_vycisti(); ukazatelsibenice_vycisti(); }
+
+/* tui - hlavička */
+
+#define TUI_HLAVICKA_OBR  \
+"+-----------------------------------------------------+\n"  \
+"|                                                     |\n"  \
+"|               H R A                                 |\n"  \
+"|                       S I B E N I C E               |\n"  \
+"|                                                     |\n"  \
+"+--------------------------+--------------------------+\n"  \
+"|      (c) 2022 Ma-TA      |        ver. %s        |\n"     \
+"+--------------------------+--------------------------+\n"  \
 
 /* hlavní menu */
 

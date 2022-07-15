@@ -1,4 +1,4 @@
-# Hra&nbsp;&nbsp;Š I _ E _ I C E
+# Hra Š I _ E _ I C E
 
 > Terminálová implementace známé slovní hry Šibenice/Oběšenec
 
@@ -21,14 +21,15 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
 
 #### Zahrnuté (testované) platformy:
-- MS Windows&nbsp;&nbsp;*(překladač MSVC)*:
-  - Windows 10 &ndash; 11 (x86, x64)
-- GNU/Linux&nbsp;&nbsp;*(překladač GNU GCC)*:
+- MS Windows *(překladač MSVC)*:
+  - Windows 10/11
+- GNU/Linux *(překladač GNU GCC)*:
   - Ubuntu 22.04 (LTS)
   - Fedora 36
-- DOS&nbsp;&nbsp;*(překladač DJGPP)*:
+- DOS *(překladač DJGPP)*:
   - FreeDOS 1.3
   - DOSBox 0.74-3
+  - MS-DOS 6.22
 
 
 ### Snímky obrazovky

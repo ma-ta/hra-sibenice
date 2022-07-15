@@ -66,11 +66,25 @@ bool ukazatelsibenice_nahrajobr(void)
 void vykresli_sibenici(void)
 {
    printf((const char *) sibenice_obr[zbyvajici_zivoty]
-          , CSI ANSI_ULINE SGR
-          , CSI ANSI_RESET SGR
-          , CSI ANSI_ULINE SGR
+          
+          #if ANSI_FORMAT == 1
+            , CSI ANSI_ULINE SGR
+            , CSI ANSI_RESET SGR
+            , CSI ANSI_ULINE SGR
+          #else
+            , ""
+            , ""
+            , ""
+          #endif
+          
           , zbyvajici_zivoty
-          , CSI ANSI_RESET SGR
+          
+          #if ANSI_FORMAT == 1
+            , CSI ANSI_RESET SGR
+          #else
+            , ""
+          #endif
+          
           , celkove_body);
 }
 

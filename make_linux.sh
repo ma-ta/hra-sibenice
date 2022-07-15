@@ -16,22 +16,13 @@
 ######################################
 
 
-# úroveň ladění:
-  # 0 - vypnuto
-  # 1 - obrazovka není mazána
-  # 2 - hádá se jedno přednastavené slovo
-  DBGLEVEL=0
-
-# verze programu
-  VERZE='0.0.2'
-
 # název spustitelného souboru
-  bin_nazev='sibenice_'$VERZE
+  bin_nazev='sibenice'
 
 # parametry překladače
-  # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address -DVERZE=\"'$VERZE'\" -DDEBUG='$DBGLEVEL
-  # release: '-DVERZE=\"'$VERZE'\" -DDEBUG='$DBGLEVEL
-  cc_param='-Wall -Wextra -pedantic -g -fsanitize=address -DVERZE=\"'$VERZE'\" -DDEBUG='$DBGLEVEL
+  # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
+  # release: -DDEBUG='$DBGLEVEL
+  cc_param='-Wall -Wextra -pedantic -g -fsanitize=address'
 
 # kořenový adresář se zdrojovými kódy
   src_dir=`pwd`'/source'
@@ -44,44 +35,44 @@
 
 
 # příkaz pro spuštění překladače vč. parametrů
-alias cc='gcc '$cc_param
+  alias cc='gcc '$cc_param
 
 clear
 
 # zkopíruje složku data do složky bin
-cp $src_dir'/data' -R $out_dir
+  cp $src_dir'/data' -R $out_dir
 
 # kompilace jednotlivých souborů
 
 # kořenový adresář
-cd $src_dir
-cc -c *.c
-mv *.o $out_dir
+  cd $src_dir
+  cc -c *.c
+  mv *.o $out_dir
 # složka game
-cd $src_dir'/game'
-cc -c *.c
-mv *.o $out_dir
+  cd $src_dir'/game'
+  cc -c *.c
+  mv *.o $out_dir
 # složka game/ukazatele
-cd $src_dir'/game/ukazatele'
-cc -c *.c
-mv *.o $out_dir
+  cd $src_dir'/game/ukazatele'
+  cc -c *.c
+  mv *.o $out_dir
 # složka help
-cd $src_dir'/help'
-cc -c *.c
-mv *.o $out_dir
+  cd $src_dir'/help'
+  cc -c *.c
+  mv *.o $out_dir
 # složka menu
-cd $src_dir'/menu'
-cc -c *.c
-mv *.o $out_dir
+  cd $src_dir'/menu'
+  cc -c *.c
+  mv *.o $out_dir
 # složka tui
-cd $src_dir'/tui'
-cc -c *.c
-mv *.o $out_dir
+  cd $src_dir'/tui'
+  cc -c *.c
+  mv *.o $out_dir
 
 # sestavení spustitelného souboru
-cd $out_dir
-cc *.o -o $bin_nazev
-rm *.o
+  cd $out_dir
+  cc *.o -o $bin_nazev
+  rm *.o
 
 # spuštění sestaveného programu
-$out_dir/$bin_nazev -v
+  $out_dir/$bin_nazev -v
