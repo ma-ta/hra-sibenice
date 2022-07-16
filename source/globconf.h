@@ -47,7 +47,8 @@
 #endif
 
 
-/* globální nastavení */
+/* GLOBÁLNÍ NASTAVENÍ */
+
 
 /* úroveň ladění:
      0 - vypnuto
@@ -56,10 +57,10 @@
 #define DEBUG               0
 #define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
 
-#define NAZEV         "Hra Sibenice"
-#define VERZE         "0.0.2"
-#define AUTOR         "Martin TABOR (Ma-TA)"
-#define WEB           "github.com/ma-ta"
+#define NAZEV  "Hra Sibenice"
+#define VERZE  "0.0.2"
+#define AUTOR  "Martin TABOR (Ma-TA)"
+#define WEB    "github.com/ma-ta"
 
 /* volitelné externí soubory */
 #define UKAZATELSIBENICE_SOUBOR  "./data/img_sibe.dat"
@@ -67,13 +68,17 @@
 /* nezbytné externí soubory */
 #define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
 
-#define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
-#define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
-#define ANSI_FORMAT   1       /* zapne formátování ESC sekvencemi */
-#define ZVUKY         1       /* zapne vkládání znaku '\a' */
+#define ANSI_FORMAT   1   /* zapne formátování ESC sekvencemi */
+#define ZVUKY         1   /* zapne vkládání znaku '\a' */
 
 #define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
+
+#define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
+#define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
+
+
+/**********************/
 
 
 /* detekce OS pro příkaz vymazání obrazovky */
