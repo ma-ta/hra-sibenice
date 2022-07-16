@@ -20,47 +20,47 @@ nektere slovo neuhadnete pred vycerpanim vsech 11 zivotu, prohravate.
 #
 POPIS PRVKU HERNI OBRAZOVKY
 
-Dale  jsou  popsany  graficke  prvky  vyskytujici  se  na  herni obrazovce
+Dale  jsou  popsany  graficke  prvky  vyskytujici  se  na herni obrazovce
 a uveden jejich vyznam.
 
 
-                                +--------+
-                                | ZIVOTY |
-                                | / BODY |
-                                |--------|
-ukazatel zbyvajicich zivotu ->  | 01 /   |
-v aktualnim kole                |   / 11 |  <- celkovy  pocet  nasbiranych
-                                +--------+     bodu z minulych kol
+                               +--------+
+                               | ZIVOTY |
+                               | / BODY |
+                               |--------|
+  zbyvajici zivoty  (body) ->  | 01 /   |
+  v aktualnim kole             |   / 11 |  <- celkovy pocet nasbiranych
+                               +--------+     bodu z minulych kol
 #
-          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
-          |  1  | >2< |  3  |  4  |  5  |  6  |  7  |  8  |  9  |
-          +-----+--|--+-----+-----+-----+-----+-----+-----+-----+
-                   |
-                   +--> ukazatel aktualne probihajiciho
-                        kola hry
++-----+-----+-----+-----+-----+-----+-----+-----+-----+
+|  1  | >2< |  3  |  4  |  5  |  6  |  7  |  8  |  9  |
++-----+--|--+-----+-----+-----+-----+-----+-----+-----+
+         |
+         +--> ukazatel aktualne probihajiciho
+              kola hry
 
 
-                   +--> hadane slovo s delkou vyznacenou
-                   |    znaky ________
-                   |
-          +-----+--|--+-----+-----+-----+-----+-----+-----+-----+
-          |        |                                |           |
-          |     >  _I_E_ICE                         |   ZASAH   |
-          |                                         |     |     |
-          +-----+-----+-----+-----+-----+-----+-----+-----|-----+
-                                                          |
-                 informace o vysledku predchoziho tahu <--+
+         +--> hadane slovo s delkou vyznacenou
+         |    znaky ________
+         |
++-----+--|--+-----+-----+-----+-----+-----+-----+-----+
+|        |                                |           |
+|     >  _i_e_ice                         |   ZASAH   |
+|                                         |     |     |
++-----+-----+-----+-----+-----+-----+-----+-----|-----+
+                                                |
+       informace o vysledku predchoziho tahu <--+
 #
-             +--> seznam aktualne dostupnych pismen
-             |
-          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
-          |  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |  I  |
-          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
-          |  J  |  K  |  L  |  M  |  N  |  O  |  P  |  Q  |  R  |
-          +-----+-----+-----+-----+-----+-----+-----+-----+-----+
-          |  S  |  T  |  U  |  V  |  W  |  X  |  Y  |  Z  |
-          +-----+-----+-----+-----+-----+-----+-----+-----+
+   +--> seznam aktualne dostupnych pismen
+   |
++-----+-----+-----+-----+-----+-----+-----+-----+-----+
+|  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |  I  |
++-----+-----+-----+-----+-----+-----+-----+-----+-----+
+|  J  |  K  |  L  |  M  |  N  |  O  |  P  |  Q  |  R  |
++-----+-----+-----+-----+-----+-----+-----+-----+-----+
+|  S  |  T  |  U  |  V  |  W  |  X  |  Y  |  Z  |
++-----+-----+-----+-----+-----+-----+-----+-----+
 
 
-                                                             Hodne stesti!
-                                                    (c) 2022  Martin TABOR
+                                          Hodne stesti!
+                                 (c) 2022  Martin TABOR
