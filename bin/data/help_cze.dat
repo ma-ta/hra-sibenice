@@ -10,21 +10,18 @@
 
                     Vitejte ve hre  S i _ e _ i c e !
 
-Cilem  hry je  postupnym hadanim  pismen odhalit  vsechna  slova, jejichz
-delka je zprvu naznacena zastupnymi znaky  _  (resp. prazdnymi policky).
+Cilem hry je v jednotlivych kolech odkryvat tajna slova, jejichz delka
+je zprvu naznacena zastupnymi znaky:  _  (nahrazuji pismena).
 
-Na  zacatku  kazdeho  z  9  kol jste vybaveni 11 zivoty. Ty vam ubyvaji s
-kazdym  chybnym  pokusem.  Z  daneho  kola  hry  si  odnesete  pocet bodu
-rovnajici se zbyvajicimu poctu zivotu.
-Plneho  poctu  11 bodu v danem kole tedy dosahnete, kdyz pri hadani slova
-neudelate ani jednu chybu. Po vycerpani vsech pokusu ovsem cela hra konci.
+Kazde kolo z celkem 9 zacina s 11 zivoty, ktere pote ubyvaji s chybnymi
+pokusy. Z daneho kola si odnesete pocet bodu rovnajici se zbyvajicimu
+poctu zivotu a body se v prubehu hry scitaji do celkoveho skore. Paklize
+nektere slovo neuhadnete pred vycerpanim vsech 11 zivotu, prohravate.
 #
 POPIS PRVKU HERNI OBRAZOVKY
 
-
 Dale  jsou  popsany  graficke  prvky  vyskytujici  se  na  herni obrazovce
 a uveden jejich vyznam.
-
 
 
                                 +--------+
@@ -65,7 +62,5 @@ v aktualnim kole                |   / 11 |  <- celkovy  pocet  nasbiranych
           +-----+-----+-----+-----+-----+-----+-----+-----+
 
 
-
                                                              Mnoho stesti!
                                                     (c) 2022  Martin TABOR
-

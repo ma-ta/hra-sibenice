@@ -62,10 +62,10 @@
 #define WEB           "github.com/ma-ta"
 
 /* volitelné externí soubory */
-#define UKAZATELSIBENICE_SOUBOR  "./data/sibenice.dat"
-#define NAPOVEDA_SOUBOR          "./data/napoveda.dat"
+#define UKAZATELSIBENICE_SOUBOR  "./data/img_sibe.dat"
+#define NAPOVEDA_SOUBOR          "./data/help_cze.dat"
 /* nezbytné externí soubory */
-#define HRA_SLOVA_SOUBOR         "./data/slovcz1k.dat"
+#define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
 
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
 #define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */

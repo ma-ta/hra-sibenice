@@ -17,6 +17,7 @@ void napoveda(void)
 {
   register int c = '\0';
   int cislo_strany = 1;
+  bool byla_zarazka = false;
 
   vymaz_obr();
 
@@ -41,7 +42,9 @@ void napoveda(void)
   /* vypíše nápovědu na obrazovku */
   while ((c = getc(f_napoveda)) != EOF) {
     if (c == NAPOVEDA_ZARAZKA) {
-      printf("\n\n"
+      byla_zarazka = true;
+      /* zobrazí výzvu ke stisknutí enteru */
+      printf("\n"
              ansi_format(ANSI_INVER)
              "(Enter pro pokracovani...)"
              ansi_format(ANSI_RESET));
@@ -53,6 +56,12 @@ void napoveda(void)
       continue;
     }
     else {
+      /* zajistí nezdvojení odřádkování po znaku zarážky */
+      if (byla_zarazka && c == '\n') {
+        byla_zarazka = false;
+        continue;
+      }
+
       putchar(c);
     }
   }
