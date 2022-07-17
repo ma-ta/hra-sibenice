@@ -1,0 +1,31 @@
++--------+------------+
+| v0.0.2 | 2022-07-17 |
++--------+------------+
+
+
+OPRAVENÉ CHYBY:
+
+1) při vypnutí ansi_format v konfiguraci chyba kompilace
+   (makro musí vracet prázdný řetězec "")
+
+2) po vstupu do nápovědy se opětovně nezaplo zobrazení
+   kurzoru v případě chyby otevření souboru s nápovědou
+
+3) opraven znak UKAZATELPISMEN_NIC v modulu ukazatel_pismen
+   (původní '0' umožňoval hádat nulu jako dostupný znak)
+
+
+NOVINKY:
+
+1) vylepšení kompatibility se systémy typu DOS (viz poznamky-dos.txt)
+   - vypnutí formátování konzolového výstupu pod DOSem
+   - úprava rozhraní pro rozlišení 25x80 znaků:
+     a) vykreslování herního skóre do tabulky a zobrazení oběšence na
+        samostatné obrazovce
+     b) úprava rozložení nápovědy na 4 obrazovky a drobné změny v textu
+        (vč. opravy vkládání nadbytečného prázdného řádku za zarážky '#'
+        umístěné v souboru napoveda.dat)
+
+2) vylepšená grafická podoba hlavičky a dalších obrázků typu ASCII-art
+
+3) možnost kdykoli ukončit hru pomocí zadání určeného znaku ('0')
