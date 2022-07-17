@@ -35,7 +35,7 @@ bool ukazatelpismen_vydej
 
   for (i = 0; i < UKAZATELPISMEN_DOSTUPNA_PISMENA_SIZE; i++) {
     if (toupper((int) dostupna_pismena[i]) == zn) {
-      dostupna_pismena[i] = UKAZATELPISMEN_NIC;
+      dostupna_pismena[i] = UKAZATELPISMEN_NIC;  /* označí znak jako použitý */
       return true;
     }
   }

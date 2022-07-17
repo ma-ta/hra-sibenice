@@ -5,3 +5,6 @@ OPRAVENÉ CHYBY:
 
 2) po vstupu do nápovědy se opětovně nezaplo zobrazení
    kurzoru v případě chyby otevření souboru s nápovědou
+
+3) opraven znak UKAZATELPISMEN_NIC v modulu ukazatel_pismen
+   (původní '0' umožňoval hádat nulu jako dostupný znak)

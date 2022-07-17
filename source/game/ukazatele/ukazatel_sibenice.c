@@ -6,6 +6,7 @@
 #include "../../libs/ansi_format.h"
 #include "./ukazatele.h"
 
+/* určuje způsob zobrazovani skóre */
 extern int nastaveni_tabskore;
 
 /* zbývající životy */
@@ -16,6 +17,8 @@ static int celkove_body     = 0;
 static char *sibenice_obr[POCET_ZIVOTU + 1];
 /* informuje, zda je modul inicializován */
 static bool nastaveno       = false;
+/* stavová proměnná pro fci vykresli_tabskore() */
+static bool tabskore_obr = false;
 
 
 /* soukromé funkce */
@@ -164,8 +167,10 @@ void ukazatelsibenice_vycisti(void)
 
 void ukazatelsibenice_nastav(int zivoty, int body)
 {
+  tabskore_obr = (zivoty < zbyvajici_zivoty) ? true : false;
   zbyvajici_zivoty = zivoty;
   celkove_body     = body;
+  
 
   if (!nastaveno) {
     if (!ukazatelsibenice_nahrajobr()) {
@@ -195,7 +200,8 @@ void ukazatelsibenice_vykresli(void) {
       vykresli_sibenici();
     }
     else {
-      vykresli_tabskore(true);
+      vykresli_tabskore(tabskore_obr);
+      tabskore_obr = false;
     }
   }
   else {

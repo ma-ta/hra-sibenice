@@ -137,7 +137,7 @@
 
 /* ukazatel písmen */
 
-#define UKAZATELPISMEN_NIC  '0'
+#define UKAZATELPISMEN_NIC  '\0'  /* v poli dostupných znaků nahradí použitou položku */
 #define UKAZATELPISMEN_DOSTUPNA_PISMENA_SIZE  ('Z' - 'A' + 1)
 #define ukazatelpismen_dostupna_pismena_napln(pole)  {  int znak;  \
                                                         for (znak = 'A'; znak < 'A' + UKAZATELPISMEN_DOSTUPNA_PISMENA_SIZE; znak++) {  \
