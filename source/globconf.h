@@ -161,6 +161,7 @@
 
 /* hra */
 
+#define HRA_VOLBA_KONEC    '0'
 #define HRA_POCETSLOV      1000
 #define HRA_HLASKA_FORMAT  ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"

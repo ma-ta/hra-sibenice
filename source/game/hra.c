@@ -117,7 +117,7 @@ bool nacti_slova(void)
 }
 
 
-void hra_nastav(int kol, int zivotu) {  
+void hra_nastav(int kol, int zivotu) {
   pocet_kol    = kol;
   kolo_hry     = 1;
   celkem_bodu  = 0;
@@ -211,9 +211,20 @@ int hra_kolo(void) {
       break;
     }
     else if (!ukazatelslov_hotovo()) {
+      /* načtení znaku od uživatele */
       fputs("Hadej pismeno > ", stdout);
       hadany_znak = getchar();
       cekej_enter();  /* vyprázdnění vstupního bufferu */
+      
+      /* vyhodnocení, zda nejde o speciální volbu (vyhrazený znak) */
+      if (hadany_znak == HRA_VOLBA_KONEC) {
+        printf(ansi_format(ANSI_INVER) "[%c] - Hra byla prerusena." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI
+               , HRA_VOLBA_KONEC);
+        cekej_enter();
+        return (zbyva_zivotu = 0);
+      }
+      
+      /* další zpracování hádaného znaku a vyhodnocení úspěšnosti */
       if (ukazatelpismen_vydej(hadany_znak)) {
         if (ukazatelslov_hadej(hadany_znak) < 1) {
           ukazatelsibenice_nastav(--zbyva_zivotu, celkem_bodu);
