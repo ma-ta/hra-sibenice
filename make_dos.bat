@@ -30,11 +30,19 @@
 :: korenovy adresar pro binarni soubory
    set out_dir=.\bin
 
+:: oramovani
+   set oramovani=----------------------------------
+
 
 ::::::::::::::::::::::::::::::::::::::::
 
 
 cls
+
+echo %oramovani%
+echo SESTAVUJI - Vypis chyb a udalosti:
+echo %oramovani%
+echo.
 
 :: zkopiruje slozku data do slozky bin
    mkdir %out_dir%\data
@@ -79,5 +87,15 @@ cls
    del *.o
    cd ..
 
+echo.
+echo %oramovani%
+echo.
+
 :: spusteni sestaveneho programu
    %out_dir%\%bin_nazev%.exe -v
+
+:: vyčkání na stisk klávesy
+   echo.
+   echo %oramovani%
+   echo.
+   pause
