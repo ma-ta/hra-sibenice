@@ -2,11 +2,25 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "konfigurace.h"
-#include "menu.h"
-#include "napoveda.h"
-#include "hra.h"
-#include "ukazatel_sibenice.h"
+#include "./globconf.h"
+#include "./menu/menu_main.h"
+#include "./help/napoveda.h"
+#include "./game/hra.h"
+#include "./game/ukazatele/ukazatel_sibenice.h"
+
+
+/* GLOBÁLNÍ PROMĚNNÉ */
+
+
+#ifndef OS_DOS
+  int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
+#else
+  int nastaveni_tabskore = 1;
+#endif
+
+
+/*********************/
+
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +52,8 @@ int main(int argc, char *argv[])
   /* inicializace generátoru pseudonáhodných čísel */
   srand((unsigned) time(NULL));
 
+  /* hlavní menu */
+
   while (volba_menu != MENU_KONEC)
   {
     switch (volba_menu = menu())
@@ -54,7 +70,9 @@ int main(int argc, char *argv[])
         napoveda();
         break;
       
+      /* provede se, když je volba neplatná */
       default:
+        vymaz_obr();
         break;
     }
   }

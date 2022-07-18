@@ -1,36 +1,50 @@
-# Hra&nbsp;&nbsp;Š I _ E _ I C E
+# Hra Š I _ E _ I C E
 
 > Terminálová implementace známé slovní hry Šibenice/Oběšenec
 
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
+![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
 
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
-- **[Nápověda ke hře](/materialy/napoveda.txt)**
-- [Známé chyby a nápady na další vývoj](materialy/poznamky.txt)
+- **[Nápověda ke hře](/res/napoveda.txt)**
+- [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
 
 
 ### Binárky ke stažení
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.1/sibenice_0.0.1_bin.zip)**
+- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.2/sibenice_0.0.2_bin.zip)**
+- [Složka s binárkami](bin/release/)
 
 
-#### Zahrnuté platformy:
-- MS Windows&nbsp;&nbsp;*(překladač MSVC)*:
-  - Windows 10 &ndash; 11 (x86, x64)
-- GNU/Linux&nbsp;&nbsp;*(překladač GNU GCC)*:
+#### Pro systém MS-DOS (DOSBox)
+V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/sibenice_0.0.2_dos/cwsdpmi.exe) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
+
+
+#### Zahrnuté (testované) platformy:
+- MS Windows *(překladač MSVC)*:
+  - Windows 10/11
+- GNU/Linux *(překladač GNU GCC)*:
   - Ubuntu 22.04 (LTS)
   - Fedora 36
-- ~~DOS&nbsp;&nbsp;*(překladač Open Watcom)*:~~
-  - ~~FreeDOS 1.3~~
-  - ~~DOSBox 0.74~~
+- DOS *(překladač DJGPP)*:
+  - FreeDOS 1.3
+  - DOSBox 0.74-3
+  - MS-DOS 6.22
 
 
 ### Snímky obrazovky
 
-- [Všechny dostupné screenshoty zde](/screenshoty)
+- [Všechny dostupné screenshoty zde](/res/screenshots)
 
-![Šibenice 0.0.1](/screenshoty/screenshot_0.0.1-uni.webp)
+Obrazovka hry:
+
+![Šibenice 0.0.2](/res/screenshots/screenshot_uni.png)
+
+Obrazovka hry - DOS mód:
+
+![Šibenice 0.0.2 DOS](res/screenshots/screenshot_0.0.2_dos-tabskore.png)

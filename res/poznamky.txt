@@ -1,0 +1,39 @@
+ZNÁMÉ CHYBY:
+
+1) nefunkční hledání písmene 'CH' pomocí kódu v souboru:
+   ukazatel_slov.c -> int ukazatelslov_hadej(int znak);
+
+   => funkce prozatím vypnuta preprocesorem pomocí konstanty:
+   UKAZATELSLOV_PISMENO_CH v souboru konfigurace.h
+
+   (hra se buď ukončuje brzy nebo je potřeba nadbytečné stlačení
+   písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
+
+2) nelze načíst externí soubory, pakliže je program spuštěn z
+   jiného adresáře než se nachází binárka s hrou
+
+
+NÁPADY NA DALŠÍ VÝVOJ:
+
+1) přidání "Síně slávy" do hlavního menu - výsledky úspěšně dokončených
+   her se budou ukládat spolu se jménem hráče / zobrazení statistik,
+   výsledku poslední hry apod. na obrazovce s hlavním menu
+
+2) funkce nápovědy během hádání slov (např. za cenu jednoho života)
+
+3) možnost volby různých kategorií hádaných slov / vícejazyčná verze
+
+4) začlenění knihovny getch - program bude reagovat přímo na stisk kláves
+   (písmen) bez nutnosti potvrzování přes Enter
+
+5) možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
+   a vrátit se zpět do hry)
+
+6) možnost hrát ve dvou (příp. i více) lidech
+   - bude se přepínat mezi jednotlivými účastníky
+   - zvítězí ten, kdo vydrží nejdéle
+   - v případě remízy při dosažení max. počtu kol hráč s nejvyšším skóre
+
+7) přidání diakritiky
+
+8) distribuce hry v linuxových repozitářích, MS Store, FreeDOS apod.
