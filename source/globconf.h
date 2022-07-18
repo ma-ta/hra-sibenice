@@ -118,6 +118,7 @@
 #define MENU_NADPIS   "M E N U"
 #define MENU_ENUM     MENU_MENU, MENU_HRA, MENU_NAPOVEDA, MENU_KONEC
 #define MENU_POLOZKY  "Nova hra", "Napoveda", "Konec"
+#define MENU_ZADEJ    "Zadejte cislo polozky"
 
 /* ukazatele */
 
@@ -181,6 +182,7 @@
                             VOLBA_POMOC_ZN = '2'
 /* seznam voleb */
 #define HRA_VOLBY_SZN       "Ukoncit", "Manual" /*, "Napovez znak (za " xstr(HRA_POMOC_ZN_CENA) " b.)" */
+/* počet položek musí být shodný (ne menší!) s HRA_VOLBY_SZN */
 #define HRA_VOLBY_HODNOTY   VOLBA_KONEC, VOLBA_NAPOVEDA, VOLBA_POMOC_ZN
 #define HRA_VOLBY_ZAVLP     "[]"  /* musí být 2 znaky! (strlen(HRA_VOLBY_ZN) >= 2, [0]=levý [1]=pravý */
 #define HRA_VOLBY_SEP       "  "  /* oddělovač jednotlivých položek ve výpisu */

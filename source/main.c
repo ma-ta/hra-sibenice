@@ -69,7 +69,9 @@ int main(int argc, char *argv[])
         napoveda();
         break;
       
+      /* provede se, když je volba neplatná */
       default:
+        vymaz_obr();
         break;
     }
   }

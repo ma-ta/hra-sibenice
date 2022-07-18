@@ -38,17 +38,16 @@ VOLBY_MENU menu(void)
   /* poslední dva řádky tabulky s položkami menu */
   menu_oramuj('|', ' ', MENU_SIRKA);
   menu_oramuj('+', '-', MENU_SIRKA);
-  putchar('\n');
   
   /* načtení volby od uživatele */
 
-  while (volba < (VOLBY_MENU) 1 || volba > (VOLBY_MENU) pocet_voleb) {
-    fputs("    [   ]   <  Zadejte cislo polozky", stdout);
-    for (i = 0; i < 30; i++)  putchar('\b');
+  /* while (volba < (VOLBY_MENU) 1 || volba > (VOLBY_MENU) pocet_voleb) { */
+    fputs("    [   ]   <  " MENU_ZADEJ, stdout);
+    for (i = 0; i < (int) (strlen(MENU_ZADEJ) + 9); i++)  putchar('\b');
     scanf("%2s", volba_s);
     cekej_enter();  /* vymazání vstupního bufferu */
     volba = (VOLBY_MENU) atoi(volba_s);
-  }
+  /* } */
 
 
   return ((volba < (VOLBY_MENU) 0 || volba > (VOLBY_MENU) pocet_voleb) ? 0 : volba);

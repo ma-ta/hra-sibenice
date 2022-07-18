@@ -14,6 +14,9 @@ OPRAVENÉ CHYBY:
 3) opraven znak UKAZATELPISMEN_NIC v modulu ukazatel_pismen
    (původní '0' umožňoval hádat nulu jako dostupný znak)
 
+4) při zadání chybné volby v hlavním menu se překreslí obrazovka
+   namísto vypisování dalších a dalších řádků s promptem
+
 
 NOVINKY:
 
