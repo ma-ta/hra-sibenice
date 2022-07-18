@@ -72,6 +72,10 @@
 #define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
 
 #define ANSI_FORMAT   1   /* zapne formátování ESC sekvencemi */
+#ifdef OS_DOS
+  #undef  ANSI_FORMAT
+  #define ANSI_FORMAT  0
+#endif
 #define ZVUKY         1   /* zapne vkládání znaku '\a' */
 
 #define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
