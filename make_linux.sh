@@ -21,7 +21,7 @@
 
 # parametry překladače
   # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
-  # release: -DDEBUG='$DBGLEVEL
+  # release: ''
   cc_param='-Wall -Wextra -pedantic -g -fsanitize=address'
 
 # kořenový adresář se zdrojovými kódy
@@ -31,7 +31,7 @@
   out_dir=`pwd`'/bin'
 
 # orámování
-  oramovani="----------------------------------\n"
+  oramovani='----------------------------------'
 
 
 ######################################
@@ -39,7 +39,10 @@
 
 clear
 
-echo $oramovani"SESTAVUJI - Vypis chyb a udalosti:\n"$oramovani
+echo $oramovani
+echo 'SESTAVUJI - Vypis chyb a udalosti:'
+echo $oramovani
+echo ''
 
 # příkaz pro spuštění překladače vč. parametrů
   alias cc='gcc '$cc_param
@@ -79,12 +82,16 @@ echo $oramovani"SESTAVUJI - Vypis chyb a udalosti:\n"$oramovani
   cc *.o -o $bin_nazev
   rm *.o
 
-echo "\n"$oramovani
+echo ''
+echo $oramovani
+echo ''
 
 # spuštění sestaveného programu
   $out_dir/$bin_nazev -v
 
 # vyčkání na stisk klávesy
-  echo "\n"$oramovani
-  echo "(stiskni Enter...)"
+  echo ''
+  echo $oramovani
+  echo ''
+  echo '(stiskni Enter...)'
   read INPUT
