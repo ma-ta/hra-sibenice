@@ -20,9 +20,9 @@
    set bin_nazev=sibenice
 
 :: parametry prekladace
-   :: debug:    -Wall -Wextra -pedantic -g
-   :: release:  
-   set cc_param=-Wall -Wextra -pedantic -g
+   :: debug:    /Wall /D_CRT_SECURE_NO_WARNINGS
+   :: release:  /D_CRT_SECURE_NO_WARNINGS
+   set cc_param=/Wall /D_CRT_SECURE_NO_WARNINGS
 
 :: korenovy adresar se zdrojovymi kody
    set src_dir=.\source
@@ -52,39 +52,39 @@ echo.
 
 :: korenovy adresar
    cd %src_dir%
-   cl %cc_param% -c *.c
+   cl %cc_param% /c *.c
    cd ..
-   move %src_dir%\*.o %out_dir%
+   move %src_dir%\*.obj %out_dir%
 :: slozka game
    cd %src_dir%\game
-   cl %cc_param% -c *.c
+   cl %cc_param% /c *.c
    cd ..\..
-   move %src_dir%\game\*.o %out_dir%
+   move %src_dir%\game\*.obj %out_dir%
 :: slozka game\ukazatele
    cd %src_dir%\game\ukazatele
-   cl %cc_param% -c *.c
+   cl %cc_param% /c *.c
    cd ..\..\..
-   move %src_dir%\game\ukazatele\*.o %out_dir%
+   move %src_dir%\game\ukazatele\*.obj %out_dir%
 :: slozka help
    cd %src_dir%\help
-   cl %cc_param% -c *.c
+   cl %cc_param% /c *.c
    cd ..\..
-   move %src_dir%\help\*.o %out_dir%
+   move %src_dir%\help\*.obj %out_dir%
 :: slozka menu
    cd %src_dir%\menu
-   cl %cc_param% -c *.c
+   cl %cc_param% /c *.c
    cd ..\..
-   move %src_dir%\menu\*.o %out_dir%
+   move %src_dir%\menu\*.obj %out_dir%
 :: slozka tui
    cd %src_dir%\tui
-   cl %cc_param% -c *.c
+   cl %cc_param% /c *.c
    cd ..\..
-   move %src_dir%\tui\*.o %out_dir%
+   move %src_dir%\tui\*.obj %out_dir%
 
 :: sestaveni spustitelneho souboru
    cd %out_dir%
-   cl *.o -o %bin_nazev%.exe
-   del *.o
+   cl /Fe%bin_nazev%.exe *.obj
+   del *.obj
    cd ..
 
 echo.

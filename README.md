@@ -17,6 +17,7 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
+- [Složka s binárkami](bin/release/)
 - **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.2/sibenice_0.0.2_bin.zip)**
 
 
@@ -36,4 +37,4 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
 - [Všechny dostupné screenshoty zde](/res/screenshots)
 
-![Šibenice 0.0.2](/res/screenshots/screenshot_0.0.2-uni.webp)
+![Šibenice 0.0.2](/res/screenshots/screenshot_uni.png)
