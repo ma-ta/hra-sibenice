@@ -7,8 +7,14 @@
 #include "./hra.h"
 #include "../libs/ansi_format.h"
 #include "../tui/hlavicka.h"
+#include "../help/napoveda.h"
 
 
+typedef enum {
+  HRA_VOLBY
+} ZVLASTNI_VOLBY;
+static char *volby_seznam[] = { HRA_VOLBY_SZN };  /* popisky zvláštních voleb */
+static int  volby_hodnoty[] = { HRA_VOLBY_HODNOTY };
 static FILE *f_slova = NULL;  /* soubor se slovy k hádání */
 static char *slova[HRA_POCETSLOV];  /* dynamické pole pro uložení slov ze souboru */
 bool slova_nactena = false;
@@ -19,6 +25,7 @@ static int kolo_hry     = 0;
 static int celkem_bodu  = 0;
 static int pocet_zivotu = 0;
 static int zbyva_zivotu = 0;
+
 
 /* hlavičky lokálních funkcí */
 int hra_kolo(void);
@@ -197,8 +204,9 @@ int hra_start(void) {
 
 int hra_kolo(void) {
 
+  int i           = 0;     /* univerzální iterátor */
   int hadany_znak = '\0';  /* uživatelem zadaný znak */
-  
+
 
   while (hra_probiha) {
     
@@ -212,16 +220,57 @@ int hra_kolo(void) {
     }
     else if (!ukazatelslov_hotovo()) {
       /* načtení znaku od uživatele */
-      fputs("Hadej pismeno > ", stdout);
+      printf("Hadej pismeno (%c) > ", (char) VOLBA_VOLBY);
       hadany_znak = getchar();
       cekej_enter();  /* vyprázdnění vstupního bufferu */
       
-      /* vyhodnocení, zda nejde o speciální volbu (vyhrazený znak) */
-      if (hadany_znak == HRA_VOLBA_KONEC) {
-        printf(ansi_format(ANSI_INVER) "[%c] - Hra byla prerusena." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI
-               , HRA_VOLBA_KONEC);
-        cekej_enter();
-        return (zbyva_zivotu = 0);
+      /* zjištění, zda nejde o vyhrazený znak (zvláštní volbu) */
+      switch ((ZVLASTNI_VOLBY) hadany_znak) {
+
+        /* ukončí probíhající hru */
+        case VOLBA_KONEC:
+          printf(ansi_format(ANSI_INVER) "%c%c%c Hra byla ukoncena." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI
+                 , (int) HRA_VOLBY_ZAVLP[0]
+                 , (char) VOLBA_KONEC
+                 , (int) HRA_VOLBY_ZAVLP[1]);
+          cekej_enter();
+          return (zbyva_zivotu = 0);
+        break;
+        
+        /* zobrazí dostupné volby */
+        case VOLBA_VOLBY:
+          fputs(">  " ansi_format(ANSI_INVER), stdout);
+          for (i = 0; i < (int) (sizeof(volby_seznam) / sizeof(volby_seznam[0])); i++) {
+            printf("%c%c%c %s%s"
+                   , (int) HRA_VOLBY_ZAVLP[0], volby_hodnoty[i], (int) HRA_VOLBY_ZAVLP[1]
+                   , volby_seznam[i]
+                   , (i < (int) ((sizeof(volby_seznam) / sizeof(volby_seznam[0])) - 1)) ? HRA_VOLBY_SEP : "");
+          }
+          /* odstraní oddělovač položek na konci seznamu */
+          /*
+          for (i = 0; i < (int) strlen(HRA_VOLBY_SEP); i++) {
+            putchar('\b');
+          }
+          */
+          fputs(ansi_format(ANSI_RESET) "\n   " HRA_PROPOKRACOVANI, stdout);
+          cekej_enter();
+          continue;
+        break;
+        
+        /* zobrazí velkou nápovědu */
+        case VOLBA_NAPOVEDA:
+          napoveda();
+          continue;
+        break;
+
+        /* doplní písmeno za cenu určitého počtu bodů */
+        case VOLBA_POMOC_ZN:
+          /* zatím není implementováno */
+        break;
+        
+        default:
+          break;
+        
       }
       
       /* další zpracování hádaného znaku a vyhodnocení úspěšnosti */

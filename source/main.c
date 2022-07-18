@@ -12,7 +12,7 @@
 /* GLOBÁLNÍ PROMĚNNÉ */
 
 
-int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
+int nastaveni_tabskore = 1;  /* když 1, skóre se vykresluje do tabulky */
 #ifdef OS_DOS
   nastaveni_tabskore = 1;
 #endif

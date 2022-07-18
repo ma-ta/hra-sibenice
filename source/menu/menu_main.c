@@ -11,7 +11,7 @@ static int i;  /* pomocné iterátory */
 
 VOLBY_MENU menu(void)
 {
-  const char *NADPIS_MENU = "M E N U";
+  const char *NADPIS_MENU = MENU_NADPIS;
   VOLBY_MENU volba = -1;
   char volba_s[3] = "";
   int pocet_voleb = sizeof(polozky_menu) / sizeof(polozky_menu[0]);

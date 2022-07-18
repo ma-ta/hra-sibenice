@@ -6,6 +6,9 @@
 #ifndef KONFIGURACE_H
 #define KONFIGURACE_H
 
+/* stringifikace maker */
+#define xstr(a) str(a)
+#define str(a) #a
 
 #include <stdbool.h>
 
@@ -112,6 +115,7 @@
 /* hlavní menu */
 
 #define MENU_SIRKA    55
+#define MENU_NADPIS   "M E N U"
 #define MENU_ENUM     MENU_MENU, MENU_HRA, MENU_NAPOVEDA, MENU_KONEC
 #define MENU_POLOZKY  "Nova hra", "Napoveda", "Konec"
 
@@ -151,7 +155,8 @@
 #define UKAZATELSLOV_MASKA       '_'
 #define UKAZATELSLOV_PRESKOCIT   " "  ","  "."  "?"  "!"  "-"  ";"  "%%"  "'"  "\""
 #define UKAZATELSLOV_HLASKA_MAX  (UKAZATELE_SIRKA_BUNKY * 2)
-#define UKAZATELSLOV_HLASKA      "Vitejte"
+/* hlášky do pravého okénka (lichý počet znaků pro správné zarovnání!) */
+#define UKAZATELSLOV_HLASKA      "* Vitej *"
 #define UKAZATELSLOV_HLASKY_ANO  "VYBORNE", "BRAVO", "HEJ RUP", "TREFA", "ZASAH"
 #define UKAZATELSLOV_HLASKY_NE   "TUDY NE", "NE NE", "AU!", "TO BOLELO", "VEDLE"
 
@@ -161,10 +166,25 @@
 
 /* hra */
 
-#define HRA_VOLBA_KONEC    '0'
-#define HRA_POCETSLOV      1000
-#define HRA_HLASKA_FORMAT  ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
+#define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku */
+#define HRA_POMOC_ZN_CENA   3     /* počet bodů za pomoc - doplnění písmene */
+#define HRA_HLASKA_FORMAT   ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"
+
+/* VOLBA_KONEC    - ukončí probíhající hru
+   VOLBA_VOLBY    - zobrazí dostupné volby
+   VOLBA_NAPOVEDA - zobrazí velkou nápovědu
+   VOLBA_POMOC_ZN - doplní písmeno za cenu určitého počtu bodů */
+#define HRA_VOLBY           VOLBA_VOLBY    = '*',  \
+                            VOLBA_KONEC    = '0',  \
+                            VOLBA_NAPOVEDA = '1',  \
+                            VOLBA_POMOC_ZN = '2'
+/* seznam voleb */
+#define HRA_VOLBY_SZN       "Ukoncit", "Manual" /*, "Napovez znak (za " xstr(HRA_POMOC_ZN_CENA) " b.)" */
+#define HRA_VOLBY_HODNOTY   VOLBA_KONEC, VOLBA_NAPOVEDA, VOLBA_POMOC_ZN
+#define HRA_VOLBY_ZAVLP     "[]"  /* musí být 2 znaky! (strlen(HRA_VOLBY_ZN) >= 2, [0]=levý [1]=pravý */
+#define HRA_VOLBY_SEP       "  "  /* oddělovač jednotlivých položek ve výpisu */
+
 
 #define HRA_OBR_PROHRA  \
 "          |\n"  \

@@ -1,5 +1,5 @@
 +--------+------------+
-| v0.0.2 | 2022-07-17 |
+| v0.0.2 | 2022-07-18 |
 +--------+------------+
 
 
@@ -28,4 +28,7 @@ NOVINKY:
 
 2) vylepšená grafická podoba hlavičky a dalších obrázků typu ASCII-art
 
-3) možnost kdykoli ukončit hru pomocí zadání určeného znaku ('0')
+3) přidání zvláštních voleb do probíhající hry (vyhrazených znaků)
+   [*] - zobrazí seznam dostupných voleb
+   [0] - kdykoli ukončí probíhající hru
+   [1] - zobrazí velkou nápovědou

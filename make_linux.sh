@@ -6,7 +6,7 @@
 #  (BASH/LINUX)                      #
 #                                    #
 #  autor:  Martin TÁBOR (Ma-TA)      #
-#  datum:  2022-07-10                #
+#  datum:  2022-07-18                #
 #                                    #
 ######################################
 
@@ -30,14 +30,19 @@
 # kořenový adresář pro binární soubory
   out_dir=`pwd`'/bin'
 
+# orámování
+  oramovani="----------------------------------\n"
+
 
 ######################################
 
 
+clear
+
+echo $oramovani"SESTAVUJI - Vypis chyb a udalosti:\n"$oramovani
+
 # příkaz pro spuštění překladače vč. parametrů
   alias cc='gcc '$cc_param
-
-clear
 
 # zkopíruje složku data do složky bin
   cp $src_dir'/data' -R $out_dir
@@ -74,5 +79,12 @@ clear
   cc *.o -o $bin_nazev
   rm *.o
 
+echo "\n"$oramovani
+
 # spuštění sestaveného programu
   $out_dir/$bin_nazev -v
+
+# vyčkání na stisk klávesy
+  echo "\n"$oramovani
+  echo "(stiskni Enter...)"
+  read INPUT
