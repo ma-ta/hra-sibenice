@@ -17,8 +17,12 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- [Složka s binárkami](bin/release/)
 - **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.2/sibenice_0.0.2_bin.zip)**
+- [Složka s binárkami](bin/release/)
+
+
+#### Pro systém MS-DOS (DOSBox)
+V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/sibenice_0.0.2_dos/cwsdpmi.exe) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
 
 #### Zahrnuté (testované) platformy:
@@ -37,4 +41,10 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
 - [Všechny dostupné screenshoty zde](/res/screenshots)
 
+Obrazovka hry:
+
 ![Šibenice 0.0.2](/res/screenshots/screenshot_uni.png)
+
+Obrazovka hry - DOS mód:
+
+![Šibenice 0.0.2 DOS](res/screenshots/screenshot_0.0.2_dos-tabskore.png)
