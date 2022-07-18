@@ -5,6 +5,7 @@
 #include "../globconf.h"
 #include "./menu_main.h"
 #include "../tui/hlavicka.h"
+#include "../libs/ansi_format.h"
 
 static char *polozky_menu[] = { MENU_POLOZKY };
 static int i;  /* pomocné iterátory */
@@ -47,6 +48,13 @@ VOLBY_MENU menu(void)
     scanf("%2s", volba_s);
     cekej_enter();  /* vymazání vstupního bufferu */
     volba = (VOLBY_MENU) atoi(volba_s);
+    if (volba < (VOLBY_MENU) 1 || volba > (VOLBY_MENU) pocet_voleb) {
+      printf("      |\n      +--> "
+            ansi_format(ANSI_INVER) "Zadej cislo mezi %d a %d!" ansi_format(ANSI_RESET)
+            "  " HRA_PROPOKRACOVANI
+            , 1, pocet_voleb);
+      cekej_enter();
+    }
   /* } */
 
 
