@@ -2,7 +2,7 @@
 #define HLAVICKA_H
 
 
-void hlavicka_vykresli(void);
+void hlavicka_vykresli(const char *text);
 
 
 #endif

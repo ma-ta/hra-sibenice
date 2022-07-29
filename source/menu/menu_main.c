@@ -18,7 +18,7 @@ VOLBY_MENU menu(void)
   int pocet_voleb = sizeof(polozky_menu) / sizeof(polozky_menu[0]);
 
 
-  hlavicka_vykresli();
+  hlavicka_vykresli(TUI_HLAVICKA_TXT);
   putchar('\n');
 
   /* vypíše položky menu */

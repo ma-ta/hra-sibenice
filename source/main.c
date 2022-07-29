@@ -7,6 +7,7 @@
 #include "./help/napoveda.h"
 #include "./game/hra.h"
 #include "./game/ukazatele/ukazatel_sibenice.h"
+#include "./tui/hlavicka.h"
 
 
 /* GLOBÁLNÍ PROMĚNNÉ */
@@ -22,27 +23,19 @@
 /*********************/
 
 
+/* hlavičky funkcí */
+
+/* zpracuje argumenty předané
+   z příkazové řádky */
+void zpracuj_argumenty(int argc, char *argv[]);
+
+
+/* vstupní bod aplikace */
+
 int main(int argc, char *argv[])
 {
   /* zpracování argumentů CLI */
-  if (argc > 1) {
-    if (argc == 2 && (strcmp("-v", argv[1]) == 0 || strcmp("--version", argv[1]) == 0)) {
-      printf("%s\n"
-             "Verze:   %s  (%s/%s %d, %s)\n"
-             "Web:     %s\n"
-             "Napsal:  %s\n"
-             , NAZEV
-             , VERZE, OSNAME, CCNAME, CCVER, __DATE__
-             , WEB
-             , AUTOR
-            );
-      return 0;
-    }
-    else {
-      fputs(ERR_SIGN "Chybne argumenty prikazove radky...\n", stderr);
-      return 1;
-    }
-  }
+  zpracuj_argumenty(argc, argv);
 
   VOLBY_MENU volba_menu = MENU_MENU;
 
@@ -77,10 +70,44 @@ int main(int argc, char *argv[])
     }
   }
 
-  /* vymaže obrazovku před ukončením */
+  /* akce před ukončením programu */
   vymaz_obr();
-
+  hlavicka_vykresli(TUI_HLAVICKA_TXT_KONEC);
+  printf("\n\n" ARG_VER_TEXT "\n\n");
   konec();
 
   return 0;
+}
+
+
+void zpracuj_argumenty(int argc, char *argv[])
+{
+  /* vypsání verze programu */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 "v", argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 "version", argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 "v", argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 "version", argv[1]) == 0)) {
+    printf(ARG_VER_TEXT);
+    exit(0);
+  }
+  /* vypsání nápovědy */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 "?", argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 "help", argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 "?", argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 "help", argv[1]) == 0)) {
+    printf(ARG_HELP_TEXT);
+    exit(0);
+  }
+  /* vynutí spuštění v režimu DOS */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 "d", argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 "dos", argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 "d", argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 "dos", argv[1]) == 0)) {
+    nastaveni_tabskore = 1;
+  }
+  /* chybné argumenty */
+  else if (argc > 1) {
+    fputs(ERR_SIGN ERR_ARGUMENTY "\n", stderr);
+    exit(1);
+  }
 }

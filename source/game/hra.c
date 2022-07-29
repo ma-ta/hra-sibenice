@@ -36,7 +36,7 @@ bool nacti_slova(void);
 
 void hra_vysledek(int skore)
 {
-  hlavicka_vykresli();
+  hlavicka_vykresli(TUI_HLAVICKA_TXT);
   puts("\n");
 
   fputs("   >   " HRA_HLASKA_FORMAT, stdout);

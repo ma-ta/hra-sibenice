@@ -61,8 +61,8 @@
 #define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
 
 #define NAZEV  "Hra Sibenice"
-#define VERZE  "0.0.2"
-#define AUTOR  "Martin TABOR (Ma-TA)"
+#define VERZE  "0.0.3"
+#define AUTOR  "Martin TABOR (alias Ma-TA)"
 #define WEB    "github.com/ma-ta"
 
 /* volitelné externí soubory */
@@ -70,6 +70,7 @@
 #define NAPOVEDA_SOUBOR          "./data/help_cze.dat"
 /* nezbytné externí soubory */
 #define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
+#define ERR_SOUBOR     "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
 #define ANSI_FORMAT   1   /* zapne formátování ESC sekvencemi */
 #ifdef OS_DOS
@@ -82,7 +83,25 @@
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
 
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
-#define ERR_SOUBOR    "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
+/* argumenty příkazové řádky */
+#define ARG_SIGN_1     "-"
+#define ARG_SIGN_2     "--"
+#define ARG_SIGN_3     "/"
+#define ARG_VER_TEXT   "%s\n"  \
+                       "Verze:   %s  (%s/%s %d, %s)\n"  \
+                       "Web:     %s\n"  \
+                       "Napsal:  %s\n"  \
+                       , NAZEV  \
+                       , VERZE, OSNAME, CCNAME, CCVER, __DATE__  \
+                       , WEB  \
+                       , AUTOR
+#define ARG_HELP_TEXT  "Pouziti: %s [PREPINAC]\n"  \
+                       "-?, --help     zobrazi tuto napovedu\n"  \
+                       "-v, --version  zobrazi informace o sestaveni\n"  \
+                       "-d, --dos      vynuti spusteni v rezimu DOS\n"  \
+                       , argv[0]
+#define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
+                       "Pro napovedu spustte program s prepinacem \"-?\" (\"/?\" pro Win a DOS)."
 
 
 /**********************/
@@ -106,14 +125,19 @@
 
 /* tui - hlavička */
 
-#define TUI_HLAVICKA_OBR  \
+#define TUI_HLAVICKA_TXT         "v" VERZE  /* text v pravé dolní buňce */
+#define TUI_HLAVICKA_TXT_KONEC   "Retro 4ever!"
+#define TUI_HLAVICKA_BUNKA       26         /* šířka pravé spodní buňky */
+#define ERR_TUI_HLAVICKA_ZAROV   "Text v hlavicce nelze zarovnat na stred (+/- znak)..."
+#define ERR_TUI_HLAVICKA_TXTMAX  "Text v hlavicce je delsi nez bunka... (max. " xstr(TUI_HLAVICKA_BUNKA) " zn.)"
+#define TUI_HLAVICKA_OBR     \
 "+-----------------------------------------------------+\n"  \
 "|                                                     |\n"  \
 "|         Ma-TA {}       H R A                        |\n"  \
 "|            games            S I _ E _ I C E         |\n"  \
 "|                                                     |\n"  \
 "+--------------------------+--------------------------+\n"  \
-"|    (c) 2022  Freeware    |          v%s          |\n"     \
+"|    (c) 2022  Freeware    |%s|\n"                          \
 "+--------------------------+--------------------------+\n"  \
 
 /* hlavní menu */
@@ -122,7 +146,7 @@
 #define MENU_NADPIS   "M E N U"
 #define MENU_ENUM     MENU_MENU, MENU_HRA, MENU_NAPOVEDA, MENU_KONEC
 #define MENU_POLOZKY  "Nova hra", "Napoveda", "Konec"
-#define MENU_ZADEJ    "Zadejte cislo polozky"
+#define MENU_ZADEJ    "Zadejte cislo volby"
 
 /* ukazatele */
 
