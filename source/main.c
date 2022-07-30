@@ -3,10 +3,10 @@
 #include <string.h>
 #include <time.h>
 #include "./globconf.h"
-#include "./menu/menu_main.h"
+#include "./menu/men_glob.h"
 #include "./help/napoveda.h"
 #include "./game/hra.h"
-#include "./game/ukazatele/ukazatel_sibenice.h"
+#include "./game/game_tui/game_tui.h"
 #include "./tui/hlavicka.h"
 
 
@@ -57,12 +57,12 @@ int main(int argc, char *argv[])
         /* spustí hru */
         hra_vysledek(hra_start());
         break;
-      
+
       case MENU_NAPOVEDA:
         /* zobrazí nápovědu */
         napoveda();
         break;
-      
+
       /* provede se, když je volba neplatná */
       default:
         vymaz_obr();
@@ -71,9 +71,6 @@ int main(int argc, char *argv[])
   }
 
   /* akce před ukončením programu */
-  vymaz_obr();
-  hlavicka_vykresli(TUI_HLAVICKA_TXT_KONEC);
-  printf("\n\n" ARG_VER_TEXT "\n\n");
   konec();
 
   return 0;
@@ -82,27 +79,38 @@ int main(int argc, char *argv[])
 
 void zpracuj_argumenty(int argc, char *argv[])
 {
-  /* vypsání verze programu */
-  if (argc == 2 && (strcmp(ARG_SIGN_1 "v", argv[1]) == 0
-                    || strcmp(ARG_SIGN_2 "version", argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 "v", argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 "version", argv[1]) == 0)) {
+  /* vypíše seznam dostupných přepínačů */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_HLP_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 ARG_HLP_SIGN_2, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_2, argv[1]) == 0)) {
+    arg_hlp_text();
+    exit(0);
+  }
+  /* zobrazení hlavní nápovědy */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_MAN_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 ARG_MAN_SIGN_2, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_2, argv[1]) == 0)) {
+    napoveda();
+    konec();
+    puts("Seznam dostupnych prepinacu:\n" ARG_HLP_TEXT "\n\n");
+    exit(0);
+  }
+  /* vypíše informace o sestavení */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_VER_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 ARG_VER_SIGN_2, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_VER_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_VER_SIGN_2, argv[1]) == 0)) {
     printf(ARG_VER_TEXT);
     exit(0);
   }
-  /* vypsání nápovědy */
-  if (argc == 2 && (strcmp(ARG_SIGN_1 "?", argv[1]) == 0
-                    || strcmp(ARG_SIGN_2 "help", argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 "?", argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 "help", argv[1]) == 0)) {
-    printf(ARG_HELP_TEXT);
-    exit(0);
-  }
+
   /* vynutí spuštění v režimu DOS */
-  if (argc == 2 && (strcmp(ARG_SIGN_1 "d", argv[1]) == 0
-                    || strcmp(ARG_SIGN_2 "dos", argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 "d", argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 "dos", argv[1]) == 0)) {
+  if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_DOS_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 ARG_DOS_SIGN_2, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
     nastaveni_tabskore = 1;
   }
   /* chybné argumenty */

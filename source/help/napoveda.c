@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../globconf.h"
-#include "../libs/ansi_format.h"
+#include "../libs/ansi_fmt.h"
 #include "../tui/hlavicka.h"
 #include "./napoveda.h"
 

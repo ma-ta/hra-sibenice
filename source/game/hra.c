@@ -3,9 +3,9 @@
 #include <stdbool.h>
 #include <string.h>
 #include "../globconf.h"
-#include "./ukazatele/ukazatele.h"
+#include "./game_tui/game_tui.h"
 #include "./hra.h"
-#include "../libs/ansi_format.h"
+#include "../libs/ansi_fmt.h"
 #include "../tui/hlavicka.h"
 #include "../help/napoveda.h"
 

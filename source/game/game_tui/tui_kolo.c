@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "../../globconf.h"
-#include "../../libs/ansi_format.h"
-#include "./ukazatel_kol.h"
+#include "../../libs/ansi_fmt.h"
+#include "./tui_kolo.h"
 
 
 /* určuje, zda byl modul inicializován */

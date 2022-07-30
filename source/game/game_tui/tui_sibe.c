@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include "../../globconf.h"
-#include "../../libs/ansi_format.h"
-#include "./ukazatele.h"
+#include "../../libs/ansi_fmt.h"
+#include "./game_tui.h"
 
 /* určuje způsob zobrazovani skóre */
 extern int nastaveni_tabskore;

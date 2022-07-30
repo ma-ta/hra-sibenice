@@ -1,10 +1,10 @@
 #ifndef UKAZATELE_H
 #define UKAZATELE_H
 
-#include "ukazatel_kol.h"
-#include "ukazatel_pismen.h"
-#include "ukazatel_sibenice.h"
-#include "ukazatel_slov.h"
+#include "tui_kolo.h"
+#include "tui_pism.h"
+#include "tui_sibe.h"
+#include "tui_slov.h"
 
 #define ukazatele_oramuj(pocet_bunek, sirka_bunky)  {  \
                                                        int i, c = 0;  \

@@ -1,5 +1,5 @@
 #include "../../globconf.h"
-#include "./ukazatel_slov.h"
+#include "./tui_slov.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>

@@ -3,9 +3,9 @@
 #include <ctype.h>
 #include <string.h>
 #include "../globconf.h"
-#include "./menu_main.h"
+#include "./men_glob.h"
 #include "../tui/hlavicka.h"
-#include "../libs/ansi_format.h"
+#include "../libs/ansi_fmt.h"
 
 static char *polozky_menu[] = { MENU_POLOZKY };
 static int i;  /* pomocné iterátory */

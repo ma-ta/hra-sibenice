@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "../../globconf.h"
-#include "./ukazatele.h"
+#include "./game_tui.h"
 
 
 /* určuje, zda byl modul inicializován */

@@ -83,25 +83,39 @@
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
 
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
+
 /* argumenty příkazové řádky */
-#define ARG_SIGN_1     "-"
-#define ARG_SIGN_2     "--"
-#define ARG_SIGN_3     "/"
-#define ARG_VER_TEXT   "%s\n"  \
-                       "Verze:   %s  (%s/%s %d, %s)\n"  \
-                       "Web:     %s\n"  \
-                       "Napsal:  %s\n"  \
-                       , NAZEV  \
-                       , VERZE, OSNAME, CCNAME, CCVER, __DATE__  \
-                       , WEB  \
-                       , AUTOR
-#define ARG_HELP_TEXT  "Pouziti: %s [PREPINAC]\n"  \
-                       "-?, --help     zobrazi tuto napovedu\n"  \
-                       "-v, --version  zobrazi informace o sestaveni\n"  \
-                       "-d, --dos      vynuti spusteni v rezimu DOS\n"  \
-                       , argv[0]
+
+/* definice uvozovacích znaků */
+#define ARG_SIGN_1  "-"
+#define ARG_SIGN_2  "--"
+#define ARG_SIGN_3  "/"
+/* definice krátkých a dlouhých přepínačů */
+#define ARG_HLP_SIGN_1  "?"       /* zobrazí seznam přepínačů */
+#define ARG_HLP_SIGN_2  "help"
+#define ARG_MAN_SIGN_1  "m"       /* zobrazí hlavní nápovědu hry */
+#define ARG_MAN_SIGN_2  "manual"
+#define ARG_VER_SIGN_1  "v"       /* zobarzí informace o sestavení */
+#define ARG_VER_SIGN_2  "ver"
+#define ARG_DOS_SIGN_1  "d"       /* vynutí spuštení v režimu DOS */
+#define ARG_DOS_SIGN_2  "dos"
+
+#define ARG_VER_TEXT  "%s\n"  \
+                      "Verze:   %s  (%s/%s %d, %s)\n"  \
+                      "Web:     %s\n"  \
+                      "Napsal:  %s\n"  \
+                      , NAZEV  \
+                      , VERZE, OSNAME, CCNAME, CCVER, __DATE__  \
+                      , WEB  \
+                      , AUTOR
+#define ARG_HLP_TEXT  "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
+                      "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
+                      "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
+                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu DOS"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
-                       "Pro napovedu spustte program s prepinacem \"-?\" (\"/?\" pro Win a DOS)."
+                       "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win/DOS)."
+
+#define arg_hlp_text()  printf("Pouziti: %s [PREPINAC]\n" ARG_HLP_TEXT "\n", argv[0])
 
 
 /**********************/
@@ -121,7 +135,12 @@
 
 #define cekej_enter()  while (getchar() != '\n')  ;
 
-#define konec()  { hra_vycisti(); ukazatelsibenice_vycisti(); }
+#define konec()  { vymaz_obr();  \
+                   hlavicka_vykresli(TUI_HLAVICKA_TXT_KONEC);  \
+                   printf("\n\n" ARG_VER_TEXT "\n\n");  \
+                   \
+                   hra_vycisti();  \
+                   ukazatelsibenice_vycisti(); }
 
 /* tui - hlavička */
 
@@ -146,7 +165,7 @@
 #define MENU_NADPIS   "M E N U"
 #define MENU_ENUM     MENU_MENU, MENU_HRA, MENU_NAPOVEDA, MENU_KONEC
 #define MENU_POLOZKY  "Nova hra", "Napoveda", "Konec"
-#define MENU_ZADEJ    "Zadejte cislo volby"
+#define MENU_ZADEJ    "Zadejte cislo polozky"
 
 /* ukazatele */
 

@@ -1,8 +1,9 @@
 NUTNÉ ZMĚNY PRO KOMPATIBILITU S (FREE)DOSEM:
 
-- zvolen překladač DJGPP (oproti Watcomu lze zkompilovat prakticky bez úprav)
-- přizpusobit rozlišení obrazovky na 25x80 znaků:
-  - na herní obrazovku se nevejde šibenice = buď vypsat skóre pouze v tabulce
-    nebo vykreslit šibenici samostatně po každém chybném pokusu apod.
-  - obdobně je třeba zkrátit vypisovaný počet řádek u nápovědy
-  - ve FreeDOS z nějakého důvodu nefunguje ansi_format - opravit či vypnout
+- [ok] zvolen překladač DJGPP (oproti Watcomu lze zkompilovat prakticky bez úprav)
+- [ok] přizpusobit rozlišení obrazovky na 25x80 znaků:
+       - [ok] na herní obrazovku se nevejde šibenice = buď vypsat skóre pouze v tabulce
+              nebo vykreslit šibenici samostatně po každém chybném pokusu apod.
+       - [ok] obdobně je třeba zkrátit vypisovaný počet řádek u nápovědy
+       - [  ] ve FreeDOS z nějakého důvodu nefunguje ansi_fmt - opravit či vypnout
+              (prozatím vypnuto)

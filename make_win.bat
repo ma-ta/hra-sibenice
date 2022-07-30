@@ -17,7 +17,7 @@
 
 
 :: nazev spustitelneho souboru
-   set bin_nazev=sibenice
+   set bin_nazev=sibenice_win
 
 :: parametry prekladace
    :: debug:    /Wall /D_CRT_SECURE_NO_WARNINGS
@@ -60,11 +60,11 @@ echo.
    cl %cc_param% /c *.c
    cd ..\..
    move %src_dir%\game\*.obj %out_dir%
-:: slozka game\ukazatele
-   cd %src_dir%\game\ukazatele
+:: slozka game\game_tui
+   cd %src_dir%\game\game_tui
    cl %cc_param% /c *.c
    cd ..\..\..
-   move %src_dir%\game\ukazatele\*.obj %out_dir%
+   move %src_dir%\game\game_tui\*.obj %out_dir%
 :: slozka help
    cd %src_dir%\help
    cl %cc_param% /c *.c
