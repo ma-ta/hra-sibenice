@@ -12,10 +12,14 @@ static int i;  /* pomocné iterátory */
 
 VOLBY_MENU menu(void)
 {
-  const char *NADPIS_MENU = MENU_NADPIS;
-  VOLBY_MENU volba = -1;
-  char volba_s[3] = "";
-  int pocet_voleb = sizeof(polozky_menu) / sizeof(polozky_menu[0]);
+  const char *menu_nadpis = MENU_NADPIS;
+  VOLBY_MENU volba  = -1;
+  char volba_s[3]   = "";
+  int pocet_voleb   = sizeof(polozky_menu) / sizeof(polozky_menu[0]);
+  int pocet_mezer_l = (MENU_SIRKA - strlen(menu_nadpis) - strlen(MENU_NADPIS_L)
+                       - strlen(MENU_NADPIS_L) - 1) / 2;
+  int pocet_mezer_p = (MENU_SIRKA - strlen(menu_nadpis) - strlen(MENU_NADPIS_P)
+                       - strlen(MENU_NADPIS_P) - 1) / 2;
 
 
   hlavicka_vykresli(TUI_HLAVICKA_TXT);
@@ -26,9 +30,25 @@ VOLBY_MENU menu(void)
   /* první řádek */
   menu_oramuj(UKAZATELE_ORAMOVANI_KRIZENI_ZN, UKAZATELE_ORAMOVANI_ZN, MENU_SIRKA);
   putchar('|');
-  for (i = 0; i < (int) ((MENU_SIRKA - strlen(NADPIS_MENU) - 1) / 2); i++)  putchar(' ');
-  fputs(NADPIS_MENU, stdout);
-  for (i = 0; i < (int) ((MENU_SIRKA - strlen(NADPIS_MENU) - 1) / 2); i++)  putchar(' ');
+  if ((strlen(menu_nadpis) + strlen(MENU_NADPIS_L) + strlen(MENU_NADPIS_P)) > MENU_SIRKA - 2) {
+    fputs("   ", stdout);  fflush(stdout);
+    fputs(ERR_SIGN ERR_MENU_NADPIS_TXTMAX, stderr);
+    for (i = 0; i < (int) (MENU_SIRKA - 2 - strlen(ERR_MENU_NADPIS_TXTMAX) - 7); i++)  putchar(' ');
+  }
+  else if (((MENU_SIRKA - 2) % 2 == 0) != ((strlen(menu_nadpis) + strlen(MENU_NADPIS_L) + strlen(MENU_NADPIS_P)) % 2 == 0)) {
+    fputs("   ", stdout);  fflush(stdout);
+    fputs(ERR_SIGN ERR_MENU_NADPIS_ZAROV, stderr);
+    for (i = 0; i < (int) (MENU_SIRKA - 2 - strlen(ERR_MENU_NADPIS_ZAROV) - 7); i++)  putchar(' ');
+  }
+  else {
+    for (i = 0; i < pocet_mezer_l / 2; i++)  putchar(' ');
+    fputs(MENU_NADPIS_L, stdout);
+    for (i = 0; i < pocet_mezer_l / 2; i++)  putchar(' ');
+    fputs(menu_nadpis, stdout);
+    for (i = 0; i < pocet_mezer_p / 2; i++)  putchar(' ');
+    fputs(MENU_NADPIS_P, stdout);
+    for (i = 0; i < pocet_mezer_p / 2; i++)  putchar(' ');
+  }
   puts("|");
   menu_oramuj(UKAZATELE_ORAMOVANI_KRIZENI_ZN, UKAZATELE_ORAMOVANI_ZN, MENU_SIRKA);
   /* vypsání položek */

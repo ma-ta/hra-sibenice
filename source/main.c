@@ -19,6 +19,8 @@
   int nastaveni_tabskore = 1;
 #endif
 
+struct tm *p_tmcas = NULL;
+
 
 /*********************/
 
@@ -34,6 +36,9 @@ void zpracuj_argumenty(int argc, char *argv[]);
 
 int main(int argc, char *argv[])
 {
+  /* čas začátku běhu programu */
+  time_t cas_spusteni = time(NULL);
+
   /* zpracování argumentů CLI */
   zpracuj_argumenty(argc, argv);
 
@@ -71,7 +76,11 @@ int main(int argc, char *argv[])
   }
 
   /* akce před ukončením programu */
+  
   konec();
+  /* zobrazení doby běhu programu */
+  p_tmcas = gmtime((cas_spusteni = time(NULL) - cas_spusteni, &cas_spusteni));
+  printf(DOBA_INFO);
 
   return 0;
 }
@@ -95,6 +104,14 @@ void zpracuj_argumenty(int argc, char *argv[])
     napoveda();
     konec();
     puts("Seznam dostupnych prepinacu:\n" ARG_HLP_TEXT "\n\n");
+    exit(0);
+  }
+  /* zobrazení herních statistik */
+  if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_STA_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_2 ARG_STA_SIGN_2, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_STA_SIGN_1, argv[1]) == 0
+                    || strcmp(ARG_SIGN_3 ARG_STA_SIGN_2, argv[1]) == 0)) {
+    puts("Herni statistiky...");
     exit(0);
   }
   /* vypíše informace o sestavení */

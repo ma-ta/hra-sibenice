@@ -35,20 +35,24 @@
   #define CCNAME  "Watcom"
   #define CCVER   (-1)
 #elif defined(__clang__)
-  #define CCNAME  "Clang"
-  #define CCVER   __clang_major__
+  #define CCNAME   "Clang"
+  #define CCVER    __clang_major__
+  #define CCMINOR  __clang_minor__
 #elif defined(__GNUC__)
   #if defined(__DJGPP__)
     #define CCNAME  "DJGPP"
   #else
     #define CCNAME  "GNU GCC"
   #endif
-  #define CCVER   __GNUC__
+  #define CCVER    __GNUC__
+  #define CCMINOR  __GNUC_MINOR__
 #else
   #define CCNAME  "?"
   #define CCVER   (-1)
 #endif
-
+#ifndef CCMINOR
+  #define CCMINOR  (-1)
+#endif
 
 /* GLOBÁLNÍ NASTAVENÍ */
 
@@ -95,25 +99,31 @@
 #define ARG_HLP_SIGN_2  "help"
 #define ARG_MAN_SIGN_1  "m"       /* zobrazí hlavní nápovědu hry */
 #define ARG_MAN_SIGN_2  "manual"
+#define ARG_STA_SIGN_1  "s"       /* zobrazí herní statistiky */
+#define ARG_STA_SIGN_2  "stats"
 #define ARG_VER_SIGN_1  "v"       /* zobarzí informace o sestavení */
 #define ARG_VER_SIGN_2  "ver"
 #define ARG_DOS_SIGN_1  "d"       /* vynutí spuštení v režimu DOS */
 #define ARG_DOS_SIGN_2  "dos"
 
 #define ARG_VER_TEXT  "%s\n"  \
-                      "Verze:   %s  (%s/%s %d, %s)\n"  \
+                      "Verze:   %s  (%s/%s %s%s, %s)\n"  \
                       "Web:     %s\n"  \
                       "Napsal:  %s\n"  \
                       , NAZEV  \
-                      , VERZE, OSNAME, CCNAME, CCVER, __DATE__  \
+                      , VERZE, OSNAME, CCNAME  \
+                      , (CCVER == (-1)) ? "" : xstr(CCVER)  \
+                      , (CCVER == (-1) || CCMINOR == (-1)) ? "" : "." xstr(CCMINOR)  \
+                      , __DATE__  \
                       , WEB  \
                       , AUTOR
 #define ARG_HLP_TEXT  "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
+                      "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky (kroniku vitezu)\n"  \
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
                       "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu DOS"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
-                       "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win/DOS)."
+                       "Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win/DOS)."
 
 #define arg_hlp_text()  printf("Pouziti: %s [PREPINAC]\n" ARG_HLP_TEXT "\n", argv[0])
 
@@ -142,12 +152,13 @@
                    hra_vycisti();  \
                    ukazatelsibenice_vycisti(); }
 
+
 /* tui - hlavička */
 
 #define TUI_HLAVICKA_TXT         "v" VERZE  /* text v pravé dolní buňce */
-#define TUI_HLAVICKA_TXT_KONEC   "Retro 4ever!"
+#define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
 #define TUI_HLAVICKA_BUNKA       26         /* šířka pravé spodní buňky */
-#define ERR_TUI_HLAVICKA_ZAROV   "Text v hlavicce nelze zarovnat na stred (+/- znak)..."
+#define ERR_TUI_HLAVICKA_ZAROV   "Text v hlavicce nelze zarovnat na stred (+/- zn.)..."
 #define ERR_TUI_HLAVICKA_TXTMAX  "Text v hlavicce je delsi nez bunka... (max. " xstr(TUI_HLAVICKA_BUNKA) " zn.)"
 #define TUI_HLAVICKA_OBR     \
 "+-----------------------------------------------------+\n"  \
@@ -161,11 +172,19 @@
 
 /* hlavní menu */
 
-#define MENU_SIRKA    55
-#define MENU_NADPIS   "M E N U"
-#define MENU_ENUM     MENU_MENU, MENU_HRA, MENU_NAPOVEDA, MENU_KONEC
-#define MENU_POLOZKY  "Nova hra", "Napoveda", "Konec"
-#define MENU_ZADEJ    "Zadejte cislo polozky"
+#define MENU_SIRKA              55
+#define ERR_MENU_NADPIS_TXTMAX  "Nadpis je delsi nez bunka..."
+#define ERR_MENU_NADPIS_ZAROV   "Nadpis nelze zarovnat na stred (+/- zn.)..."
+#define MENU_NADPIS             "M E N U"
+#define MENU_NADPIS_L           ">>>>------>"
+#define MENU_NADPIS_P           "<------<<<<"
+#define MENU_ENUM               MENU_MENU, MENU_HRA, MENU_STATS, MENU_NAPOVEDA, MENU_KONEC
+#define MENU_POLOZKY            "Nova hra", "Sibenicni kronika", "Napoveda", "Konec"
+#define MENU_ZADEJ              "Zadejte cislo polozky"
+
+ /* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
+#define DOBA_INFO  MENU_NADPIS_L "  Doba hrani:  %02d h %02d min %02d s  " MENU_NADPIS_P "\n\n\n"  \
+                   , p_tmcas->tm_hour, p_tmcas->tm_min, p_tmcas->tm_sec
 
 /* ukazatele */
 

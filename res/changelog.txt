@@ -13,16 +13,16 @@ NOVINKY:
 
 1) přepínače pro spuštění programu
    [?] - zobrazí seznam dostupných přepínačů
-   [v] - vypíše informace o sestavení
    [m] - zobrazí hlavní nápovědu
    [s] - zobrazí herní statistiky
+   [v] - vypíše informace o sestavení
    [d] - spustí v režimu DOS (tabulka se skóre)
 
 2) vylepšení modulu tui/hlavicka
    (možnost vypsání libovolného textu v dolních buňkách)
 
 3) herní statistiky
-   - nová položka v hlavním menu
+   - nová položka v hlavním menu (šibeniční kronika)
    - upravená obrazovka s výsledkem hry
    - přepínač [s] vypíše herní statistiky
 
@@ -31,6 +31,8 @@ NOVINKY:
 
 5) nová zvláštní volba při probíhající hře
    [2] - doplňí písmeno za cenu určitého počtu bodů
+
+6) informace o době běhu programu po ukončení
 
 
 +--------+------------+
