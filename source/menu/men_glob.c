@@ -70,7 +70,7 @@ VOLBY_MENU menu(void)
     volba = (VOLBY_MENU) atoi(volba_s);
     if (volba < (VOLBY_MENU) 1 || volba > (VOLBY_MENU) pocet_voleb) {
       printf("      |\n      +--> "
-            ansi_format(ANSI_INVER) "Zadej cislo mezi %d a %d!" ansi_format(ANSI_RESET)
+            ansi_format(ANSI_INVER) MENU_ZADEJ_ERR ansi_format(ANSI_RESET)
             "  " HRA_PROPOKRACOVANI
             , 1, pocet_voleb);
       cekej_enter();

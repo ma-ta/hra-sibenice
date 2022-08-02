@@ -22,7 +22,7 @@ NOVINKY:
    (možnost vypsání libovolného textu v dolních buňkách)
 
 3) herní statistiky
-   - nová položka v hlavním menu (šibeniční kronika)
+   - nová položka v hlavním menu
    - upravená obrazovka s výsledkem hry
    - přepínač [s] vypíše herní statistiky
 

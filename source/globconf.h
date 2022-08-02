@@ -119,7 +119,7 @@
                       , AUTOR
 #define ARG_HLP_TEXT  "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
-                      "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky (kroniku vitezu)\n"  \
+                      "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
                       "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu DOS"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
@@ -179,8 +179,9 @@
 #define MENU_NADPIS_L           ">>>>------>"
 #define MENU_NADPIS_P           "<------<<<<"
 #define MENU_ENUM               MENU_MENU, MENU_HRA, MENU_STATS, MENU_NAPOVEDA, MENU_KONEC
-#define MENU_POLOZKY            "Nova hra", "Sibenicni kronika", "Napoveda", "Konec"
-#define MENU_ZADEJ              "Zadejte cislo polozky"
+#define MENU_POLOZKY            "Nova hra", "Soudni kronika", "Napoveda", "Konec"
+#define MENU_ZADEJ              "Zadej cislo polozky"
+#define MENU_ZADEJ_ERR          "Pouze cisla mezi %d a %d!"
 
  /* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
 #define DOBA_INFO  MENU_NADPIS_L "  Doba hrani:  %02d h %02d min %02d s  " MENU_NADPIS_P "\n\n\n"  \
