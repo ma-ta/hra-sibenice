@@ -7,8 +7,8 @@
 #define KONFIGURACE_H
 
 /* stringifikace maker */
-#define xstr(a) str(a)
-#define str(a) #a
+#define xstr(a)  str(a)
+#define str(a)   #a
 
 #include <stdbool.h>
 
@@ -74,7 +74,7 @@
 #define NAPOVEDA_SOUBOR          "./data/help_cze.dat"
 /* nezbytné externí soubory */
 #define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
-#define ERR_SOUBOR     "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
+#define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
 #define ANSI_FORMAT   1   /* zapne formátování ESC sekvencemi */
 #ifdef OS_DOS
@@ -117,7 +117,8 @@
                       , __DATE__  \
                       , WEB  \
                       , AUTOR
-#define ARG_HLP_TEXT  "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
+#define ARG_HLP_TEXT  "Seznam dostupnych prepinacu:\n"  \
+                      "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
                       "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
@@ -146,7 +147,7 @@
 #define cekej_enter()  while (getchar() != '\n')  ;
 
 #define konec()  { vymaz_obr();  \
-                   hlavicka_vykresli(TUI_HLAVICKA_TXT_KONEC);  \
+                   hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_KONEC);  \
                    printf("\n\n" ARG_VER_TEXT "\n\n");  \
                    \
                    hra_vycisti();  \
@@ -155,20 +156,22 @@
 
 /* tui - hlavička */
 
-#define TUI_HLAVICKA_TXT         "v" VERZE  /* text v pravé dolní buňce */
+#define TUI_HLAVICKA_TXT_L       "(c) 2022  Freeware"  /* text v levé dolní buňce */
+#define TUI_HLAVICKA_TXT_P       "v" VERZE             /* text v pravé dolní buňce */
 #define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
-#define TUI_HLAVICKA_BUNKA       26         /* šířka pravé spodní buňky */
+#define TUI_HLAVICKA_BUNKA_L     26  /* šířka levé dolní buňky */
+#define TUI_HLAVICKA_BUNKA_P     26  /* šířka pravé dolní buňky */
 #define ERR_TUI_HLAVICKA_ZAROV   "Text v hlavicce nelze zarovnat na stred (+/- zn.)..."
-#define ERR_TUI_HLAVICKA_TXTMAX  "Text v hlavicce je delsi nez bunka... (max. " xstr(TUI_HLAVICKA_BUNKA) " zn.)"
-#define TUI_HLAVICKA_OBR     \
+#define ERR_TUI_HLAVICKA_TXTMAX  "Text v hlavicce je delsi nez %s bunka... (max. %d zn.)"
+#define TUI_HLAVICKA_OBR  \
 "+-----------------------------------------------------+\n"  \
 "|                                                     |\n"  \
 "|         Ma-TA {}       H R A                        |\n"  \
 "|            games            S I _ E _ I C E         |\n"  \
 "|                                                     |\n"  \
-"+--------------------------+--------------------------+\n"  \
-"|    (c) 2022  Freeware    |%s|\n"                          \
-"+--------------------------+--------------------------+\n"  \
+"%s\n"  \
+"|%s|%s|\n"  \
+"%s\n"  \
 
 /* hlavní menu */
 
@@ -176,15 +179,16 @@
 #define ERR_MENU_NADPIS_TXTMAX  "Nadpis je delsi nez bunka..."
 #define ERR_MENU_NADPIS_ZAROV   "Nadpis nelze zarovnat na stred (+/- zn.)..."
 #define MENU_NADPIS             "M E N U"
-#define MENU_NADPIS_L           ">>>>------>"
-#define MENU_NADPIS_P           "<------<<<<"
+#define MENU_NADPIS_L           ">>>----->"
+#define MENU_NADPIS_P           "<-----<<<"
 #define MENU_ENUM               MENU_MENU, MENU_HRA, MENU_STATS, MENU_NAPOVEDA, MENU_KONEC
-#define MENU_POLOZKY            "Nova hra", "Soudni kronika", "Napoveda", "Konec"
+#define MENU_POLOZKY_CAPS       1  /* vypsání položek menu velkými písmeny */
+#define MENU_POLOZKY            "Nova hra", "Kniha amnestii", "Napoveda", "Konec"
 #define MENU_ZADEJ              "Zadej cislo polozky"
 #define MENU_ZADEJ_ERR          "Pouze cisla mezi %d a %d!"
 
  /* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
-#define DOBA_INFO  MENU_NADPIS_L "  Doba hrani:  %02d h %02d min %02d s  " MENU_NADPIS_P "\n\n\n"  \
+#define DOBA_INFO  ">>>>------>  Herni doba:  %02d h %02d min %02d s  <------<<<<\n\n\n"  \
                    , p_tmcas->tm_hour, p_tmcas->tm_min, p_tmcas->tm_sec
 
 /* ukazatele */
@@ -235,7 +239,7 @@
 /* hra */
 
 #define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku */
-#define HRA_POMOC_ZN_CENA   3     /* počet bodů za pomoc - doplnění písmene */
+#define HRA_POMOC_ZN_CENA   5     /* počet bodů za pomoc - doplnění písmene */
 #define HRA_HLASKA_FORMAT   ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"
 
@@ -248,7 +252,7 @@
                             VOLBA_NAPOVEDA = '1',  \
                             VOLBA_POMOC_ZN = '2'
 /* seznam voleb */
-#define HRA_VOLBY_SZN       "Ukoncit", "Manual" /*, "Napovez znak (za " xstr(HRA_POMOC_ZN_CENA) " b.)" */
+#define HRA_VOLBY_SZN       "Ukoncit", "Manual", "Napovez znak (za " xstr(HRA_POMOC_ZN_CENA) " b.)"
 /* počet položek musí být shodný (ne menší!) s HRA_VOLBY_SZN */
 #define HRA_VOLBY_HODNOTY   VOLBA_KONEC, VOLBA_NAPOVEDA, VOLBA_POMOC_ZN
 #define HRA_VOLBY_ZAVLP     "[]"  /* musí být 2 znaky! (strlen(HRA_VOLBY_ZN) >= 2, [0]=levý [1]=pravý */
@@ -269,9 +273,12 @@
 "       oo  ~~ O ~~  oo  ->  \" Uff... OK. \"\n"  \
 "        ooooooooooooo\n"
 
-#define HRA_HLASKA_VYHRA   "VYHRAL JSI S CELKOVYM SKORE "  \
-                           ansi_format(ANSI_BOLD) "%d BODU" ansi_format(ANSI_RESET) HRA_HLASKA_FORMAT " !"
-#define HRA_HLASKA_PROHRA  "TENTOKRAT TO NEVYSLO! Ziskavas 0 bodu."
+#define HRA_ZNAK_NEDOSTUPNY  "Tento znak neni k dispozici."
+#define HRA_HLASKA_UHODL     "Slovo jsi UHODL!"
+#define HRA_HLASKA_NEUHODL   "Slovo jsi NEUHODL!"
+#define HRA_HLASKA_VYHRA     "VYHRAL JSI S CELKOVYM SKORE "  \
+                             ansi_format(ANSI_BOLD) "%d BODU" ansi_format(ANSI_RESET) HRA_HLASKA_FORMAT " !"
+#define HRA_HLASKA_PROHRA    "TENTOKRAT TO NEVYSLO! Ziskavas 0 bodu."
 
 /* nápověda */
 

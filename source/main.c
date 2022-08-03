@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
   }
 
   /* akce před ukončením programu */
-  
+
   konec();
   /* zobrazení doby běhu programu */
   p_tmcas = gmtime((cas_spusteni = time(NULL) - cas_spusteni, &cas_spusteni));
@@ -103,7 +103,7 @@ void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_2, argv[1]) == 0)) {
     napoveda();
     konec();
-    puts("Seznam dostupnych prepinacu:\n" ARG_HLP_TEXT "\n\n");
+    puts(ARG_HLP_TEXT "\n\n");
     exit(0);
   }
   /* zobrazení herních statistik */

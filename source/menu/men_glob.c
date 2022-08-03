@@ -22,7 +22,7 @@ VOLBY_MENU menu(void)
                        - strlen(MENU_NADPIS_P) - 1) / 2;
 
 
-  hlavicka_vykresli(TUI_HLAVICKA_TXT);
+  hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_P);
   putchar('\n');
 
   /* vypíše položky menu */
@@ -54,7 +54,7 @@ VOLBY_MENU menu(void)
   /* vypsání položek */
   for (i = 0; i < pocet_voleb; i++) {
     menu_oramuj('|', ' ', MENU_SIRKA);
-    menu_polozka(i + 1, polozky_menu[i]);
+    menu_polozka(i + 1, polozky_menu[i], MENU_POLOZKY_CAPS);
   }
   /* poslední dva řádky tabulky s položkami menu */
   menu_oramuj('|', ' ', MENU_SIRKA);

@@ -72,8 +72,8 @@ a uveden jejich vyznam.
          +-----+-----+-----+-----+-----+-----+-----+-----+
          Hadej pismeno (*) > 
                              |
-                             +--> hvezdicku pro dostupne volby
-                                  (napr. '0' kdykoli ukonci hru)
+                             +--> hvezdicku pro rychle volby
+                                  (napr. 0 kdykoli ukonci hru)
 
 
 

@@ -36,7 +36,7 @@ bool nacti_slova(void);
 
 void hra_vysledek(int skore)
 {
-  hlavicka_vykresli(TUI_HLAVICKA_TXT);
+  hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_P);
   puts("\n");
 
   fputs("   >   " HRA_HLASKA_FORMAT, stdout);
@@ -140,7 +140,7 @@ void hra_nastav(int kol, int zivotu) {
     konec();
     exit(1);
   }
-  
+
   ukazatelsibenice_nastav(zbyva_zivotu, celkem_bodu);
   ukazatelkol_nastav(kolo_hry, pocet_kol, UKAZATELE_SIRKA_BUNKY);
   #if (DEBUG == 2)
@@ -170,7 +170,7 @@ int hra_start(void) {
       #if (ZVUKY == 1)
         putchar('\a');
       #endif
-      fputs(ansi_format(ANSI_INVER) "Slovo jsi NEUHADL!" ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
+      fputs(ansi_format(ANSI_INVER) HRA_HLASKA_NEUHODL ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
       cekej_enter();
       vymaz_obr();
       break;
@@ -209,7 +209,7 @@ int hra_kolo(void) {
 
 
   while (hra_probiha) {
-    
+
     vymaz_obr();
     ukazatele_vykresli();
 
@@ -223,7 +223,7 @@ int hra_kolo(void) {
       printf("Hadej pismeno (%c) > ", (char) VOLBA_VOLBY);
       hadany_znak = getchar();
       cekej_enter();  /* vyprázdnění vstupního bufferu */
-      
+
       /* zjištění, zda nejde o vyhrazený znak (zvláštní volbu) */
       switch ((ZVLASTNI_VOLBY) hadany_znak) {
 
@@ -236,7 +236,7 @@ int hra_kolo(void) {
           cekej_enter();
           return (zbyva_zivotu = 0);
         break;
-        
+
         /* zobrazí dostupné volby */
         case VOLBA_VOLBY:
           fputs(">  " ansi_format(ANSI_INVER), stdout);
@@ -256,7 +256,7 @@ int hra_kolo(void) {
           cekej_enter();
           continue;
         break;
-        
+
         /* zobrazí velkou nápovědu */
         case VOLBA_NAPOVEDA:
           napoveda();
@@ -266,13 +266,16 @@ int hra_kolo(void) {
         /* doplní písmeno za cenu určitého počtu bodů */
         case VOLBA_POMOC_ZN:
           /* zatím není implementováno */
+          fputs("Doplneni znaku (HIC SUNT LEONES)...", stdout);
+          cekej_enter();
+          continue;
         break;
-        
+
         default:
           break;
-        
+
       }
-      
+
       /* další zpracování hádaného znaku a vyhodnocení úspěšnosti */
       if (ukazatelpismen_vydej(hadany_znak)) {
         if (ukazatelslov_hadej(hadany_znak) < 1) {
@@ -281,7 +284,7 @@ int hra_kolo(void) {
       }
       else {
         ukazatelslov_hlaska("");
-        fputs(ansi_format(ANSI_INVER) "Tento znak neni k dispozici." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
+        fputs(ansi_format(ANSI_INVER) HRA_ZNAK_NEDOSTUPNY ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
         cekej_enter();  /* čekání na stisk klávesy enter */
       }
     }
@@ -289,7 +292,7 @@ int hra_kolo(void) {
       #if (ZVUKY == 1)
         putchar('\a');
       #endif
-      fputs(ansi_format(ANSI_INVER) "Slovo jsi uhadl!" ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
+      fputs(ansi_format(ANSI_INVER) HRA_HLASKA_UHODL ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
       cekej_enter();  /* čekání na stisk klávesy enter */
       break;
     }

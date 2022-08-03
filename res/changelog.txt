@@ -30,7 +30,10 @@ NOVINKY:
    - definice skupin znaků se načítá ze souboru se slovníkem
 
 5) nová zvláštní volba při probíhající hře
-   [2] - doplňí písmeno za cenu určitého počtu bodů
+   [2] - doplní chybějící písmeno za cenu určitého počtu bodů
+         dle aktuální situace:
+         a) nejpočetněji zastoupené chybějící písmeno (první zleva)
+         b) první chybějící písmeno zleva
 
 6) informace o době běhu programu po ukončení
 
