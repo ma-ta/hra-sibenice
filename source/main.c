@@ -3,6 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include "./globconf.h"
+#include "./libs/ansi_fmt.h"
 #include "./menu/men_glob.h"
 #include "./help/napoveda.h"
 #include "./game/hra.h"
@@ -80,7 +81,12 @@ int main(int argc, char *argv[])
   konec();
   /* zobrazení doby běhu programu */
   p_tmcas = gmtime((cas_spusteni = time(NULL) - cas_spusteni, &cas_spusteni));
+  fputs(ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
+        , stdout);
   printf(DOBA_INFO);
+  fputs(ansi_format(ANSI_RESET)
+        , stdout);
+  puts("\n\n");
 
   return 0;
 }

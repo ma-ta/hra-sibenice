@@ -40,11 +40,13 @@ void hra_vysledek(int skore)
   puts("\n");
 
   fputs("   >   " HRA_HLASKA_FORMAT, stdout);
+  /* výhra */
   if (skore > 0) {
     printf(HRA_HLASKA_VYHRA, skore);
     fputs(ansi_format(ANSI_RESET), stdout);
     puts("\n\n\n" HRA_OBR_VYHRA);
   }
+  /* prohra */
   else {
     fputs(HRA_HLASKA_PROHRA, stdout);
     fputs(ansi_format(ANSI_RESET), stdout);

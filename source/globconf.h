@@ -188,7 +188,7 @@
 #define MENU_ZADEJ_ERR          "Pouze cisla mezi %d a %d!"
 
  /* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
-#define DOBA_INFO  ">>>>------>  Herni doba:  %02d h %02d min %02d s  <------<<<<\n\n\n"  \
+#define DOBA_INFO  ">>>>------>  Herni cas :  %02d h %02d min %02d s  <------<<<<"  \
                    , p_tmcas->tm_hour, p_tmcas->tm_min, p_tmcas->tm_sec
 
 /* ukazatele */
@@ -258,14 +258,12 @@
 #define HRA_VOLBY_ZAVLP     "[]"  /* musí být 2 znaky! (strlen(HRA_VOLBY_ZN) >= 2, [0]=levý [1]=pravý */
 #define HRA_VOLBY_SEP       "  "  /* oddělovač jednotlivých položek ve výpisu */
 
-
 #define HRA_OBR_PROHRA  \
 "          |\n"  \
 "       ---+---\n"  \
 "          |\n"  \
 "          |\n"  \
 "        R I P\n"
-
 #define HRA_OBR_VYHRA  \
 "          ooooooooo\n"  \
 "        oo   O o   oo\n"  \
