@@ -183,7 +183,7 @@
 #define MENU_NADPIS_P           "<-----<<<"
 #define MENU_ENUM               MENU_MENU, MENU_HRA, MENU_STATS, MENU_NAPOVEDA, MENU_KONEC
 #define MENU_POLOZKY_CAPS       1  /* vypsání položek menu velkými písmeny */
-#define MENU_POLOZKY            "Nova hra", "Kniha amnestii", "Napoveda", "Konec"
+#define MENU_POLOZKY            "Nova hra", "Herni kronika", "Napoveda", "Konec"
 #define MENU_ZADEJ              "Zadej cislo polozky"
 #define MENU_ZADEJ_ERR          "Pouze cisla mezi %d a %d!"
 
@@ -239,7 +239,7 @@
 /* hra */
 
 #define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku */
-#define HRA_POMOC_ZN_CENA   5     /* počet bodů za pomoc - doplnění písmene */
+#define HRA_POMOC_ZN_CENA   10  /* počet bodů za pomoc - doplnění písmene */
 #define HRA_HLASKA_FORMAT   ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"
 
