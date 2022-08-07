@@ -8,6 +8,7 @@
 #include "../libs/ansi_fmt.h"
 #include "../tui/hlavicka.h"
 #include "../help/napoveda.h"
+#include "../stats/stats.h"
 
 
 typedef enum {
@@ -268,9 +269,15 @@ int hra_kolo(void) {
         /* doplní písmeno za cenu určitého počtu bodů */
         case VOLBA_POMOC_ZN:
           /* zatím není implementováno */
-          fputs("Doplneni znaku (HIC SUNT LEONES)...", stdout);
+          /*
+          printf(ansi_format(ANSI_INVER) "%c%c%c Napovi znak za cenu %d b." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI
+                 , (int) HRA_VOLBY_ZAVLP[0]
+                 , (char) VOLBA_POMOC_ZN
+                 , (int) HRA_VOLBY_ZAVLP[1]
+                 , HRA_POMOC_ZN_CENA);
           cekej_enter();
           continue;
+          */
         break;
 
         default:

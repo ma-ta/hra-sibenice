@@ -72,6 +72,10 @@ echo ''
   cd $src_dir'/menu'
   cc -c *.c
   mv *.o $out_dir
+# složka stats
+  cd $src_dir'/stats'
+  cc -c *.c
+  mv *.o $out_dir
 # složka tui
   cd $src_dir'/tui'
   cc -c *.c

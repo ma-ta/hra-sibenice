@@ -75,6 +75,11 @@ echo.
    gcc %cc_param% -c *.c
    cd ..\..
    move %src_dir%\menu\*.o %out_dir%
+:: složka stats
+   cd %src_dir%\stats
+   gcc %cc_param% -c *.c
+   cd ..\..
+   move %src_dir%\stats\*.o %out_dir%
 :: slozka tui
    cd %src_dir%\tui
    gcc %cc_param% -c *.c

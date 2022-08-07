@@ -9,49 +9,62 @@
 /* stringifikace maker */
 #define xstr(a)  str(a)
 #define str(a)   #a
+/* vrátí počet prvků pole */
+#define arrlen(arr)  ((int) (sizeof(arr) / sizeof(arr[0])))
 
 #include <stdbool.h>
 
 /* detekce vývojového prostředí */
-#if defined(__linux__) || defined(__APPLE__)
-  #ifdef __APPLE__
-    #define OSNAME  "macOS"
-  #else
-    #define OSNAME  "Linux"
-  #endif
-#elif defined(_WIN32) || defined(_WIN64)
-  #define OSNAME  "Windows"
-#elif defined(__MSDOS__)
+#if defined(__MSDOS__)
   #define OS_DOS
-  #define OSNAME  "DOS"
-#else
-  #define OSNAME  "?"
 #endif
 
-#if defined(_MSC_VER)
-  #define CCNAME  "MSVC"
-  #define CCVER   _MSC_VER
-#elif defined(__WATCOMC__)
-  #define CCNAME  "Watcom"
-  #define CCVER   (-1)
-#elif defined(__clang__)
-  #define CCNAME   "Clang"
-  #define CCVER    __clang_major__
-  #define CCMINOR  __clang_minor__
-#elif defined(__GNUC__)
-  #if defined(__DJGPP__)
-    #define CCNAME  "DJGPP"
+#ifndef OSNAME
+  #if defined(__linux__) || defined(__APPLE__)
+    #ifdef __APPLE__
+      #define OSNAME  "macOS"
+    #else
+      #define OSNAME  "Linux"
+    #endif
+  #elif defined(_WIN32) || defined(_WIN64)
+    #define OSNAME  "Windows"
+  #elif defined(__MSDOS__)
+    #define OSNAME  "DOS"
   #else
-    #define CCNAME  "GNU GCC"
+    #define OSNAME  "?"
   #endif
-  #define CCVER    __GNUC__
-  #define CCMINOR  __GNUC_MINOR__
-#else
-  #define CCNAME  "?"
-  #define CCVER   (-1)
 #endif
-#ifndef CCMINOR
-  #define CCMINOR  (-1)
+
+#ifndef CCNAME
+  #if defined(_MSC_VER)
+    #define CCNAME  "MSVC"
+    #define CCVER   _MSC_VER
+  #elif defined(__WATCOMC__)
+    #define CCNAME  "Watcom"
+    #define CCVER   (-1)
+  #elif defined(__clang__)
+    #define CCNAME   "Clang"
+    #define CCVER    __clang_major__
+    #define CCMINOR  __clang_minor__
+  #elif defined(__GNUC__)
+    #if defined(__DJGPP__)
+      #define CCNAME  "DJGPP"
+    #else
+      #define CCNAME  "GNU GCC"
+    #endif
+    #define CCVER    __GNUC__
+    #define CCMINOR  __GNUC_MINOR__
+  #else
+    #define CCNAME  "?"
+    #define CCVER   (-1)
+  #endif
+  #ifndef CCMINOR
+    #define CCMINOR  (-1)
+  #endif
+#else
+  #ifndef CCVER
+    #define CCVER  (-1)
+  #endif
 #endif
 
 /* GLOBÁLNÍ NASTAVENÍ */
@@ -70,8 +83,10 @@
 #define WEB    "github.com/ma-ta"
 
 /* volitelné externí soubory */
-#define UKAZATELSIBENICE_SOUBOR  "./data/img_sibe.dat"
-#define NAPOVEDA_SOUBOR          "./data/help_cze.dat"
+#define UKAZATELSIBENICE_SOUBOR   "./data/pict_sib.dat"  /* šablona pro šibenici */
+#define NAPOVEDA_SOUBOR           "./data/help_cze.dat"  /* česká nápověda */
+#define STATISTIKY_SOUBOR         "./data/stat_bin.dat"  /* datový soubor statistik */
+#define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_obr.dat"  /* šablona obrazovky statistik */
 /* nezbytné externí soubory */
 #define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
@@ -102,7 +117,7 @@
 #define ARG_STA_SIGN_1  "s"       /* zobrazí herní statistiky */
 #define ARG_STA_SIGN_2  "stats"
 #define ARG_VER_SIGN_1  "v"       /* zobarzí informace o sestavení */
-#define ARG_VER_SIGN_2  "ver"
+#define ARG_VER_SIGN_2  "version"
 #define ARG_DOS_SIGN_1  "d"       /* vynutí spuštení v režimu DOS */
 #define ARG_DOS_SIGN_2  "dos"
 
@@ -146,12 +161,12 @@
 
 #define cekej_enter()  while (getchar() != '\n')  ;
 
-#define konec()  { vymaz_obr();  \
-                   hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_KONEC);  \
+#define konec()  { hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_KONEC);  \
                    printf("\n\n" ARG_VER_TEXT "\n\n");  \
                    \
                    hra_vycisti();  \
-                   ukazatelsibenice_vycisti(); }
+                   ukazatelsibenice_vycisti();  \
+                   stats_vycisti(); }
 
 
 /* tui - hlavička */
@@ -252,7 +267,7 @@
                             VOLBA_NAPOVEDA = '1',  \
                             VOLBA_POMOC_ZN = '2'
 /* seznam voleb */
-#define HRA_VOLBY_SZN       "Ukoncit", "Manual", "Napovez znak (za " xstr(HRA_POMOC_ZN_CENA) " b.)"
+#define HRA_VOLBY_SZN       "Ukoncit", "Manual", /* "Napovez znak (za " xstr(HRA_POMOC_ZN_CENA) " b.)" */
 /* počet položek musí být shodný (ne menší!) s HRA_VOLBY_SZN */
 #define HRA_VOLBY_HODNOTY   VOLBA_KONEC, VOLBA_NAPOVEDA, VOLBA_POMOC_ZN
 #define HRA_VOLBY_ZAVLP     "[]"  /* musí být 2 znaky! (strlen(HRA_VOLBY_ZN) >= 2, [0]=levý [1]=pravý */
@@ -283,5 +298,30 @@
 #define NAPOVEDA_ZARAZKA    '#'
 #define NAPOVEDA_OBRAZOVEK  4
 
+/* statistiky */
+
+#define STATS_PRAVOST_KOD  202208  /* tajné číslo pro kontrolní součet */
+#define STATS_JMENO_STRLN  43  /* maximální délka jména */
+#define STATS_POCET_HRACU  5   /* počet uchovávaných pořadí */
+#define STATS_PRAVOST_ZAP  0   /* zapíná a vypíná kontrolní součet */
+#define STATS_OBR_RADEK    43  /* délka řádku se jménem */
+#define STATS_OBR_VODITKO  "."  /* znaky oddělující jméno a body na řádku */
+#define STATS_OBR_ODRAZKY  ">>>>------>",  \
+                           "  >>>----->",  \
+                           "    >>---->",  \
+                           "      >--->",  \
+                           "        -->"
+#define STATS_DELKA_ERR    ERR_SIGN "Delka jmena smi byt max. %d znaku."
+#define STATS_ZADNE_STATS  "Zatim nejsou ulozeny zadne statistiky."
+#define STATS_OBR_ZAHLAVI  \
+"+-------------------+-------------------------------+-------------------+\n"  \
+"|                   |                               |                   |\n"  \
+"|     ooooooooo     |     +---+---+---+---+---+     |     ooooooooo     |\n"  \
+"|   oo   o o   oo   |     | H | E | R | N | I |     |   oo   O o   oo   |\n"  \
+"|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |\n"  \
+"|  oo  ~~ - ~~  oo  | | K | R | O | N | I | K | A | |  oo  ~~ O ~~  oo  |\n"  \
+"|   ooooooooooooo   | +---+---+---+---+---+---+---+ |   ooooooooooooo   |\n"  \
+"|                   |                               |                   |\n"  \
+"+-------------------+-------------------------------+-------------------+\n"
 
 #endif

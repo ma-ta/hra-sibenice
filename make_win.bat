@@ -75,6 +75,11 @@ echo.
    cl %cc_param% /c *.c
    cd ..\..
    move %src_dir%\menu\*.obj %out_dir%
+:: složka stats
+   cd %src_dir%\stats
+   cl %cc_param% /c *.c
+   cd ..\..
+   move %src_dir%\stats\*.obj %out_dir%
 :: slozka tui
    cd %src_dir%\tui
    cl %cc_param% /c *.c

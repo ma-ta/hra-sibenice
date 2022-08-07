@@ -15,19 +15,22 @@ ZNÁMÉ CHYBY:
 
 NÁPADY NA DALŠÍ VÝVOJ:
 
-1) přidání "Síně slávy" do hlavního menu - výsledky úspěšně dokončených
+1) [ok - v0.0.3]
+   přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
    her se budou ukládat spolu se jménem hráče / zobrazení statistik,
    výsledku poslední hry apod. na obrazovce s hlavním menu
 
-2) funkce nápovědy během hádání slov (např. za cenu jednoho života)
-
-3) možnost volby různých kategorií hádaných slov / vícejazyčná verze
-
-4) začlenění knihovny getch - program bude reagovat přímo na stisk kláves
-   (písmen) bez nutnosti potvrzování přes Enter
-
-5) možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
+2) [ok - v0.0.2]
+   možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
    a vrátit se zpět do hry)
+
+3) [ok - v0.0.2]
+   funkce nápovědy během hádání slov (např. za cenu jednoho života)
+
+4) možnost volby různých kategorií hádaných slov / vícejazyčná verze
+
+5) začlenění knihovny getch - program bude reagovat přímo na stisk kláves
+   (písmen) bez nutnosti potvrzování přes Enter
 
 6) možnost hrát ve dvou (příp. i více) lidech
    - bude se přepínat mezi jednotlivými účastníky

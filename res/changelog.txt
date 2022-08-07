@@ -1,5 +1,22 @@
 +--------+------------+
-| v0.0.3 | 2022-08    |
+| v0.0.4 | v budoucnu |
++--------+------------+
+
+
+NOVINKY:
+
+1) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
+   - definice skupin znaků se načítá ze souboru se slovníkem
+
+2) nová zvláštní volba při probíhající hře
+   [2] - doplní chybějící písmeno za cenu určitého počtu bodů
+         dle aktuální situace:
+         a) nejpočetněji zastoupené chybějící písmeno (první zleva)
+         b) první chybějící písmeno zleva
+
+
++--------+------------+
+| v0.0.3 | 2022-08-?? |
 +--------+------------+
 
 
@@ -26,16 +43,7 @@ NOVINKY:
    - upravená obrazovka s výsledkem hry
    - přepínač [s] vypíše herní statistiky
 
-4) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
-   - definice skupin znaků se načítá ze souboru se slovníkem
-
-5) nová zvláštní volba při probíhající hře
-   [2] - doplní chybějící písmeno za cenu určitého počtu bodů
-         dle aktuální situace:
-         a) nejpočetněji zastoupené chybějící písmeno (první zleva)
-         b) první chybějící písmeno zleva
-
-6) informace o době běhu programu po ukončení
+4) informace o době běhu programu po ukončení
 
 
 +--------+------------+
