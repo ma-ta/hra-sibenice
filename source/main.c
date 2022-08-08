@@ -114,6 +114,7 @@ void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_2, argv[1]) == 0)) {
 
     arg_hlp_text();
+    putchar('\n');
     exit(0);
   }
   /* zobrazení hlavní nápovědy */
@@ -124,8 +125,9 @@ void zpracuj_argumenty(int argc, char *argv[])
 
     napoveda();
     vymaz_obr();
-    konec();
-    puts(ARG_HLP_TEXT "\n\n");
+    hlavicka_vykresli("Napoveda", TUI_HLAVICKA_TXT_P);
+    putchar('\n');
+    puts(ARG_HLP_TEXT "\n");
     exit(0);
   }
   /* zobrazení herních statistik */
@@ -133,9 +135,13 @@ void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_2 ARG_STA_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_2, argv[1]) == 0)) {
-
-    if (stats_nastav())  stats_vypis(false);
-    else                 puts(STATS_ZADNE_STATS "\n");
+    if (stats_nastav()) {
+      hlavicka_vykresli("Statistiky", TUI_HLAVICKA_TXT_P);
+      putchar('\n');
+      stats_vypis(true);
+      putchar('\n');
+    }
+    else  puts(STATS_ZADNE_STATS "\n");
 
     exit(0);
   }

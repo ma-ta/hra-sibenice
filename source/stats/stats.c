@@ -327,17 +327,20 @@ bool stats_vypis(bool jednoduchy_vypis)
   int pocet_zn = 0;
 
   if (nastaveno && data) {
-    vymaz_obr();
 
     /* zjednodušený výpis */
 
     if (jednoduchy_vypis || stats_obr_sablona == NULL) {
-      for (i = 1; i < STATS_POCET_HRACU; i++) {
+      puts("Nejvyssi dosazena skore:\n");
+
+      for (i = 1; i <= STATS_POCET_HRACU; i++) {
         jmeno_vyplneno = (strcmp(stats_zjisti_nte_nejjmeno(i), "") == 0) ? false : true;
-        printf("%d.  %02d b.%s%s\n"
+        printf("%d.  %02d b.%s%s%s%s\n"
         , i
         , stats_zjisti_nte_nejbody(i)
-        , (jmeno_vyplneno) ? " -> " : ""
+        , (jmeno_vyplneno) ? "  " : ""
+        , (jmeno_vyplneno) ? odrazky[i - 1] : ""
+        , (jmeno_vyplneno) ? "  " : ""
         , stats_zjisti_nte_nejjmeno(i));
       }
     }
@@ -345,6 +348,8 @@ bool stats_vypis(bool jednoduchy_vypis)
     /* obrazovka se statistikami */
 
     else {
+      vymaz_obr();
+
       /* sestavení tabulky */
       for (i = 0; i < STATS_POCET_HRACU; i++) {
         pocet_zn += snprintf(vystup + pocet_zn, sizeof(vystup) - pocet_zn,
