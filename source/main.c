@@ -67,12 +67,6 @@ int main(int argc, char *argv[])
 
       case MENU_STATS:
         stats_vypis(false);
-        fputs(ansi_cursor_off(), stdout);
-        fputs(ansi_format(ANSI_INVER) "\n(Enter pro navrat...)" ansi_format(ANSI_RESET),
-              stdout);
-        cekej_enter();
-        fputs(ansi_cursor_on(), stdout);
-        vymaz_obr();
         break;
 
       case MENU_NAPOVEDA:
@@ -94,7 +88,7 @@ int main(int argc, char *argv[])
   konec();
   /* zobrazení doby běhu programu */
   p_tmcas = gmtime((cas_spusteni = time(NULL) - cas_spusteni, &cas_spusteni));
-  fputs(ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
+  fputs(ansi_format(ANSI_INVER)
         , stdout);
   printf(DOBA_INFO);
   fputs(ansi_format(ANSI_RESET)
@@ -114,7 +108,6 @@ void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_2, argv[1]) == 0)) {
 
     arg_hlp_text();
-    putchar('\n');
     exit(0);
   }
   /* zobrazení hlavní nápovědy */
@@ -136,9 +129,17 @@ void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_2, argv[1]) == 0)) {
     if (stats_nastav()) {
-      hlavicka_vykresli("Statistiky", TUI_HLAVICKA_TXT_P);
+      /* zjištění času poslední změny statistik */
+      char s_cas[100] = "";
+      time_t cas = time(NULL);
+      p_tmcas = localtime(&cas);
+      sprintf(s_cas, "%02d.%02d.%d %02d:%02d"
+                     , p_tmcas->tm_mday, p_tmcas->tm_mon + 1, p_tmcas->tm_year + 1900
+                     , p_tmcas->tm_hour, p_tmcas->tm_min);
+      hlavicka_vykresli("Statistiky", s_cas);
       putchar('\n');
       stats_vypis(true);
+      stats_vycisti();
       putchar('\n');
     }
     else  puts(STATS_ZADNE_STATS "\n");

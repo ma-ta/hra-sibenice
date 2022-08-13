@@ -37,16 +37,28 @@ void stats_zadej_jmeno(int pozice);
 
 /* aktualizuje statistiky bodů
    dle aktuálních dat
-   -1 = statistiky nejsou nastaveny
-    0 = není zajímavé
-    1 = patří mezi X nejvyšších
-    2 = zatím zcela nejvyšší */
-int stats_zpracuj_cas(struct tm *p_cas);
+   konec:
+     false: začátek měření
+     true : konec měření
+   vrací:
+     -1 = statistiky nejsou nastaveny
+      0 = není zajímavé / začátek měření
+      1 = zatím nejdelší herní čas */
+int stats_zpracuj_cas(bool konec);
+
+/* vrátí čas poslední změny
+   ve statistikách */
+time_t stats_zjisti_poslednizmenu(void);
 
 /* vrátí nejdelší herní čas
    prostřednictvím parametrů
-   false = statistiky nejsou nacteny */
-bool stats_zjisti_nejcas(int *h, int *min, int *s);
+   návratová hodnota 0 - žádná data */
+time_t stats_zjisti_nejcas(int *h, int *min, int *s);
+
+/* vrací celkový odehrátý čas
+   prostřednictvím parametrů
+   návratová hodnota 0 - žádná data */
+time_t stats_zjisti_celkovycas(int *h, int *min, int *s);
 
 /* vrátí výši skóre pro zadanou pozici
    0 = nejsou k dispozici žádná data */

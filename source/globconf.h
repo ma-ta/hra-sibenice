@@ -98,8 +98,9 @@
 #endif
 #define ZVUKY         1   /* zapne vkládání znaku '\a' */
 
-#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
+#define POCET_KOL     1   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
+#define MAX_SKORE     ((POCET_KOL) * (POCET_ZIVOTU))
 
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
 
@@ -173,7 +174,7 @@
 
 #define TUI_HLAVICKA_TXT_L       "(c) 2022  Freeware"  /* text v levé dolní buňce */
 #define TUI_HLAVICKA_TXT_P       "v" VERZE             /* text v pravé dolní buňce */
-#define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
+#define TUI_HLAVICKA_TXT_KONEC   "Na videnou"  /* (sudý počet zn. pro zarovnání na střed) */
 #define TUI_HLAVICKA_BUNKA_L     26  /* šířka levé dolní buňky */
 #define TUI_HLAVICKA_BUNKA_P     26  /* šířka pravé dolní buňky */
 #define ERR_TUI_HLAVICKA_ZAROV   "Text v hlavicce nelze zarovnat na stred (+/- zn.)..."
@@ -194,7 +195,7 @@
 #define ERR_MENU_NADPIS_TXTMAX  "Nadpis je delsi nez bunka..."
 #define ERR_MENU_NADPIS_ZAROV   "Nadpis nelze zarovnat na stred (+/- zn.)..."
 #define MENU_NADPIS             "M E N U"
-#define MENU_NADPIS_L           ">>>----->"
+#define MENU_NADPIS_L           ">>>----->"  /* kvůli zarovnání musí být lichý počet zn. */
 #define MENU_NADPIS_P           "<-----<<<"
 #define MENU_ENUM               MENU_MENU, MENU_HRA, MENU_STATS, MENU_NAPOVEDA, MENU_KONEC
 #define MENU_POLOZKY_CAPS       1  /* vypsání položek menu velkými písmeny */
@@ -203,7 +204,7 @@
 #define MENU_ZADEJ_ERR          "Pouze cisla mezi %d a %d!"
 
  /* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
-#define DOBA_INFO  ">>>>------>  Herni cas :  %02d h %02d min %02d s  <------<<<<"  \
+#define DOBA_INFO  ">>>>------>  Cas hrani :  %02d h %02d min %02d s  <------<<<<"  \
                    , p_tmcas->tm_hour, p_tmcas->tm_min, p_tmcas->tm_sec
 
 /* ukazatele */
@@ -211,6 +212,7 @@
 #define UKAZATELE_ORAMOVANI_ZN          '-'
 #define UKAZATELE_ORAMOVANI_KRIZENI_ZN  '+'
 #define UKAZATELE_SIRKA_BUNKY           5
+#define UKAZATELE_MINIMALNI_SIRKA       9  /* minimální počet buněk na řádku */
 
 /* ukazatel kol */
 
@@ -297,6 +299,16 @@
 
 #define NAPOVEDA_ZARAZKA    '#'
 #define NAPOVEDA_OBRAZOVEK  4
+#define NAPOVEDA_ZAHLAVI    \
+"+-------------------+-------------------------------+-------------------+\n"  \
+"|                   |                               |                   |\n"  \
+"|     ooooooooo     | +---+---+---+---+             |     ooooooooo     |\n"  \
+"|   oo   o o   oo   | | N | A | P | O |             |   oo   O o   oo   |\n"  \
+"|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |\n"  \
+"|  oo  ~~ - ~~  oo  |             | V | E | D | A | |  oo  ~~ O ~~  oo  |\n"  \
+"|   ooooooooooooo   |             +---+---+---+---+ |   ooooooooooooo   |\n"  \
+"|                   |                               |                   |\n"  \
+"+-------------------+-------------------------------+-------------------+\n"
 
 /* statistiky */
 
@@ -306,6 +318,9 @@
 #define STATS_PRAVOST_ZAP  0   /* zapíná a vypíná kontrolní součet */
 #define STATS_OBR_RADEK    43  /* délka řádku se jménem */
 #define STATS_OBR_VODITKO  "."  /* znaky oddělující jméno a body na řádku */
+#define STATS_OBR_NONAME   "(?)"
+#define STATS_OBR_1_ODR    ansi_format(ANSI_BOLD) ansi_format(ANSI_BLICK)  /* formát odrážky nej řádku */
+#define STATS_OBR_1_TXT    ansi_format(ANSI_BOLD)  /* formát nej řádku */
 #define STATS_OBR_ODRAZKY  ">>>>------>",  \
                            "  >>>----->",  \
                            "    >>---->",  \

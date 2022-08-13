@@ -18,7 +18,7 @@ static int  pocet_pismen = UKAZATELPISMEN_DOSTUPNA_PISMENA_SIZE;
 void ukazatelpismen_nastav
 (int delka_radku, int sirka_bunky)
 {
-  delka_radek = delka_radku;
+  delka_radek = (delka_radku < UKAZATELE_MINIMALNI_SIRKA) ? UKAZATELE_MINIMALNI_SIRKA : delka_radku;
   sirka_bunka = sirka_bunky;
 
   /* naplnění pole nepoužitých znaků */
@@ -58,12 +58,12 @@ void ukazatelpismen_vykresli(void)
       }
       putchar('|');
       for (j = 0; j < mezery; j++)  putchar(' ');
-      
+
       /* vypíše znak nebo prázdné místo */
       putchar((dostupna_pismena[i] != UKAZATELPISMEN_NIC)
                 ? dostupna_pismena[i]
                 : ' ');
-      
+
       for (j = 0; j < mezery; j++)  putchar(' ');
     }
     puts("|");

@@ -39,6 +39,9 @@ void napoveda(void)
   /* vypíše číslo stránky s nápovědou */
   napoveda_titulek(cislo_strany);
 
+  /* vykreslí záhlaví */
+  puts(NAPOVEDA_ZAHLAVI);
+
   /* vypíše nápovědu na obrazovku */
   while ((c = getc(f_napoveda)) != EOF) {
     if (c == NAPOVEDA_ZARAZKA) {

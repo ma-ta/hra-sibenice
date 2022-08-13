@@ -4,6 +4,7 @@
 #include <time.h>
 #include "../globconf.h"
 #include "stats.h"
+#include "../libs/ansi_fmt.h"
 
 
 /* vynuluje stats_skore */
@@ -13,6 +14,13 @@
                              stats_skore.jmena[i][0] = '\0';  \
                              stats_skore.skore[i] = 0;  \
                            }  \
+                         }
+#define vynuluj_casy()  { stats_casy.nejdelsi_hra = (time_t) 0;  \
+                          stats_casy.celkovy_herni_cas = (time_t) 0;  \
+                        }
+#define stats_vynuluj()  { vynuluj_skore();  \
+                           vynuluj_casy();  \
+                           stats_poslednizmena = (time_t) 0;  \
                            data = false;  \
                          }
 #define uzavri_fstats()  if (f_stats != NULL) {  \
@@ -26,23 +34,24 @@ static char *stats_obr_sablona = NULL;
 static size_t stats_obr_sablona_size = 0;
 /* datový soubor se statistikami */
 static FILE *f_stats = NULL;
-/* určuje, zda je modul inicializovaný */
+/* informuje, zda je modul inicializovaný */
 static bool nastaveno = false;
-/* určuje, zda se podařilo načíst statistiky */
+/* informuje, zda se podařilo načíst statistiky ze souboru */
 static bool nacteno = false;
-/* určuje, zda je struktura prázdná nebo ne */
+/* informuje, zda je datová struktura statistik prázdná nebo ne */
 static bool data = false;
 
-/* datové struktury statistik */
+/* datové položky statistik */
 typedef char JMENO[STATS_JMENO_STRLN + 1];
-struct stats_skore {
+static time_t stats_poslednizmena = 0;
+static struct stats_skore {
   int   skore[STATS_POCET_HRACU];
   JMENO jmena[STATS_POCET_HRACU];
 } stats_skore;
-struct stats_cas {
-  time_t aktualni_cas;
-  time_t celkovy_cas;
-} stats_cas;
+static struct stats_casy {
+  time_t nejdelsi_hra;
+  time_t celkovy_herni_cas;
+} stats_casy;
 
 
 /* soukromé funkce modulu */
@@ -94,7 +103,7 @@ bool nahraj_sablonu(void)
 int zapis_pravost_f(void)
 {
   #if STATS_PRAVOST_ZAP
-    
+
   #else
     return 0;
   #endif
@@ -126,18 +135,28 @@ bool stats_nastav(void)
               "    %s\n\n",
               STATISTIKY_SOUBOR);
       /* nastaví strukturu stats_skore na nulové hodnoty */
-      vynuluj_skore();
+      stats_vynuluj();
       nastaveno = true;
       return (nacteno = data = false);
     }
     /* soubor se statistikami otevřen - načtení dat */
     else {
+      /* načtení času poslední změny */
+      if (fread((void *) &stats_poslednizmena, sizeof(stats_poslednizmena), 1, f_stats) != 1) {
+        /* chyba čtení dat */
+        fprintf(stderr,
+                ERR_SIGN "Chyba pri nacitani statistik ze souboru (posledni zmena)...\n\n");
+        stats_vynuluj();
+        uzavri_fstats();
+        nastaveno = true;
+        return (nacteno = data = false);
+      }
       /* načtení skóre */
       if (fread(stats_skore.skore, sizeof(stats_skore.skore), 1, f_stats) != 1) {
         /* chyba čtení dat */
         fprintf(stderr,
                 ERR_SIGN "Chyba pri nacitani statistik ze souboru (body)...\n\n");
-        vynuluj_skore();
+        stats_vynuluj();
         uzavri_fstats();
         nastaveno = true;
         return (nacteno = data = false);
@@ -147,10 +166,24 @@ bool stats_nastav(void)
         /* chyba čtení dat */
         fprintf(stderr,
                 ERR_SIGN "Chyba pri nacitani statistik ze souboru (jmena)...\n\n");
-        vynuluj_skore();
+        stats_vynuluj();
         uzavri_fstats();
         nastaveno = true;
         return (nacteno = data = false);
+      }
+      /* načtení času nejdelší hry */
+      if (fread(&(stats_casy.nejdelsi_hra), sizeof(stats_casy.nejdelsi_hra), 1, f_stats) != 1) {
+        fprintf(stderr,
+                ERR_SIGN "Chyba pri nacitani statistik (nejdelsi hra)...\n\n");
+        uzavri_fstats();
+        return false;
+      }
+      /* načtení celkového odehrátého času */
+      if (fread(&(stats_casy.celkovy_herni_cas), sizeof(stats_casy.celkovy_herni_cas), 1, f_stats) != 1) {
+        fprintf(stderr,
+                ERR_SIGN "Chyba pri nacitani statistik (celkovy herni cas)...\n\n");
+        uzavri_fstats();
+        return false;
       }
     }
 
@@ -160,7 +193,7 @@ bool stats_nastav(void)
     (void) nahraj_sablonu();
 
     nastaveno = true;
-    data = (stats_skore.skore[0] > 0) ? true : false;
+    data = (stats_skore.skore[0] > 0 || stats_casy.celkovy_herni_cas > (time_t) 0) ? true : false;
     return (nacteno = true);
   }
 
@@ -170,13 +203,14 @@ bool stats_nastav(void)
   }
 }
 
-bool stats_nastaveno(void)  { return nastaveno; }
-bool stats_nacteno(void)    { return nacteno; }
-bool stats_data(void)       { return data; }
+bool stats_nastaveno(void)  {  return nastaveno;  }
+bool stats_nacteno(void)    {  return nacteno;    }
+bool stats_data(void)       {  return data;       }
 
 bool stats_uloz(void)
 {
   if (nastaveno) {
+
     /* otevření souboru */
     if (f_stats != NULL)  fclose(f_stats);
     if ((f_stats = fopen(STATISTIKY_SOUBOR, "wb")) == NULL) {
@@ -187,6 +221,13 @@ bool stats_uloz(void)
       return false;
     }
 
+    /* uložení času změny */
+    if (fwrite(&stats_poslednizmena, sizeof(stats_poslednizmena), 1, f_stats) != 1) {
+      fprintf(stderr,
+              ERR_SIGN "Chyba pri ukladani statistik (posledni zmena)...\n\n");
+      uzavri_fstats();
+      return false;
+    }
     /* uložení bodů */
     if (fwrite(stats_skore.skore, sizeof(stats_skore.skore), 1, f_stats) != 1) {
       fprintf(stderr,
@@ -198,6 +239,20 @@ bool stats_uloz(void)
     if (fwrite(stats_skore.jmena, sizeof(stats_skore.jmena), 1, f_stats) != 1) {
       fprintf(stderr,
               ERR_SIGN "Chyba pri ukladani statistik (jmena)...\n\n");
+      uzavri_fstats();
+      return false;
+    }
+    /* uložení času nejdelší hry */
+    if (fwrite(&(stats_casy.nejdelsi_hra), sizeof(stats_casy.nejdelsi_hra), 1, f_stats) != 1) {
+      fprintf(stderr,
+              ERR_SIGN "Chyba pri ukladani statistik (nejdelsi hra)...\n\n");
+      uzavri_fstats();
+      return false;
+    }
+    /* uložení celkového odehrátého času */
+    if (fwrite(&(stats_casy.celkovy_herni_cas), sizeof(stats_casy.celkovy_herni_cas), 1, f_stats) != 1) {
+      fprintf(stderr,
+              ERR_SIGN "Chyba pri ukladani statistik (celkovy herni cas)...\n\n");
       uzavri_fstats();
       return false;
     }
@@ -219,6 +274,7 @@ int stats_zpracuj_body(int body)
     data = true;
     for (i = 0; i < arrlen(stats_skore.skore); i++) {
       /* předané body jsou v rámci TOP n */
+      stats_poslednizmena = time(NULL);
       if (stats_skore.skore[i] <= body) {
         /* posunutí stávajících bodů a jmen dolů a zápis aktuálního skóre */
         if (stats_skore.skore[i] < body) {
@@ -268,18 +324,93 @@ void stats_zadej_jmeno(int pozice)
   }
 }
 
-int stats_zpracuj_cas(struct tm *p_cas)
+int stats_zpracuj_cas(bool konec)
 {
+  static bool mereni_probiha = false;
+  static time_t start_mereni = (time_t) 0;
+  static time_t konec_mereni = (time_t) 0;
+
+
   if (nastaveno) {
 
+    if (!konec) {
+      start_mereni = time(NULL);
+      mereni_probiha = true;
+      return 0;
+    }
+    else if (konec && mereni_probiha) {
+      data = true;
+      konec_mereni = time(NULL);
+      stats_poslednizmena = konec_mereni;
+
+      mereni_probiha = false;
+      konec_mereni -= start_mereni;
+      stats_casy.celkovy_herni_cas += konec_mereni;
+
+      if (konec_mereni > stats_casy.nejdelsi_hra) {
+        stats_casy.nejdelsi_hra = konec_mereni;
+        return 1;
+      }
+      else {
+        return 0;
+      }
+    }
+    else {
+      fputs(ERR_SIGN "Mereni jeste nezacalo.\n    (Spustte s argumentem false...)\n\n", stderr);
+    }
+  }
+  else {
+    fputs(ERR_SIGN "Modul statistik neni nastaven...\n\n", stderr);
+  }
+
+  return (-1);
+}
+
+time_t stats_zjisti_poslednizmenu(void)
+{
+  if (nacteno && data) {
+    return stats_poslednizmena;
+  }
+  else {
+    fputs(ERR_SIGN "Modul statistik neni nastaven nebo nejsou data...\n\n", stderr);
+    return ((time_t) 0);
   }
 }
 
-bool stats_zjisti_nejcas(int *h, int *min, int *s)
+time_t stats_zjisti_nejcas(int *h, int *min, int *s)
 {
-  if (nacteno) {
+  if (nacteno && data) {
+    time_t doba = stats_casy.nejdelsi_hra;
 
+    *h   = doba / 3600;
+    *min = (doba - (*h * 3600)) / 60;
+    *s   = doba - (*h * 3600) - (*min * 60);
+
+    return (stats_casy.nejdelsi_hra);
   }
+  else {
+    fputs(ERR_SIGN "Modul statistik neni nastaven nebo nejsou data...\n\n", stderr);
+  }
+
+  return ((time_t) 0);
+}
+
+time_t stats_zjisti_celkovycas(int *h, int *min, int *s)
+{
+  if (nacteno && data) {
+    time_t doba = stats_casy.celkovy_herni_cas;
+
+    *h   = doba / 3600;
+    *min = (doba - (*h * 3600)) / 60;
+    *s   = doba - (*h * 3600) - (*min * 60);
+
+    return (stats_casy.celkovy_herni_cas);
+  }
+  else {
+    fputs(ERR_SIGN "Modul statistik neni nastaven nebo nejsou data...\n\n", stderr);
+  }
+
+  return ((time_t) 0);
 }
 
 int stats_zjisti_nte_nejbody(int nte_poradi)
@@ -295,6 +426,9 @@ int stats_zjisti_nte_nejbody(int nte_poradi)
               ERR_SIGN "Uklada se pouze 1. az %d. poradi...\n\n"
               , STATS_POCET_HRACU);
     }
+  }
+  else {
+    fputs(ERR_SIGN "Modul statistik neni nastaven nebo nejsou data...\n\n", stderr);
   }
 
   return 0;
@@ -325,8 +459,12 @@ bool stats_vypis(bool jednoduchy_vypis)
   char vystup[1000] = "";
   char *odrazky[] = { STATS_OBR_ODRAZKY };
   int pocet_zn = 0;
+  int h_nej, min_nej, s_nej,     /* čas nejdelší hry */
+      h_celk, min_celk, s_celk;  /* celkový odehrátý čas */
 
   if (nastaveno && data) {
+    (void) stats_zjisti_nejcas(&h_nej, &min_nej, &s_nej);
+    (void) stats_zjisti_celkovycas(&h_celk, &min_celk, &s_celk);
 
     /* zjednodušený výpis */
 
@@ -343,6 +481,13 @@ bool stats_vypis(bool jednoduchy_vypis)
         , (jmeno_vyplneno) ? "  " : ""
         , stats_zjisti_nte_nejjmeno(i));
       }
+
+      puts("\nHerni casy:\n");
+
+      printf("Nejdelsi hra           :  %02d h  %02d min  %02d s\n"
+             , h_nej, min_nej, s_nej);
+      printf("Celkova odehrata doba  :  %02d h  %02d min  %02d s\n"
+             , h_celk, min_celk, s_celk);
     }
 
     /* obrazovka se statistikami */
@@ -350,36 +495,59 @@ bool stats_vypis(bool jednoduchy_vypis)
     else {
       vymaz_obr();
 
-      /* sestavení tabulky */
+      /* sestavení řetězce pro výstup */
       for (i = 0; i < STATS_POCET_HRACU; i++) {
         pocet_zn += snprintf(vystup + pocet_zn, sizeof(vystup) - pocet_zn,
-                             "  %s%d.  %s%s"
-                             , (i == 0) ? "* " : "  "
+                             "  %s%s%d.  %s%s"
+                             , (i == 0) ? STATS_OBR_1_ODR "*" ansi_format(ANSI_RESET) " " : "  "
+                             , (i == 0) ? STATS_OBR_1_TXT : ""
                              , i + 1
-                             , stats_skore.jmena[i]
-                             , (stats_skore.jmena[i][0] == '\0')
+                             , (stats_skore.jmena[i][0] == '\0' && stats_skore.skore[i] > 0)
+                                 ? STATS_OBR_NONAME
+                                 : stats_skore.jmena[i]
+                             , (stats_skore.jmena[i][0] == '\0' && stats_skore.skore[i] == 0)
                                   ? STATS_OBR_VODITKO STATS_OBR_VODITKO
                                   : "  ");
-        for (j = 0; j < STATS_OBR_RADEK - 2 - strlen(stats_skore.jmena[i]); j++) {
+        for (j = 0; j < (int) (STATS_OBR_RADEK - 2 - ((stats_skore.jmena[i][0] == '\0' && stats_skore.skore[i] > 0)
+                                                        ? strlen(STATS_OBR_NONAME)
+                                                        : strlen(stats_skore.jmena[i]))); j++)
+        {
           strncat(vystup + pocet_zn, STATS_OBR_VODITKO, sizeof(vystup) - pocet_zn);
           pocet_zn++;
         }
         pocet_zn += snprintf(vystup + pocet_zn, sizeof(vystup) - pocet_zn,
-                             "  %s  %2d b.\n"
+                             "  %s  %2d b.%s\n"
                              , (i < arrlen(odrazky)) ? odrazky[i] : "           "
-                             , stats_skore.skore[i]);
+                             , stats_skore.skore[i]
+                             , (i == 0) ? ansi_format(ANSI_RESET) : "");
       }
 
       /* výstup na obrazovku */
       puts(STATS_OBR_ZAHLAVI);
-      printf((const char *) stats_obr_sablona, vystup);
+      printf((const char *) stats_obr_sablona
+             , MAX_SKORE
+             , vystup
+             , h_nej, min_nej, s_nej
+             , h_celk, min_celk, s_celk);
+
+      fputs(ansi_cursor_off(), stdout);
+      fputs(ansi_format(ANSI_INVER) "\n(Enter pro navrat...)" ansi_format(ANSI_RESET),
+            stdout);
+      cekej_enter();
+      fputs(ansi_cursor_on(), stdout);
+      vymaz_obr();
 
     }
 
     return true;
   }
   else if (nastaveno && !data) {
+    if (!jednoduchy_vypis) {
+      vymaz_obr();
+      puts(STATS_OBR_ZAHLAVI);
+    }
     puts(STATS_ZADNE_STATS);
+    return false;
   }
   else {
     fputs(ERR_SIGN "Modul statistik neni nastaven...\n\n", stderr);
@@ -390,7 +558,7 @@ bool stats_vypis(bool jednoduchy_vypis)
 bool stats_vymaz(void)
 {
   if (nastaveno) {
-    vynuluj_skore();
+    stats_vynuluj();
     return true;
   }
   else {
@@ -401,7 +569,12 @@ bool stats_vymaz(void)
 
 void stats_vycisti(void)
 {
-  (void) free((void *) stats_obr_sablona);
-  stats_obr_sablona = NULL;
-  stats_obr_sablona_size = 0;
+  if (nastaveno) {
+    (void) free((void *) stats_obr_sablona);
+    stats_obr_sablona = NULL;
+    stats_obr_sablona_size = 0;
+  }
+  else {
+    fputs(ERR_SIGN "Modul statistik neni nastaven...\n\n", stderr);
+  }
 }
