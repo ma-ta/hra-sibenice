@@ -8,8 +8,8 @@
 +--------------------------+--------------------------+
 
 
-   >   VYHRAL JSI S CELKOVYM SKORE 10 BODU !
-       (Zatim nejvyssi dosazene skore je 50 b...)
+   >   VYHRAL JSI S CELKOVYM SKORE 2 BODU !
+       To je 2. nejlepsi vysledek v poradi !
 
 
           ooooooooo
@@ -20,4 +20,4 @@
 
 
 
-   (stiskni Enter...)
+       Uved sve jmeno do kroniky:  

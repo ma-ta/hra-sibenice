@@ -1,22 +1,5 @@
 +--------+------------+
-| v0.0.4 | v budoucnu |
-+--------+------------+
-
-
-NOVINKY:
-
-1) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
-   - definice skupin znaků se načítá ze souboru se slovníkem
-
-2) nová zvláštní volba při probíhající hře
-   [2] - doplní chybějící písmeno za cenu určitého počtu bodů
-         dle aktuální situace:
-         a) nejpočetněji zastoupené chybějící písmeno (první zleva)
-         b) první chybějící písmeno zleva
-
-
-+--------+------------+
-| v0.0.3 | 2022-08-?? |
+| v0.0.3 | 2022-08-15 |
 +--------+------------+
 
 
@@ -25,13 +8,16 @@ OPRAVENÉ CHYBY:
 1) kompilace pomocí DJGPP pod FreeDOS
    (zkráceny názvy souborů na max. 8 znaků)
 
+2) vykreslování ukazatele kol
+   (opravena chyba s chybějícím pravým orámováním)
+
 
 NOVINKY:
 
 1) přepínače pro spuštění programu
    [?] - zobrazí seznam dostupných přepínačů
    [m] - zobrazí hlavní nápovědu
-   [s] - zobrazí herní statistiky
+   [s] - vypíše herní statistiky
    [v] - vypíše informace o sestavení
    [d] - spustí v režimu DOS (tabulka se skóre)
 
