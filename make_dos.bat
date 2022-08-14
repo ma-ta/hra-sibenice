@@ -17,7 +17,7 @@
 
 
 :: nazev spustitelneho souboru
-   set bin_nazev=sibenice
+   set bin_nazev=sibe_dos
 
 :: parametry prekladace
    :: debug:    -Wall -Wextra -pedantic -g
@@ -60,11 +60,11 @@ echo.
    gcc %cc_param% -c *.c
    cd ..\..
    move %src_dir%\game\*.o %out_dir%
-:: slozka game\ukazatele
-   cd %src_dir%\game\ukazatele
+:: slozka game\game_tui
+   cd %src_dir%\game\game_tui
    gcc %cc_param% -c *.c
    cd ..\..\..
-   move %src_dir%\game\ukazatele\*.o %out_dir%
+   move %src_dir%\game\game_tui\*.o %out_dir%
 :: slozka help
    cd %src_dir%\help
    gcc %cc_param% -c *.c
@@ -75,6 +75,11 @@ echo.
    gcc %cc_param% -c *.c
    cd ..\..
    move %src_dir%\menu\*.o %out_dir%
+:: složka stats
+   cd %src_dir%\stats
+   gcc %cc_param% -c *.c
+   cd ..\..
+   move %src_dir%\stats\*.o %out_dir%
 :: slozka tui
    cd %src_dir%\tui
    gcc %cc_param% -c *.c

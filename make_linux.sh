@@ -60,8 +60,8 @@ echo ''
   cd $src_dir'/game'
   cc -c *.c
   mv *.o $out_dir
-# složka game/ukazatele
-  cd $src_dir'/game/ukazatele'
+# složka game/game_tui
+  cd $src_dir'/game/game_tui'
   cc -c *.c
   mv *.o $out_dir
 # složka help
@@ -70,6 +70,10 @@ echo ''
   mv *.o $out_dir
 # složka menu
   cd $src_dir'/menu'
+  cc -c *.c
+  mv *.o $out_dir
+# složka stats
+  cd $src_dir'/stats'
   cc -c *.c
   mv *.o $out_dir
 # složka tui

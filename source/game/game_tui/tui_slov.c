@@ -1,5 +1,5 @@
 #include "../../globconf.h"
-#include "./ukazatel_slov.h"
+#include "./tui_slov.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -125,7 +125,7 @@ void ukazatelslov_hlaska(char *retezec)
 
 void ukazatelslov_vykresli(void)
 {
-  int pocet_mezer = ((UKAZATELE_SIRKA_BUNKY + 1) * POCET_KOL) - 1;
+  int pocet_mezer = ((UKAZATELE_SIRKA_BUNKY + 1) * ((POCET_KOL < UKAZATELE_MINIMALNI_SIRKA) ? UKAZATELE_MINIMALNI_SIRKA : POCET_KOL)) - 1;
 
   if (nastaveno) {
 

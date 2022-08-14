@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "../../globconf.h"
-#include "../../libs/ansi_format.h"
-#include "./ukazatel_kol.h"
+#include "../../libs/ansi_fmt.h"
+#include "./tui_kolo.h"
 
 
 /* určuje, zda byl modul inicializován */
@@ -91,9 +91,17 @@ void ukazatelkol_vykresli(void) {
       }
 
       putchar('|');
-    
+
     }
-    
+
+    /* když je počet kol menší než minimální šířka TUI prvků, je třeba přidat pravé orámování */
+    if (celkem_kol < UKAZATELE_MINIMALNI_SIRKA) {
+      for (i = ((celkem_kol - 1) * sirka_bunka) - 1; i <= (UKAZATELE_MINIMALNI_SIRKA * sirka_bunka) - celkem_kol + 1; i++) {
+        putchar(' ');
+      }
+      putchar('|');
+    }
+
     putchar('\n');
   }
   else {

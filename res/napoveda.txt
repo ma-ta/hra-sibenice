@@ -12,8 +12,8 @@
                     Vitejte ve hre  S i _ e _ i c e !
 
 
-Cilem  hry  je  v jednotlivych kolech odkryvat tajna slova, jejichz delka
-je zprvu naznacena zastupnymi znaky:  _  (nahrazuji pismena).
+Cilem  hry je v kazdem kole odkryt tajne slovo, jehoz delka je na zacatku
+vyznacena zastupnymi znaky:  _  (nahrazuji pismena).
 
 Kazde  kolo  z celkem 9 zacina s 11 zivoty, ktere pote ubyvaji s chybnymi
 pokusy.  Z  daneho  kola  si odnesete pocet bodu rovnajici se zbyvajicimu
@@ -72,12 +72,12 @@ a uveden jejich vyznam.
          +-----+-----+-----+-----+-----+-----+-----+-----+
          Hadej pismeno (*) > 
                              |
-                             +--> hvezdicku pro dostupne volby
-                                  (nula kdykoli ukonci hru)
+                             +--> hvezdicku pro rychle volby
+                                  (napr. 0 kdykoli ukonci hru)
 
 
 
 -------------------------------------------------------------------------
 
-                                                            Mnoho stesti!
+                                                            Hodne stesti!
                                                    (c) 2022  Martin TABOR

@@ -1,10 +1,10 @@
 /*
- * HLAVIČKOVÝ SOUBOR ansi_format.h
+ * HLAVIČKOVÝ SOUBOR ansi_fmt.h
  * ANSI ESCAPE KÓDY PRO TERMINÁL
  */
 
-#ifndef ANSI_FORMAT_H
-#define ANSI_FORMAT_H
+#ifndef ANSI_FMT_H
+#define ANSI_FMT_H
 
 
 #define CSI  "\033["  /* ANSI escape kód */
@@ -84,4 +84,4 @@
 
 
 #endif
-/* konec souboru ansi_format.h */
+/* konec souboru ansi_fmt.h */

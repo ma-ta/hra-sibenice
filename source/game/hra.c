@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <time.h>
 #include "../globconf.h"
-#include "./ukazatele/ukazatele.h"
+#include "./game_tui/game_tui.h"
 #include "./hra.h"
-#include "../libs/ansi_format.h"
+#include "../libs/ansi_fmt.h"
 #include "../tui/hlavicka.h"
 #include "../help/napoveda.h"
+#include "../stats/stats.h"
 
 
 typedef enum {
@@ -36,15 +38,50 @@ bool nacti_slova(void);
 
 void hra_vysledek(int skore)
 {
-  hlavicka_vykresli();
+  int umisteni = 0;  /* pro uložení pozice z stats_zpracuj_body() */
+
+  /* započítání herního času */
+  stats_zpracuj_cas(true, (skore > 0) ? true : false);
+
+  hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_P);
   puts("\n");
 
   fputs("   >   " HRA_HLASKA_FORMAT, stdout);
+  /* výhra */
   if (skore > 0) {
     printf(HRA_HLASKA_VYHRA, skore);
     fputs(ansi_format(ANSI_RESET), stdout);
-    puts("\n\n\n" HRA_OBR_VYHRA);
+    /* hráč se umístil na jednom z TOP míst */
+    if ((umisteni = stats_zpracuj_body(skore)) > 0) {
+      fputs("\n       ", stdout);
+      if (umisteni == 1)  puts("To je "
+                               ansi_format(ANSI_BLICK)
+                               ansi_format(ANSI_BOLD)
+                               "nejlepsi"
+                               ansi_format(ANSI_RESET)
+                               " dosazeny vysledek !");
+      else                printf("To je "
+                                 ansi_format(ANSI_BOLD)
+                                 "%d. nejlepsi"
+                                 ansi_format(ANSI_RESET)
+                                 " vysledek v poradi !\n", umisteni);
+      puts("\n\n" HRA_OBR_VYHRA);
+      fputs("\n\n       ", stdout);
+      printf(ansi_format(ANSI_BOLD)
+             "Uved sve jmeno do kroniky:  "
+             ansi_format(ANSI_RESET));
+      stats_zadej_jmeno(umisteni);
+      vymaz_obr();
+      stats_vypis(false);
+      return;
+    }
+    /* dosažené skóre není významné */
+    else {
+      printf("\n       (Zatim nejvyssi dosazene skore je %d b...)\n", stats_zjisti_nte_nejbody(1));
+      puts("\n\n" HRA_OBR_VYHRA);
+    }
   }
+  /* prohra */
   else {
     fputs(HRA_HLASKA_PROHRA, stdout);
     fputs(ansi_format(ANSI_RESET), stdout);
@@ -140,7 +177,7 @@ void hra_nastav(int kol, int zivotu) {
     konec();
     exit(1);
   }
-  
+
   ukazatelsibenice_nastav(zbyva_zivotu, celkem_bodu);
   ukazatelkol_nastav(kolo_hry, pocet_kol, UKAZATELE_SIRKA_BUNKY);
   #if (DEBUG == 2)
@@ -157,8 +194,10 @@ void hra_nastav(int kol, int zivotu) {
 int hra_start(void) {
   int bodu_kolo = 0;
 
-  ukazatelslov_hlaska(UKAZATELSLOV_HLASKA);
+  /* začátek měření herního času */
+  stats_zpracuj_cas(false, false);
 
+  ukazatelslov_hlaska(UKAZATELSLOV_HLASKA);
   while (hra_probiha && kolo_hry <= pocet_kol) {
     bodu_kolo = hra_kolo();
 
@@ -170,7 +209,7 @@ int hra_start(void) {
       #if (ZVUKY == 1)
         putchar('\a');
       #endif
-      fputs(ansi_format(ANSI_INVER) "Slovo jsi NEUHADL!" ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
+      fputs(ansi_format(ANSI_INVER) HRA_HLASKA_NEUHODL ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
       cekej_enter();
       vymaz_obr();
       break;
@@ -209,7 +248,7 @@ int hra_kolo(void) {
 
 
   while (hra_probiha) {
-    
+
     vymaz_obr();
     ukazatele_vykresli();
 
@@ -223,7 +262,7 @@ int hra_kolo(void) {
       printf("Hadej pismeno (%c) > ", (char) VOLBA_VOLBY);
       hadany_znak = getchar();
       cekej_enter();  /* vyprázdnění vstupního bufferu */
-      
+
       /* zjištění, zda nejde o vyhrazený znak (zvláštní volbu) */
       switch ((ZVLASTNI_VOLBY) hadany_znak) {
 
@@ -236,7 +275,7 @@ int hra_kolo(void) {
           cekej_enter();
           return (zbyva_zivotu = 0);
         break;
-        
+
         /* zobrazí dostupné volby */
         case VOLBA_VOLBY:
           fputs(">  " ansi_format(ANSI_INVER), stdout);
@@ -256,7 +295,7 @@ int hra_kolo(void) {
           cekej_enter();
           continue;
         break;
-        
+
         /* zobrazí velkou nápovědu */
         case VOLBA_NAPOVEDA:
           napoveda();
@@ -266,13 +305,22 @@ int hra_kolo(void) {
         /* doplní písmeno za cenu určitého počtu bodů */
         case VOLBA_POMOC_ZN:
           /* zatím není implementováno */
+          /*
+          printf(ansi_format(ANSI_INVER) "%c%c%c Napovi znak za cenu %d b." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI
+                 , (int) HRA_VOLBY_ZAVLP[0]
+                 , (char) VOLBA_POMOC_ZN
+                 , (int) HRA_VOLBY_ZAVLP[1]
+                 , HRA_POMOC_ZN_CENA);
+          cekej_enter();
+          continue;
+          */
         break;
-        
+
         default:
           break;
-        
+
       }
-      
+
       /* další zpracování hádaného znaku a vyhodnocení úspěšnosti */
       if (ukazatelpismen_vydej(hadany_znak)) {
         if (ukazatelslov_hadej(hadany_znak) < 1) {
@@ -281,7 +329,7 @@ int hra_kolo(void) {
       }
       else {
         ukazatelslov_hlaska("");
-        fputs(ansi_format(ANSI_INVER) "Tento znak neni k dispozici." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
+        fputs(ansi_format(ANSI_INVER) HRA_ZNAK_NEDOSTUPNY ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
         cekej_enter();  /* čekání na stisk klávesy enter */
       }
     }
@@ -289,7 +337,7 @@ int hra_kolo(void) {
       #if (ZVUKY == 1)
         putchar('\a');
       #endif
-      fputs(ansi_format(ANSI_INVER) "Slovo jsi uhadl!" ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
+      fputs(ansi_format(ANSI_INVER) HRA_HLASKA_UHODL ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
       cekej_enter();  /* čekání na stisk klávesy enter */
       break;
     }
