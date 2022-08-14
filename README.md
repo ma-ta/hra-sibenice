@@ -41,8 +41,8 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 Obrazovka hry:
 
-![Šibenice 0.0.3](/res/screenshots/screenshot_uni.png)
+![Šibenice 0.0.3](/res/screenshots/hra.png)
 
 Obrazovka hry - DOS mód:
 
-![Šibenice 0.0.3 DOS](res/screenshots/screenshot_dos-tabskore.png)
+![Šibenice 0.0.3 DOS](res/screenshots/hra-dos.png)
