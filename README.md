@@ -27,13 +27,11 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 #### Zahrnuté (testované) platformy:
 - MS Windows *(překladač MSVC)*:
-  - Windows 10/11
+  - Windows 11
 - GNU/Linux *(překladač GNU GCC)*:
   - Ubuntu 22.04 (LTS)
-  - Fedora 36
 - DOS *(překladač DJGPP)*:
   - FreeDOS 1.3
-  - DOSBox 0.74-3
   - MS-DOS 6.22
 
 
@@ -47,4 +45,4 @@ Obrazovka hry:
 
 Obrazovka hry - DOS mód:
 
-![Šibenice 0.0.3 DOS](res/screenshots/screenshot_0.0.3_dos-tabskore.png)
+![Šibenice 0.0.3 DOS](res/screenshots/screenshot_dos-tabskore.png)
