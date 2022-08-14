@@ -34,14 +34,14 @@ void hlavicka_vykresli(const char *text1, const char *text2)  {
   /* orámování */
 
   s_pom[0] = UKAZATELE_ORAMOVANI_KRIZENI_ZN;
-  strncat(oramovani, s_pom, sizeof(oramovani));
+  strncat(oramovani, s_pom, sizeof(oramovani) - sizeof(char));
   for (i = 0; i <= (int) (TUI_HLAVICKA_BUNKA_L + TUI_HLAVICKA_BUNKA_P); i++) {
     s_pom[0] = (i == TUI_HLAVICKA_BUNKA_L) ? UKAZATELE_ORAMOVANI_KRIZENI_ZN : UKAZATELE_ORAMOVANI_ZN;
     strncat(oramovani,
             s_pom,
-            sizeof(oramovani));
+            sizeof(oramovani) - sizeof(char));
   }
-  strncat(oramovani, (s_pom[0] = UKAZATELE_ORAMOVANI_KRIZENI_ZN, s_pom), sizeof(oramovani));
+  strncat(oramovani, (s_pom[0] = UKAZATELE_ORAMOVANI_KRIZENI_ZN, s_pom), sizeof(oramovani) - sizeof(char));
 
   /* zpracování levé buňky */
 
