@@ -41,8 +41,12 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 Obrazovka hry:
 
-![Šibenice 0.0.3](/res/screenshots/hra.png)
+![Šibenice 0.0.3 - Hra](/res/screenshots/hra.png)
+
+Herní statistiky:
+
+![Šibenice 0.0.3 - Statistiky](/res/screenshots/kronika.png)
 
 Informace o verzi (MS-DOS 6.22):
 
-![Šibenice 0.0.3 DOS](res/screenshots/prepinace-dos.png)
+![Šibenice 0.0.3 - MS-DOS](res/screenshots/prepinace-dos.png)
