@@ -43,6 +43,6 @@ Obrazovka hry:
 
 ![Šibenice 0.0.3](/res/screenshots/hra.png)
 
-Obrazovka hry (režim DOS):
+Informace o verzi (MS-DOS 6.22):
 
-![Šibenice 0.0.3 DOS](res/screenshots/hra-dos.png)
+![Šibenice 0.0.3 DOS](res/screenshots/prepinace-dos.png)
