@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <time.h>
 #include "../globconf.h"
 #include "./game_tui/game_tui.h"
 #include "./hra.h"
@@ -40,7 +41,7 @@ void hra_vysledek(int skore)
   int umisteni = 0;  /* pro uložení pozice z stats_zpracuj_body() */
 
   /* započítání herního času */
-  stats_zpracuj_cas(true);
+  stats_zpracuj_cas(true, (skore > 0) ? true : false);
 
   hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_P);
   puts("\n");
@@ -52,18 +53,21 @@ void hra_vysledek(int skore)
     fputs(ansi_format(ANSI_RESET), stdout);
     /* hráč se umístil na jednom z TOP míst */
     if ((umisteni = stats_zpracuj_body(skore)) > 0) {
-      fputs("\n       " HRA_HLASKA_FORMAT, stdout);
-      if (umisteni == 1)  puts("To je zatim nejlepsi vysledek hry !");
+      fputs("\n       ", stdout);
+      if (umisteni == 1)  puts("To je "
+                               ansi_format(ANSI_BLICK)
+                               ansi_format(ANSI_BOLD)
+                               "nejlepsi"
+                               ansi_format(ANSI_RESET)
+                               " dosazeny vysledek !");
       else                printf("To je "
                                  ansi_format(ANSI_BOLD)
                                  "%d. nejlepsi"
                                  ansi_format(ANSI_RESET)
-                                 HRA_HLASKA_FORMAT
                                  " vysledek v poradi !\n", umisteni);
-      fputs(ansi_format(ANSI_RESET), stdout);
       puts("\n\n" HRA_OBR_VYHRA);
       fputs("\n\n       ", stdout);
-      printf(ansi_format(ANSI_BLICK)
+      printf(ansi_format(ANSI_BOLD)
              "Uved sve jmeno do kroniky:  "
              ansi_format(ANSI_RESET));
       stats_zadej_jmeno(umisteni);
@@ -191,7 +195,7 @@ int hra_start(void) {
   int bodu_kolo = 0;
 
   /* začátek měření herního času */
-  stats_zpracuj_cas(false);
+  stats_zpracuj_cas(false, false);
 
   ukazatelslov_hlaska(UKAZATELSLOV_HLASKA);
   while (hra_probiha && kolo_hry <= pocet_kol) {

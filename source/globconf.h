@@ -98,11 +98,14 @@
 #endif
 #define ZVUKY         1   /* zapne vkládání znaku '\a' */
 
-#define POCET_KOL     1   /* celkový počet kol hry (hádaných slov) */
+#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
 #define MAX_SKORE     ((POCET_KOL) * (POCET_ZIVOTU))
 
 #define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
+
+#define PROMPT_ENTER_NAVRAT  "(Enter pro navrat...)"
+#define PROMPT_ENTER_POKRAC  "(Enter pro pokracovani...)"
 
 /* argumenty příkazové řádky */
 
@@ -140,7 +143,7 @@
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
                       "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu DOS"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
-                       "Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win/DOS)."
+                       "Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win a DOS)."
 
 #define arg_hlp_text()  printf("Pouziti: %s [PREPINAC]\n" ARG_HLP_TEXT "\n", argv[0])
 
@@ -174,7 +177,7 @@
 
 #define TUI_HLAVICKA_TXT_L       "(c) 2022  Freeware"  /* text v levé dolní buňce */
 #define TUI_HLAVICKA_TXT_P       "v" VERZE             /* text v pravé dolní buňce */
-#define TUI_HLAVICKA_TXT_KONEC   "Na videnou"  /* (sudý počet zn. pro zarovnání na střed) */
+#define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
 #define TUI_HLAVICKA_BUNKA_L     26  /* šířka levé dolní buňky */
 #define TUI_HLAVICKA_BUNKA_P     26  /* šířka pravé dolní buňky */
 #define ERR_TUI_HLAVICKA_ZAROV   "Text v hlavicce nelze zarovnat na stred (+/- zn.)..."
@@ -203,8 +206,8 @@
 #define MENU_ZADEJ              "Zadej cislo polozky"
 #define MENU_ZADEJ_ERR          "Pouze cisla mezi %d a %d!"
 
- /* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
-#define DOBA_INFO  ">>>>------>  Cas hrani :  %02d h %02d min %02d s  <------<<<<"  \
+/* (strlen(DOBA_INFO) == MENU_SIRKA == šířka hlavičky == 55 zn.) */
+#define DOBA_INFO  ">>>>----->  Jsi starsi o:  %02d h %02d min %02d s  <-----<<<<"  \
                    , p_tmcas->tm_hour, p_tmcas->tm_min, p_tmcas->tm_sec
 
 /* ukazatele */
@@ -240,14 +243,14 @@
 
 /* ukazatel slov */
 
-#define UKAZATELSLOV_DELKA_MAX   31
-#define UKAZATELSLOV_MASKA       '_'
-#define UKAZATELSLOV_PRESKOCIT   " "  ","  "."  "?"  "!"  "-"  ";"  "%%"  "'"  "\""
-#define UKAZATELSLOV_HLASKA_MAX  (UKAZATELE_SIRKA_BUNKY * 2)
+#define UKAZATELSLOV_DELKA_MAX       31
+#define UKAZATELSLOV_MASKA           '_'
+#define UKAZATELSLOV_PRESKOCIT       " "  ","  "."  "?"  "!"  "-"  ";"  "%%"  "'"  "\""
+#define UKAZATELSLOV_HLASKA_MAX      (UKAZATELE_SIRKA_BUNKY * 2)
 /* hlášky do pravého okénka (lichý počet znaků pro správné zarovnání!) */
-#define UKAZATELSLOV_HLASKA      "* Vitej *"
-#define UKAZATELSLOV_HLASKY_ANO  "VYBORNE", "BRAVO", "HEJ RUP", "TREFA", "ZASAH"
-#define UKAZATELSLOV_HLASKY_NE   "TUDY NE", "NE NE", "AU!", "TO BOLELO", "VEDLE"
+#define UKAZATELSLOV_HLASKA          "* Vitej *"
+#define UKAZATELSLOV_HLASKY_ANO      "VYBORNE", "BRAVO", "HEJ RUP", "TREFA", "ZASAH"
+#define UKAZATELSLOV_HLASKY_NE       "TUDY NE", "NE NE", "AU!", "TO BOLELO", "VEDLE"
 
 /* ukazatel šibenice */
 
@@ -312,7 +315,9 @@
 
 /* statistiky */
 
-#define STATS_PRAVOST_KOD  202208  /* tajné číslo pro kontrolní součet */
+#define STATS_TAJNE_HESLO  "TajneHeslo"  /* konstanta pro editaci statistik a ověření souboru */
+#define STATS_VYCHOZI_JMN  "Ma-TA"  /* výchozí nejlepší hráč */
+#define STATS_VYCHOZI_B    50       /* výchozí nejlepší skóre */
 #define STATS_JMENO_STRLN  43  /* maximální délka jména */
 #define STATS_POCET_HRACU  5   /* počet uchovávaných pořadí */
 #define STATS_PRAVOST_ZAP  0   /* zapíná a vypíná kontrolní součet */

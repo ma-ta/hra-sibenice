@@ -49,7 +49,7 @@ void napoveda(void)
       /* zobrazí výzvu ke stisknutí enteru */
       printf("\n"
              ansi_format(ANSI_INVER)
-             "(Enter pro pokracovani...)"
+             PROMPT_ENTER_POKRAC
              ansi_format(ANSI_RESET));
       cekej_enter();
       cislo_strany++;
@@ -77,7 +77,7 @@ void napoveda(void)
     f_napoveda = NULL;
   }
 
-  fputs(ansi_format(ANSI_INVER) "\n(Enter pro navrat...)" ansi_format(ANSI_RESET)
+  fputs(ansi_format(ANSI_INVER) "\n" PROMPT_ENTER_NAVRAT ansi_format(ANSI_RESET)
         , stdout);
   /* čekání na stisk klávesy enter */
   cekej_enter();

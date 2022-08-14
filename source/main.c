@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
         break;
 
       case MENU_STATS:
+        vymaz_obr();
         stats_vypis(false);
         break;
 

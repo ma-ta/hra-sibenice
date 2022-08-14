@@ -40,17 +40,19 @@ void stats_zadej_jmeno(int pozice);
    konec:
      false: začátek měření
      true : konec měření
+   uloz_nej:
+     true:  porovná s nejkratším časem
    vrací:
      -1 = statistiky nejsou nastaveny
       0 = není zajímavé / začátek měření
-      1 = zatím nejdelší herní čas */
-int stats_zpracuj_cas(bool konec);
+      1 = zatím nejkratší herní čas */
+int stats_zpracuj_cas(bool konec, bool uloz_nej);
 
 /* vrátí čas poslední změny
    ve statistikách */
 time_t stats_zjisti_poslednizmenu(void);
 
-/* vrátí nejdelší herní čas
+/* vrátí nejkratší herní čas
    prostřednictvím parametrů
    návratová hodnota 0 - žádná data */
 time_t stats_zjisti_nejcas(int *h, int *min, int *s);
