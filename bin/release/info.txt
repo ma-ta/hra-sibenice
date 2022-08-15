@@ -25,20 +25,20 @@ slova jsou tedy zobrazena bez háčků a bez čárek!
 Obsah aktuální složky:
 
 DATA/
-  dict_cze.dat      - slovník 1000 náhodných českých slov
-  help_cze.dat      - zdrojový soubor nápovědy pro aplikaci
-  pict_sib.dat      - zdrojový soubor ascii-artu šibenice
-  (stat_bin.dat)    - datový soubor pro uložení statistik
-  stat_obr.dat      - zdrojový soubor obrazovky statistik
+  dict_cze.dat       - slovník 1000 náhodných českých slov
+  help_cze.dat       - zdrojový soubor nápovědy pro aplikaci
+  pict_sib.dat       - zdrojový soubor ascii-artu šibenice
+  (stat_bin.dat)     - datový soubor pro uložení statistik
+  stat_obr.dat       - zdrojový soubor obrazovky statistik
 
 DOS/
   (do složky DOS je třeba zkopírovat složku DATA)
-  cwsdpmi.exe       - knihovna nezbytná pro běh v MS-DOS
-  sibe_dos.exe      - spustitelný soubor pro platformy DOS
+  cwsdpmi.exe        - knihovna nezbytná pro běh v MS-DOS
+  sibe_dos.exe       - spustitelný soubor pro platformy DOS
 
 ./
-help.txt            - kompletní nápověda ke hře
-info.txt            - (tento) soubor s rychlými instrukcemi
-sibenice_ubuntu2204 - platforma GNU/Linux
-sibenice_win32.exe  - platforma Windows (32-bit, x86)
-sibenice_win64.exe  - platforma Windows (64-bit, x86-64)
+help.txt             - kompletní nápověda ke hře
+info.txt             - (tento) soubor s rychlými instrukcemi
+sibenice_ubuntu2204  - platforma GNU/Linux
+sibenice_win32.exe   - platforma Windows (32-bit, x86)
+sibenice_win64.exe   - platforma Windows (64-bit, x86-64)
