@@ -1,12 +1,14 @@
 @echo off
 
+:: Nutno spustit v prostredi Developer Command Prompt
+
 ::::::::::::::::::::::::::::::::::::::::
 ::                                    ::
 ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
-::  (BATCH\WINDOWS)                   ::
+::  (WINDOWS/BATCH/MSVC)              ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2022-07-18                ::
+::  datum:  2022-08-15                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -20,9 +22,9 @@
    set bin_nazev=sibenice_win
 
 :: parametry prekladace
-   :: debug:    /Wall /D_CRT_SECURE_NO_WARNINGS
-   :: release:  /D_CRT_SECURE_NO_WARNINGS
-   set cc_param=/Wall /D_CRT_SECURE_NO_WARNINGS
+   :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
+   :: release:  /D_CRT_SECURE_NO_WARNINGS /Qspectre
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
 
 :: korenovy adresar se zdrojovymi kody
    set src_dir=.\source
@@ -88,7 +90,7 @@ echo.
 
 :: sestaveni spustitelneho souboru
    cd %out_dir%
-   cl /Fe%bin_nazev%.exe *.obj
+   cl %cc_param% /Fe%bin_nazev%.exe *.obj
    del *.obj
    cd ..
 

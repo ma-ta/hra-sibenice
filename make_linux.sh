@@ -3,7 +3,7 @@
 ######################################
 #                                    #
 #  SKRIPT NA SESTAVENÍ HRY ŠIBENICE  #
-#  (BASH/LINUX)                      #
+#  (LINUX/BASH/GCC+Clang             #
 #                                    #
 #  autor:  Martin TÁBOR (Ma-TA)      #
 #  datum:  2022-07-18                #
