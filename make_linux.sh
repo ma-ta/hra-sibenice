@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Nutno zmenit ukoncovani radku jen na LF
+
 ######################################
 #                                    #
 #  SKRIPT NA SESTAVENÍ HRY ŠIBENICE  #
