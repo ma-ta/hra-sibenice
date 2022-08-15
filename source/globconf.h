@@ -78,7 +78,7 @@
 #define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
 
 #define NAZEV  "Hra Sibenice"
-#define VERZE  "0.0.3"
+#define VERZE  "0.0.4"
 #define AUTOR  "Martin TABOR (alias Ma-TA)"
 #define WEB    "github.com/ma-ta"
 
