@@ -134,10 +134,13 @@ bool stats_nastav(void)
 
     /* soubor se statistikami se nepodařilo otevřít */
     if ((f_stats = fopen(STATISTIKY_SOUBOR, "rb")) == NULL) {
-      fprintf(stderr,
-              ERR_SIGN "Soubor se statistikami nenalezen...\n"
-              "    (%s)\n\n",
-              STATISTIKY_SOUBOR);
+      /* potlačení chybového výstupu (kvůli prvnímu spuštění programu) */
+      #if DEBUG > 0
+        fprintf(stderr,
+                ERR_SIGN "Soubor se statistikami nenalezen...\n"
+                "    (%s)\n\n",
+                STATISTIKY_SOUBOR);
+      #endif
       /* nastavení datových položek statistik na nulové hodnoty */
       stats_vynuluj();
       nastaveno = nahraj_sablonu();  /* pokud se nenačte šablona, nelze modul použít */

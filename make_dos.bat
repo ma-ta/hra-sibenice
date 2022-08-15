@@ -3,7 +3,7 @@
 ::::::::::::::::::::::::::::::::::::::::
 ::                                    ::
 ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
-::  (BATCH\DOS)                       ::
+::  (DOS/BATCH/DJGPP)                 ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
 ::  datum:  2022-07-18                ::
@@ -88,7 +88,7 @@ echo.
 
 :: sestaveni spustitelneho souboru
    cd %out_dir%
-   gcc *.o -o %bin_nazev%.exe
+   gcc %cc_param% -o %bin_nazev%.exe *.o
    del *.o
    cd ..
 
