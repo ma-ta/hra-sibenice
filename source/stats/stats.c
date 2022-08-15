@@ -474,6 +474,7 @@ bool stats_vypis(bool jednoduchy_vypis)
     /* zjednodušený výpis */
 
     if (jednoduchy_vypis || stats_obr_sablona == NULL) {
+
       puts("Nejvyssi dosazena skore:\n");
 
       for (i = 1; i <= STATS_POCET_HRACU; i++) {
@@ -489,7 +490,7 @@ bool stats_vypis(bool jednoduchy_vypis)
 
       puts("\nHerni casy:\n");
 
-      printf("Nejdelsi hra           :   %02d h  %02d min  %02d s\n"
+      printf("Nejrychlejsi vyhra     :   %02d h  %02d min  %02d s\n"
              , h_nej, min_nej, s_nej);
       printf("Celkova odehrata doba  :  %03d h  %02d min  %02d s\n"
              , h_celk, min_celk, s_celk);

@@ -134,6 +134,8 @@ void zpracuj_argumenty(int argc, char *argv[])
       char s_cas[100] = "";
       time_t cas = time(NULL);
       p_tmcas = localtime(&cas);
+
+      vymaz_obr();
       sprintf(s_cas, "%02d.%02d.%d %02d:%02d"
                      , p_tmcas->tm_mday, p_tmcas->tm_mon + 1, p_tmcas->tm_year + 1900
                      , p_tmcas->tm_hour, p_tmcas->tm_min);
