@@ -1,0 +1,44 @@
++-----------------------------------------------------+
+|                                                     |
+|         Ma-TA {}       H R A                        |
+|            games            S I _ E _ I C E         |
+|                                                     |
++--------------------------+--------------------------+
+|    (c) 2022  Freeware    |          v0.0.3          |
++--------------------------+--------------------------+
+
+                     V í t e j t e
+
+
+Aktuální složka obsahuje spustitelné soubory hry Šibenice.
+Podsložka DATA je nezbytná pro správný běh aplikace a pro
+ukládání herních statistik.
+
+Ke spuštění tedy stačí „poklikat“ na binární soubor odpovídající
+vaší platformě. Pakliže nezasáhne např. antivirová ochrana,
+hra se následně otevře v okně příkazového řádku.
+
+V současné době hra nepodporuje českou diakritiku a hádaná
+slova jsou tedy zobrazena bez háčků a bez čárek!
+
+
+Obsah aktuální složky:
+
+DATA/
+  dict_cze.dat      - slovník 1000 náhodných českých slov
+  help_cze.dat      - zdrojový soubor nápovědy pro aplikaci
+  pict_sib.dat      - zdrojový soubor ascii-artu šibenice
+  (stat_bin.dat)    - datový soubor pro uložení statistik
+  stat_obr.dat      - zdrojový soubor obrazovky statistik
+
+DOS/
+  (do složky DOS je třeba zkopírovat složku DATA)
+  cwsdpmi.exe       - knihovna nezbytná pro běh v MS-DOS
+  sibe_dos.exe      - spustitelný soubor pro platformy DOS
+
+./
+help.txt            - kompletní nápověda ke hře
+info.txt            - (tento) soubor s rychlými instrukcemi
+sibenice_ubuntu2204 - platforma GNU/Linux
+sibenice_win32.exe  - platforma Windows (32-bit, x86)
+sibenice_win64.exe  - platforma Windows (64-bit, x86-64)
