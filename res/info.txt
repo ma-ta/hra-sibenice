@@ -1,24 +1,24 @@
-+-----------------------------------------------------+
-|                                                     |
-|         Ma-TA {}       H R A                        |
-|            games            S I _ E _ I C E         |
-|                                                     |
-+--------------------------+--------------------------+
-|    (c) 2022  Freeware    |          v0.0.4          |
-+--------------------------+--------------------------+
-                     V i t e j t e
+        +-----------------------------------------------------+
+        |                                                     |
+        |         Ma-TA {}       H R A                        |
+        |            games            S I _ E _ I C E         |
+        |                                                     |
+        +--------------------------+--------------------------+
+        |    (c) 2022  Freeware    |          v0.0.4          |
+        +--------------------------+--------------------------+
+
+                             V i t e j t e
 
 
-Aktualni slozka obsahuje spustitelne soubory hry Sibenice.
-Podslozka DATA je nezbytna pro sprvany beh aplikace a pro
-ukladani hernich statistik.
+Aktualni  slozka  obsahuje  spustitelne  soubory hry. Podslozka DATA je
+nezbytna pro sprvany beh aplikace a pro ukladani hernich statistik.
 
-Ke spusteni tedy staci "poklikat" na binarni soubor odpovidajici
-vasi platforme. Paklize nezasahne napr. antivirova ochrana, hra
-se nasledne otevre v okne prikazoveho radku.
+Ke  spusteni  tedy staci "poklikat" na binarni soubor odpovidajici vasi
+platforme.  Paklize nezasahne napr. antivirova ochrana, hra se nasledne
+otevre v okne prikazoveho radku.
 
-V soucasne dobe hra nepodporuje ceskou diakritiku a hadana slova
-jsou tedy zobrazena bez hacku a bez carek!
+V  soucasne  dobe hra nepodporuje ceskou diakritiku a hadana slova jsou
+tedy zobrazena bez hacku a bez carek!
 
 
 Obsah aktualni slozky:
