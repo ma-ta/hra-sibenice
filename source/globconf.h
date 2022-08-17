@@ -82,13 +82,13 @@
 #define AUTOR  "Martin TABOR (alias Ma-TA)"
 #define WEB    "github.com/ma-ta"
 
-/* volitelné externí soubory */
-#define UKAZATELSIBENICE_SOUBOR   "./data/pict_sib.dat"  /* šablona pro šibenici */
-#define NAPOVEDA_SOUBOR           "./data/help_cze.dat"  /* česká nápověda */
-#define STATISTIKY_SOUBOR         "./data/stat_bin.dat"  /* datový soubor statistik */
-#define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_obr.dat"  /* šablona obrazovky statistik */
-/* nezbytné externí soubory */
-#define HRA_SLOVA_SOUBOR         "./data/dict_cze.dat"
+/* externí soubory */
+#define HRA_SLOVA_SOUBOR          "./data/game_cze.dat"  /* seznam slov k hádání        (textový) */
+#define UKAZATELSIBENICE_SOUBOR   "./data/game_sib.dat"  /* šablona s obrázky šibenice  (textový) */
+#define NAPOVEDA_SOUBOR           "./data/help_cze.dat"  /* šablona české nápovědy      (textový) */
+#define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_obr.dat"  /* šablona obrazovky statistik (textový) */
+#define STATISTIKY_SOUBOR         "./data/stat_bin.dat"  /* datový soubor statistik     (binární) */
+
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
 #define ANSI_FORMAT   1   /* zapne formátování ESC sekvencemi */

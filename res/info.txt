@@ -6,7 +6,6 @@
 +--------------------------+--------------------------+
 |    (c) 2022  Freeware    |          v0.0.4          |
 +--------------------------+--------------------------+
-
                      V i t e j t e
 
 
@@ -15,30 +14,31 @@ Podslozka DATA je nezbytna pro sprvany beh aplikace a pro
 ukladani hernich statistik.
 
 Ke spusteni tedy staci "poklikat" na binarni soubor odpovidajici
-vasi platforme. Paklize nezasahne napr. antivirova ochrana,
-hra se nasledne otevre v okne prikazoveho radku.
+vasi platforme. Paklize nezasahne napr. antivirova ochrana, hra
+se nasledne otevre v okne prikazoveho radku.
 
-V soucasne dobe hra nepodporuje ceskou diakritiku a hadana
-slova jsou tedy zobrazena bez hacku a bez carek!
+V soucasne dobe hra nepodporuje ceskou diakritiku a hadana slova
+jsou tedy zobrazena bez hacku a bez carek!
 
 
 Obsah aktualni slozky:
 
 DATA/
-  dict_cze.dat       - slovnik 1000 nahodnych ceskych slov
-  help_cze.dat       - zdrojovy soubor napovedy pro aplikaci
-  pict_sib.dat       - zdrojovy soubor ascii-artu sibenice
-  (stat_bin.dat)     - datovy soubor pro ulozeni statistik
-  stat_obr.dat       - zdrojovy soubor obrazovky statistik
+  game_cze.dat       - slovnik 1000 nahodnych ceskych slov    (textovy)
+  game_sib.dat       - zdrojovy soubor ascii-artu sibenice    (textovy)
+  help_cze.dat       - zdrojovy soubor napovedy pro aplikaci  (textovy)
+  (stat_bin.dat)     - datovy soubor pro ulozeni statistik    (binarni)
+                       (vytvoren az po prvnim spusteni hry)
+  stat_obr.dat       - zdrojovy soubor obrazovky statistik    (textovy)
 
 DOS/
   (do slozky DOS je treba zkopirovat slozku DATA)
-  cwsdpmi.exe        - knihovna nezbytna pro beh v MS-DOS
-  sibe_dos.exe       - spustitelny soubor pro platformy DOS
+  cwsdpmi.exe        - knihovna nezbytna pro beh v MS-DOS     (binarni)
+  sibe_dos.exe       - spustitelny soubor pro platformy DOS   (binarni)
 
 ./
-help.txt             - kompletni napoveda ke hre
-info.txt             - (tento) soubor s rychlymi instrukcemi
-sibenice_ubuntu2204  - platforma GNU/Linux
-sibenice_win32.exe   - platforma Windows (32-bit, x86)
-sibenice_win64.exe   - platforma Windows (64-bit, x86-64)
+help.txt             - kompletni napoveda ke hre              (textovy)
+info.txt             - (tento) soubor s rychlymi instrukcemi  (textovy)
+sibenice_ubuntu2204  - platforma GNU/Linux                    (program)
+sibenice_win32.exe   - platforma Windows (32-bit, x86)        (program)
+sibenice_win64.exe   - platforma Windows (64-bit, x86-64)     (program)
