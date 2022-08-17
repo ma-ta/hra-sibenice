@@ -1,3 +1,13 @@
+/*
+ *  Modul herních statistik
+ *
+ *  Zajišťuje načítání, aktualizaci a ukládání herních statistik do souboru.
+ *  Rovněž vypisuje obrazovku "Herní kronika" a poskytuje znednodušený
+ *  výstup do terminálu pomocí přepínače -s.
+ *
+ */
+
+
 #ifndef STATS_H
 #define STATS_H
 

@@ -1,3 +1,15 @@
+/*
+ *  Zdrojový soubor hry Šibenice se vstupní funkcí main()
+ *
+ *  Zajišťuje:
+ *  - vykreslení a obsluhu hlavního menu
+ *  - zpracování argumentů příkazové řádky
+ *  - akce vykonávané před ukončením programu
+ *    (uvolnění dynamické paměti, uložení dat atd.)
+ *
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

@@ -1,7 +1,11 @@
 /*
- * HLAVIČKOVÝ SOUBOR ansi_fmt.h
- * ANSI ESCAPE KÓDY PRO TERMINÁL
+ *  ANSI ESCAPE KÓDY PRO TERMINÁL
+ *
+ *  V terminálových emulátorech s podporou ANSI sekvencí
+ *  umožňuje formátování textu, navigaci kurzoru apod.
+ *
  */
+
 
 #ifndef ANSI_FMT_H
 #define ANSI_FMT_H

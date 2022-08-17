@@ -1,3 +1,10 @@
+/*
+ *  Vypisuje hlavičku s logem hry a dvěma políčky
+ *  s nastavitelným textem
+ *
+ */
+
+
 #ifndef HLAVICKA_H
 #define HLAVICKA_H
 

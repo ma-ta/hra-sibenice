@@ -1,7 +1,10 @@
 /*
- * hlavičkový soubor s globálními
- * konfiguračními konstantami
+ *  Hlavní globální konfigurační soubor obsahující
+ *  symbolické konstanty a makra používané napříč
+ *  všemi moduly
+ *
  */
+
 
 #ifndef KONFIGURACE_H
 #define KONFIGURACE_H
