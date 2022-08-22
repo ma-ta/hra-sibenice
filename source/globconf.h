@@ -103,7 +103,7 @@
 #endif
 #define ZVUKY         1   /* zapne vkládání znaku '\a' */
 
-#define POCET_KOL     2   /* celkový počet kol hry (hádaných slov) */
+#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
 #define MAX_SKORE     ((POCET_KOL) * (POCET_ZIVOTU))
 
