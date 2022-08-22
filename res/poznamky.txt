@@ -1,4 +1,6 @@
+------------
 ZNÁMÉ CHYBY:
+------------
 
 1) nefunkční hledání písmene 'CH' pomocí kódu v souboru:
    ukazatel_slov.c -> int ukazatelslov_hadej(int znak);
@@ -10,8 +12,9 @@ ZNÁMÉ CHYBY:
    písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
 
+----------------------
 NÁPADY NA DALŠÍ VÝVOJ:
-
+----------------------
 
 1) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
    - definice skupinových znaků se načítají ze souboru se slovníkem
@@ -37,9 +40,9 @@ NÁPADY NA DALŠÍ VÝVOJ:
 7) distribuce hry v linuxových repozitářích, MS Store, FreeDOS apod.
 
 
-hotovo:
+Hotovo:
 
-4) [v0.0.4]
+4) [v0.0.4]  (!)
    nelze načíst externí soubory, pakliže je program spuštěn z
    jiného adresáře než se nachází binárka s hrou
    => vyřešeno funkcí prepni_adresar() v main.c
