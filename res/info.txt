@@ -24,21 +24,21 @@ tedy zobrazena bez hacku a bez carek!
 Obsah aktualni slozky:
 
 DATA/
-  dict_cze.dat       - slovnik 1000 nahodnych ceskych slov    (textovy)
-  game_sib.dat       - zdrojovy soubor ascii-artu sibenice    (textovy)
-  help_cze.dat       - zdrojovy soubor napovedy pro aplikaci  (textovy)
-  (stat_dat.bin)     - datovy soubor pro ulozeni statistik    (binarni)
-                       (vytvoren az po prvnim spusteni hry)
-  stat_scr.dat       - zdrojovy soubor obrazovky statistik    (textovy)
+ dict_cze.dat         - slovnik 1000 nahodnych ceskych slov    (textovy)
+ game_sib.dat         - zdrojovy soubor ascii-artu sibenice    (textovy)
+ help_cze.dat         - zdrojovy soubor napovedy pro aplikaci  (textovy)
+ (stat_dat.bin)       - datovy soubor pro ulozeni statistik    (binarni)
+                        (vytvoren az po prvnim spusteni hry)
+ stat_scr.dat         - zdrojovy soubor obrazovky statistik    (textovy)
 
 DOS/
-  (do slozky DOS je treba zkopirovat slozku DATA)
-  cwsdpmi.exe        - knihovna nezbytna pro beh v MS-DOS     (binarni)
-  sibe_dos.exe       - spustitelny soubor pro platformy DOS   (binarni)
+ (do slozky DOS je treba zkopirovat slozku DATA)
+ cwsdpmi.exe          - knihovna nezbytna pro beh v MS-DOS     (binarni)
+ sibe_dos.exe         - spustitelny soubor pro platformy DOS   (binarni)
 
 ./
-help.txt             - kompletni napoveda ke hre              (textovy)
-info.txt             - (tento) soubor s rychlymi instrukcemi  (textovy)
-sibenice_ubuntu2204  - platforma GNU/Linux                    (program)
-sibenice_win32.exe   - platforma Windows (32-bit, x86)        (program)
-sibenice_win64.exe   - platforma Windows (64-bit, x86-64)     (program)
+ help.txt             - kompletni napoveda ke hre              (textovy)
+ info.txt             - (tento) soubor s rychlymi instrukcemi  (textovy)
+ sibenice_ubuntu2204  - platforma GNU/Linux                    (program)
+ sibenice_win32.exe   - platforma Windows (32-bit, x86)        (program)
+ sibenice_win64.exe   - platforma Windows (64-bit, x86-64)     (program)
