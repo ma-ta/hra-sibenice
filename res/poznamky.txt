@@ -12,6 +12,14 @@ ZNÁMÉ CHYBY:
    písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
 
+Hotovo:
+
+1) [v0.0.4]
+   nelze načíst externí soubory, pakliže je program spuštěn z
+   jiného adresáře než se nachází binárka s hrou
+   => vyřešeno funkcí prepni_adresar() v main.c
+
+
 ----------------------
 NÁPADY NA DALŠÍ VÝVOJ:
 ----------------------
@@ -41,11 +49,6 @@ NÁPADY NA DALŠÍ VÝVOJ:
 
 
 Hotovo:
-
-4) [v0.0.4]  (!)
-   nelze načíst externí soubory, pakliže je program spuštěn z
-   jiného adresáře než se nachází binárka s hrou
-   => vyřešeno funkcí prepni_adresar() v main.c
 
 3) [v0.0.3]
    přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
