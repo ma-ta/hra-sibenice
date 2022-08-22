@@ -24,12 +24,12 @@ tedy zobrazena bez hacku a bez carek!
 Obsah aktualni slozky:
 
 DATA/
-  game_cze.dat       - slovnik 1000 nahodnych ceskych slov    (textovy)
+  dict_cze.dat       - slovnik 1000 nahodnych ceskych slov    (textovy)
   game_sib.dat       - zdrojovy soubor ascii-artu sibenice    (textovy)
   help_cze.dat       - zdrojovy soubor napovedy pro aplikaci  (textovy)
-  (stat_bin.dat)     - datovy soubor pro ulozeni statistik    (binarni)
+  (stat_dat.bin)     - datovy soubor pro ulozeni statistik    (binarni)
                        (vytvoren az po prvnim spusteni hry)
-  stat_obr.dat       - zdrojovy soubor obrazovky statistik    (textovy)
+  stat_scr.dat       - zdrojovy soubor obrazovky statistik    (textovy)
 
 DOS/
   (do slozky DOS je treba zkopirovat slozku DATA)

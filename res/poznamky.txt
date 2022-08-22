@@ -9,9 +9,6 @@ ZNÁMÉ CHYBY:
    (hra se buď ukončuje brzy nebo je potřeba nadbytečné stlačení
    písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
-2) nelze načíst externí soubory, pakliže je program spuštěn z
-   jiného adresáře než se nachází binárka s hrou
-
 
 NÁPADY NA DALŠÍ VÝVOJ:
 
@@ -42,8 +39,12 @@ NÁPADY NA DALŠÍ VÝVOJ:
 
 hotovo:
 
+4) [v0.0.4]
+   nelze načíst externí soubory, pakliže je program spuštěn z
+   jiného adresáře než se nachází binárka s hrou
+   => vyřešeno funkcí prepni_adresar() v main.c
 
-1) [v0.0.3]
+3) [v0.0.3]
    přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
    her se budou ukládat spolu se jménem hráče / zobrazení statistik,
    výsledku poslední hry apod. na obrazovce s hlavním menu
@@ -52,5 +53,5 @@ hotovo:
    možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
    a vrátit se zpět do hry)
 
-3) [v0.0.2]
+1) [v0.0.2]
    funkce nápovědy během hádání slov (např. za cenu jednoho života)

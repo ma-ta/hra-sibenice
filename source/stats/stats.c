@@ -36,15 +36,15 @@
 /* dynamické pole pro načtění šablony info obrazovky */
 static char *stats_obr_sablona = NULL;
 static size_t stats_obr_sablona_size = 0;
-/* datový soubor se statistikami */
-static FILE *f_stats = NULL;
 /* informuje, zda je modul inicializovaný */
 static bool nastaveno = false;
 /* informuje, zda se podařilo načíst statistiky ze souboru */
 static bool nacteno = false;
 /* informuje, zda je datová struktura statistik prázdná nebo ne */
 static bool data = false;
-/* STRUKTURA DATOVÉHO SOUBORU SE STATISTIKAMI */
+/* datový soubor se statistikami */
+static FILE *f_stats = NULL;
+/* STRUKTURA BINÁRNÍHO SOUBORU SE STATISTIKAMI */
 /*
  * *********************************************************************************
  *   OFFSET                                    |  POPIS

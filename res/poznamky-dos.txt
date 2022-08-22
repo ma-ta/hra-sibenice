@@ -6,4 +6,4 @@ NUTNÉ ZMĚNY PRO KOMPATIBILITU S (FREE)DOSEM:
               nebo vykreslit šibenici samostatně po každém chybném pokusu apod.
        - [ok] obdobně je třeba zkrátit vypisovaný počet řádek u nápovědy
        - [  ] ve FreeDOS z nějakého důvodu nefunguje ansi_fmt - opravit či vypnout
-              (prozatím vypnuto)
+              (prozatím vypnuto) => prozkoumat možnosti knihovny ansi.sys

@@ -3,7 +3,13 @@
 +--------+------------+
 
 
+OPRAVENÉ CHYBY:
 
+1) otevírání souborů pomocí relativních cest
+   při spuštění hry z jiného adresáře
+
+
+NOVINKY:
 
 
 +--------+------------+

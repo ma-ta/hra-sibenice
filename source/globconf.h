@@ -10,34 +10,36 @@
 #define KONFIGURACE_H
 
 /* stringifikace maker */
-#define xstr(a)  str(a)
 #define str(a)   #a
+#define xstr(a)  str(a)
 /* vrátí počet prvků pole */
 #define arrlen(arr)  ((int) (sizeof(arr) / sizeof(arr[0])))
 
 #include <stdbool.h>
 
-/* detekce vývojového prostředí */
-#if defined(__MSDOS__)
-  #define OS_DOS
-#endif
-
+/* detekce operačního systému */
 #ifndef OSNAME
-  #if defined(__linux__) || defined(__APPLE__)
-    #ifdef __APPLE__
-      #define OSNAME  "macOS"
-    #else
-      #define OSNAME  "Linux"
-    #endif
+  #if defined(__MSDOS__)
+    #define OSNAME  "DOS"
+    #define OS_DOS
   #elif defined(_WIN32) || defined(_WIN64)
     #define OSNAME  "Windows"
-  #elif defined(__MSDOS__)
-    #define OSNAME  "DOS"
+    #define OS_WIN
+  #elif defined(__APPLE__)
+    #define OSNAME  "macOS"
+    #define OS_UNIX
+  #elif defined(__linux__)
+    #define OSNAME  "Linux"
+    #define OS_UNIX
+  #elif defined(__unix__)
+    #define OSNAME  "Un*x"
+    #define OS_UNIX
   #else
     #define OSNAME  "?"
   #endif
 #endif
 
+/* detekce překladače */
 #ifndef CCNAME
   #if defined(_MSC_VER)
     #define CCNAME  "MSVC"
@@ -86,11 +88,11 @@
 #define WEB    "github.com/ma-ta"
 
 /* externí soubory */
-#define HRA_SLOVA_SOUBOR          "./data/game_cze.dat"  /* seznam slov k hádání        (textový) */
+#define HRA_SLOVA_SOUBOR          "./data/dict_cze.dat"  /* seznam slov k hádání        (textový) */
 #define UKAZATELSIBENICE_SOUBOR   "./data/game_sib.dat"  /* šablona s obrázky šibenice  (textový) */
 #define NAPOVEDA_SOUBOR           "./data/help_cze.dat"  /* šablona české nápovědy      (textový) */
-#define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_obr.dat"  /* šablona obrazovky statistik (textový) */
-#define STATISTIKY_SOUBOR         "./data/stat_bin.dat"  /* datový soubor statistik     (binární) */
+#define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_scr.dat"  /* šablona obrazovky statistik (textový) */
+#define STATISTIKY_SOUBOR         "./data/stat_dat.bin"  /* datový soubor statistik     (binární) */
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
@@ -101,7 +103,7 @@
 #endif
 #define ZVUKY         1   /* zapne vkládání znaku '\a' */
 
-#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
+#define POCET_KOL     2   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU  11  /* počet životů v jednom kole */
 #define MAX_SKORE     ((POCET_KOL) * (POCET_ZIVOTU))
 
@@ -144,7 +146,7 @@
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
                       "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
-                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu DOS"
+                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
                        "Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win a DOS)."
 
