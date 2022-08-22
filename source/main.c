@@ -2,8 +2,10 @@
  *  Zdrojový soubor hry Šibenice se vstupní funkcí main()
  *
  *  Zajišťuje:
- *  - obsluhu hlavního menu
  *  - zpracování argumentů příkazové řádky
+ *  - přepnutí pracovního adresáře do složky programu
+ *  - měření doby běhu programu
+ *  - obsluhu hlavního menu
  *  - akce vykonávané před ukončením programu
  *    (uvolnění dynamické paměti, uložení dat atd.)
  *
@@ -204,6 +206,7 @@ void prepni_adresar(int argc, char *argv[])
   char cesta[1000] = "";    /* buffer pro uložení path */
   char *p_char     = NULL;  /* pomocný ukazatel */
 
+  /* nastavení podoby lomítka dle OS */
   #ifdef __DJGPP__
     lomitko[0] = '/';
   #elif defined(OS_DOS) || defined(OS_WIN)
@@ -212,8 +215,10 @@ void prepni_adresar(int argc, char *argv[])
     lomitko[0] = '/';
   #endif
 
+  /* zjištění aktivní složky */
   (void) getcwd(cesta, sizeof(cesta));
 
+  /* sestavení adresy dle specifik použitého OS */
   #if !defined(OS_WIN) && !defined(OS_DOS)
     strcat(cesta, lomitko);
     strcat(cesta, (argc > 0) ? argv[0] : "");
@@ -221,7 +226,10 @@ void prepni_adresar(int argc, char *argv[])
     strcpy(cesta, (argc > 0) ? argv[0] : "");
   #endif
 
+  /* oříznutí konce adresy o název spustitelného souboru */
   p_char = strrchr(cesta, lomitko[0]);
   if (p_char != NULL)  *p_char = '\0';
+
+  /* přepnutí adresáře */
   chdir(cesta);
 }
