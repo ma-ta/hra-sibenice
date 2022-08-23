@@ -11,6 +11,9 @@ ZNÁMÉ CHYBY:
    (hra se buď ukončuje brzy nebo je potřeba nadbytečné stlačení
    písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
+2) není zajištěno, aby se v rámci jedné hry příležitostně nemohlo
+   několikrát opakovat stejné slovo
+
 
 Hotovo:
 
