@@ -30,8 +30,8 @@ static int zbyva_zivotu = 0;
 
 
 /* hlavičky lokálních funkcí */
-int hra_kolo(void);
-bool nacti_slova(void);
+static int hra_kolo(void);
+static bool nacti_slova(void);
 
 
 /* veřejné funkce */
@@ -103,63 +103,6 @@ void hra_vycisti(void)
     free((void *) slova[i]);
   }
 }
-
-bool nacti_slova(void)
-{
-  register int i = 0;
-  char slovo[100] = "";
-  char *p_char = NULL;
-
-  /* ukončí funkci, pakliže jsou slova již načtena */
-  if (slova_nactena)  return true;
-
-  /* otevře soubor se slovy */
-  if ((f_slova = fopen(HRA_SLOVA_SOUBOR, "r")) == NULL) {
-    vymaz_obr();
-    fprintf(stderr, "\n" ERR_SIGN ERR_SOUBOR "\n", HRA_SLOVA_SOUBOR);
-    return false;
-  }
-
-  /* načte slova do paměti */
-  for (i = 0; i < (int) (sizeof(slova) / sizeof(slova[0])); i++) {
-    if (!feof(f_slova)) {
-      /* načtení řádku */
-      fgets(slovo, sizeof(slovo), f_slova);
-      /* ukončení v případě prázdného řádku */
-      if (strlen(slovo) < 1)  continue;
-      /* odstranění znaku konce řádku */
-      if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
-      if ((p_char = strchr(slovo, '\n')) != NULL)  *p_char = '\0';
-
-      if ((slova[i] = (char *) malloc(strlen(slovo) + 1)) == NULL) {
-        fputs(ERR_SIGN "Nedostatek volne pameti - slova nenactena...\n", stderr);
-        slova_nactena = false;
-        /* uzavře soubor se slovy */
-        if (fclose(f_slova) == EOF) {
-          fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
-        }
-        return false;
-      }
-      else {
-        /* zkopírování načteného slova do pole slov */
-        strcpy(slova[i], slovo);
-      }
-    }
-    else {
-      break;
-    }
-
-  }
-
-  /* uzavře soubor se slovy */
-  if (fclose(f_slova) == EOF) {
-    fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
-  }
-
-  slova_nactena = true;
-  return true;
-}
-
 
 void hra_nastav(int kol, int zivotu) {
   pocet_kol    = kol;
@@ -241,7 +184,63 @@ int hra_start(void) {
 /* lokální funkce */
 
 
-int hra_kolo(void) {
+static bool nacti_slova(void)
+{
+  register int i = 0;
+  char slovo[100] = "";
+  char *p_char = NULL;
+
+  /* ukončí funkci, pakliže jsou slova již načtena */
+  if (slova_nactena)  return true;
+
+  /* otevře soubor se slovy */
+  if ((f_slova = fopen(HRA_SLOVA_SOUBOR, "r")) == NULL) {
+    vymaz_obr();
+    fprintf(stderr, "\n" ERR_SIGN ERR_SOUBOR "\n", HRA_SLOVA_SOUBOR);
+    return false;
+  }
+
+  /* načte slova do paměti */
+  for (i = 0; i < (int) (sizeof(slova) / sizeof(slova[0])); i++) {
+    if (!feof(f_slova)) {
+      /* načtení řádku */
+      fgets(slovo, sizeof(slovo), f_slova);
+      /* ukončení v případě prázdného řádku */
+      if (strlen(slovo) < 1)  continue;
+      /* odstranění znaku konce řádku */
+      if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
+      if ((p_char = strchr(slovo, '\n')) != NULL)  *p_char = '\0';
+
+      if ((slova[i] = (char *) malloc(strlen(slovo) + 1)) == NULL) {
+        fputs(ERR_SIGN "Nedostatek volne pameti - slova nenactena...\n", stderr);
+        slova_nactena = false;
+        /* uzavře soubor se slovy */
+        if (fclose(f_slova) == EOF) {
+          fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
+        }
+        return false;
+      }
+      else {
+        /* zkopírování načteného slova do pole slov */
+        strcpy(slova[i], slovo);
+      }
+    }
+    else {
+      break;
+    }
+
+  }
+
+  /* uzavře soubor se slovy */
+  if (fclose(f_slova) == EOF) {
+    fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
+  }
+
+  slova_nactena = true;
+  return true;
+}
+
+static int hra_kolo(void) {
 
   int i           = 0;     /* univerzální iterátor */
   int hadany_znak = '\0';  /* uživatelem zadaný znak */

@@ -15,7 +15,7 @@ static int celkem_kol       = 0;
 static int sirka_bunka      = 0;
 
 void ukazatelkol_nastav(int kolo, int pocet_kol, int sirka_bunky) {
-  
+
   if (pocet_kol > 0 && kolo > 0 && kolo <= pocet_kol) {
     nastaveno = true;
     probihajici_kolo = kolo;
@@ -46,12 +46,12 @@ void ukazatelkol_vykresli(void) {
   /*
    * | >1< |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |
    */
-  
+
   int i, j;  /* iterátory */
 
   if (nastaveno == true) {
     putchar('|');
-    
+
     for (i = 1; i <= celkem_kol; i++) {
 
       if (i == probihajici_kolo) {

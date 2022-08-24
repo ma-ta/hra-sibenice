@@ -32,7 +32,7 @@ void ukazatelslov_nastav(char slovo[])
 
     pocet_hlasek_ano = sizeof(hlasky_ano) / sizeof(hlasky_ano[0]);
     pocet_hlasek_ne  = sizeof(hlasky_ne) / sizeof(hlasky_ne[0]);
-    
+
     strcpy(hadane_slovo.slovo, slovo);
     for (i = 0; i < (int) (sizeof(hadane_slovo.odkryto) / sizeof(hadane_slovo.odkryto[0])); i++) {
       hadane_slovo.odkryto[i] = false;

@@ -46,14 +46,14 @@ struct tm *p_tmcas = NULL;
 /*********************/
 
 
-/* hlavičky funkcí */
+/* hlavičky lokálních funkcí */
 
 /* zpracuje argumenty předané
    z příkazové řádky */
-void zpracuj_argumenty(int argc, char *argv[]);
+static void zpracuj_argumenty(int argc, char *argv[]);
 /* přepne do adresáře se spustitelným souborem
    kvůli korekci relativních cest */
-void prepni_adresar(int argc, char *argv[]);
+static void prepni_adresar(int argc, char *argv[]);
 
 
 /* vstupní bod aplikace */
@@ -125,7 +125,10 @@ int main(int argc, char *argv[])
 }
 
 
-void zpracuj_argumenty(int argc, char *argv[])
+/* definice lokálních funkcí */
+
+
+static void zpracuj_argumenty(int argc, char *argv[])
 {
   /* vypíše seznam dostupných přepínačů */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_HLP_SIGN_1, argv[1]) == 0
@@ -200,7 +203,7 @@ void zpracuj_argumenty(int argc, char *argv[])
 }
 
 
-void prepni_adresar(int argc, char *argv[])
+static void prepni_adresar(int argc, char *argv[])
 {
   char lomitko[2]  = "";    /* podoba lomítka v závislosti na OS */
   char cesta[1000] = "";    /* buffer pro uložení path */

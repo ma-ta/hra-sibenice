@@ -23,7 +23,7 @@ static bool tabskore_obr = false;
 
 /* soukromé funkce */
 
-bool ukazatelsibenice_nahrajobr(void)
+static bool ukazatelsibenice_nahrajobr(void)
 {
   FILE *f_sibenice = NULL;
   char nactena_cast[10000] = "";
@@ -64,12 +64,15 @@ bool ukazatelsibenice_nahrajobr(void)
 }
 
 
+/* veřejné funkce */
+
+
 /* vykreslí obrázek s šibenicí
    a hodnotami skóre */
 void vykresli_sibenici(void)
 {
    printf((const char *) sibenice_obr[zbyvajici_zivoty]
-          
+
           #if ANSI_FORMAT == 1
             , CSI ANSI_ULINE SGR
             , CSI ANSI_RESET SGR
@@ -79,15 +82,15 @@ void vykresli_sibenici(void)
             , ""
             , ""
           #endif
-          
+
           , zbyvajici_zivoty
-          
+
           #if ANSI_FORMAT == 1
             , CSI ANSI_RESET SGR
           #else
             , ""
           #endif
-          
+
           , celkove_body);
 }
 

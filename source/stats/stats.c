@@ -79,7 +79,7 @@ static struct stats_casy {
 /* soukromé funkce modulu */
 
 
-bool nahraj_sablonu(void)
+static bool nahraj_sablonu(void)
 {
   /* textový soubor s šablonou obrazovky statistik */
   FILE   *f_sablona        = NULL;
@@ -123,7 +123,8 @@ bool nahraj_sablonu(void)
 
 /* zapíše ověřovací data do souboru
    a vrátí zapsaný kontrolní součet */
-int zapis_pravost_f(void)
+/*
+static int zapis_pravost_f(void)
 {
   #if STATS_PRAVOST_ZAP
 
@@ -131,10 +132,12 @@ int zapis_pravost_f(void)
     return 0;
   #endif
 }
+*/
 
 /* ověří pravost souboru se statistikami
    pomocí otisku souboru a tajného čísla */
-bool over_pravost_f(void)
+/*
+static bool over_pravost_f(void)
 {
   #if STATS_PRAVOST_ZAP
 
@@ -142,6 +145,7 @@ bool over_pravost_f(void)
     return true;
   #endif
 }
+*/
 
 
 /* veřejné funkce z stats.h */
