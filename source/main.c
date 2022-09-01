@@ -120,6 +120,9 @@ int main(int argc, char *argv[])
   fputs(ansi_format(ANSI_RESET)
         , stdout);
   puts("\n\n");
+  fputs(PROMPT_ENTER_KONEC, stdout);
+  cekej_enter();
+  vymaz_obr();
 
   return 0;
 }

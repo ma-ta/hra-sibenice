@@ -59,7 +59,7 @@ VOLBY_MENU menu(void)
   /* poslední dva řádky tabulky s položkami menu */
   menu_oramuj('|', ' ', MENU_SIRKA);
   menu_oramuj('+', '-', MENU_SIRKA);
-  
+
   /* načtení volby od uživatele */
 
   /* while (volba < (VOLBY_MENU) 1 || volba > (VOLBY_MENU) pocet_voleb) { */

@@ -11,7 +11,7 @@
 
 
 Aktualni  slozka  obsahuje  spustitelne  soubory hry. Podslozka DATA je
-nezbytna pro sprvany beh aplikace a pro ukladani hernich statistik.
+nezbytna pro spravny beh aplikace a pro ukladani hernich statistik.
 
 Ke  spusteni  tedy staci "poklikat" na binarni soubor odpovidajici vasi
 platforme.  Paklize nezasahne napr. antivirova ochrana, hra se nasledne

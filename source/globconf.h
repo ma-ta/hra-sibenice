@@ -111,6 +111,7 @@
 
 #define PROMPT_ENTER_NAVRAT  "(Enter pro navrat...)"
 #define PROMPT_ENTER_POKRAC  "(Enter pro pokracovani...)"
+#define PROMPT_ENTER_KONEC   "(Enter pro ukonceni...)"
 
 /* argumenty příkazové řádky */
 
