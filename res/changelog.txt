@@ -8,6 +8,9 @@ OPRAVENÉ CHYBY:
 1) otevírání souborů pomocí relativních cest
    při spuštění hry z jiného adresáře
 
+2) stisknutí Enteru před ukončením aplikace
+   (zabrání samovolnému zavření příkazové řádky)
+
 
 NOVINKY:
 
