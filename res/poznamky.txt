@@ -11,8 +11,8 @@ ZNÁMÉ CHYBY:
    (hra se buď ukončuje brzy nebo je potřeba nadbytečné stlačení
    písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
-2) není zajištěno, aby se v rámci jedné hry příležitostně nemohlo
-   několikrát opakovat stejné slovo
+2) není zajištěno, aby se v rámci kola/hry nemohla opakovat slova
+   (leč pseudonáhodná čísla jsou generována v rovnoměrném rozložení)
 
 
 Hotovo:
@@ -28,7 +28,7 @@ NÁPADY NA DALŠÍ VÝVOJ:
 ----------------------
 
 1) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
-   - definice skupinových znaků se načítají ze souboru se slovníkem
+   - definice skupinových znaků se načtou ze souboru se slovníkem
 
 2) nová zvláštní volba při probíhající hře
    [2] - doplní chybějící písmeno za cenu určitého počtu bodů

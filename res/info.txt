@@ -15,7 +15,7 @@ nezbytna pro spravny beh aplikace a pro ukladani hernich statistik.
 
 Ke  spusteni  tedy staci "poklikat" na binarni soubor odpovidajici vasi
 platforme.  Paklize nezasahne napr. antivirova ochrana, hra se nasledne
-otevre v okne prikazoveho radku.
+otevre v okne prikazoveho radku (terminalu).
 
 V  soucasne  dobe hra nepodporuje ceskou diakritiku a hadana slova jsou
 tedy zobrazena bez hacku a bez carek!

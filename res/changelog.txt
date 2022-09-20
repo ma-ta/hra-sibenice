@@ -9,7 +9,7 @@ OPRAVENÉ CHYBY:
    při spuštění hry z jiného adresáře
 
 2) stisknutí Enteru před ukončením aplikace
-   (zabrání samovolnému zavření příkazové řádky)
+   (zabrání samovolnému zavření okna příkazové řádky)
 
 
 NOVINKY:
