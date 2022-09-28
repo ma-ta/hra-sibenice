@@ -8,7 +8,10 @@ OPRAVENÉ CHYBY:
 1) otevírání souborů pomocí relativních cest
    při spuštění hry z jiného adresáře
 
-2) stisknutí Enteru před ukončením aplikace
+2) před ukončením hry zvláštní volbou (vyhrazeným zn.)
+   se zobrazí žádost o potvrzení (a/n)
+
+3) stisknutí Enteru před ukončením aplikace
    (zabrání samovolnému zavření okna příkazové řádky)
 
 

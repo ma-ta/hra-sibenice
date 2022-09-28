@@ -267,12 +267,22 @@ static int hra_kolo(void) {
 
         /* ukončí probíhající hru */
         case VOLBA_KONEC:
-          printf(ansi_format(ANSI_INVER) "%c%c%c Hra byla ukoncena." ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI
+          printf(ansi_format(ANSI_INVER) "%c%c%c Ukoncit probihajici hru (a/n) ?" ansi_format(ANSI_RESET) "  >  "
                  , (int) HRA_VOLBY_ZAVLP[0]
                  , (char) VOLBA_KONEC
                  , (int) HRA_VOLBY_ZAVLP[1]);
-          cekej_enter();
-          return (zbyva_zivotu = 0);
+
+           if (getchar() == 'a') {
+             while (getchar() != '\n')
+               ;  /* vyprázdnění bufferu */
+             return (zbyva_zivotu = 0);  /* ukončení hry */
+           }
+           else {
+             while (getchar() != '\n')
+               ;  /* vyprázdnění bufferu */
+             continue;  /* pokračování hry při zamítnutí volby */
+           }
+
         break;
 
         /* zobrazí dostupné volby */
