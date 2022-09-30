@@ -62,10 +62,16 @@ void ukazatelslov_nastav(char slovo[])
 int ukazatelslov_hadej(int znak)
 {
   if (nastaveno) {
-    
+
     int nalezeno = 0;
     int odecist  = 0;
-    
+
+
+    /* hledání vyskytů písmene 'CH' při zadání znaku 'C' */
+    #if UKAZATELSLOV_PISMENO_CH == 1
+      /* HIC SUNT LEONES ... */
+    #endif
+
     /* hledání vyskytů znaku ve slově */
     for (i = 0; i < hadane_slovo.delka; i++) {
       if (toupper(hadane_slovo.slovo[i]) == toupper(znak)) {
@@ -73,31 +79,10 @@ int ukazatelslov_hadej(int znak)
         nalezeno++;
         odecist++;
 
-        /* (!) NEFUNGUJE SPRÁVNĚ - VYPNUTO V KONFIGURACI */
-        /* při zvolení písmene C nebo H odkryje i výskyty CH */
-        #if (UKAZATELSLOV_PISMENO_CH == 1)
-          if (toupper(znak) == 'C') {
-            if (i < hadane_slovo.delka - 1) {
-              if (toupper(hadane_slovo.slovo[i + 1]) == 'H') {
-                hadane_slovo.odkryto[i + 1] = true;
-                odecist++;
-              }
-            }
-          }
-          else if (toupper(znak) == 'H') {
-            if (i > 0) {
-              if (toupper(hadane_slovo.slovo[i - 1]) == 'C') {
-                hadane_slovo.odkryto[i - 1] = true;
-                odecist++;
-              }
-            }
-          }
-        #endif
-
         if (hadane_slovo.zbyva == 0)  break;
       }
     }
-    
+
     hadane_slovo.zbyva -= (hadane_slovo.zbyva > 0) ? odecist : 0;
     stav_nalezeno = (nalezeno > 0) ? 1 : 0;
 
