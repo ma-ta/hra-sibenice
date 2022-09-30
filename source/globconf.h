@@ -283,6 +283,7 @@
 #define HRA_VOLBY_HODNOTY   VOLBA_KONEC, VOLBA_NAPOVEDA, VOLBA_POMOC_ZN
 #define HRA_VOLBY_ZAVLP     "[]"  /* musí být 2 znaky! (strlen(HRA_VOLBY_ZN) >= 2, [0]=levý [1]=pravý */
 #define HRA_VOLBY_SEP       "  "  /* oddělovač jednotlivých položek ve výpisu */
+#define HRA_VOLBY_ANO       'a'
 
 #define HRA_OBR_PROHRA  \
 "          |\n"  \

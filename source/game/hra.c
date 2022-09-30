@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <ctype.h>
 #include <time.h>
 #include "../globconf.h"
 #include "./game_tui/game_tui.h"
@@ -267,12 +268,12 @@ static int hra_kolo(void) {
 
         /* ukončí probíhající hru */
         case VOLBA_KONEC:
-          printf(ansi_format(ANSI_INVER) "%c%c%c Ukoncit probihajici hru (a/n) ?" ansi_format(ANSI_RESET) "  >  "
+          printf(ansi_format(ANSI_INVER) "%c%c%c Ukoncit probihajici hru?" ansi_format(ANSI_RESET) "  (a/n) >  "
                  , (int) HRA_VOLBY_ZAVLP[0]
                  , (char) VOLBA_KONEC
                  , (int) HRA_VOLBY_ZAVLP[1]);
 
-           if (getchar() == 'a') {
+           if (tolower(getchar()) == HRA_VOLBY_ANO) {
              while (getchar() != '\n')
                ;  /* vyprázdnění bufferu */
              return (zbyva_zivotu = 0);  /* ukončení hry */
