@@ -235,7 +235,7 @@
 
 #define UKAZATELSLOV_PROMPT      ">  "  /* znak před hádaným slovem */
 #define UKAZATELSLOV_VELKA       0  /* vypysuje vše velkými písmeny */
-#define UKAZATELSLOV_PISMENO_CH  0  /* určuje, zda brát CH jako jedno písmeno */
+#define UKAZATELSLOV_PISMENO_CH  1  /* určuje, zda brát CH jako jedno písmeno */
 
 /* ukazatel písmen */
 

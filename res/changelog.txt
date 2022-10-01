@@ -1,6 +1,13 @@
 +--------+------------+
-| v0.0.4 | 2022-??-?? |
+| v0.0.4 | 2022-10-01 |
 +--------+------------+
+
+
+NOVINKY:
+
+1) zprovozněno odkrývání písmen 'CH' při zadání znaku 'C'
+   (při hledání písmen 'H' jsou naopak přeskočeny výskyty
+    znaku 'H' v rámci všech písmen 'CH' ve slově)
 
 
 OPRAVENÉ CHYBY:

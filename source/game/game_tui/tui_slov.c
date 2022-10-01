@@ -63,28 +63,59 @@ int ukazatelslov_hadej(int znak)
 {
   if (nastaveno) {
 
+    int i        = 0;
     int nalezeno = 0;
     int odecist  = 0;
+    char slovo_tolower[UKAZATELSLOV_DELKA_MAX + 1];
+    char *p_ch = slovo_tolower;
+
+    /* zkopírování hádaného slova s malými písmeny */
+    for (i = 0; i < (int) strlen(hadane_slovo.slovo); i++) {
+      slovo_tolower[i] = tolower(hadane_slovo.slovo[i]);
+    }
+    slovo_tolower[i] = '\0';
 
 
     /* hledání vyskytů písmene 'CH' při zadání znaku 'C' */
     #if UKAZATELSLOV_PISMENO_CH == 1
-      /* HIC SUNT LEONES ... */
+      if (tolower(znak) == 'c') {
+        while ((p_ch = strstr(p_ch, "ch")) != NULL) {
+          i = p_ch - slovo_tolower;
+          if (   hadane_slovo.odkryto[i]     == false 
+              && hadane_slovo.odkryto[i + 1] == false)
+          {
+            nalezeno++;
+            odecist += 2;
+            hadane_slovo.odkryto[i]     = true;
+            hadane_slovo.odkryto[i + 1] = true;
+          }
+          p_ch++;
+        }
+      }
     #endif
 
     /* hledání vyskytů znaku ve slově */
     for (i = 0; i < hadane_slovo.delka; i++) {
-      if (toupper(hadane_slovo.slovo[i]) == toupper(znak)) {
+      if (   hadane_slovo.odkryto[i]        == false
+          && toupper(hadane_slovo.slovo[i]) == toupper(znak))
+      {
+        #if UKAZATELSLOV_PISMENO_CH == 1
+          /* zajistí přeskočení 'H' v rámci písmene 'CH' */
+          if (i > 0 && toupper(znak) == 'H') {
+            if (toupper(hadane_slovo.slovo[i - 1]) == 'C') {
+              continue;
+            }
+          }
+        #endif
         hadane_slovo.odkryto[i] = true;
         nalezeno++;
         odecist++;
 
-        if (hadane_slovo.zbyva == 0)  break;
       }
     }
 
     hadane_slovo.zbyva -= (hadane_slovo.zbyva > 0) ? odecist : 0;
-    stav_nalezeno = (nalezeno > 0) ? 1 : 0;
+    stav_nalezeno       = (nalezeno > 0) ? 1 : 0;
 
     return nalezeno;
 
