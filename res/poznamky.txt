@@ -22,8 +22,8 @@ Hotovo:
 NÁPADY NA DALŠÍ VÝVOJ:
 ----------------------
 
-1) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
-   - definice skupinových znaků se načtou ze souboru se slovníkem
+1) vylepšit odkrývání spřežek/skupin znaků (české písmeno 'CH' apod.)
+   (definice znaků budou např. součástí slovníků pro jednotlivé jazyky)
 
 2) nová zvláštní volba při probíhající hře
    [2] - doplní chybějící písmeno za cenu určitého počtu bodů
@@ -48,14 +48,11 @@ NÁPADY NA DALŠÍ VÝVOJ:
 
 Hotovo:
 
-3) [v0.0.3]
+2) [v0.0.3]
    přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
    her se budou ukládat spolu se jménem hráče / zobrazení statistik,
    výsledku poslední hry apod. na obrazovce s hlavním menu
 
-2) [v0.0.2]
+1) [v0.0.2]
    možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
    a vrátit se zpět do hry)
-
-1) [v0.0.2]
-   funkce nápovědy během hádání slov (např. za cenu jednoho života)
