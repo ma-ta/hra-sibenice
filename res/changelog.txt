@@ -21,6 +21,9 @@ OPRAVENÉ CHYBY:
 3) stisknutí Enteru před ukončením aplikace
    (zabrání samovolnému zavření okna příkazové řádky)
 
+4) odebrán zvonek ('\a') při každém zobrazení šibenice
+   v režimu DOS (příliš rušivý prvek)
+
 
 NOVINKY:
 
