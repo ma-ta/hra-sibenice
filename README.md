@@ -22,7 +22,7 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
 
 #### Pro systém MS-DOS (DOSBox)
-V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/sibenice_0.0.4_dos/cwsdpmi.exe) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
+V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/dos/cwsdpmi.exe) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
 
 #### Zahrnuté (testované) platformy:
