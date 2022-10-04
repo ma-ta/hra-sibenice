@@ -32,7 +32,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
   - Ubuntu 22.04 (LTS)
 - DOS *(překladač DJGPP)*:
   - FreeDOS 1.3
-  - MS-DOS 6.22
+  - DOSBox 0.74-3
 
 
 ### Snímky obrazovky
