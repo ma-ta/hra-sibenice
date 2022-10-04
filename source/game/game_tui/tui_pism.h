@@ -1,7 +1,12 @@
 /*
- * hlavičkový soubor panelu
- * s dostupnými písmeny
+ *  Modul ukazatele písmen
+ *
+ *  Vykresluje tabulku s dostupnými písmeny a vnitřně uchovává
+ *  seznam dostupných znaků - po dotázání na aktuálně dostupný
+ *  znak je znak z tabulky odstraněn a znovu již není dostupný
+ *
  */
+
 
 #ifndef UKAZATEL_PISMEN_H
 #define UKAZATEL_PISMEN_H

@@ -1,23 +1,32 @@
+------------
 ZNÁMÉ CHYBY:
+------------
 
-1) nefunkční hledání písmene 'CH' pomocí kódu v souboru:
-   ukazatel_slov.c -> int ukazatelslov_hadej(int znak);
+1) není zajištěno, aby se v rámci kola/hry nemohla opakovat slova
+   (leč pseudonáhodná čísla jsou generována v rovnoměrném rozložení)
 
-   => funkce prozatím vypnuta preprocesorem pomocí konstanty:
-   UKAZATELSLOV_PISMENO_CH v souboru konfigurace.h
+2) při zadávání jména do kroniky může způsobit problémy, když uživatel
+   použije jiné znaky než ASCII
 
-   (hra se buď ukončuje brzy nebo je potřeba nadbytečné stlačení
-   písmen 'C' a 'H', i když je celé slovo již vizuálně odkryto)
 
-2) nelze načíst externí soubory, pakliže je program spuštěn z
+Hotovo:
+
+2) [v0.0.4]
+   hledání písmen 'CH' při zadání písmene 'C'
+   (při hledání 'H' jsou naopak přeskočeny výskyty zn. v rámci 'CH')
+
+1) [v0.0.4]
+   nelze načíst externí soubory, pakliže je program spuštěn z
    jiného adresáře než se nachází binárka s hrou
+   => vyřešeno funkcí prepni_adresar() v main.c
 
 
+----------------------
 NÁPADY NA DALŠÍ VÝVOJ:
+----------------------
 
-
-1) odkrývání spřežek/skupin znaků (např. v češtině písmeno 'CH')
-   - definice skupinových znaků se načítají ze souboru se slovníkem
+1) vylepšit odkrývání spřežek/skupin znaků (české písmeno 'CH' apod.)
+   (definice znaků budou např. součástí slovníků pro jednotlivé jazyky)
 
 2) nová zvláštní volba při probíhající hře
    [2] - doplní chybějící písmeno za cenu určitého počtu bodů
@@ -40,17 +49,13 @@ NÁPADY NA DALŠÍ VÝVOJ:
 7) distribuce hry v linuxových repozitářích, MS Store, FreeDOS apod.
 
 
-hotovo:
+Hotovo:
 
-
-1) [v0.0.3]
+2) [v0.0.3]
    přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
    her se budou ukládat spolu se jménem hráče / zobrazení statistik,
    výsledku poslední hry apod. na obrazovce s hlavním menu
 
-2) [v0.0.2]
+1) [v0.0.2]
    možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
    a vrátit se zpět do hry)
-
-3) [v0.0.2]
-   funkce nápovědy během hádání slov (např. za cenu jednoho života)

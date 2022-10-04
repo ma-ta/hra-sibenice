@@ -1,7 +1,13 @@
-/* 
- * hlavičkový soubor
- * ukazatele šibenice
+/*
+ *  Modul ukazatele (obrázku) šibenice s tabulkou
+ *  zbývajících životů a celkovým skóre
+ *
+ *  Vykresluje šibenici se stavovou tabulkou hry.
+ *  V režimu DOS je zobrazena zjednodušená (prostorově úspornější)
+ *  tabulka a šibenice se vykreslí na samostatné obrazovce.
+ *
  */
+
 
 #ifndef UKAZATEL_SIBENICE_H
 #define UKAZATEL_SIBENICE_H

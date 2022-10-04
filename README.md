@@ -17,12 +17,12 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.3/sibenice_0.0.3_bin.zip)**
+- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.4/sibenice_0.0.4_bin.zip)**
 - [Složka s binárkami](bin/release/)
 
 
 #### Pro systém MS-DOS (DOSBox)
-V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/sibenice_0.0.3_dos/cwsdpmi.exe) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
+V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/sibenice_0.0.4_dos/cwsdpmi.exe) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
 
 #### Zahrnuté (testované) platformy:
@@ -32,7 +32,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
   - Ubuntu 22.04 (LTS)
 - DOS *(překladač DJGPP)*:
   - FreeDOS 1.3
-  - MS-DOS 6.22
+  - DOSBox 0.74-3
 
 
 ### Snímky obrazovky
@@ -41,12 +41,12 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 Obrazovka hry:
 
-![Šibenice 0.0.3 - Hra](/res/screenshots/hra.png)
+![Šibenice 0.0.4 - Hra](/res/screenshots/hra.png)
 
 Herní statistiky:
 
-![Šibenice 0.0.3 - Statistiky](/res/screenshots/kronika.png)
+![Šibenice 0.0.4 - Statistiky](/res/screenshots/kronika.png)
 
 Informace o verzi (MS-DOS 6.22):
 
-![Šibenice 0.0.3 - MS-DOS](res/screenshots/prepinace-dos.png)
+![Šibenice 0.0.4 - MS-DOS](res/screenshots/prepinace-dos.png)

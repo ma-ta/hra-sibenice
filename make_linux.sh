@@ -49,8 +49,13 @@ echo ''
 # příkaz pro spuštění překladače vč. parametrů
   alias cc='gcc '$cc_param
 
+# vytvoří adresář bin pro výstupy
+  mkdir $out_dir
 # zkopíruje složku data do složky bin
   cp $src_dir'/data' -R $out_dir
+# zkopíruje info a nápovědu do složky bin
+  cp $src_dir'/../res/info.txt' $out_dir
+  cp $src_dir'/../res/napoveda.txt' $out_dir
 
 # kompilace jednotlivých souborů
 

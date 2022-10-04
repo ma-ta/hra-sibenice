@@ -1,3 +1,10 @@
+/*
+ *  Zajišťuje vykreslení uživatelského rozhraní hry
+ *  (kompletuje ukazatele z nižších modulů game_tui)
+ *
+ */
+
+
 #ifndef UKAZATELE_H
 #define UKAZATELE_H
 

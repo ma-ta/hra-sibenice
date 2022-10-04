@@ -23,7 +23,7 @@ static bool tabskore_obr = false;
 
 /* soukromé funkce */
 
-bool ukazatelsibenice_nahrajobr(void)
+static bool ukazatelsibenice_nahrajobr(void)
 {
   FILE *f_sibenice = NULL;
   char nactena_cast[10000] = "";
@@ -64,12 +64,15 @@ bool ukazatelsibenice_nahrajobr(void)
 }
 
 
+/* veřejné funkce */
+
+
 /* vykreslí obrázek s šibenicí
    a hodnotami skóre */
 void vykresli_sibenici(void)
 {
    printf((const char *) sibenice_obr[zbyvajici_zivoty]
-          
+
           #if ANSI_FORMAT == 1
             , CSI ANSI_ULINE SGR
             , CSI ANSI_RESET SGR
@@ -79,15 +82,15 @@ void vykresli_sibenici(void)
             , ""
             , ""
           #endif
-          
+
           , zbyvajici_zivoty
-          
+
           #if ANSI_FORMAT == 1
             , CSI ANSI_RESET SGR
           #else
             , ""
           #endif
-          
+
           , celkove_body);
 }
 
@@ -108,9 +111,6 @@ void vykresli_tabskore(bool vykreslit_obr)
 
   /* vykreslí samostatnou obrazovku s šibenicí při ztrátě života */
   if (vykreslit_obr) {
-    #if ZVUKY == 1
-      putchar('\a');
-    #endif
     vykresli_sibenici();
     fputs(ansi_cursor_off(), stdout);
     fputs("\n\n" ansi_format(ANSI_INVER) "Prisel jsi o zivot!" ansi_format(ANSI_RESET)
@@ -135,22 +135,6 @@ void vykresli_tabskore(bool vykreslit_obr)
   );
   ukazatele_oramuj(1, 8);
 
-
-  /* původní nouzová tabulka */
-  /*
-  +-----------------+
-  |  ZIVOTY  :  11  |
-  +-----------------+
-  |  BODY    :  00  |
-  +-----------------+
-  */
-  
-  /*
-  puts  ("+-----------------+");
-  printf("|  ZIVOTY  :  %02d  |\n+-----------------+\n|  BODY    :  %02d  |\n"
-         , zbyvajici_zivoty, celkove_body);
-  puts  ("+-----------------+");
-  */
 }
 
 

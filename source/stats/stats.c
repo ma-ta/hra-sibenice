@@ -36,15 +36,33 @@
 /* dynamické pole pro načtění šablony info obrazovky */
 static char *stats_obr_sablona = NULL;
 static size_t stats_obr_sablona_size = 0;
-/* datový soubor se statistikami */
-static FILE *f_stats = NULL;
 /* informuje, zda je modul inicializovaný */
 static bool nastaveno = false;
 /* informuje, zda se podařilo načíst statistiky ze souboru */
 static bool nacteno = false;
 /* informuje, zda je datová struktura statistik prázdná nebo ne */
 static bool data = false;
-
+/* datový soubor se statistikami */
+static FILE *f_stats = NULL;
+/* STRUKTURA BINÁRNÍHO SOUBORU SE STATISTIKAMI */
+/*
+ * *********************************************************************************
+ *   OFFSET                                    |  POPIS
+ * *********************************************************************************
+ *
+ *                                             |  ČAS POSLEDNÍ ZMĚNY
+ * [ 0                                      ]  |  [ time_t stats_poslednizmena     ]
+ *
+ *                                             |  POLOŽKY STRUKTURY stats_skore
+ *                                                ----------------------------------
+ * [ + sizeof(stats_poslednizmena)          ]  |  [ int skore[STATS_POCET_HRACU]   ]
+ * [ + sizeof(stats_skore.skore)            ]  |  [ JMENO jmena[STATS_POCET_HRACU] ]
+ *
+ *                                             |  POLOŽKY STRUKTURY stats_casy
+ *                                                ----------------------------------
+ * [ + sizeof(stats.skore.jmena)            ]  |  [ time_t nejkratsi_hra           ]
+ * [ + sizeof(stats_casy.nejkratsi_hra)     ]  |  [ time_t celkovy_herni_cas       ]
+ */
 /* datové položky statistik */
 typedef char JMENO[STATS_JMENO_STRLN + 1];
 static time_t stats_poslednizmena = 0;
@@ -60,7 +78,8 @@ static struct stats_casy {
 
 /* soukromé funkce modulu */
 
-bool nahraj_sablonu(void)
+
+static bool nahraj_sablonu(void)
 {
   /* textový soubor s šablonou obrazovky statistik */
   FILE   *f_sablona        = NULL;
@@ -104,7 +123,8 @@ bool nahraj_sablonu(void)
 
 /* zapíše ověřovací data do souboru
    a vrátí zapsaný kontrolní součet */
-int zapis_pravost_f(void)
+/*
+static int zapis_pravost_f(void)
 {
   #if STATS_PRAVOST_ZAP
 
@@ -112,10 +132,12 @@ int zapis_pravost_f(void)
     return 0;
   #endif
 }
+*/
 
 /* ověří pravost souboru se statistikami
    pomocí otisku souboru a tajného čísla */
-bool over_pravost_f(void)
+/*
+static bool over_pravost_f(void)
 {
   #if STATS_PRAVOST_ZAP
 
@@ -123,6 +145,7 @@ bool over_pravost_f(void)
     return true;
   #endif
 }
+*/
 
 
 /* veřejné funkce z stats.h */

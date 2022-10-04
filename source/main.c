@@ -1,7 +1,26 @@
+/*
+ *  Zdrojový soubor hry Šibenice se vstupní funkcí main()
+ *
+ *  Zajišťuje:
+ *  - zpracování argumentů příkazové řádky
+ *  - přepnutí pracovního adresáře do složky programu
+ *  - měření doby běhu programu
+ *  - obsluhu hlavního menu
+ *  - akce vykonávané před ukončením programu
+ *    (uvolnění dynamické paměti, uložení dat atd.)
+ *
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#ifdef _MSC_VER
+  #include <direct.h>
+#else
+  #include <unistd.h>
+#endif
 #include "./globconf.h"
 #include "./libs/ansi_fmt.h"
 #include "./menu/men_glob.h"
@@ -27,11 +46,14 @@ struct tm *p_tmcas = NULL;
 /*********************/
 
 
-/* hlavičky funkcí */
+/* hlavičky lokálních funkcí */
 
 /* zpracuje argumenty předané
    z příkazové řádky */
-void zpracuj_argumenty(int argc, char *argv[]);
+static void zpracuj_argumenty(int argc, char *argv[]);
+/* přepne do adresáře se spustitelným souborem
+   kvůli korekci relativních cest */
+static void prepni_adresar(int argc, char *argv[]);
 
 
 /* vstupní bod aplikace */
@@ -41,6 +63,9 @@ int main(int argc, char *argv[])
   /* čas začátku běhu programu */
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;
+
+  /* přepnutí do složky s programem */
+  prepni_adresar(argc, argv);
 
   /* zpracování argumentů CLI */
   zpracuj_argumenty(argc, argv);
@@ -95,12 +120,18 @@ int main(int argc, char *argv[])
   fputs(ansi_format(ANSI_RESET)
         , stdout);
   puts("\n\n");
+  fputs(PROMPT_ENTER_KONEC, stdout);
+  cekej_enter();
+  vymaz_obr();
 
   return 0;
 }
 
 
-void zpracuj_argumenty(int argc, char *argv[])
+/* definice lokálních funkcí */
+
+
+static void zpracuj_argumenty(int argc, char *argv[])
 {
   /* vypíše seznam dostupných přepínačů */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_HLP_SIGN_1, argv[1]) == 0
@@ -172,4 +203,39 @@ void zpracuj_argumenty(int argc, char *argv[])
     fputs(ERR_SIGN ERR_ARGUMENTY "\n", stderr);
     exit(1);
   }
+}
+
+
+static void prepni_adresar(int argc, char *argv[])
+{
+  char lomitko[2]  = "";    /* podoba lomítka v závislosti na OS */
+  char cesta[1000] = "";    /* buffer pro uložení path */
+  char *p_char     = NULL;  /* pomocný ukazatel */
+
+  /* nastavení podoby lomítka dle OS */
+  #ifdef __DJGPP__
+    lomitko[0] = '/';
+  #elif defined(OS_DOS) || defined(OS_WIN)
+    lomitko[0] = '\\';
+  #else
+    lomitko[0] = '/';
+  #endif
+
+  /* zjištění aktivní složky */
+  (void) getcwd(cesta, sizeof(cesta));
+
+  /* sestavení adresy dle specifik použitého OS */
+  #if !defined(OS_WIN) && !defined(OS_DOS)
+    strcat(cesta, lomitko);
+    strcat(cesta, (argc > 0) ? argv[0] : "");
+  #else
+    strcpy(cesta, (argc > 0) ? argv[0] : "");
+  #endif
+
+  /* oříznutí konce adresy o název spustitelného souboru */
+  p_char = strrchr(cesta, lomitko[0]);
+  if (p_char != NULL)  *p_char = '\0';
+
+  /* přepnutí adresáře */
+  chdir(cesta);
 }

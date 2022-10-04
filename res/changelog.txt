@@ -1,5 +1,35 @@
 +--------+------------+
-| v0.0.3 | 2022-08-14 |
+| v0.0.4 | 2022-10-02 |
++--------+------------+
+
+
+NOVINKY:
+
+1) zprovozněno odkrývání písmen 'CH' při zadání znaku 'C'
+   (při hledání písmen 'H' jsou naopak přeskočeny výskyty
+    znaku 'H' v rámci všech písmen 'CH' ve slově)
+
+
+OPRAVENÉ CHYBY:
+
+1) otevírání souborů pomocí relativních cest
+   při spuštění hry z jiného adresáře
+
+2) před ukončením hry zvláštní volbou (vyhrazeným zn.)
+   se zobrazí žádost o potvrzení (a/n)
+
+3) stisknutí Enteru před ukončením aplikace
+   (zabrání samovolnému zavření okna příkazové řádky)
+
+4) odebrán zvonek ('\a') při každém zobrazení šibenice
+   v režimu DOS (příliš rušivý prvek)
+
+
+NOVINKY:
+
+
++--------+------------+
+| v0.0.3 | 2022-08-15 |
 +--------+------------+
 
 

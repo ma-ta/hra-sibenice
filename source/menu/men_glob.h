@@ -1,3 +1,9 @@
+/*
+ *  Zajišťuje vykreslení a obsluhu hlavního menu
+ *
+ */
+
+
 #ifndef MENU_H
 #define MENU_H
 

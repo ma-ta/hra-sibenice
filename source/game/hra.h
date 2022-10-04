@@ -1,3 +1,11 @@
+/*
+ *  Spouští hru, řídí její průběh a vykresluje herní
+ *  obrazovku pomocí modulů ve složce game_tui.
+ *  Vrací dosažené skóre a v případě výhry zajišťuje
+ *  zápis hráče do databáze se statistikami.
+ *
+ */
+
 #ifndef HRA_H
 #define HRA_H
 

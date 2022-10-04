@@ -1,7 +1,12 @@
 /*
- * hlavičkový soubor
- * ukazatele slov
+ *  Modul ukazatele hádaného slova a výsledku tahu
+ *
+ *  Zobrazuje hádané slovo s již nalezenými písmeny.
+ *  Na pravé straně dále políčko se stavovými hláškami dle
+ *  toho, zda byl tah úspěšný nebo neúspěšný.
+ *
  */
+
 
 #ifndef UKAZATEL_SLOV_H
 #define UKAZATEL_SLOV_H

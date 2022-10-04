@@ -1,7 +1,11 @@
 /*
- * hlavičkový soubor ukazatele
- * aktuálně probíhajícího kola hry
+ *  Ukazatel aktuálně probíhajícího kola hry
+ *
+ *  Vykresluje následující ukazatel
+ *  | >1< |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |
+ *
  */
+
 
 #ifndef UKAZATEL_KOL_H
 #define UKAZATEL_KOL_H
