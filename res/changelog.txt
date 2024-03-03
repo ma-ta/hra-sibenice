@@ -1,4 +1,24 @@
 +--------+------------+
+| v1.0.0 | 2024-03-03 |
++--------+------------+
+
+
+NOVINKY:
+
+1) drobné úpravy v textech napříč obrazovkami
+
+2) obarvení informace o výsledku tahu
+
+
+OPRAVENÉ CHYBY:
+
+1) zamezení zadání non-ASCII znaků do kroniky
+
+2) v cs slovníku nahrazeno nevhodné slovo hezkým
+   českým slovem "klapkobřinkostroj"
+
+
++--------+------------+
 | v0.0.4 | 2022-10-02 |
 +--------+------------+
 
@@ -23,9 +43,6 @@ OPRAVENÉ CHYBY:
 
 4) odebrán zvonek ('\a') při každém zobrazení šibenice
    v režimu DOS (příliš rušivý prvek)
-
-
-NOVINKY:
 
 
 +--------+------------+

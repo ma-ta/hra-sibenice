@@ -31,8 +31,11 @@
   #elif defined(__linux__)
     #define OSNAME  "Linux"
     #define OS_UNIX
+  #elif defined(__FreeBSD__)
+    #define OSNAME  "FreeBSD"
+    #define OS_UNIX
   #elif defined(__unix__)
-    #define OSNAME  "Un*x"
+    #define OSNAME  "UN*X"
     #define OS_UNIX
   #else
     #define OSNAME  "?"
@@ -55,7 +58,7 @@
     #if defined(__DJGPP__)
       #define CCNAME  "DJGPP"
     #else
-      #define CCNAME  "GNU GCC"
+      #define CCNAME  "GCC"
     #endif
     #define CCVER    __GNUC__
     #define CCMINOR  __GNUC_MINOR__
@@ -82,15 +85,16 @@
 #define DEBUG               0
 #define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
 
-#define NAZEV  "Hra Sibenice"
-#define VERZE  "0.0.4"
-#define AUTOR  "Martin TABOR (alias Ma-TA)"
-#define WEB    "github.com/ma-ta"
+#define NAZEV    "Hra Sibenice"
+#define VERZE    "1.0.0"
+#define WEB      "github.com/ma-ta/hra-sibenice"
+#define AUTOR    "Martin TABOR"
+#define LICENCE  "(GPLv3)"
 
 /* externí soubory */
-#define HRA_SLOVA_SOUBOR          "./data/dict_cze.dat"  /* seznam slov k hádání        (textový) */
+#define HRA_SLOVA_SOUBOR          "./data/dict_cs.dat"   /* seznam slov k hádání        (textový) */
 #define UKAZATELSIBENICE_SOUBOR   "./data/game_sib.dat"  /* šablona s obrázky šibenice  (textový) */
-#define NAPOVEDA_SOUBOR           "./data/help_cze.dat"  /* šablona české nápovědy      (textový) */
+#define NAPOVEDA_SOUBOR           "./data/help_cs.dat"   /* šablona české nápovědy      (textový) */
 #define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_scr.dat"  /* šablona obrazovky statistik (textový) */
 #define STATISTIKY_SOUBOR         "./data/stat_dat.bin"  /* datový soubor statistik     (binární) */
 
@@ -134,14 +138,14 @@
 #define ARG_VER_TEXT  "%s\n"  \
                       "Verze:   %s  (%s/%s %s%s, %s)\n"  \
                       "Web:     %s\n"  \
-                      "Napsal:  %s\n"  \
+                      "Napsal:  %s  %s\n"  \
                       , NAZEV  \
                       , VERZE, OSNAME, CCNAME  \
                       , (CCVER == (-1)) ? "" : xstr(CCVER)  \
                       , (CCVER == (-1) || CCMINOR == (-1)) ? "" : "." xstr(CCMINOR)  \
                       , __DATE__  \
                       , WEB  \
-                      , AUTOR
+                      , AUTOR, LICENCE
 #define ARG_HLP_TEXT  "Seznam dostupnych prepinacu:\n"  \
                       "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
@@ -149,7 +153,7 @@
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
                       "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
-                       "Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\" pro Win a DOS)."
+                       "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\")."
 
 #define arg_hlp_text()  printf("Pouziti: %s [PREPINAC]\n" ARG_HLP_TEXT "\n", argv[0])
 
@@ -181,7 +185,7 @@
 
 /* tui - hlavička */
 
-#define TUI_HLAVICKA_TXT_L       "(c) 2022  Freeware"  /* text v levé dolní buňce */
+#define TUI_HLAVICKA_TXT_L       "(c) 2024  Freeware"  /* text v levé dolní buňce */
 #define TUI_HLAVICKA_TXT_P       "v" VERZE             /* text v pravé dolní buňce */
 #define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
 #define TUI_HLAVICKA_BUNKA_L     26  /* šířka levé dolní buňky */
@@ -265,7 +269,7 @@
 /* hra */
 
 #define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku */
-#define HRA_POMOC_ZN_CENA   10  /* počet bodů za pomoc - doplnění písmene */
+#define HRA_POMOC_ZN_CENA   10    /* počet bodů za pomoc - doplnění písmene */
 #define HRA_HLASKA_FORMAT   ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"
 
@@ -324,13 +328,13 @@
 
 #define STATS_TAJNE_HESLO  "TajneHeslo"  /* konstanta pro editaci statistik a ověření souboru */
 #define STATS_VYCHOZI_JMN  "Ma-TA"  /* výchozí nejlepší hráč */
-#define STATS_VYCHOZI_B    50       /* výchozí nejlepší skóre */
-#define STATS_JMENO_STRLN  43  /* maximální délka jména */
-#define STATS_POCET_HRACU  5   /* počet uchovávaných pořadí */
-#define STATS_PRAVOST_ZAP  0   /* zapíná a vypíná kontrolní součet */
-#define STATS_OBR_RADEK    43  /* délka řádku se jménem */
-#define STATS_OBR_VODITKO  "."  /* znaky oddělující jméno a body na řádku */
-#define STATS_OBR_NONAME   "(?)"
+#define STATS_VYCHOZI_B    50   /* výchozí nejlepší skóre */
+#define STATS_JMENO_STRLN  43   /* maximální délka jména */
+#define STATS_POCET_HRACU  5    /* počet uchovávaných pořadí */
+#define STATS_PRAVOST_ZAP  0    /* zapíná a vypíná kontrolní součet */
+#define STATS_OBR_RADEK    43   /* délka řádku se jménem */
+#define STATS_OBR_VODITKO  "."    /* znaky oddělující jméno a body na řádku */
+#define STATS_OBR_NONAME   "(?)"  /* zobrazí se v herní kronice, pokud výherce nezadal jméno */
 #define STATS_OBR_1_ODR    ansi_format(ANSI_BOLD) ansi_format(ANSI_BLICK)  /* formát odrážky nej řádku */
 #define STATS_OBR_1_TXT    ansi_format(ANSI_BOLD)  /* formát nej řádku */
 #define STATS_OBR_ODRAZKY  ">>>>------>",  \

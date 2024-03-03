@@ -6,7 +6,7 @@ ZNÁMÉ CHYBY:
    (leč pseudonáhodná čísla jsou generována v rovnoměrném rozložení)
 
 2) při zadávání jména do kroniky může způsobit problémy, když uživatel
-   použije jiné znaky než ASCII
+   použije jiné znaky než ASCII (chybné zarovnání na obr. statistik)
 
 
 Hotovo:

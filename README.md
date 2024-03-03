@@ -1,6 +1,6 @@
 # Hra Š I _ E _ I C E
 
-> Terminálová implementace známé slovní hry Šibenice/Oběšenec
+> Terminálová implementace známé slovní hry Šibenice (Oběšenec)
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
@@ -17,7 +17,7 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v0.0.4/sibenice_0.0.4_bin.zip)**
+- **[All-in-one řešení (soubor ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v1.0.0/sibenice_1.0.0.zip)**
 - [Složka s binárkami](bin/release/)
 
 
@@ -27,13 +27,14 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 #### Zahrnuté (testované) platformy:
 - MS Windows *(překladač MSVC)*:
-  - Windows 11
-- GNU/Linux *(překladač GNU GCC)*:
-  - Ubuntu 22.04 (LTS)
+  - Windows 10/11
 - DOS *(překladač DJGPP)*:
+  - MS-DOS 6.22
   - FreeDOS 1.3
   - DOSBox 0.74-3
-
+- GNU/Linux *(překladač GNU GCC)*:
+  - Ubuntu 24.04 LTS
+  - Fedora 39
 
 ### Snímky obrazovky
 
@@ -41,12 +42,12 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 Obrazovka hry:
 
-![Šibenice 0.0.4 - Hra](/res/screenshots/hra.png)
+![Šibenice – Hra](/res/screenshots/hra.png)
 
 Herní statistiky:
 
-![Šibenice 0.0.4 - Statistiky](/res/screenshots/kronika.png)
+![Šibenice – Statistiky](/res/screenshots/kronika.png)
 
 Informace o verzi (MS-DOS 6.22):
 
-![Šibenice 0.0.4 - MS-DOS](res/screenshots/prepinace-dos.png)
+![Šibenice – MS-DOS](res/screenshots/prepinace-dos.png)

@@ -1,14 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
-# Nutno zmenit ukoncovani radku jen na LF
+# Konce řádků souboru musí být reprezentovány znakem LF (nikoli CRLF)
+# Testované OS: Fedora 39, Ubuntu 24.04 LTS
 
 ######################################
 #                                    #
 #  SKRIPT NA SESTAVENÍ HRY ŠIBENICE  #
-#  (LINUX/BASH/GCC+Clang             #
+#  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TÁBOR (Ma-TA)      #
-#  datum:  2022-07-18                #
+#  datum:  2024-03-03                #
 #                                    #
 ######################################
 
@@ -47,7 +48,7 @@ echo $oramovani
 echo ''
 
 # příkaz pro spuštění překladače vč. parametrů
-  alias cc='gcc '$cc_param
+  alias cc='cc '$cc_param
 
 # vytvoří adresář bin pro výstupy
   mkdir $out_dir

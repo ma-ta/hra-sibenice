@@ -24,7 +24,7 @@
 :: parametry prekladace
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
    :: release:  /D_CRT_SECURE_NO_WARNINGS /Qspectre
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /Qspectre
 
 :: korenovy adresar se zdrojovymi kody
    set src_dir=.\source
