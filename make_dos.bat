@@ -21,8 +21,8 @@
 
 :: parametry prekladace
    :: debug:    -Wall -Wextra -pedantic -g
-   :: release:  
-   set cc_param=
+   :: release:  -O2
+   set cc_param=-O2
 
 :: korenovy adresar se zdrojovymi kody
    set src_dir=.\source

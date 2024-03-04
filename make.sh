@@ -24,8 +24,8 @@
 
 # parametry překladače
   # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
-  # release: ''
-  cc_param='-Wall -Wextra -pedantic -g -fsanitize=address'
+  # release: '-O2'
+  cc_param='-O2'
 
 # kořenový adresář se zdrojovými kódy
   src_dir=`pwd`'/source'
