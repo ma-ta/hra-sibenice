@@ -25,7 +25,7 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/release/dos/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
 
-#### Zahrnuté (testované) platformy:
+#### Testované platformy:
 - MS Windows *(překladač MSVC)*:
   - Windows 10/11
 - DOS *(překladač DJGPP)*:

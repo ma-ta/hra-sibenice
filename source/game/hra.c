@@ -22,6 +22,8 @@ static FILE *f_slova = NULL;  /* soubor se slovy k hádání */
 static char *slova[HRA_POCETSLOV];  /* dynamické pole pro uložení slov ze souboru */
 bool slova_nactena = false;
 
+extern int hlaska_fmt;            /* slouží provizorně k resetování formátu hlášky v modulu tui_slov.c */
+
 static int hra_probiha  = false;
 static int pocet_kol    = 0;
 static int kolo_hry     = 0;
@@ -111,6 +113,7 @@ void hra_nastav(int kol, int zivotu) {
   celkem_bodu  = 0;
   pocet_zivotu = zivotu;
   zbyva_zivotu = zivotu;
+  hlaska_fmt   = -1;      /* reset (odbarvení) formátu hlášky před novou hrou */
 
   if (!nacti_slova()) {
     hra_probiha = false;

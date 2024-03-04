@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdbool.h>
+#include "../../libs/ansi_fmt.h"
 
 static int  i, j      = 0;  /* pomocný iterátor */
 static bool nastaveno = false;  /* určuje, zda je modul inicializován */
@@ -21,6 +22,7 @@ static HADANE_SLOVO hadane_slovo = { .slovo[0] = '\0', .odkryto[0] = '\0', .delk
 static char *hlasky_ano[] = { UKAZATELSLOV_HLASKY_ANO };
 static char *hlasky_ne [] = { UKAZATELSLOV_HLASKY_NE  };
 static char hlaska[UKAZATELSLOV_HLASKA_MAX] = "";
+       int  hlaska_fmt        = (-1);  /* -1: neformátováno, 0: ne, 1: ano */
 static int  pocet_hlasek_ano  = 0;
 static int  pocet_hlasek_ne   = 0;
 static int  stav_nalezeno     = (-1);
@@ -136,7 +138,9 @@ void ukazatelslov_hlaska(char *retezec)
     fputs(ERR_SIGN "Hlaska je prilis dlouha...\n", stderr);
   }
 
-  stav_nalezeno = -1;
+  /* (???) z neznámé příčiny dříve uvedeno zde
+     u v1.0.0 přesunuto na konec ukazatelslov_vykresli() */
+  /*stav_nalezeno = -1;*/
 }
 
 void ukazatelslov_vykresli(void)
@@ -148,9 +152,11 @@ void ukazatelslov_vykresli(void)
     /* přednastavení náhodné hlášky */
     if (stav_nalezeno == 1) {
       ukazatelslov_hlaska(hlasky_ano[rand() % pocet_hlasek_ano]);
+      hlaska_fmt = 1;
     }
     else if (stav_nalezeno == 0) {
       ukazatelslov_hlaska(hlasky_ne[rand() % pocet_hlasek_ne]);
+      hlaska_fmt = 0;
     }
 
     /* první řádek */
@@ -181,7 +187,25 @@ void ukazatelslov_vykresli(void)
         for (j = 0; j < (int) ((((UKAZATELE_SIRKA_BUNKY * 2) - strlen(hlaska)) / 2) + 1); j++) {
           putchar(' ');
         }
+
+/* slouží k obarvení hlášky
+   TODO: přendat do fce. ukazatelslov_hlaska() a tu rozšířit o parametr fmt */
+#if UKAZATELE_BARVY == 1
+        if (hlaska_fmt == (-1))
+          ;  /* prázdný příkaz - např. při začátku hry */
+        else if (hlaska_fmt == 0)
+          fputs(UKAZATELSLOV_HLASKA_FMT_NE, stdout);
+        else
+          fputs(UKAZATELSLOV_HLASKA_FMT_ANO, stdout);
+#endif
+
         fputs(hlaska, stdout);
+
+#if UKAZATELE_BARVY == 1
+        if (hlaska_fmt != (-1))
+          fputs(ansi_format(ANSI_RESET), stdout);
+#endif
+
         for (j = 0; j < (int) ((((UKAZATELE_SIRKA_BUNKY * 2) - strlen(hlaska)) / 2) + 1); j++) {
           putchar(' ');
         }
@@ -206,6 +230,8 @@ void ukazatelslov_vykresli(void)
   else {
     fputs(ERR_SIGN "Modul ukazatele slov nebyl inicializovan...\n", stderr);
   }
+
+  stav_nalezeno = -1;
 }
 
 

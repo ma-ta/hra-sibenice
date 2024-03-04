@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
   puts("\n\n");
   fputs(PROMPT_ENTER_KONEC, stdout);
   cekej_enter();
-  vymaz_obr();
+  /*vymaz_obr();*/
 
   return 0;
 }

@@ -532,7 +532,7 @@ bool stats_vypis(bool jednoduchy_vypis)
         pocet_zn += sprintf(vystup + pocet_zn,
                              "  %s%s%d.  %s%s"
                              , (i == 0) ? STATS_OBR_1_ODR "*" ansi_format(ANSI_RESET) " " : "  "
-                             , (i == 0) ? STATS_OBR_1_TXT : ""
+                             , (i == 0) ? STATS_OBR_1_TXT STATS_TOPNEJ_BARVA : ""
                              , i + 1
                              , (stats_skore.jmena[i][0] == '\0' && stats_skore.skore[i] > 0)
                                  ? STATS_OBR_NONAME

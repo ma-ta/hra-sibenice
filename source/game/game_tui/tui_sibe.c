@@ -74,10 +74,18 @@ void vykresli_sibenici(void)
    printf((const char *) sibenice_obr[zbyvajici_zivoty]
 
           #if ANSI_FORMAT == 1
-            , CSI ANSI_ULINE SGR
-            , CSI ANSI_RESET SGR
-            , CSI ANSI_ULINE SGR
+            , (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW)
+                ? UKAZATELSIBE_ZIVOT_FMT
+                : UKAZATELSIBE_ZIVOT_LOW_FMT
+            , ansi_format(ANSI_RESET)
+            , UKAZATELSIBE_BODY_FMT
+            , ansi_format(ANSI_RESET)
+            , (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW)
+                ? UKAZATELSIBE_ZIVOT_FMT
+                : UKAZATELSIBE_ZIVOT_LOW_FMT
           #else
+            , ""
+            , ""
             , ""
             , ""
             , ""
@@ -86,12 +94,21 @@ void vykresli_sibenici(void)
           , zbyvajici_zivoty
 
           #if ANSI_FORMAT == 1
-            , CSI ANSI_RESET SGR
+            , ansi_format(ANSI_RESET)
+            , UKAZATELSIBE_BODY_FMT
           #else
+            , ""
             , ""
           #endif
 
-          , celkove_body);
+          , celkove_body
+
+          #if ANSI_FORMAT == 1
+            , ansi_format(ANSI_RESET)
+          #else
+            , ""
+          #endif
+  );
 }
 
 /* vykreslí tabulku
@@ -124,13 +141,34 @@ void vykresli_tabskore(bool vykreslit_obr)
   /* vykreslí ukazatel - tabulku se skóre */
   ukazatele_oramuj(1, 8);
   printf(
-    "| ZIVOTY |\n"
+    "| %sZIVOTY%s |\n"
     "| / BODY |\n"
     "|--------|    <------<<<<   S * K * O * R * E\n"
-    "| %02d /   |\n"
+    "| %s%02d%s /   |\n"
     "|   / %02d |\n"
 
+#if ANSI_FORMAT == 1
+    , (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW)
+        ? UKAZATELSIBE_ZIVOT_FMT
+        : UKAZATELSIBE_ZIVOT_LOW_FMT
+    , ansi_format(ANSI_RESET)
+#else
+    , ""
+    , ""
+#endif
+#if ANSI_FORMAT == 1
+    , (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW)
+        ? UKAZATELSIBE_ZIVOT_FMT
+        : UKAZATELSIBE_ZIVOT_LOW_FMT
+#else
+    , ""
+#endif
     , zbyvajici_zivoty
+#if ANSI_FORMAT == 1
+    , ansi_format(ANSI_RESET)
+#else
+    , ""
+#endif
     , celkove_body
   );
   ukazatele_oramuj(1, 8);

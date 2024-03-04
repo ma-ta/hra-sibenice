@@ -75,6 +75,7 @@
   #endif
 #endif
 
+
 /* GLOBÁLNÍ NASTAVENÍ */
 
 
@@ -100,18 +101,18 @@
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
-#define ANSI_FORMAT   1   /* zapne formátování ESC sekvencemi */
+#define ANSI_FORMAT    1   /* zapne formátování ESC sekvencemi */
 #ifdef OS_DOS
   #undef  ANSI_FORMAT
   #define ANSI_FORMAT  0
 #endif
-#define ZVUKY         1   /* zapne vkládání znaku '\a' */
+#define ZVUKY          1   /* zapne vkládání znaku '\a' */
 
-#define POCET_KOL     9   /* celkový počet kol hry (hádaných slov) */
-#define POCET_ZIVOTU  11  /* počet životů v jednom kole */
-#define MAX_SKORE     ((POCET_KOL) * (POCET_ZIVOTU))
+#define POCET_KOL      9   /* celkový počet kol hry (hádaných slov) */
+#define POCET_ZIVOTU   11  /* počet životů v jednom kole */
+#define MAX_SKORE      ((POCET_KOL) * (POCET_ZIVOTU))
 
-#define ERR_SIGN      "(!) "  /* vypysuje se před chybovou zprávou */
+#define ERR_SIGN       "(!) "  /* vypysuje se před chybovou zprávou */
 
 #define PROMPT_ENTER_NAVRAT  "(Enter pro navrat...)"
 #define PROMPT_ENTER_POKRAC  "(Enter pro pokracovani...)"
@@ -132,8 +133,8 @@
 #define ARG_STA_SIGN_2  "stats"
 #define ARG_VER_SIGN_1  "v"       /* zobarzí informace o sestavení */
 #define ARG_VER_SIGN_2  "version"
-#define ARG_DOS_SIGN_1  "d"       /* vynutí spuštení v režimu DOS */
-#define ARG_DOS_SIGN_2  "dos"
+#define ARG_DOS_SIGN_1  "c"       /* vynutí spuštení v režimu CLI s max. 25 řádky (DOS) */
+#define ARG_DOS_SIGN_2  "cli"
 
 #define ARG_VER_TEXT  "%s\n"  \
                       "Verze:   %s  (%s/%s %s%s, %s)\n"  \
@@ -222,10 +223,27 @@
 
 /* ukazatele */
 
+#define UKAZATELE_BARVY                 1    /* určuje, zda obarvit vybrané prvky TUI v průběhu hry */
 #define UKAZATELE_ORAMOVANI_ZN          '-'
 #define UKAZATELE_ORAMOVANI_KRIZENI_ZN  '+'
 #define UKAZATELE_SIRKA_BUNKY           5
-#define UKAZATELE_MINIMALNI_SIRKA       9  /* minimální počet buněk na řádku */
+#define UKAZATELE_MINIMALNI_SIRKA       9    /* minimální počet buněk na řádku */
+
+/* ukazatel šibenice */
+
+#define UKAZATELSIBENICE_ZARAZKA        '#'
+
+#if UKAZATELE_BARVY == 1
+  #define UKAZATELSIBE_ZIVOT_FMT        ""
+  #define UKAZATELSIBE_ZIVOT_LOW_FMT    ansi_frcolor(ANSI_RED) ansi_format(ANSI_BLICK)
+  /* počet životů, pod nímž se zvolí formát ZIVOT_LOW_FMT namísto ZIVOT_FMT */
+  #define UKAZATELSIBE_ZIVOT_LOW        3
+  #define UKAZATELSIBE_BODY_FMT         ""
+#else
+  #define UKAZATELSIBE_ZIVOT_FMT        ansi_format(ANSI_ULINE)
+  #define UKAZATELSIBE_ZIVOT_LOW_FMT    ansi_format(ANSI_ULINE) ansi_format(ANSI_BLICK)
+  #define UKAZATELSIBE_BODY_FMT         ""
+#endif
 
 /* ukazatel kol */
 
@@ -237,9 +255,20 @@
 
 /* ukazatel slov */
 
-#define UKAZATELSLOV_PROMPT      ">  "  /* znak před hádaným slovem */
-#define UKAZATELSLOV_VELKA       0  /* vypysuje vše velkými písmeny */
-#define UKAZATELSLOV_PISMENO_CH  1  /* určuje, zda brát CH jako jedno písmeno */
+#define UKAZATELSLOV_PROMPT          ">  "  /* znak před hádaným slovem */
+#define UKAZATELSLOV_VELKA           0      /* vypysuje vše velkými písmeny */
+#define UKAZATELSLOV_PISMENO_CH      1      /* určuje, zda brát CH jako jedno písmeno */
+#define UKAZATELSLOV_DELKA_MAX       31
+#define UKAZATELSLOV_MASKA           '_'
+#define UKAZATELSLOV_PRESKOCIT       " "  ","  "."  "?"  "!"  "-"  ";"  "%%"  "'"  "\""
+#define UKAZATELSLOV_HLASKA_MAX      (UKAZATELE_SIRKA_BUNKY * 2)
+/* zapne či vypne formátování hlášky pomocí sekvencí v ansi_fmt.h */
+#define UKAZATELSLOV_HLASKA_FMT_ANO  ansi_frcolor(ANSI_GREEN)
+#define UKAZATELSLOV_HLASKA_FMT_NE   ansi_frcolor(ANSI_RED)
+/* hlášky do pravého okénka (lichý počet znaků pro správné zarovnání!) */
+#define UKAZATELSLOV_HLASKA          "* Vitej *"
+#define UKAZATELSLOV_HLASKY_ANO      "VYBORNE", "BRAVO", "HEJ RUP", "TREFA", "ZASAH"
+#define UKAZATELSLOV_HLASKY_NE       "TUDY NE", "NE NE", "AU!", "TO BOLELO", "VEDLE"
 
 /* ukazatel písmen */
 
@@ -250,21 +279,6 @@
                                                           *((pole) + (znak - 'A')) = (char) znak;  \
                                                         }  \
                                                      }
-
-/* ukazatel slov */
-
-#define UKAZATELSLOV_DELKA_MAX       31
-#define UKAZATELSLOV_MASKA           '_'
-#define UKAZATELSLOV_PRESKOCIT       " "  ","  "."  "?"  "!"  "-"  ";"  "%%"  "'"  "\""
-#define UKAZATELSLOV_HLASKA_MAX      (UKAZATELE_SIRKA_BUNKY * 2)
-/* hlášky do pravého okénka (lichý počet znaků pro správné zarovnání!) */
-#define UKAZATELSLOV_HLASKA          "* Vitej *"
-#define UKAZATELSLOV_HLASKY_ANO      "VYBORNE", "BRAVO", "HEJ RUP", "TREFA", "ZASAH"
-#define UKAZATELSLOV_HLASKY_NE       "TUDY NE", "NE NE", "AU!", "TO BOLELO", "VEDLE"
-
-/* ukazatel šibenice */
-
-#define UKAZATELSIBENICE_ZARAZKA  '#'
 
 /* hra */
 
@@ -326,24 +340,25 @@
 
 /* statistiky */
 
-#define STATS_TAJNE_HESLO  "TajneHeslo"  /* konstanta pro editaci statistik a ověření souboru */
-#define STATS_VYCHOZI_JMN  "Ma-TA"  /* výchozí nejlepší hráč */
-#define STATS_VYCHOZI_B    50   /* výchozí nejlepší skóre */
-#define STATS_JMENO_STRLN  43   /* maximální délka jména */
-#define STATS_POCET_HRACU  5    /* počet uchovávaných pořadí */
-#define STATS_PRAVOST_ZAP  0    /* zapíná a vypíná kontrolní součet */
-#define STATS_OBR_RADEK    43   /* délka řádku se jménem */
-#define STATS_OBR_VODITKO  "."    /* znaky oddělující jméno a body na řádku */
-#define STATS_OBR_NONAME   "(?)"  /* zobrazí se v herní kronice, pokud výherce nezadal jméno */
-#define STATS_OBR_1_ODR    ansi_format(ANSI_BOLD) ansi_format(ANSI_BLICK)  /* formát odrážky nej řádku */
-#define STATS_OBR_1_TXT    ansi_format(ANSI_BOLD)  /* formát nej řádku */
-#define STATS_OBR_ODRAZKY  ">>>>------>",  \
-                           "  >>>----->",  \
-                           "    >>---->",  \
-                           "      >--->",  \
-                           "        -->"
-#define STATS_DELKA_ERR    ERR_SIGN "Delka jmena smi byt max. %d znaku."
-#define STATS_ZADNE_STATS  "Zatim nejsou ulozeny zadne statistiky."
+#define STATS_TAJNE_HESLO   "TajneHeslo"  /* konstanta pro editaci statistik a ověření souboru */
+#define STATS_VYCHOZI_JMN   "Ma-TA"  /* výchozí nejlepší hráč */
+#define STATS_TOPNEJ_BARVA  ansi_frcolor(ANSI_YELLOW)  /* obarvení NEJ záznamů */
+#define STATS_VYCHOZI_B     50  /* výchozí nejlepší skóre */
+#define STATS_JMENO_STRLN   43  /* maximální délka jména */
+#define STATS_POCET_HRACU   5  /* počet uchovávaných pořadí */
+#define STATS_PRAVOST_ZAP   0  /* zapíná a vypíná kontrolní součet */
+#define STATS_OBR_RADEK     43  /* délka řádku se jménem */
+#define STATS_OBR_VODITKO   "."  /* znaky oddělující jméno a body na řádku */
+#define STATS_OBR_NONAME    "(?)"  /* zobrazí se v herní kronice, pokud výherce nezadal jméno */
+#define STATS_OBR_1_ODR     ansi_format(ANSI_BOLD) ansi_format(ANSI_BLICK)  /* formát odrážky nej řádku */
+#define STATS_OBR_1_TXT     ansi_format(ANSI_BOLD)  /* formát nej řádku */
+#define STATS_OBR_ODRAZKY   ">>>>------>",  \
+                            "  >>>----->",  \
+                            "    >>---->",  \
+                            "      >--->",  \
+                            "        -->"
+#define STATS_DELKA_ERR     ERR_SIGN "Delka jmena smi byt max. %d znaku."
+#define STATS_ZADNE_STATS   "Zatim nejsou ulozeny zadne statistiky."
 #define STATS_OBR_ZAHLAVI  \
 "+-------------------+-------------------------------+-------------------+\n"  \
 "|                   |                               |                   |\n"  \

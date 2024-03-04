@@ -3,10 +3,10 @@
          ||   //               
      +--------+                
      | %sZIVOTY%s |                
-     | / BODY |                
+     | / %sBODY%s |                
      |--------|                
      | %s%02d%s /   |                
-     |   / %02d |                
+     |   / %s%02d%s |                
      +--------+                
          ||                    
          ||                    
@@ -23,10 +23,10 @@
          ||   //               
      +--------+                
      | %sZIVOTY%s |                
-     | / BODY |                
+     | / %sBODY%s |                
      |--------|                
      | %s%02d%s /   |                
-     |   / %02d |                
+     |   / %s%02d%s |                
      +--------+                
          ||                    
          ||                    
@@ -43,10 +43,10 @@
          ||   //                     |
      +--------+                
      | %sZIVOTY%s |                
-     | / BODY |                
+     | / %sBODY%s |                
      |--------|                
      | %s%02d%s /   |                
-     |   / %02d |                
+     |   / %s%02d%s |                
      +--------+                
          ||                    
          ||                    
@@ -63,10 +63,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                
-     | / BODY |                
+     | / %sBODY%s |                
      |--------|                
      | %s%02d%s /   |                
-     |   / %02d |                
+     |   / %s%02d%s |                
      +--------+                
          ||                    
          ||                    
@@ -83,10 +83,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo     oo
+     | / %sBODY%s |                  oo     oo
      |--------|                  oo     oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                  
+     |   / %s%02d%s |                  
      +--------+                
          ||                    
          ||                    
@@ -103,10 +103,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo     oo
+     | / %sBODY%s |                  oo     oo
      |--------|                  oo     oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      |
+     |   / %s%02d%s |                      |
      +--------+                      |
          ||                          |
          ||                          |
@@ -123,10 +123,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo     oo
+     | / %sBODY%s |                  oo     oo
      |--------|                  oo     oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      |
+     |   / %s%02d%s |                      |
      +--------+                      |
          ||                          |
          ||                          |
@@ -143,10 +143,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo     oo
+     | / %sBODY%s |                  oo     oo
      |--------|                  oo     oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      |
+     |   / %s%02d%s |                      |
      +--------+                     /|
          ||                        / |
          ||                       /  |
@@ -163,10 +163,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo     oo
+     | / %sBODY%s |                  oo     oo
      |--------|                  oo     oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      |
+     |   / %s%02d%s |                      |
      +--------+                     /|
          ||                        / |
          ||                       /  |
@@ -183,10 +183,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo - o oo
+     | / %sBODY%s |                  oo - o oo
      |--------|                  oo  |  oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      |
+     |   / %s%02d%s |                      |
      +--------+                     /|\
          ||                        / | \
          ||                       /  |  \
@@ -203,10 +203,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo O o oo
+     | / %sBODY%s |                  oo O o oo
      |--------|                  oo  |  oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      O
+     |   / %s%02d%s |                      O
      +--------+                     /|\
          ||                        / | \
          ||                       /  |  \
@@ -223,10 +223,10 @@
          ||   //                     |
      +--------+                      |
      | %sZIVOTY%s |                   ooooooo
-     | / BODY |                  oo x X oo
+     | / %sBODY%s |                  oo x X oo
      |--------|                  oo  \  oo
      | %s%02d%s /   |                  ooooooooo
-     |   / %02d |                      O
+     |   / %s%02d%s |                      O
      +--------+                     /|\
          ||                        / | \
          ||                       /  |  \

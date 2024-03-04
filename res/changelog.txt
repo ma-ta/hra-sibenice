@@ -1,5 +1,5 @@
 +--------+------------+
-| v1.0.0 | 2024-03-03 |
+| v1.0.0 | 2024-03-04 |
 +--------+------------+
 
 
@@ -7,15 +7,16 @@ NOVINKY:
 
 1) drobné úpravy v textech napříč obrazovkami
 
-2) obarvení informace o výsledku tahu
+2) obarvení některých prvků pomocí escape sekvencí
+   (herní obrazovka + statistiky)
 
 
 OPRAVENÉ CHYBY:
 
-1) zamezení zadání non-ASCII znaků do kroniky
-
-2) v cs slovníku nahrazeno nevhodné slovo hezkým
+1) v cs slovníku nahrazeno nevhodné slovo hezkým
    českým slovem "klapkobřinkostroj"
+
+2) po ukončení hry se nemaže terminál
 
 
 +--------+------------+

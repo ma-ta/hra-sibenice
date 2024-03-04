@@ -5,6 +5,10 @@
  *  Na pravé straně dále políčko se stavovými hláškami dle
  *  toho, zda byl tah úspěšný nebo neúspěšný.
  *
+ *  |                                         |           |
+ *  |     >  si_e_ice                         |   ZASAH   |
+ *  |                                         |           |
+ *
  */
 
 
@@ -16,8 +20,7 @@
    k hádání a vynuluje stav */
 void ukazatelslov_nastav(char slovo[]);
 
-/* nastaví hlášku v pravém
-   okénku */
+/* nastaví text v pravém okénku */
 void ukazatelslov_hlaska(char slovo[]);
 
 /* hádání písmene ve slově
