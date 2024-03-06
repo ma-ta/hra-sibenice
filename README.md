@@ -57,6 +57,6 @@ Obrazovka hry (DOS – 25x80 znaků):
 
 ![Šibenice – MS-DOS](res/screenshots/hra-dos.png)
 
-Informace o verzi (MS-DOS):
+Informace o verzi (DOS):
 
 ![Šibenice – MS-DOS](res/screenshots/prepinace-dos.png)
