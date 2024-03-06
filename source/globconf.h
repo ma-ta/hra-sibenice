@@ -93,11 +93,11 @@
 #define LICENCE  "(GPLv3)"
 
 /* externí soubory */
-#define HRA_SLOVA_SOUBOR          "./data/dict_cs.dat"   /* seznam slov k hádání        (textový) */
-#define UKAZATELSIBENICE_SOUBOR   "./data/game_sib.dat"  /* šablona s obrázky šibenice  (textový) */
-#define NAPOVEDA_SOUBOR           "./data/help_cs.dat"   /* šablona české nápovědy      (textový) */
-#define STATISTIKY_OBRSAB_SOUBOR  "./data/stat_scr.dat"  /* šablona obrazovky statistik (textový) */
-#define STATISTIKY_SOUBOR         "./data/stat_dat.bin"  /* datový soubor statistik     (binární) */
+#define HRA_SLOVA_SOUBOR          "./data/game_cs.res"  /* seznam slov k hádání        (textový) */
+#define UKAZATELSIBENICE_SOUBOR   "./data/game.res"     /* šablona s obrázky šibenice  (textový) */
+#define NAPOVEDA_SOUBOR           "./data/help.res"     /* šablona české nápovědy      (textový) */
+#define STATISTIKY_OBRSAB_SOUBOR  "./data/stats.res"    /* šablona obrazovky statistik (textový) */
+#define STATISTIKY_SOUBOR         "./data/stats.dat"    /* datový soubor statistik     (binární) */
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
@@ -234,7 +234,7 @@
 #define UKAZATELSIBENICE_ZARAZKA        '#'
 
 #if UKAZATELE_BARVY == 1
-  #define UKAZATELSIBE_ZIVOT_FMT        ""
+  #define UKAZATELSIBE_ZIVOT_FMT        ansi_format(ANSI_ULINE)
   #define UKAZATELSIBE_ZIVOT_LOW_FMT    ansi_frcolor(ANSI_RED) ansi_format(ANSI_BLICK)
   /* počet životů, pod nímž se zvolí formát ZIVOT_LOW_FMT namísto ZIVOT_FMT */
   #define UKAZATELSIBE_ZIVOT_LOW        3
@@ -242,6 +242,8 @@
 #else
   #define UKAZATELSIBE_ZIVOT_FMT        ansi_format(ANSI_ULINE)
   #define UKAZATELSIBE_ZIVOT_LOW_FMT    ansi_format(ANSI_ULINE) ansi_format(ANSI_BLICK)
+  /* počet životů, pod nímž se zvolí formát ZIVOT_LOW_FMT namísto ZIVOT_FMT */
+  #define UKAZATELSIBE_ZIVOT_LOW        3
   #define UKAZATELSIBE_BODY_FMT         ""
 #endif
 
@@ -317,8 +319,13 @@
 "        ooooooooooooo\n"
 
 #define HRA_ZNAK_NEDOSTUPNY  "Tento znak neni k dispozici."
-#define HRA_HLASKA_UHODL     "Slovo jsi UHODL!"
-#define HRA_HLASKA_NEUHODL   "Slovo jsi NEUHODL!"
+#if UKAZATELE_BARVY == 1
+  #define HRA_HLASKA_UHODL     ansi_frcolor(ANSI_GREEN) "Slovo jsi UHODL!"   ansi_format(ANSI_RESET)
+  #define HRA_HLASKA_NEUHODL   ansi_frcolor(ANSI_RED)   "Slovo jsi NEUHODL!" ansi_format(ANSI_RESET)
+#else
+  #define HRA_HLASKA_UHODL     "Slovo jsi UHODL!"
+  #define HRA_HLASKA_NEUHODL   "Slovo jsi NEUHODL!"
+#endif
 #define HRA_HLASKA_VYHRA     "VYHRAL JSI S CELKOVYM SKORE "  \
                              ansi_format(ANSI_BOLD) "%d BODU" ansi_format(ANSI_RESET) HRA_HLASKA_FORMAT " !"
 #define HRA_HLASKA_PROHRA    "TENTOKRAT TO NEVYSLO! Ziskavas 0 bodu."

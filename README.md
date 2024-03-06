@@ -33,7 +33,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
   - FreeDOS 1.3
   - DOSBox 0.74-3
 - GNU/Linux *(překladač GNU GCC)*:
-  - Ubuntu 24.04 LTS
+  - Ubuntu 22.04 LTS
   - Fedora 39
 
 ### Snímky obrazovky

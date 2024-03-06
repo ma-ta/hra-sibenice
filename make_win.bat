@@ -8,7 +8,7 @@
 ::  (WINDOWS/BATCH/MSVC)              ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2022-08-15                ::
+::  datum:  2024-02-29                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -23,8 +23,8 @@
 
 :: parametry prekladace
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
-   :: release:  /D_CRT_SECURE_NO_WARNINGS /Qspectre
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /Qspectre
+   :: release:  /D_CRT_SECURE_NO_WARNINGS /O2
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /O2
 
 :: korenovy adresar se zdrojovymi kody
    set src_dir=.\source

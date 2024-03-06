@@ -23,22 +23,19 @@ tedy zobrazena bez hacku a carek!
 
 Obsah aktualni slozky:
 
-DATA/
- dict_cs.dat          - slovnik 1000 nahodnych ceskych slov    (textovy)
- game_sib.dat         - zdrojovy soubor ascii-artu sibenice    (textovy)
- help_cs.dat          - zdrojovy soubor napovedy pro aplikaci  (textovy)
- (stat_dat.bin)       - datovy soubor pro ulozeni statistik    (binarni)
-                        (vytvoren az po prvnim spusteni hry)
- stat_scr.dat         - zdrojovy soubor obrazovky statistik    (textovy)
-
-DOS/
- (do slozky DOS je treba zkopirovat slozku DATA)
- cwsdpmi.exe          - knihovna nezbytna pro beh v MS-DOS     (binarni)
- sibe_dos.exe         - spustitelny soubor pro platformy DOS   (binarni)
-
 ./
  info.txt             - (tento) soubor s rychlymi instrukcemi  (textovy)
  napoveda.txt         - kompletni napoveda ke hre              (textovy)
  sibenice_win32.exe   - platforma Windows (32-bit, x86)        (program)
  sibenice_win64.exe   - platforma Windows (64-bit, x86-64)     (program)
  sibenice_linux       - platforma GNU/Linux                    (program)
+ sibe_dos.exe         - platforma DOS                          (binarni)
+ cwsdpmi.exe          - knihovna nezbytna pro beh v MS-DOS     (binarni)
+
+DATA/
+ game_cs.res          - slovnik 1000 nahodnych ceskych slov    (textovy)
+ game.res             - zdrojovy soubor ascii-artu sibenice    (textovy)
+ help.res             - zdrojovy soubor napovedy pro aplikaci  (textovy)
+ stats.res            - zdrojovy soubor obrazovky statistik    (textovy)
+ (stats.dat)          - soubor s ulozenymi statistikami        (binarni)
+                        (vytvoren az po prvnim spusteni hry)

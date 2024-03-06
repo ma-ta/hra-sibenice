@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Konce řádků souboru musí být reprezentovány znakem LF (nikoli CRLF)
-# Testované OS: Fedora 39, Ubuntu 24.04 LTS
+# Testované OS: Fedora 39, Ubuntu 22.04 LTS
 
 ######################################
 #                                    #
@@ -9,7 +9,7 @@
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TÁBOR (Ma-TA)      #
-#  datum:  2024-03-04                #
+#  datum:  2024-02-29                #
 #                                    #
 ######################################
 
