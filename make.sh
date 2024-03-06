@@ -20,7 +20,7 @@
 
 
 # název spustitelného souboru
-  bin_nazev='sibenice'
+  bin_nazev='sibenice_linux'
 
 # parametry překladače
   # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
