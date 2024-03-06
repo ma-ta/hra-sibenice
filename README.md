@@ -11,6 +11,7 @@ Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potře
 
 - **[Nápověda ke hře](/res/napoveda.txt)**
 - [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
+- [Základní instrukce k sestavení](how_make.txt)
 
 
 ### Binárky ke stažení
@@ -21,7 +22,7 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 - [Složka s binárkami](bin/)
 
 
-#### Pro systém MS-DOS (DOSBox)
+#### Pro systémy typu MS-DOS
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
 
@@ -34,7 +35,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
   - DOSBox-X 2024.03.01
   - MS-DOS 6.22
 - GNU/Linux *(překladač GNU GCC)*:
-  - Ubuntu 22.04 LTS (WSL)
+  - Ubuntu 22.04 LTS (via WSL)
   - Fedora 39
 
 ### Snímky obrazovky
