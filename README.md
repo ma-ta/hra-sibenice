@@ -9,9 +9,9 @@
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
-- **[Nápověda ke hře](/res/napoveda.txt)**
+- **[Základní instrukce k sestavení](how_make.txt)**
+- [Nápověda ke hře](/res/napoveda.txt)
 - [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
-- [Základní instrukce k sestavení](how_make.txt)
 
 
 ### Binárky ke stažení
