@@ -48,6 +48,6 @@ Herní statistiky:
 
 ![Šibenice – Statistiky](/res/screenshots/kronika.png)
 
-Informace o verzi (MS-DOS 6.22):
+Informace o verzi (MS-DOS):
 
 ![Šibenice – MS-DOS](res/screenshots/prepinace-dos.png)
