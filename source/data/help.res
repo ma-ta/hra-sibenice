@@ -1,7 +1,8 @@
                     Vitejte ve hre  S i _ e _ i c e !
 
           Cilem  hry je v kazdem kole odkryt tajne slovo, jehoz
-          delka je na zacatku vyznacena zastupnymi znaky:  _  .
+          delka je na zacatku vyznacena podtrzitky:
+                          >  s i _ e _ i c e  .
 
           Kazde  kolo z celkem 9 zacina s 11 zivoty, ktere pote
           ubyvaji  s chybnymi pokusy. Z daneho kola si odnesete

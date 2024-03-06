@@ -13,12 +13,14 @@
 
 
 Cilem  hry je v kazdem kole odkryt tajne slovo, jehoz delka je na zacatku
-vyznacena zastupnymi znaky:  _  (nahrazuji pismena).
+vyznacena podtrzitky:
+
+                          >  s i _ e _ i c e  .
 
 Kazde  kolo  z celkem 9 zacina s 11 zivoty, ktere pote ubyvaji s chybnymi
 pokusy.  Z  daneho  kola  si odnesete pocet bodu rovnajici se zbyvajicimu
 poctu  zivotu a body se v prubehu hry scitaji do celkoveho skore. Paklize
-nektere slovo neuhadnete pred vycerpanim vsech 11 zivotu, prohravate.
+nektere slovo neuhodnete pred vycerpanim vsech 11 zivotu, prohravate.
 
 
 POPIS PRVKU HERNI OBRAZOVKY
