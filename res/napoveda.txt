@@ -15,7 +15,7 @@
 Cilem  hry je v kazdem kole odkryt tajne slovo, jehoz delka je na zacatku
 vyznacena podtrzitky:
 
-                          >  s i _ e _ i c e  .
+                            >  s v _ t b _  .
 
 Kazde  kolo  z celkem 9 zacina s 11 zivoty, ktere pote ubyvaji s chybnymi
 pokusy.  Z  daneho  kola  si odnesete pocet bodu rovnajici se zbyvajicimu
