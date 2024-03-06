@@ -5,7 +5,11 @@ ZNÁMÉ CHYBY:
 1) není zajištěno, aby se v rámci kola/hry nemohla opakovat slova
    (leč pseudonáhodná čísla jsou generována v rovnoměrném rozložení)
 
-2) při zadávání jména do kroniky může způsobit problémy, když uživatel
+2) není zajištěno, aby se v rámci kola nemohly ihned za sebou
+   opakovat stejné hlášky o výsledku tahu
+   (tzn. vyloučit poslední položku nebo změnit na carousel)
+
+3) při zadávání jména do kroniky může způsobit problémy, když uživatel
    použije jiné znaky než ASCII (chybné zarovnání na obr. statistik)
 
 
