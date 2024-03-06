@@ -9,7 +9,7 @@
           pocet  bodu  rovnajici  se  zbyvajicimu  poctu zivotu
           a body se v prubehu hry scitaji do celkoveho skore.
 #
-          Paklize  nektere  slovo  neuhadnete  pred  vycerpanim
+          Paklize  nektere  slovo  neuhodnete  pred  vycerpanim
           vsech 11 zivotu, prohravate.
 
 
