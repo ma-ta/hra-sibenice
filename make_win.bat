@@ -101,7 +101,7 @@ echo.
 :: spusteni sestaveneho programu
    %out_dir%\%bin_nazev%.exe -v
 
-:: vyčkání na stisk klávesy
+:: vyckani na stisk klavesy
    echo.
    echo %oramovani%
    echo.
