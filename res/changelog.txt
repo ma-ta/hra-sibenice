@@ -7,8 +7,10 @@ NOVINKY:
 
 1) drobné úpravy v textech napříč obrazovkami
 
-2) obarvení některých prvků pomocí escape sekvencí
+2) obarvení některých prvků pomocí ANSI escape kódů
    (herní obrazovka + statistiky)
+
+3) vytvořena ikonka aplikace (ve složce res)
 
 
 OPRAVENÉ CHYBY:

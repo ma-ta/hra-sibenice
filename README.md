@@ -1,6 +1,6 @@
 # Hra Š I _ E _ I C E
 
-> Terminálová implementace známé slovní hry Šibenice (Oběšenec)
+> Multiplatformní implementace známé slovní hry Šibenice pro terminál
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
@@ -32,7 +32,6 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 - DOS *(překladač DJGPP)*:
   - FreeDOS 1.3
   - DOSBox 0.74-3
-  - DOSBox-X 2024.03.01
   - MS-DOS 6.22
 - GNU/Linux *(překladač GNU GCC)*:
   - Ubuntu 22.04 LTS (via WSL)
