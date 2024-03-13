@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Konce řádků souboru musí být reprezentovány znakem LF (nikoli CRLF)
-# Testované OS: Fedora 39, Ubuntu 22.04 LTS
+# Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
+# Testovane OS: Fedora 39, Ubuntu 22.04 LTS, FreeBSD 14
 
 ######################################
 #                                    #
-#  SKRIPT NA SESTAVENÍ HRY ŠIBENICE  #
+#  SKRIPT NA SESTAVENI HRY SIBENICE  #
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
-#  autor:  Martin TÁBOR (Ma-TA)      #
-#  datum:  2024-03-11                #
+#  autor:  Martin TABOR (Ma-TA)      #
+#  datum:  2024-02-29                #
 #                                    #
 ######################################
 
@@ -19,24 +19,24 @@
 ######################################
 
 
-# název spustitelného souboru
-  bin_nazev='sibenice_linux'
+# nazev spustitelneho souboru
+  bin_nazev='sibenice'
 
-# parametry překladače
+# parametry prekladace
   # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
   # release: '-O2'
   cc_param='-O2'
 
-  # příkaz pro spuštění překladače vč. parametrů (cc/gcc/clang apod.)
+  # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
   CC='cc '$cc_param
 
-# kořenový adresář se zdrojovými kódy
+# korenovy adresar se zdrojovymi kody
   src_dir=`pwd`'/source'
 
-# kořenový adresář pro binární soubory
+# korenovy adresar pro binarni soubory
   out_dir=`pwd`'/bin'
 
-# orámování
+# oramovani
   oramovani='----------------------------------'
 
 
@@ -50,46 +50,46 @@ echo 'SESTAVUJI - Vypis chyb a udalosti:'
 echo $oramovani
 echo ''
 
-# vytvoří adresář bin pro výstupy
+# vytvori adresar bin pro vystupy
   mkdir $out_dir
-# zkopíruje složku data do složky bin
-  cp $src_dir'/data' -R $out_dir
-# zkopíruje info a nápovědu do složky bin
+# zkopiruje slozku data do slozky bin
+  cp -R $src_dir'/data' $out_dir
+# zkopiruje info a napovedu do slozky bin
   cp $src_dir'/../res/info.txt' $out_dir
   cp $src_dir'/../res/napoveda.txt' $out_dir
 
-# kompilace jednotlivých souborů
+# kompilace jednotlivych souboru
 
-# kořenový adresář
+# korenovy adresar
   cd $src_dir
   ${CC} -c *.c
   mv *.o $out_dir
-# složka game
+# slozka game
   cd $src_dir'/game'
   ${CC} -c *.c
   mv *.o $out_dir
-# složka game/game_tui
+# slozka game/game_tui
   cd $src_dir'/game/game_tui'
   ${CC} -c *.c
   mv *.o $out_dir
-# složka help
+# slozka help
   cd $src_dir'/help'
   ${CC} -c *.c
   mv *.o $out_dir
-# složka menu
+# slozka menu
   cd $src_dir'/menu'
   ${CC} -c *.c
   mv *.o $out_dir
-# složka stats
+# slozka stats
   cd $src_dir'/stats'
   ${CC} -c *.c
   mv *.o $out_dir
-# složka tui
+# slozka tui
   cd $src_dir'/tui'
   ${CC} -c *.c
   mv *.o $out_dir
 
-# sestavení spustitelného souboru
+# sestaveni spustitelneho souboru
   cd $out_dir
   ${CC} *.o -o $bin_nazev
   rm *.o
@@ -98,10 +98,10 @@ echo ''
 echo $oramovani
 echo ''
 
-# spuštění sestaveného programu
+# spusteni sestaveneho programu
   $out_dir/$bin_nazev -v
 
-# vyčkání na stisk klávesy
+# vyckani na stisk klavesy
   echo ''
   echo $oramovani
   echo ''
