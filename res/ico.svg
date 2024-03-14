@@ -20,7 +20,7 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <title
-     id="title1">Ikona hry Šibenice</title>
+     id="title1">Hra Šibenice</title>
   <sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
@@ -109,7 +109,7 @@
             <dc:title>Martin TÁBOR (Ma-TA)</dc:title>
           </cc:Agent>
         </dc:creator>
-        <dc:title>Ikona hry Šibenice</dc:title>
+        <dc:title>Hra Šibenice</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>

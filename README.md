@@ -27,15 +27,17 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 
 #### Testované platformy:
-- MS Windows *(překladač MSVC)*:
-  - Windows 10/11
-- DOS *(překladač DJGPP)*:
-  - FreeDOS 1.3
+- Un*x:
+  - Ubuntu 22.04 LTS *(GNU GCC)*
+  - Fedora 39
+  - FreeBSD 14 *(LLVM/Clang)*
+- MS Windows:
+  - Windows 11 *(MSVC)*
+  - Windows 10
+- DOS:
+  - FreeDOS 1.3 *(DJGPP)*
   - DOSBox 0.74-3
   - MS-DOS 6.22
-- GNU/Linux *(překladač GNU GCC)*:
-  - Ubuntu 22.04 LTS (via WSL)
-  - Fedora 39
 
 ### Snímky obrazovky
 

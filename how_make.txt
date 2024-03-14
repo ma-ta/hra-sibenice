@@ -26,9 +26,10 @@
   Poznamky:
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
-      -> ve Fedore [sudo dnf install gcc -y]
-      -> v Ubuntu [sudo apt install build-essentials -y]
-    - spustit [chmod +x make.sh && ./make.sh] nebo [sh make.sh]
+      -> Ubuntu 22.04 LTS [sudo apt install build-essentials -y]
+      -> Fedora 39        [sudo dnf install gcc -y]
+      -> FreeBSD 14       [pkg install -y bash && bash]
+    - spustit [sh make.sh]
 
 
 +-----+
