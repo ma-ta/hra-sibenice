@@ -27,7 +27,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 
 #### Testované platformy:
-- Un*x:
+- UN*X:
   - Ubuntu 22.04 LTS *(GNU GCC)*
   - Fedora 39
   - FreeBSD 14 *(LLVM/Clang)*
