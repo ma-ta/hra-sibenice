@@ -28,12 +28,11 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 #### Testované platformy *(kompilátory)*:
 - UN*X:
-  - Ubuntu 22.04 LTS *(GNU GCC)*
+  - Ubuntu 22.04 LTS *(GNU GCC 11.4.0)*
   - Fedora 39
   - FreeBSD 14 *(LLVM/Clang 16.0.6)*
 - MS Windows:
   - Windows 11 *(MSVC)*
-  - Windows 10
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1)*
   - DOSBox 0.74-3
