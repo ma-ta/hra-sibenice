@@ -90,7 +90,7 @@
 #define VERZE    "1.0.0"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
-#define LICENCE  "(GPLv3)"
+#define LICENCE  "(GPLv3+)"
 
 /* externí soubory */
 #define HRA_SLOVA_SOUBOR          "./data/game_cs.dat"  /* seznam slov k hádání        (textový) */
