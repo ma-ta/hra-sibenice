@@ -20,6 +20,9 @@ OPRAVENÉ CHYBY:
 
 2) po ukončení hry se nemaže terminál
 
+3) změna přípon souborů ve složce [data]
+   (.res -> .dat, .dat -> .sav)
+
 
 +--------+------------+
 | v0.0.4 | 2022-10-02 |

@@ -26,14 +26,14 @@
   Poznamky:
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
-      -> Ubuntu 22.04 LTS [sudo apt install build-essentials -y]
-      -> Fedora 39        [sudo dnf install gcc -y]
-      -> FreeBSD 14       [pkg install -y bash && bash]
+      - Ubuntu 22.04 (LTS) -> [sudo apt install build-essentials -y]
+      - Fedora 39          -> [sudo dnf install gcc -y]
+      - FreeBSD 14         -> [pkg install -y bash && bash]
     - spustit [sh make.sh]
 
 
 +-----+
-|  2  |  WINDOWS 10/11 :
+|  2  |  WINDOWS 1011 :
 +-----+
 
 
@@ -44,9 +44,9 @@
 
   Poznamky:
     - predem instalovat vyvojove nastroje:
-      -> Visual Studio Community s podporou vyvoje pro C/C++
+      - Visual Studio Community s podporou vyvoje pro C/C++
          (tj. minimalne kompilator MSVC)
-      -> skript je treba spustit z vyvojarske konzole
+      - skript je treba spustit z vyvojarske konzole
          v nabidce Start:
            x86 Native Tools Command Prompt for VS (32bitova sibenice)
            x64 Native Tools Command Prompt for VS (64bitova sibenice)

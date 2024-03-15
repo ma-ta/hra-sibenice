@@ -93,11 +93,11 @@
 #define LICENCE  "(GPLv3)"
 
 /* externí soubory */
-#define HRA_SLOVA_SOUBOR          "./data/game_cs.res"  /* seznam slov k hádání        (textový) */
-#define UKAZATELSIBENICE_SOUBOR   "./data/game.res"     /* šablona s obrázky šibenice  (textový) */
-#define NAPOVEDA_SOUBOR           "./data/help.res"     /* šablona české nápovědy      (textový) */
-#define STATISTIKY_OBRSAB_SOUBOR  "./data/stats.res"    /* šablona obrazovky statistik (textový) */
-#define STATISTIKY_SOUBOR         "./data/stats.dat"    /* datový soubor statistik     (binární) */
+#define HRA_SLOVA_SOUBOR          "./data/game_cs.dat"  /* seznam slov k hádání        (textový) */
+#define UKAZATELSIBENICE_SOUBOR   "./data/game.dat"     /* šablona s obrázky šibenice  (textový) */
+#define NAPOVEDA_SOUBOR           "./data/help.dat"     /* šablona české nápovědy      (textový) */
+#define STATISTIKY_OBRSAB_SOUBOR  "./data/stats.dat"    /* šablona obrazovky statistik (textový) */
+#define STATISTIKY_SOUBOR         "./data/stats.sav"    /* uložené herní statistiky    (binární) */
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
