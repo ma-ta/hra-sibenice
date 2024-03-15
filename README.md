@@ -35,7 +35,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
   - Windows 11 *(MSVC)*
   - Windows 10
 - DOS:
-  - FreeDOS 1.3 *(DJGPP)*
+  - FreeDOS 1.3 *(DJGPP 4.7)*
   - DOSBox 0.74-3
   - MS-DOS 6.22
 
