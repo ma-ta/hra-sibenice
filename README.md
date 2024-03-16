@@ -32,7 +32,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
   - Fedora 39
   - FreeBSD 14 *(LLVM/Clang 16.0.6)*
 - MS Windows:
-  - Windows 11 *(MSVC)*
+  - Windows 11 *(MSVC 19.39.33522)*
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1)*
   - DOSBox 0.74-3
