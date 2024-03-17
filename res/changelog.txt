@@ -10,7 +10,7 @@ NOVINKY:
 2) obarvení některých prvků pomocí ANSI escape kódů
    (herní obrazovka + statistiky)
 
-3) vytvořena ikonka aplikace (ve složce res)
+3) vytvořena ikonka a banner aplikace - ve složce [res]
 
 
 OPRAVENÉ CHYBY:
@@ -20,8 +20,8 @@ OPRAVENÉ CHYBY:
 
 2) po ukončení hry se nemaže terminál
 
-3) změna přípon souborů ve složce [data]
-   (.res -> .dat, .dat -> .sav)
+3) změna přípony souboru se statistikami ve složce [data]
+   (.bin -> .sav)
 
 
 +--------+------------+
