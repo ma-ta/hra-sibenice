@@ -5,6 +5,8 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
 
+![Šibenice – ikona](/res/github.png)
+
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce ANSI C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
@@ -28,11 +30,10 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 #### Testované platformy *(kompilátory)*:
 - UN*X:
-  - Ubuntu 22.04 LTS *(GNU GCC 11.4.0)*
-  - Fedora 39
-  - FreeBSD 14 *(LLVM/Clang 16.0.6)*
+  - Ubuntu 22.04 LTS *(GNU GCC 11.4.0) – [x86_64]*
+  - FreeBSD 14 *(LLVM/Clang 16.0.6) – [x86_64]*
 - MS Windows:
-  - Windows 11 *(MSVC 19.39.33522)*
+  - Windows 11 *(MSVC 19.39.33522) – [x86][x86_64]*
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1)*
   - DOSBox 0.74-3
