@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
-# Testovane OS: Ubuntu 22.04 (LTS), Fedora 39, FreeBSD 14
+# Testovane OS: Ubuntu 24.04 (LTS), Fedora 40, FreeBSD 14
 
 ######################################
 #                                    #
