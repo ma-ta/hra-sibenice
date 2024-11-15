@@ -39,3 +39,9 @@ DATA/
  game.dat             - zdrojovy soubor ascii-artu sibenice    (textovy)
  help.dat             - zdrojovy soubor napovedy pro aplikaci  (textovy)
  stats.dat            - zdrojovy soubor obrazovky statistik    (textovy)
+
+
+------------------------------------------------------------------------
+
+Autor         :  Martin TABOR
+Zdrojove kody :  https://github.com/ma-ta/hra-sibenice
