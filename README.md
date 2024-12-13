@@ -30,10 +30,10 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 #### Testované platformy *(kompilátory)*:
 - UN*X:
-  - Ubuntu 24.04 LTS *(GNU GCC 13.2.0) – [x86_64]*
+  - Ubuntu 24.04.1 LTS *(GNU GCC 13.3.0) – [x86_64]*
   - FreeBSD 14 *(LLVM/Clang 16.0.6) – [x86_64]*
 - MS Windows:
-  - Windows 11 *(MSVC 19.42.34433) – [x86][x86_64]*
+  - Windows 11 *(MSVC 19.42.34435) – [x86][x86_64]*
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1)*
   - DOSBox 0.74-3
