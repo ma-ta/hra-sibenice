@@ -6,7 +6,7 @@
 ::  (DOS/BATCH/DJGPP)                 ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2024-02-29                ::
+::  datum:  2025-01-20                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -17,7 +17,7 @@
 
 
 :: nazev spustitelneho souboru
-   set bin_nazev=sibe_dos
+   set bin_nazev=SIBE-DOS
 
 :: parametry prekladace
    :: debug:    -Wall -Wextra -pedantic -g

@@ -28,16 +28,13 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
 
-#### Testované platformy *(kompilátory)*:
+#### Použité kompilátory *(platformy)*:
 - UN*X:
-  - Ubuntu 24.04.1 LTS *(GNU GCC 13.3.0) – [x86_64]*
-  - FreeBSD 14 *(LLVM/Clang 16.0.6) – [x86_64]*
+  - Ubuntu 24.04.1 LTS *(LLVM/Clang 18.1.3) – [x86_64]*
 - MS Windows:
-  - Windows 11 *(MSVC 19.42.34435) – [x86][x86_64]*
+  - Windows 11 *(MSVC 19.42.34436) – [x86][x86_64]*
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1)*
-  - DOSBox 0.74-3
-  - MS-DOS 6.22
 
 ### Snímky obrazovky
 

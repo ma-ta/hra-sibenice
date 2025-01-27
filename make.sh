@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
-# Testovane OS: Ubuntu 24.04 (LTS), Fedora 40, FreeBSD 14
+# Testovane OS: Ubuntu 24.04 (LTS), Fedora 41, FreeBSD 14.2
 
 ######################################
 #                                    #
@@ -9,7 +9,7 @@
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2024-02-29                #
+#  datum:  2025-01-20                #
 #                                    #
 ######################################
 
@@ -20,7 +20,7 @@
 
 
 # nazev spustitelneho souboru
-  bin_nazev='sibenice'
+  bin_nazev='SIBENICE'
 
 # parametry prekladace
   # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'

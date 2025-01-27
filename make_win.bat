@@ -8,7 +8,7 @@
 ::  (WINDOWS/BATCH/MSVC)              ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2024-02-29                ::
+::  datum:  2025-01-20                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -19,7 +19,7 @@
 
 
 :: nazev spustitelneho souboru
-   set bin_nazev=sibenice_win
+   set bin_nazev=SIBENICE-WIN
 
 :: parametry prekladace
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi

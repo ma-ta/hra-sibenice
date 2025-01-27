@@ -186,7 +186,7 @@
 
 /* tui - hlavička */
 
-#define TUI_HLAVICKA_TXT_L       "(c) 2024  Freeware"  /* text v levé dolní buňce */
+#define TUI_HLAVICKA_TXT_L       "(c) 2025  Freeware"  /* text v levé dolní buňce */
 #define TUI_HLAVICKA_TXT_P       "v" VERZE             /* text v pravé dolní buňce */
 #define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
 #define TUI_HLAVICKA_BUNKA_L     26  /* šířka levé dolní buňky */

@@ -59,7 +59,7 @@ void hlavicka_vykresli(const char *text1, const char *text2)  {
             ERR_SIGN ERR_TUI_HLAVICKA_ZAROV "\n"
             "    strlen( \"%s\" ) == %ld zn.\n"
             , text1
-            , strlen(text1));
+            , (long) strlen(text1));
   }
 
   /* zpracování pravé buňky */
@@ -78,7 +78,7 @@ void hlavicka_vykresli(const char *text1, const char *text2)  {
             ERR_SIGN ERR_TUI_HLAVICKA_ZAROV "\n"
             "    strlen( \"%s\" ) == %ld zn.\n"
             , text2
-            , strlen(text2));
+            , (long) strlen(text2));
   }
 
   /* vykreslení hlavičky */
