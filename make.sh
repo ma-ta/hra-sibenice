@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
+# Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 # Testovane OS: Ubuntu 24.04 (LTS), Fedora 41, FreeBSD 14.2
 
 ######################################
@@ -9,7 +9,7 @@
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-01-20                #
+#  datum:  2025-02-15                #
 #                                    #
 ######################################
 
@@ -20,15 +20,23 @@
 
 
 # nazev spustitelneho souboru
-  bin_nazev='SIBENICE'
+  bin_nazev='sibenice'  # -linux64 / -linuxARM64 / -linux32 / -...
 
 # parametry prekladace
   # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
-  # release: '-O2'
-  cc_param='-O2'
+  # release: '-O2 -Wno-unused-result'
+  cc_param='-O2 -Wno-unused-result'
 
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
-  CC='cc '$cc_param
+  CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)
+
+  # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat prislusne radky nize)
+  # AArch64:
+    #sudo apt install gcc-aarch64-linux-gnu -y
+    #CC='aarch64-linux-gnu-gcc '$cc_param
+  # x86 (i386):
+    #sudo apt install gcc-multilib
+    #CC='gcc -m32 '$cc_param
 
 # korenovy adresar se zdrojovymi kody
   src_dir=`pwd`'/source'

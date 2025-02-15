@@ -1,40 +1,45 @@
 @echo off
 
-::::::::::::::::::::::::::::::::::::::::
-::                                    ::
-::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
-::  (DOS/BATCH/DJGPP)                 ::
-::                                    ::
-::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-01-20                ::
-::                                    ::
-::::::::::::::::::::::::::::::::::::::::
+rem Testovane OS: FreeDOS 1.3
+
+rem ::::::::::::::::::::::::::::::::::::::::
+rem ::                                    ::
+rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
+rem ::  (DOS/BATCH/DJGPP)                 ::
+rem ::                                    ::
+rem ::  autor:  Martin TABOR (Ma-TA)      ::
+rem ::  datum:  2025-02-15                ::
+rem ::                                    ::
+rem ::::::::::::::::::::::::::::::::::::::::
 
 
-::::::::::::::::::::::::::::::::::::::::
-:: KONFIGURACE:
-::::::::::::::::::::::::::::::::::::::::
+rem ::::::::::::::::::::::::::::::::::::::::
+rem :: KONFIGURACE:
+rem ::::::::::::::::::::::::::::::::::::::::
 
 
-:: nazev spustitelneho souboru
-   set bin_nazev=SIBE-DOS
+rem :: nazev spustitelneho souboru
+       set bin_nazev=sibe-dos
 
-:: parametry prekladace
-   :: debug:    -Wall -Wextra -pedantic -g
-   :: release:  -O2
-   set cc_param=-O2
+rem :: parametry prekladace
+       rem :: debug:    -Wall -Wextra -pedantic -g
+       rem :: release:  -O2
+           set cc_param=-O2
 
-:: korenovy adresar se zdrojovymi kody
-   set src_dir=.\source
+rem :: prikaz pro spusteni prekladace vc. parametru (gcc/wcc apod.)
+       set cc=gcc
 
-:: korenovy adresar pro binarni soubory
-   set out_dir=.\bin
+rem :: korenovy adresar se zdrojovymi kody
+       set src_dir=.\source
 
-:: oramovani
-   set oramovani=----------------------------------
+rem :: korenovy adresar pro binarni soubory
+       set out_dir=.\bin
+
+rem :: oramovani
+       set oramovani=----------------------------------
 
 
-::::::::::::::::::::::::::::::::::::::::
+rem ::::::::::::::::::::::::::::::::::::::::
 
 
 cls
@@ -44,63 +49,63 @@ echo SESTAVUJI - Vypis chyb a udalosti:
 echo %oramovani%
 echo.
 
-:: zkopiruje slozku data do slozky bin
-   mkdir %out_dir%\data
-   xcopy %src_dir%\data %out_dir%\data /E /S
+rem :: zkopiruje slozku data do slozky bin
+       mkdir %out_dir%\data
+       xcopy %src_dir%\data %out_dir%\data /E /S
 
-:: kompilace jednotlivych souboru
+rem :: kompilace jednotlivych souboru
 
-:: korenovy adresar
-   cd %src_dir%
-   gcc %cc_param% -c *.c
-   cd ..
-   move %src_dir%\*.o %out_dir%
-:: slozka game
-   cd %src_dir%\game
-   gcc %cc_param% -c *.c
-   cd ..\..
-   move %src_dir%\game\*.o %out_dir%
-:: slozka game\game_tui
-   cd %src_dir%\game\game_tui
-   gcc %cc_param% -c *.c
-   cd ..\..\..
-   move %src_dir%\game\game_tui\*.o %out_dir%
-:: slozka help
-   cd %src_dir%\help
-   gcc %cc_param% -c *.c
-   cd ..\..
-   move %src_dir%\help\*.o %out_dir%
-:: slozka menu
-   cd %src_dir%\menu
-   gcc %cc_param% -c *.c
-   cd ..\..
-   move %src_dir%\menu\*.o %out_dir%
-:: složka stats
-   cd %src_dir%\stats
-   gcc %cc_param% -c *.c
-   cd ..\..
-   move %src_dir%\stats\*.o %out_dir%
-:: slozka tui
-   cd %src_dir%\tui
-   gcc %cc_param% -c *.c
-   cd ..\..
-   move %src_dir%\tui\*.o %out_dir%
+rem :: korenovy adresar
+       cd %src_dir%
+       %cc% %cc_param% -c *.c
+       cd ..
+       move %src_dir%\*.o %out_dir%
+rem :: slozka game
+       cd %src_dir%\game
+       %cc% %cc_param% -c *.c
+       cd ..\..
+       move %src_dir%\game\*.o %out_dir%
+rem :: slozka game\game_tui
+       cd %src_dir%\game\game_tui
+       %cc% %cc_param% -c *.c
+       cd ..\..\..
+       move %src_dir%\game\game_tui\*.o %out_dir%
+rem :: slozka help
+       cd %src_dir%\help
+       %cc% %cc_param% -c *.c
+       cd ..\..
+       move %src_dir%\help\*.o %out_dir%
+rem :: slozka menu
+       cd %src_dir%\menu
+       %cc% %cc_param% -c *.c
+       cd ..\..
+       move %src_dir%\menu\*.o %out_dir%
+rem :: složka stats
+       cd %src_dir%\stats
+       %cc% %cc_param% -c *.c
+       cd ..\..
+       move %src_dir%\stats\*.o %out_dir%
+rem :: slozka tui
+       cd %src_dir%\tui
+       %cc% %cc_param% -c *.c
+       cd ..\..
+       move %src_dir%\tui\*.o %out_dir%
 
-:: sestaveni spustitelneho souboru
-   cd %out_dir%
-   gcc %cc_param% -o %bin_nazev%.exe *.o
-   del *.o
-   cd ..
+rem :: sestaveni spustitelneho souboru
+       cd %out_dir%
+       %cc% %cc_param% -o %bin_nazev%.exe *.o
+       del *.o
+       cd ..
 
 echo.
 echo %oramovani%
 echo.
 
-:: spusteni sestaveneho programu
-   %out_dir%\%bin_nazev%.exe -v
+rem :: spusteni sestaveneho programu
+       %out_dir%\%bin_nazev%.exe -v
 
-:: vyckani na stisk klavesy
-   echo.
-   echo %oramovani%
-   echo.
-   pause
+rem :: vyckani na stisk klavesy
+       echo.
+       echo %oramovani%
+       echo.
+       pause

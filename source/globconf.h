@@ -75,6 +75,19 @@
   #endif
 #endif
 
+/* detekce architektury */
+#if defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
+  #define ARCH  "x86_64"
+#elif defined(__i386__) || defined(_M_IX86)
+  #define ARCH  "x86"
+#elif defined(__aarch64__) || defined(_M_ARM64)
+  #define ARCH  "AArch64"
+#elif defined(__arm__) || defined(_M_ARM)
+  #define ARCH  "arm"
+#else
+  #define ARCH  "?"
+#endif
+
 
 /* GLOBÁLNÍ NASTAVENÍ */
 
@@ -137,13 +150,14 @@
 #define ARG_DOS_SIGN_2  "cli"
 
 #define ARG_VER_TEXT  "%s\n"  \
-                      "Verze:   %s  (%s/%s %s%s, %s)\n"  \
+                      "Verze:   %s  (%s/%s %s%s - %s, %s)\n"  \
                       "Web:     %s\n"  \
                       "Napsal:  %s  %s\n"  \
                       , NAZEV  \
                       , VERZE, OSNAME, CCNAME  \
                       , (CCVER == (-1)) ? "" : xstr(CCVER)  \
                       , (CCVER == (-1) || CCMINOR == (-1)) ? "" : "." xstr(CCMINOR)  \
+                      , ARCH  \
                       , __DATE__  \
                       , WEB  \
                       , AUTOR, LICENCE

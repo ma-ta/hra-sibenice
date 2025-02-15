@@ -1,5 +1,22 @@
 +--------+------------+
-| v1.0.0 | 2024-02-29 |
+| v1.0.0 | 2025-02-15 |
++--------+------------+
+
+
+NOVINKY:
+
+1) výpis typu architektury v informacích o verzi
+   (přepínač [-v]), binárky pro AArch64 a x86
+
+
+OPRAVENÉ CHYBY:
+
+1) redukce zbytečných chybových hlášek při kompilaci
+   pod Ubuntu 24.04/GCC (make.sh: -Wno-unused-result)
+
+
++--------+------------+
+| v0.0.5 | 2024-02-29 |
 +--------+------------+
 
 
