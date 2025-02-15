@@ -20,7 +20,7 @@
 
 :: nazev spustitelneho souboru
    :: -win64 / -winARM64 / -win32 / -...
-   set bin_nazev=sibenice-win64
+   set bin_nazev=sibenice-win
 
 :: parametry prekladace
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
