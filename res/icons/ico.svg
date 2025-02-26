@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="511.99997"
+   width="768"
    height="511.99997"
-   viewBox="0 0 135.46666 135.46666"
+   viewBox="0 0 203.2 135.46666"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
@@ -32,8 +32,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0378437"
-     inkscape:cx="280.38904"
-     inkscape:cy="380.11504"
+     inkscape:cx="485.14049"
+     inkscape:cy="316.52165"
      inkscape:window-width="2560"
      inkscape:window-height="1351"
      inkscape:window-x="-9"
@@ -43,24 +43,27 @@
   <defs
      id="defs1" />
   <g
-     inkscape:label="Layer 1"
+     inkscape:label="velká"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-30.515152,-27.586372)">
     <g
-       id="g25">
+       id="g25"
+       inkscape:label="celek">
       <circle
          style="fill:#000000;stroke:none;stroke-width:2.65635;stroke-dasharray:none"
          id="path1"
          cx="98.248482"
          cy="95.319702"
-         r="67.73333" />
+         r="67.73333"
+         inkscape:label="pozadí" />
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:12.6841px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#ffffff;stroke:none;stroke-width:0.594571"
          x="64.381912"
          y="52.205414"
-         id="text1"><tspan
+         id="text1"
+         inkscape:label="popředí"><tspan
            sodipodi:role="line"
            style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:12.6841px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:0.594571"
            x="64.381912"
@@ -98,18 +101,107 @@
            id="tspan25">   /|\</tspan></text>
     </g>
   </g>
+  <g
+     inkscape:label="malá"
+     inkscape:groupmode="layer"
+     id="g8"
+     transform="translate(-178.88769,-27.586372)">
+    <g
+       id="g37"
+       inkscape:label="celek"
+       transform="matrix(0.25000001,0,0,0.25000001,242.94216,71.489775)">
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:2.65635;stroke-dasharray:none"
+         id="circle1"
+         cx="387.24875"
+         cy="95.319702"
+         r="67.73333"
+         inkscape:label="pozadí"
+         transform="translate(1.1233724e-6)"
+         inkscape:export-filename="ico-128.png"
+         inkscape:export-xdpi="24.000004"
+         inkscape:export-ydpi="24.000004" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:15.0654px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#ffffff;stroke:none;stroke-width:0.706194"
+         x="347.02411"
+         y="70.088318"
+         id="text7"
+         inkscape:label="popředí"
+         transform="translate(1.1233724e-6)"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:15.0654px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:0.706194"
+           x="347.02411"
+           y="70.088318"
+           id="tspan17"> ooooooo</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:15.0654px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:0.706194"
+           x="347.02411"
+           y="88.965675"
+           id="tspan27">oo O o oo</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:15.0654px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:0.706194"
+           x="347.02411"
+           y="107.84303"
+           id="tspan28">oo  |  oo</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:15.0654px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:0.706194"
+           x="347.02411"
+           y="126.72038"
+           id="tspan29">ooooooooo</tspan></text>
+    </g>
+  </g>
+  <g
+     inkscape:label="nejmenší"
+     inkscape:groupmode="layer"
+     id="g34"
+     transform="translate(-35.103997,-27.586372)">
+    <g
+       id="g36"
+       inkscape:label="celek"
+       inkscape:export-filename="ico-16.png"
+       inkscape:export-xdpi="3"
+       inkscape:export-ydpi="3"
+       transform="matrix(0.12500001,0,0,0.12500001,181.82708,83.404738)">
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:2.65635;stroke-dasharray:none"
+         id="circle29"
+         cx="391.67938"
+         cy="95.319702"
+         r="67.73333"
+         inkscape:label="pozadí"
+         transform="translate(-7.5974009)" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:38.0281px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#ffffff;stroke:none;stroke-width:1.78258"
+         x="350.99759"
+         y="83.47345"
+         id="text7-8"
+         inkscape:label="popředí"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:38.0281px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:1.78258"
+           x="350.99759"
+           y="83.47345"
+           id="tspan27-2">O o</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:38.0281px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff;stroke:none;stroke-width:1.78258"
+           x="350.99759"
+           y="131.12369"
+           id="tspan29-5"> |</tspan></text>
+    </g>
+  </g>
   <metadata
      id="metadata1">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
-        <dc:date>2024-02-29</dc:date>
         <dc:creator>
           <cc:Agent>
             <dc:title>Martin TÁBOR (Ma-TA)</dc:title>
           </cc:Agent>
         </dc:creator>
         <dc:title>Hra Šibenice</dc:title>
+        <dc:date>2025-02-25</dc:date>
       </cc:Work>
     </rdf:RDF>
   </metadata>
