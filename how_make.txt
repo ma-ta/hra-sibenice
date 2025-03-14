@@ -51,7 +51,7 @@
            x86 Native Tools Command Prompt for VS (x86)
            x64 Native Tools Command Prompt for VS (x86_64)
              příp. pro cross-kompilaci AArch64 zavolat:
-             [..\VC\Auxiliary\Build\vcvarsall.bat amd64_arm64]
+             [.\VC\Auxiliary\Build\vcvarsall.bat amd64_arm64]
     - dle zkusenosti dela problemy vestaveny antivirus Zabezpeceni Windows
       (tj. po vlastnim zvazeni, prip. kontrole zdrojovych kodu, pridat
       vyjimku nebo docasne vypnout antivirovou ochranu v realnem case)

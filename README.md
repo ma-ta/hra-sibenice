@@ -32,7 +32,7 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 - UN*X:
   - Ubuntu 24.04.1 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
 - MS Windows:
-  - Windows 11 *(MSVC 19.43.34808) &ndash; [x86] [x86_64] [AArch64]*
+  - Windows 11 *(MSVC 19.43.34809) &ndash; [x86] [x86_64] [AArch64]*
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1) &ndash; [x86]*
 
