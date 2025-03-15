@@ -8,7 +8,7 @@
 ::  (WINDOWS/BATCH/MSVC)              ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-02-15                ::
+::  datum:  2025-03-15                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -23,18 +23,22 @@
    set bin_nazev=sibenice-win
 
 :: parametry prekladace
-   :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi
-   :: release:  /D_CRT_SECURE_NO_WARNINGS /O2
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /O2
+   :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi /subsystem:console
+   :: release:  /D_CRT_SECURE_NO_WARNINGS /O2 /subsystem:console
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /O2 /subsystem:console
 
 :: prikaz pro spusteni prekladace vc. parametru (cl/clang apod.)
-   set cc=cl
+   set cc=cl.exe
 
 :: korenovy adresar se zdrojovymi kody
    set src_dir=.\source
 
 :: korenovy adresar pro binarni soubory
    set out_dir=.\bin
+
+:: resource soubory
+   set res_dir=.\res
+   set vs_version_info=win-versioninfo
 
 :: oramovani
    set oramovani=----------------------------------
@@ -56,6 +60,9 @@ echo.
 
 :: kompilace jednotlivych souboru
 
+:: resource files
+   rc.exe %res_dir%\%vs_version_info%.rc
+   move %res_dir%\%vs_version_info%.res .\%out_dir%
 :: korenovy adresar
    cd %src_dir%
    %cc% %cc_param% /c *.c
@@ -94,8 +101,8 @@ echo.
 
 :: sestaveni spustitelneho souboru
    cd %out_dir%
-   %cc% %cc_param% /Fe%bin_nazev%.exe *.obj
-   del *.obj
+   %cc% %cc_param% /Fe%bin_nazev%.exe *.obj %vs_version_info%.res
+   del *.obj *.res
    cd ..
 
 echo.
