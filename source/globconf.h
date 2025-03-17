@@ -178,7 +178,7 @@
 
 /* detekce OS pro příkaz vymazání obrazovky */
 #if (DEBUG == 0)
-  #if (defined(_WIN32) || defined(_WIN64) || defined(__MSDOS__))
+  #if (defined(OS_WIN) || defined(OS_DOS))
     #define vymaz_obr()  system("cls")
   #else
     #define vymaz_obr()  system("clear")
