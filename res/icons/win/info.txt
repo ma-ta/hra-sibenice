@@ -1,0 +1,12 @@
+Ikona vytvořena dle vzorového projektu
+MSVS 2022 v17.13.3 (viz PE Explorer):
+
+256x256 8-bit; Vista Icon Entry Ord: 1
+48x48 8-bit; Icon Entry Ord: 2
+32x32 8-bit; Icon Entry Ord: 3
+16x16 8-bit; Icon Entry Ord: 4
+256x256 32-bit; Vista Icon Entry Ord: 5
+64x64 32-bit; Icon Entry Ord: 6
+48x48 32-bit; Icon Entry Ord: 7
+32x32 32-bit; Icon Entry Ord: 8
+16x16 32-bit; Icon Entry Ord: 9
