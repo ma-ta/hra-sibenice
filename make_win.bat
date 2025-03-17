@@ -105,11 +105,15 @@ echo.
    del *.obj *.res
    cd ..
 
-echo.
-echo %oramovani%
-echo.
 
 :: spusteni sestaveneho programu
+   echo.
+   echo %oramovani%
+   echo Spoustim:
+   echo %out_dir%\%bin_nazev%.exe
+   echo %oramovani%
+   echo.
+
    %out_dir%\%bin_nazev%.exe -v
 
 :: vyckani na stisk klavesy

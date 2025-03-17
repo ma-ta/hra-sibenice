@@ -102,11 +102,15 @@ echo ''
   ${CC} *.o -o $bin_nazev
   rm *.o
 
-echo ''
-echo $oramovani
-echo ''
 
 # spusteni sestaveneho programu
+  echo ''
+  echo $oramovani
+  echo 'Spoustim:'
+  echo "${out_dir}/${bin_nazev}"
+  echo $oramovani
+  echo ''
+
   $out_dir/$bin_nazev -v
 
 # vyckani na stisk klavesy

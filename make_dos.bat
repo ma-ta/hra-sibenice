@@ -97,11 +97,15 @@ rem :: sestaveni spustitelneho souboru
        del *.o
        cd ..
 
-echo.
-echo %oramovani%
-echo.
 
 rem :: spusteni sestaveneho programu
+       echo.
+       echo %oramovani%
+       echo Spoustim:
+       echo %out_dir%\%bin_nazev%.exe
+       echo %oramovani%
+       echo.
+
        %out_dir%\%bin_nazev%.exe -v
 
 rem :: vyckani na stisk klavesy
