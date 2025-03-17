@@ -8,8 +8,8 @@ NOVINKY:
 1) výpis typu architektury v informacích o verzi
    (přepínač [-v]), binárky pro AArch64 a x86
 
-2) přidána ikona aplikace a VERSIONINFO resource script
-   pro kompilátor MSVC,
+2) pro kompilátor MSVC přidána Windows ikona
+   aplikace a VERSIONINFO resource script,
    dále parametr [/subsystem:console]
 
 
