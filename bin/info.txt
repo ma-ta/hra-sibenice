@@ -4,7 +4,7 @@
         |            games            S I _ E _ I C E         |
         |                                                     |
         +--------------------------+--------------------------+
-        |    (c) 2025  Freeware    |          v1.0.0          |
+        |    (c) 2025  Freeware    |          v1.1.0          |
         +--------------------------+--------------------------+
 
                              V i t e j t e
@@ -14,8 +14,9 @@ Aktualni  slozka  obsahuje  spustitelne  soubory hry. Podslozka DATA je
 nezbytna pro spravny beh aplikace a pro ukladani hernich statistik.
 
 Ke  spusteni  tedy staci "poklikat" na binarni soubor odpovidajici vasi
-platforme.  Paklize nezasahne napr. antivirova ochrana, hra se nasledne
-otevre v okne prikazoveho radku (terminalu).
+platforme (ve Windows) nebo dany soubor primo spustit v okne terminalu.
+Minimalni  rozmery  terminalu  jsou  73 zn. na sirku a 36 zn. na vysku,
+v DOSu nebo pri spusteni s prepinacem [-c] vystaci 73 x 25 znaku.
 
 V  soucasne  dobe hra nepodporuje ceskou diakritiku a hadana slova jsou
 tedy zobrazena bez hacku a carek!

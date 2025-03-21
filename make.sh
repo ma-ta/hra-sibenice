@@ -9,7 +9,7 @@
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-02-15                #
+#  datum:  2025-03-21                #
 #                                    #
 ######################################
 

@@ -8,7 +8,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (DOS/BATCH/DJGPP)                 ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-02-15                ::
+rem ::  datum:  2025-03-21                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 

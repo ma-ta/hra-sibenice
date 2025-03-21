@@ -1,5 +1,5 @@
 +--------+------------+
-| v1.0.0 | 2025-03-15 |
+| v1.1.0 | 2025-03-20 | - ROZPRACOVÁNO
 +--------+------------+
 
 
@@ -8,9 +8,18 @@ NOVINKY:
 1) výpis typu architektury v informacích o verzi
    (přepínač [-v]), binárky pro AArch64 a x86
 
-2) pro kompilátor MSVC přidána Windows ikona
-   aplikace a VERSIONINFO resource script,
-   dále parametr [/subsystem:console]
+2) ikona a metadata aplikace pro Windows:
+     pro kompilátor MSVC ikona a soubor
+     VERSIONINFO resource (win-versioninfo.rc),
+     dále parametr [cl.exe /subsystem:console]
+
+3) automaticke nastaveni velikosti okna terminalu
+   ve Windows a UN*X systemech (min. X a min. Y),
+   nazev aplikace jako titulek okna terminalu
+
+4) balicky pro distribuci aplikace:
+   Windows   - Inno Setup,
+   GNU/Linux - AppImage
 
 
 OPRAVENÉ CHYBY:
@@ -20,7 +29,7 @@ OPRAVENÉ CHYBY:
 
 
 +--------+------------+
-| v0.0.5 | 2024-02-29 |
+| v1.0.0 | 2024-02-29 |
 +--------+------------+
 
 

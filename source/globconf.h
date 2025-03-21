@@ -28,12 +28,15 @@
   #elif defined(__APPLE__)
     #define OSNAME  "macOS"
     #define OS_UNIX
+    #define OS_MAC
   #elif defined(__linux__)
     #define OSNAME  "Linux"
     #define OS_UNIX
+    #define OS_LINUX
   #elif defined(__FreeBSD__)
     #define OSNAME  "FreeBSD"
     #define OS_UNIX
+    #define OS_BSD
   #elif defined(__unix__)
     #define OSNAME  "UN*X"
     #define OS_UNIX
@@ -100,7 +103,7 @@
 #define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
 
 #define NAZEV    "Hra Sibenice"
-#define VERZE    "1.0.0"
+#define VERZE    "1.1.0"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
 #define LICENCE  "(GPLv3+)"
@@ -120,6 +123,7 @@
   #define ANSI_FORMAT  0
 #endif
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
+#define TERM_SET       1   /* zapne nastavení titulku a velikosti terminálu */
 
 #define POCET_KOL      9   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU   11  /* počet životů v jednom kole */

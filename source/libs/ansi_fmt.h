@@ -11,8 +11,10 @@
 #define ANSI_FMT_H
 
 
-#define CSI  "\033["  /* ANSI escape kód */
-#define SGR  "m"      /* pro nastavení SGR parametrů */
+#define CSI  "\x1b["  /* Control Sequence Introducer => [ */
+#define SGR  "\x6d"   /* pro ukončení SGR sekvence        */
+#define OSC  "\x1b]"  /* Operating System Command    => ] */
+#define BEL  "\x07"   /* pro ukončení OSC sekvence        */
 
 /* vlastnosti */
 
@@ -61,20 +63,26 @@
 /* makra */
 
 #if ANSI_FORMAT == 1
-  #define ansi_format(format)       CSI format SGR
+  #define ansi_format(format)        CSI format SGR
   /* použije se např. jako parametr ansi_frcolor() nebo ansi_bgcolor() */
-  #define ansi_light(color)         color ANSI_LIGHT
-  #define ansi_frcolor(color)       CSI ANSI_FRCOLOR color SGR
-  #define ansi_bgcolor(color)       CSI ANSI_BGCOLOR color SGR
-  #define ansi_cursor_off()         CSI "?25l"
-  #define ansi_cursor_on()          CSI "?25h"
+  #define ansi_light(color)          color ANSI_LIGHT
+  #define ansi_frcolor(color)        CSI ANSI_FRCOLOR color SGR
+  #define ansi_bgcolor(color)        CSI ANSI_BGCOLOR color SGR
+  #define ansi_cursor_off()          CSI "?25l"
+  #define ansi_cursor_on()           CSI "?25h"
+  #define ansi_osc_title_v1(title)   OSC "2;" title BEL   // Windows
+  #define ansi_osc_title_v2(title)   OSC "0;" title BEL   // macOS (?)
+  #define ansi_osc_title_kde(title)  OSC "30;" title BEL  // KDE Konsole
 #else
-  #define ansi_format(format)       ""
-  #define ansi_light(color)         ""
-  #define ansi_frcolor(color)       ""
-  #define ansi_bgcolor(color)       ""
-  #define ansi_cursor_off()         ""
-  #define ansi_cursor_on()          ""
+  #define ansi_format(format)        ""
+  #define ansi_light(color)          ""
+  #define ansi_frcolor(color)        ""
+  #define ansi_bgcolor(color)        ""
+  #define ansi_cursor_off()          ""
+  #define ansi_cursor_on()           ""
+  #define ansi_osc_title_v1(title)   ""
+  #define ansi_osc_title_v2(title)   ""
+  #define ansi_osc_title_kde(title)  ""
 #endif
 
 #define ansi_scroll(mode, count)  CSI #count mode
