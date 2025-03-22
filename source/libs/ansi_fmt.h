@@ -63,15 +63,16 @@
 /* makra */
 
 #if ANSI_FORMAT == 1
-  #define ansi_format(format)       CSI format SGR
+  #define ansi_format(format)        CSI format SGR
   /* použije se např. jako parametr ansi_frcolor() nebo ansi_bgcolor() */
-  #define ansi_light(color)         color ANSI_LIGHT
-  #define ansi_frcolor(color)       CSI ANSI_FRCOLOR color SGR
-  #define ansi_bgcolor(color)       CSI ANSI_BGCOLOR color SGR
-  #define ansi_cursor_off()         CSI "?25l"
-  #define ansi_cursor_on()          CSI "?25h"
+  #define ansi_light(color)          color ANSI_LIGHT
+  #define ansi_frcolor(color)        CSI ANSI_FRCOLOR color SGR
+  #define ansi_bgcolor(color)        CSI ANSI_BGCOLOR color SGR
+  #define ansi_cursor_off()          CSI "?25l"
+  #define ansi_cursor_on()           CSI "?25h"
 
-  #define ansi_osc_title(title)     OSC "0;" title BEL  // titulek terminálu
+  #define ansi_osc_title(title)      OSC "0;" title BEL   // titulek terminálu
+  #define ansi_osc_title_kde(title)  OSC "30;" title BEL  // titulek KDE Konsole
 #else
   #define ansi_format(format)        ""
   #define ansi_light(color)          ""
@@ -79,19 +80,19 @@
   #define ansi_bgcolor(color)        ""
   #define ansi_cursor_off()          ""
   #define ansi_cursor_on()           ""
-  #define ansi_osc_title_v1(title)   ""
-  #define ansi_osc_title_v2(title)   ""
+
+  #define ansi_osc_title(title)      ""
   #define ansi_osc_title_kde(title)  ""
 #endif
 
-#define ansi_scroll(mode, count)  CSI #count mode
-#define ansi_cursor(mode, count)  CSI #count mode
-#define anxi_x(col)               CSI #col "G"
-#define ansi_position(row, col)   CSI #row ";" #col "H"
-#define ansi_save_pos()           CSI "s"
-#define ansi_load_pos()           CSI "u"
-#define ansi_erase_ln(mode)       CSI mode "K"
-#define ansi_erase_scr(mode)      CSI mode "J"
+#define ansi_scroll(mode, count)     CSI #count mode
+#define ansi_cursor(mode, count)     CSI #count mode
+#define anxi_x(col)                  CSI #col "G"
+#define ansi_position(row, col)      CSI #row ";" #col "H"
+#define ansi_save_pos()              CSI "s"
+#define ansi_load_pos()              CSI "u"
+#define ansi_erase_ln(mode)          CSI mode "K"
+#define ansi_erase_scr(mode)         CSI mode "J"
 
 
 #endif

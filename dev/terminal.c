@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
       return 1;
     }
   }
-  
+
   // nastavení velikosti terminálu
   printf(
     "Nastavuji hodnoty:\n"
@@ -73,7 +73,15 @@ bool terminal_title(char *title)
   #if TERM_SET == 1
     #ifdef OS_UNIX
       printf("-- OS_UNIX --\n");
-      printf(ansi_osc_title("Baf:Unix:01"));
+      // KDE Konsole - specifické chování
+      if (getenv("KONSOLE_VERSION")) {
+        puts("bezim v Konsoli :-)...");
+        printf(ansi_osc_title_kde("Baf:Unix:Konsole"));
+      }
+      // obecný UN*X terminál (vč. macOS)
+      else {
+        printf(ansi_osc_title("Baf:Unix:01"));
+      }
       ret_value = true;
     #elif defined(OS_WIN)
       printf("-- OS_WIN --\n");
