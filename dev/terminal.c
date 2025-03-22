@@ -76,7 +76,7 @@ void term_set(int x, int y)
         printf("-- OS_WIN --\n");
 
         // Esc sekvence nefungují v CMD (pro WT naopak doporučené)
-        printf(ansi_osc_title("Baf::01"))
+        printf(ansi_osc_title("Baf::01"));
         SetConsoleTitle("Baf::02");
 
 /* změna velikosti okna
