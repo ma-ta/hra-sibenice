@@ -7,16 +7,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <wchar.h>
+#ifdef OS_WIN
+  #include <windows.h>
+#endif
 #include "../source/globconf.h"
 #include "../source/libs/ansi_fmt.h"
-#ifdef OS_WIN
-    #include <windows.h>
-#endif
 
+
+#define WINDOW_TITLE  "Muj titulek okna"
 #define ARG_COUNT      2
 #define ARG_INFO      "Argumenty:  COLS_X LINES_Y"
-#define WINDOW_TITLE  "Muj titulek okna"
 
 
 void term_set(int x, int y);
@@ -24,66 +24,61 @@ void term_set(int x, int y);
 
 int main(int argc, char *argv[])
 {
-    int term_size[2] = { 0, 0 };
-
-
-    // parsování argumentů
-
-     if (argc != ARG_COUNT + 1) {  // počet argumentů
-        fprintf(stderr, ARG_INFO "\n");
-        return 1;
+  int term_size[2] = { 0, 0 };
+  // parsování argumentů
+  if (argc != ARG_COUNT + 1) {  // počet argumentů
+    fprintf(stderr, ARG_INFO "\n");
+    return 1;
+  }
+  for (int i = 0; i < ARG_COUNT; i++) {  // načítání argumentů
+    int argument = i + 1;
+    if (sscanf(argv[argument], "%d\n", term_size + i) != 1) {
+      fprintf(
+        stderr,
+        "Chyba pri nacitani %d. argumentu: \"%s\"!\n",
+        i, argv[argument]
+      );
+      return 1;
     }
-    for (int i = 0; i < ARG_COUNT; i++) {  // načítání argumentů
-        int argument = i + 1;
-        if (sscanf(argv[argument], "%d\n", term_size + i) != 1) {
-            fprintf(
-                stderr,
-                "Chyba pri nacitani %d. argumentu: \"%s\"!\n",
-                i, argv[argument]
-            );
-            return 1;
-        }
-        else if (term_size[i] <= 0) {  // ověření povolených hodnot
-            fprintf(stderr, "X i Y musi byt vetsi nez 0!\n");
-            return 1;
-        }
+    else if (term_size[i] <= 0) {  // ověření povolených hodnot
+      fprintf(stderr, "X i Y musi byt vetsi nez 0!\n");
+      return 1;
     }
-
-    // nastavení velikosti terminálu
-
-    printf(
-        "Nastavuji hodnoty:\n"
-        "cols_x=%d lines_y=%d\n",
-        term_size[0], term_size[1]
-    );
-
-    term_set(term_size[0], term_size[1]);
-
-    while (getchar() != '\n')
-        ;
-    return 0;
+  }
+  // nastavení velikosti terminálu
+  printf(
+    "Nastavuji hodnoty:\n"
+    "cols_x=%d lines_y=%d\n",
+    term_size[0], term_size[1]
+  );
+  term_set(term_size[0], term_size[1]);
+  while (getchar() != '\n')
+    ;
+  return 0;
 }
 
 
 void term_set(int x, int y)
 {
 #if TERM_SET == 1
-    #ifdef OS_UNIX
-        printf("-- OS_UNIX --\n");
-        printf(ansi_osc_title("Baf:Unix:01"));
-    #elif defined(OS_WIN)
-        // https://learn.microsoft.com/en-us/windows/console/
-           //  console-virtual-terminal-sequences
-        printf("-- OS_WIN --\n");
+  #ifdef OS_UNIX
+    printf("-- OS_UNIX --\n");
+    printf(ansi_osc_title("Baf:Unix:01"));
+  #elif defined(OS_WIN)
+    // https://learn.microsoft.com/en-us/windows/console/
+       //  console-virtual-terminal-sequences
+    printf("-- OS_WIN --\n");
 
-        // moderní Windows Terminal
-        if (getenv("WT_SESSION")) {
-            printf(ansi_osc_title("Baf:Win:01"));
-        }
-        // např. CMD.EXE
-        else {
-            SetConsoleTitle("Baf:Win:02");
-        }
+    // moderní Windows Terminal
+    if (getenv("WT_SESSION")) {
+      // nastavení titulku Esc sekvencí
+      printf(ansi_osc_title("Baf:Win:01"));
+    }
+    // např. CMD.EXE
+    else {
+      // nastavení titulku přes WinAPI
+      SetConsoleTitle("Baf:Win:02");
+    }
 
 /* změna velikosti okna
         // získání handle konzolového výstupu
@@ -123,7 +118,7 @@ void term_set(int x, int y)
             return;
         }
 */
-    #endif
+  #endif
 #endif
-        return;
+  return;
 }
