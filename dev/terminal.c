@@ -82,7 +82,7 @@ bool terminal_title(char *title)
         printf(ansi_osc_title("Baf:Win:01"));
         ret_value = true;
       }
-      // např. CMD.EXE (via WinAPI)
+      // Windows Console Host (via WinAPI)
       else {
         SetConsoleTitle("Baf:Win:02")
           ? ret_value = true
