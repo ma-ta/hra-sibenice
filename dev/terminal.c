@@ -7,11 +7,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "../source/globconf.h"
+#include "../source/libs/ansi_fmt.h"
 #ifdef OS_WIN
   #include <windows.h>
 #endif
-#include "../source/globconf.h"
-#include "../source/libs/ansi_fmt.h"
 
 
 #define WINDOW_TITLE  "Muj titulek okna"
@@ -85,8 +85,8 @@ bool terminal_title(char *title)
       // Windows Console Host (via WinAPI)
       else {
         SetConsoleTitle("Baf:Win:02")
-          ? ret_value = true
-          : ret_value = false;
+          ? (ret_value = true)
+          : (ret_value = false);
       }
     #endif  // OS_WIN
   #endif  // TERM_SET == 1
