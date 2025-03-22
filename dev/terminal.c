@@ -19,7 +19,8 @@
 #define ARG_INFO      "Argumenty:  COLS_X LINES_Y"
 
 
-void term_set(int x, int y);
+bool terminal_title(char *title);
+bool terminal_size(int x, int y);
 
 
 int main(int argc, char *argv[])
@@ -45,41 +46,56 @@ int main(int argc, char *argv[])
       return 1;
     }
   }
+  
   // nastavení velikosti terminálu
   printf(
     "Nastavuji hodnoty:\n"
     "cols_x=%d lines_y=%d\n",
     term_size[0], term_size[1]
   );
-  term_set(term_size[0], term_size[1]);
+  terminal_size(term_size[0], term_size[1]);
+  terminal_title(WINDOW_TITLE);
+
   while (getchar() != '\n')
     ;
+
   return 0;
 }
 
-
-void term_set(int x, int y)
+// TODO zapracovat argument title do kódu - zatím debug texty
+bool terminal_title(char *title)
 {
-#if TERM_SET == 1
-  #ifdef OS_UNIX
-    printf("-- OS_UNIX --\n");
-    printf(ansi_osc_title("Baf:Unix:01"));
-  #elif defined(OS_WIN)
-    // https://learn.microsoft.com/en-us/windows/console/
-       //  console-virtual-terminal-sequences
-    printf("-- OS_WIN --\n");
+  bool ret_value = false;
 
-    // moderní Windows Terminal
-    if (getenv("WT_SESSION")) {
-      // nastavení titulku Esc sekvencí
-      printf(ansi_osc_title("Baf:Win:01"));
-    }
-    // např. CMD.EXE
-    else {
-      // nastavení titulku přes WinAPI
-      SetConsoleTitle("Baf:Win:02");
-    }
+  // kontrola argumentů fce.
+  if (!title)  {  return false;  }
 
+  #if TERM_SET == 1
+    #ifdef OS_UNIX
+      printf("-- OS_UNIX --\n");
+      printf(ansi_osc_title("Baf:Unix:01"));
+      ret_value = true;
+    #elif defined(OS_WIN)
+      printf("-- OS_WIN --\n");
+      // moderní Windows Terminal (fungují ESC, WinAPI nikoli)
+      if (getenv("WT_SESSION")) {
+        printf(ansi_osc_title("Baf:Win:01"));
+        ret_value = true;
+      }
+      // např. CMD.EXE (via WinAPI)
+      else {
+        SetConsoleTitle("Baf:Win:02")
+          ? ret_value = true
+          : ret_value = false;
+      }
+    #endif  // OS_WIN
+  #endif  // TERM_SET == 1
+
+  return ret_value;
+}
+
+bool terminal_size(int x, int y)
+{
 /* změna velikosti okna
         // získání handle konzolového výstupu
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -118,7 +134,5 @@ void term_set(int x, int y)
             return;
         }
 */
-  #endif
-#endif
-  return;
+  return false;
 }
