@@ -67,19 +67,19 @@ int main(int argc, char *argv[])
 void term_set(int x, int y)
 {
 #if TERM_SET == 1
-    #if (defined(OS_UNIX) && !defined(OS_MAC))
+    #ifdef OS_UNIX
         printf("-- OS_UNIX --\n");
-
-        printf(ansi_osc_title_v1("Baf"));
-        printf(ansi_osc_title_kde("Haf"));
-
+        printf(ansi_osc_title("Baf::01"));
     #elif defined(OS_WIN)
-        // https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+        // https://learn.microsoft.com/en-us/windows/console/
+           //  console-virtual-terminal-sequences
         printf("-- OS_WIN --\n");
 
-        // OSC Esc nefungují v CMD.EXE (i když doporučené pro WT.EXE)
-        SetConsoleTitle("Raf");
+        // Esc sekvence nefungují v CMD (pro WT naopak doporučené)
+        printf(ansi_osc_title("Baf::01"))
+        SetConsoleTitle("Baf::02");
 
+/* změna velikosti okna
         // získání handle konzolového výstupu
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         if (hConsole == INVALID_HANDLE_VALUE) {
@@ -116,6 +116,7 @@ void term_set(int x, int y)
             fprintf(stderr, "nepodarilo se zmenit velikost\n");
             return;
         }
+*/
     #endif
 #endif
         return;
