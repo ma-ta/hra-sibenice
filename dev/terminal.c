@@ -6,6 +6,7 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <wchar.h>
 #include "../source/globconf.h"
 #include "../source/libs/ansi_fmt.h"
@@ -69,15 +70,20 @@ void term_set(int x, int y)
 #if TERM_SET == 1
     #ifdef OS_UNIX
         printf("-- OS_UNIX --\n");
-        printf(ansi_osc_title("Baf::01"));
+        printf(ansi_osc_title("Baf:Unix:01"));
     #elif defined(OS_WIN)
         // https://learn.microsoft.com/en-us/windows/console/
            //  console-virtual-terminal-sequences
         printf("-- OS_WIN --\n");
 
-        // Esc sekvence nefungují v CMD (pro WT naopak doporučené)
-        printf(ansi_osc_title("Baf::01"));
-        SetConsoleTitle("Baf::02");
+        // moderní Windows Terminal
+        if (getenv("WT_SESSION")) {
+            printf(ansi_osc_title("Baf:Win:01"));
+        }
+        // např. CMD.EXE
+        else {
+            SetConsoleTitle("Baf:Win:02");
+        }
 
 /* změna velikosti okna
         // získání handle konzolového výstupu
