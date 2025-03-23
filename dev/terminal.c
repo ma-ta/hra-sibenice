@@ -73,12 +73,14 @@ bool terminal_title(char *title)
   #if TERM_SET == 1
     #ifdef OS_UNIX
       printf("-- OS_UNIX --\n");
-      // KDE Konsole - specifické chování
+      /* KDE Konsole - bohužel specifické chování
+         (kód 30, titulek až po stisku klávesy...) */
       if (getenv("KONSOLE_VERSION")) {
-        puts("bezim v Konsoli :-)...");
         printf(ansi_osc_title_kde("Baf:Unix:Konsole"));
       }
-      // obecný UN*X terminál (vč. macOS)
+      /* obecný UN*X terminál, testováno:
+         - GNOME 48 / Terminal (Console),
+         - macOS 15.3 / Terminal */
       else {
         printf(ansi_osc_title("Baf:Unix:01"));
       }
