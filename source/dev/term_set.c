@@ -43,7 +43,7 @@ bool term_title(void)
       /* obecný UN*X terminál
          testováno v:
          - GNOME 48 Terminal/Console
-         - KDE Konsole
+         - KDE Konsole 24.12.3
          - macOS 15 Terminal */
       else {
         printf(ansi_osc_title(TERM_TITLE));
@@ -69,7 +69,8 @@ bool term_title(void)
 }
 
 /* ROZPRACOVÁNO - prozatím funguje:
-   - Windows (CMD.EXE) */
+   - Windows CMD
+   - macOS Terminal */
 bool term_size(int x, int y)
 {
   #if DEBUG == 1
@@ -85,11 +86,18 @@ bool term_size(int x, int y)
   #if TERM_SET == 1
 
     #ifdef OS_WIN
+
+      #if DEBUG == 1
+        puts("OS_WIN");
+        cekej_enter();
+      #endif
+
+      /* nejjednodušší způsob pro Windows Console Host (CMD)
+        v moderním Windows Terminal (WT) však pouze mění velikost
+        bufferu bez změny velikosti okna (text se např. zalamuje) */
+
       // ve WT se nemá vykonat (bohužel, občas WT_SESSION není ve WT zavedena)
       if (!getenv("WT_SESSION")) {
-        /* nejjednodušší způsob pro Windows Console Host (CMD)
-          v moderním Windows Terminal (WT) však pouze mění velikost
-          bufferu bez změny velikosti okna (text se např. zalamuje) */
 
         char system_prikaz[20];  // "mode X, Y"
         int snprintf_ret = snprintf(
@@ -113,7 +121,15 @@ bool term_size(int x, int y)
     }
     // #ifdef OS_WIN
 
+/*  ( zřejmě mění jen velikost bufferu, ne okna - dořešit )
+
     #elif defined(OS_LINUX)
+
+      #if DEBUG == 1
+        puts("OS_LINUX");
+        cekej_enter();
+      #endif
+
       // řešení via D-Bus API - zatím pro GNOME Terminal
 
       DBusError error;       // struktura pro chyby D-Bus
@@ -189,9 +205,10 @@ bool term_size(int x, int y)
 
       dbus_connection_flush(conn);
       dbus_message_unref(msg);
-  }
 
     // #ifdef OS_LINUX
+
+*/
 
     #elif defined(OS_MAC)
       /* řešení pro macOS via AppleScript - bohužel v pixelech,
