@@ -4,15 +4,18 @@
 #include "../libs/ansi_fmt.h"
 #ifdef OS_WIN
   #include <windows.h>
+/*
 #elif defined(OS_LINUX)
   #include <dbus/dbus.h>
+*/
 #endif
 
 
 // DEBUG definovano take v globconf.h
-
+/*
 #undef  DEBUG
 #define DEBUG  1
+*/
 
 #if DEBUG == 1
   #define ARG_COUNT  2
