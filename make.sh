@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 24.04 (LTS), Fedora 41, FreeBSD 14.2
+# Testovane OS: Ubuntu 25.04, Fedora 42, FreeBSD 14.2
 
 ######################################
 #                                    #
@@ -9,7 +9,7 @@
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-03-21                #
+#  datum:  2025-03-24                #
 #                                    #
 ######################################
 

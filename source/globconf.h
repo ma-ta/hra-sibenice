@@ -118,12 +118,19 @@
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
 #define ANSI_FORMAT    1   /* zapne formátování ESC sekvencemi */
+/* nastavení okna terminálu */
+#define TERM_SET       1   /* zapne nastavení titulku a velikosti terminálu */
+#define TERM_TITLE     NAZEV
+#define TERM_SIRKA     73
+#define TERM_VYSKA     36
+
 #ifdef OS_DOS
   #undef  ANSI_FORMAT
   #define ANSI_FORMAT  0
+  #undef  TERM_SET
+  #define TERM_SET     0
 #endif
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
-#define TERM_SET       1   /* zapne nastavení titulku a velikosti terminálu */
 
 #define POCET_KOL      9   /* celkový počet kol hry (hádaných slov) */
 #define POCET_ZIVOTU   11  /* počet životů v jednom kole */

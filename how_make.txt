@@ -13,7 +13,7 @@
 
 
 +-----+
-|  1  |  GNU/LINUX (UN*X) :
+|  1  |  UN*X (GNU/Linux, BSD, macOS, ...) :
 +-----+
 
 
@@ -26,9 +26,10 @@
   Poznamky:
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
-      - Ubuntu 22.04 (LTS) -> [sudo apt install build-essentials -y]
-      - Fedora 41          -> [sudo dnf install gcc -y]
-      - FreeBSD 14.x       -> [pkg install -y bash && bash]
+      - Ubuntu  25.04      -> [sudo apt install build-essentials -y]
+      - Fedora  42         -> [sudo dnf install gcc -y]
+      - FreeBSD 14         -> [pkg install -y bash && bash]
+      - macOS   15         -> [xcode-select --install]
     - spustit [sh make.sh]
 
 
@@ -65,31 +66,35 @@
   Spustit skript make_dos.bat
 
   a) vytvorit a pripojit ISO se zdrojovymi soubory k virtualnimu PC,
-  b) zkopirovat soubory z ISO na HDD napr. prikazem [xcopy D: C:\sibenice /S],
+  b) zkopirovat soubory z ISO na HDD napr. prikazem
+     [xcopy D: C:\sibenice /S],
   c) vstoupit do slozky [cd C:\sibenice] a spustit [make_dos.bat].
 
   Prerekvizity:
     Idealne virtualni PC s FreeDOS [www.freedos.org/download].
     V systemu FreeDOS nainstalovat DJGPP pomoci nastroje FDIMPLES
     (FreeDOS Installer - My Package List Editor Software)
-    Pred spustenim prikazu [fdimples] je treba stahnout a do virtualni mechaniky
-    vlozit jeste ISO s rozsirujicim softwarem - FreeDOS BonusCD).
-    Cely system je pote vhodne aktualizovat jeste on-line pomoci [fdnpkg update].
+    Pred spustenim prikazu [fdimples] je treba stahnout a do virtualni
+    mechaniky vlozit jeste ISO s rozsirujicim softwarem - FreeDOS BonusCD).
+    Cely system je pote vhodne aktualizovat jeste on-line pomoci
+    [fdnpkg update].
 
     V jinych systemech (napr. i Windows 95/98) je mozne stahnout DJGPP
     ze stranek projektu [www.delorie.com/djgpp/].
 
   Poznamky:
-    - po nainstalovani DJGPP pres [FDIMPLES] je treba pridat nasledujici radky
-      do C:\FDAUTO.BAT (napr. prikazem [edit fdauto.bat]):
+    - po nainstalovani DJGPP pres [FDIMPLES] je treba pridat nasledujici
+      radky do C:\FDAUTO.BAT (napr. prikazem [edit fdauto.bat]):
 
         set DJGPP=C:\DEVEL\DJGPP\DJGPP.ENV
         set PATH=C:\DEVEL\DJGPP\BIN;%PATH%
 
       a provest [reboot]. Po restartu jeste zavolat [go32-v2.exe].
       Pote by jiz mel prekladac spravne fungovat [gcc --version].
-    - pro spusteni vytvorene binarky v MS-DOS je nutne umistit soubor [CWSDPMI.EXE]
-      do stejne slozky, jako spustitelny soubor hry [sibe_dos.exe]
+    - pro spusteni vytvorene binarky v MS-DOS je nutne umistit soubor
+      [CWSDPMI.EXE] do stejne slozky, jako spustitelny
+      soubor hry [sibe_dos.exe]
       -> [https://en.wikipedia.org/wiki/CWSDPMI]
       -> [https://sandmann.dotster.com/cwsdpmi/]
-    - u DOSu je treba hlidat tez konvenci max. 8 znaku pro nazvy souboru (FAT16)
+    - u DOSu je treba hlidat tez konvenci max. 8 znaku pro nazvy
+      souboru (FAT16)
