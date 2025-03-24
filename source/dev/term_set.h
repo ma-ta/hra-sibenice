@@ -7,8 +7,8 @@
  *    - Windows:
  *      - Command Line (Windows Console Host) - via příkaz [mode]
  *        (moderní Windows Terminal není podporován)
- *    - Ubuntu/Kubuntu:
- *      - GNOME Terminal/Console, KDE Konsole - via D-BUS
+ *    - GNU/Linux:
+ *      - GNOME Terminal/Console - via D-Bus
  *    - macOS:
  *      - Terminal - via AppleScript
  *
