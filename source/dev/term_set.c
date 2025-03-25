@@ -182,6 +182,8 @@ bool term_size(int x, int y)
     // parsování argumentů
     if (argc != ARG_COUNT + 1) {  // počet argumentů
       fprintf(stderr, ARG_INFO "\n");
+      printf("%s", stiskni_enter);
+      cekej_enter();
       return EXIT_FAILURE;
     }
     for (int i = 0; i < ARG_COUNT; i++) {  // načítání argumentů
