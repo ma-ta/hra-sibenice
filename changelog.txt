@@ -5,24 +5,28 @@
 
 NOVINKY:
 
-1) výpis typu architektury v informacích o verzi
-   (přepínač [-v]), binárky pro AArch64 a x86
+1) výpis typu architektury v informacích o verzi [-v],
+   rozšírení dostupných binárek o nové architektury:
+     - Windows [AArch64, x86_64, x86]
+     - Linux   [AArch64, x86_64, x86]
+     - macOS   [AArch64, x86_64, + Universal]
 
 2) ikona a metadata aplikace pro Windows:
      pro kompilátor MSVC ikona a soubor
      VERSIONINFO resource (win-versioninfo.rc),
      dále parametr [cl.exe /subsystem:console]
 
-3) nazev aplikace jako titulek okna terminalu +
-   automaticke nastaveni velikosti okna terminalu:
-   - Windows CMD: via příkaz [mode X, Y],
-   - GNOME Terminal: via D-Bus API,
-   - macOS Terminal: via AppleScript
+3) název aplikace jako titulek okna (panelu) terminálu,
+   automatické nastavení velikosti okna terminálu pomocí
+   přepínače [w], tj. "-w ŠÍŘKA VÝŠKA":
+     - Windows CMD: via příkaz [mode con: cols=X lines=Y],
+     - macOS Terminal: via AppleScript (rozměry okna v px!)
 
-4) balicky pro distribuci aplikace:
+4) balíčky pro distribuci aplikace:
+   obecně    - ZIP a TAR.GZ,
    Windows   - Inno Setup,
    GNU/Linux - AppImage,
-   macOS     - Sibenice.app (+ univerzalni binarka)
+   macOS     - formáty DMG a APP
 
 
 OPRAVENÉ CHYBY:
@@ -102,10 +106,10 @@ NOVINKY:
 
 1) přepínače pro spuštění programu
    [?] - zobrazí seznam dostupných přepínačů
-   [m] - zobrazí hlavní nápovědu
-   [s] - vypíše herní statistiky
-   [v] - vypíše informace o sestavení
-   [d] - spustí v režimu DOS (tabulka se skóre)
+   [m] - zobrazí herní manuál
+   [s] - vypíše uložené statistiky
+   [v] - vypíše informace o verzi
+   [c] - spustí v režimu CLI 80x25 zn. (MS-DOS)
 
 2) vylepšení modulu tui/hlavicka
    (možnost vypsání libovolného textu v dolních buňkách)

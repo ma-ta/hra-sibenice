@@ -4,23 +4,24 @@
 #include "../libs/ansi_fmt.h"
 #ifdef OS_WIN
   #include <windows.h>
-/*
-#elif defined(OS_LINUX)
-  #include <dbus/dbus.h>
-*/
 #endif
 
 
 // DEBUG definovano take v globconf.h
-/*
+
 #undef  DEBUG
 #define DEBUG  1
-*/
+
 
 #if DEBUG == 1
   #define ARG_COUNT  2
   #define ARG_INFO  "Argumenty:  COLS_X LINES_Y"
 #endif
+
+
+static int ret_value = EXIT_FAILURE;  // návratová hodnota fcí. modulu
+static int pom_ret_val = 0;  // pomocná proměnná
+static char system_prikaz[1000] = "";  // textový buffer
 
 
 bool term_title(void)
@@ -33,7 +34,6 @@ bool term_title(void)
   #endif
 
 
-  bool ret_value = EXIT_FAILURE;
 
   #if TERM_SET == 1  // funkcionalita aktivována
 
@@ -102,16 +102,15 @@ bool term_size(int x, int y)
       // ve WT se nemá vykonat (bohužel, občas WT_SESSION není ve WT zavedena)
       if (!getenv("WT_SESSION")) {
 
-        char system_prikaz[20];  // "mode X, Y"
-        int snprintf_ret = snprintf(
+        int pom_ret_val = snprintf(
                             system_prikaz,
                             sizeof(system_prikaz),
-                            "mode %d, %d",
+                            "mode con: cols=%d lines=%d",
                             x, y
                           );
 
-        // snprintf() je OK když ret_val je kladná a < sizeof(n)
-        if (snprintf_ret > 0 && snprintf_ret < sizeof(system_prikaz)) {
+        // pom_ret_val() je OK když snprintf() je kladná a menší než sizeof(n)
+        if (pom_ret_val > 0 && pom_ret_val < sizeof(system_prikaz)) {
           ret_value = (system(system_prikaz)
                         ? EXIT_FAILURE
                         : EXIT_SUCCESS);
@@ -124,105 +123,34 @@ bool term_size(int x, int y)
     }
     // #ifdef OS_WIN
 
-/*  ( zřejmě mění jen velikost bufferu, ne okna - dořešit )
-
-    #elif defined(OS_LINUX)
-
-      #if DEBUG == 1
-        puts("OS_LINUX");
-        cekej_enter();
-      #endif
-
-      // řešení via D-Bus API - zatím pro GNOME Terminal
-
-      DBusError error;       // struktura pro chyby D-Bus
-      DBusConnection* conn;  // ukazatel na připojení k D-Bus
-      DBusMessage* msg;      // ukazatel na zprávu pro D-Bus
-      DBusMessageIter args;  // iterátor pro argumenty zprávy
-
-      dbus_error_init(&error);  // inicializace struktury
-
-      // připojení k D-Bus
-      conn = dbus_bus_get(DBUS_BUS_SESSION, &error);
-      if (dbus_error_is_set(&error)) {  // chyba při připojování
-          #if DEBUG == 1
-            fprintf(
-              stderr,
-              "(!) %s(): chyba pri pripojeni k D-Bus:\n(%s)\n",
-              __func__,
-              error.message
-            );
-          #endif
-          dbus_error_free(&error);
-          return EXIT_FAILURE;
-      }
-
-      if (!conn) {
-        #if DEBUG == 1
-          fprintf(
-            stderr,
-            "(!) %s(): nezdarilo se pripojit k D-Bus session\n",
-            __func__
-          );
-        #endif
-        return EXIT_FAILURE;
-      }
-
-      // vytvoření zprávy pro GNOME Terminal
-      msg = dbus_message_new_method_call(
-          "org.gnome.Terminal",
-          "/org/gnome/Terminal/Window/0",  // specifická cesta okna
-          "org.gnome.Terminal.Window",
-          "SetSize"
-      );
-
-      if (!msg) {
-        #if DEBUG == 1
-          fprintf(
-            stderr,
-            "(!) %s(): nelze vytvorit zpravu pro D-Bus\n",
-            __func__
-          );
-        #endif
-        return EXIT_FAILURE;
-      }
-
-      // nastavení argumentů (počet sloupců a řádků)
-      dbus_message_iter_init_append(msg, &args);
-      dbus_message_iter_append_basic(&args, DBUS_TYPE_INT32, &x);
-      dbus_message_iter_append_basic(&args, DBUS_TYPE_INT32, &y);
-
-      // poslání zprávy
-      if (!dbus_connection_send(conn, msg, NULL)) {
-        #if DEBUG == 1
-          fprintf(
-            stderr,
-            "(!) %s(): nezdarilo se odeslat zpravu pro D-Bus\n",
-            __func__
-          );
-        #endif
-      }
-      else {
-        ret_value = EXIT_SUCCESS;
-      }
-
-      dbus_connection_flush(conn);
-      dbus_message_unref(msg);
-
-    // #ifdef OS_LINUX
-
-*/
-
     #elif defined(OS_MAC)
       /* řešení pro macOS via AppleScript - bohužel v pixelech,
-         cílem je tedy jen odhadnout dostatečně velkou plochu,
-         kód nenastavuje konkrétní počet řádků a znaků na řádek */
+        cílem je tedy jen odhadnout dostatečně velkou plochu,
+        kód nenastavuje konkrétní počet řádků a znaků na řádek */
 
-      ret_value = (system("osascript -e 'tell application \"Terminal\""
-                          "to set bounds of front window to"
-                          "{300, 100, 1050, 850}'"))
-                    ? EXIT_FAILURE
-                    : EXIT_SUCCESS;
+      pom_ret_val = snprintf(
+        system_prikaz,
+        sizeof(system_prikaz),
+
+        "osascript -e '"
+        "tell application \"Terminal\" "
+        "to set bounds of front window to "
+        "{%d, %d, %d, %d}'",
+
+        300, 100, 1050, 850
+      );
+
+      // pom_ret_val() je OK když snprintf() je kladná a menší než sizeof(n)
+      if (pom_ret_val > 0 && pom_ret_val < sizeof(system_prikaz)) {
+        ret_value = (system(system_prikaz)
+                      ? EXIT_FAILURE
+                      : EXIT_SUCCESS);
+      }
+      else {
+        #if DEBUG == 1
+          fprintf(stderr, "(!) %s(): sizeof(system_prikaz)\n", __func__);
+        #endif  // DEBUG
+      }
 
     #endif  // OS_MAC
 
