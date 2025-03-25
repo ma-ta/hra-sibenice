@@ -1,3 +1,10 @@
+/* TODO
+ * - zkusit lepší detekci Windows Terminal např. dle rodičovského procesu,
+ * - přepsat AppleSkript tak, aby přijímal argumenty fce. X a Y,
+ * - umožnit nastavení titulku okna argumentem fce., ne symbol. konst.
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../globconf.h"
@@ -99,7 +106,9 @@ bool term_size(int x, int y)
         v moderním Windows Terminal (WT) však pouze mění velikost
         bufferu bez změny velikosti okna (text se např. zalamuje) */
 
-      // ve WT se nemá vykonat (bohužel, občas WT_SESSION není ve WT zavedena)
+      /* ve WT nemá smysl (bohužel, občas není proměnná WT_SESSION ani
+         ve WT zavedena - je tedy vhodné napsat jinou implementaci,
+         která WT spolehlivě detekuje např. podle rodičovského procesu) */
       if (!getenv("WT_SESSION")) {
 
         int pom_ret_val = snprintf(
