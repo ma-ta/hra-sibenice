@@ -9,7 +9,7 @@
 #  (UN*X/Bash/GCC+Clang              #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-03-24                #
+#  datum:  2025-03-25                #
 #                                    #
 ######################################
 
@@ -23,9 +23,9 @@
   bin_nazev='sibenice'  # -linux64 / -linuxARM64 / -linux32 / -...
 
 # parametry prekladace
-  # debug:   '-Wall -Wextra -pedantic -g -fsanitize=address'
+  # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
   # release: '-O2 -Wno-unused-result'
-  cc_param='-O2 -Wno-unused-result'
+  cc_param='-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
 
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
   CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)

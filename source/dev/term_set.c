@@ -1,7 +1,8 @@
 /* TODO
- * - zkusit lepší detekci Windows Terminal např. dle rodičovského procesu,
+ * - zkusit lepší detekci Windows Terminal např. dle rodičovského procesu
+     nebo zajistit otevírání aplikace v CMD,
  * - přepsat AppleSkript tak, aby přijímal argumenty fce. X a Y,
- * - umožnit nastavení titulku okna argumentem fce., ne symbol. konst.
+ * - umožnit nastavení titulku okna argumentem fce., ne symbol. konstantu
  */
 
 

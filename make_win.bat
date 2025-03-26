@@ -8,7 +8,7 @@
 ::  (WINDOWS/BATCH/MSVC)              ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-03-24                ::
+::  datum:  2025-03-25                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -23,9 +23,9 @@
    set bin_nazev=sibenice-win
 
 :: parametry prekladace
-   :: debug:    /D_CRT_SECURE_NO_WARNINGS /Wall /DEBUG /fsanitize=address /Zi /subsystem:console
-   :: release:  /D_CRT_SECURE_NO_WARNINGS /O2 /subsystem:console
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /O2 /subsystem:console
+   :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address /subsystem:console
+   :: release:  /D_CRT_SECURE_NO_WARNINGS /W4 /O2 /GL /subsystem:console
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /W4 /O2 /GL /subsystem:console
 
 :: prikaz pro spusteni prekladace vc. parametru (cl/clang apod.)
    set cc=cl.exe

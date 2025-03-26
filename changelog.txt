@@ -13,8 +13,7 @@ NOVINKY:
 
 2) ikona a metadata aplikace pro Windows:
      pro kompilátor MSVC ikona a soubor
-     VERSIONINFO resource (win-versioninfo.rc),
-     dále parametr [cl.exe /subsystem:console]
+     VERSIONINFO resource (win-versioninfo.rc)
 
 3) název aplikace jako titulek okna (panelu) terminálu,
    automatické nastavení velikosti okna terminálu pomocí
