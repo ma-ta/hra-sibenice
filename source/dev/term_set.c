@@ -144,10 +144,10 @@ bool term_size(int x, int y)
 
         "osascript -e '"
         "tell application \"Terminal\" "
-        "to set bounds of front window to "
-        "{%d, %d, %d, %d}'",
+        "to set size of front window to "
+        "{%d, %d}'",
 
-        300, 100, 1050, 850
+        x, y
       );
 
       // pom_ret_val() je OK když snprintf() je kladná a menší než sizeof(n)
