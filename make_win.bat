@@ -24,8 +24,8 @@
 
 :: parametry prekladace
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address
-   :: release:  /D_CRT_SECURE_NO_WARNINGS /W4 /O2 /GL
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /W3 /O2 /GL
+   :: release:  /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
 
 :: prikaz pro spusteni prekladace vc. parametru (cl/clang apod.)
    set cc=cl.exe

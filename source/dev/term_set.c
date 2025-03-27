@@ -8,10 +8,8 @@
 
 
 // DEBUG definovano take v globconf.h
-
 #undef  DEBUG
-#define DEBUG  1
-
+#define DEBUG  1  // VYP => 0
 
 #if DEBUG == 1
   #define ARG_COUNT  2
@@ -143,7 +141,7 @@ bool term_size(int x, int y)
       );
 
       // pom_ret_val() je OK když snprintf() je kladná a menší než sizeof(n)
-      if (pom_ret_val > 0 && pom_ret_val < sizeof(system_prikaz)) {
+      if (pom_ret_val > 0 && pom_ret_val < (int) sizeof(system_prikaz)) {
         ret_value = (system(system_prikaz)
                       ? EXIT_FAILURE
                       : EXIT_SUCCESS);
@@ -246,7 +244,7 @@ bool term_size(int x, int y)
         if (radek < cmd_size[1] - 1)  putchar('\n');  // konec řádku
       }
 
-      for (int i = 0; i < sizeof(stiskni_enter) - 1 + (2); i++) {
+      for (int i = 0; i < (int) sizeof(stiskni_enter) - 1 + (2); i++) {
         putchar('\b');
       }
       fflush(stdout);
