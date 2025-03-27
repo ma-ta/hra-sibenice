@@ -30,7 +30,8 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
-  - Ubuntu 24.04.1 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
+  - Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
+  - macOS 15.3.2 *(LLVM Clang 16.0.0) &ndash; [x86_64] [AArch64]*
 - MS Windows:
   - Windows 11 *(MSVC 19.43.34809) &ndash; [x86] [x86_64] [AArch64]*
 - DOS:

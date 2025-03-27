@@ -5,7 +5,7 @@
  *  - nastavení titulku okna (panelu)
  *  - nastavení velikost okna (znaků na výšku a šířku) - testováno na:
  *    - (1) Windows:
- *      - Command Line (Windows Console Host) - via příkaz [mode]
+ *      - Windows Console Host (ConHost.exe) - via příkaz [mode]
  *        (moderní Windows Terminal není podporován)
  *        nastaví přímo optimální rozměry terminálu pro hru
  *    - (2) macOS 15:

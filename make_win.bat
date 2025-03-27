@@ -5,10 +5,10 @@
 ::::::::::::::::::::::::::::::::::::::::
 ::                                    ::
 ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
-::  (WINDOWS/BATCH/MSVC)              ::
+::  (WINDOWS / BATCH / MSVC)          ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-03-25                ::
+::  datum:  2025-04-01                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -23,9 +23,9 @@
    set bin_nazev=sibenice-win
 
 :: parametry prekladace
-   :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address /subsystem:console
-   :: release:  /D_CRT_SECURE_NO_WARNINGS /W4 /O2 /GL /subsystem:console
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /W4 /O2 /GL /subsystem:console
+   :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address
+   :: release:  /D_CRT_SECURE_NO_WARNINGS /W4 /O2 /GL
+   set cc_param=/D_CRT_SECURE_NO_WARNINGS /W3 /O2 /GL
 
 :: prikaz pro spusteni prekladace vc. parametru (cl/clang apod.)
    set cc=cl.exe

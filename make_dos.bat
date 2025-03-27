@@ -5,10 +5,10 @@ rem Testovane OS: FreeDOS 1.3
 rem ::::::::::::::::::::::::::::::::::::::::
 rem ::                                    ::
 rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
-rem ::  (DOS/BATCH/DJGPP)                 ::
+rem ::  (DOS / BATCH / DJGPP)             ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-03-25                ::
+rem ::  datum:  2025-04-01                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 

@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 25.04, Fedora 42, FreeBSD 14.2
+# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.3.2, FreeBSD 14.2
 
 ######################################
 #                                    #
 #  SKRIPT NA SESTAVENI HRY SIBENICE  #
-#  (UN*X/Bash/GCC+Clang              #
+#  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-03-25                #
+#  datum:  2025-04-01                #
 #                                    #
 ######################################
 

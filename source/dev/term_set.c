@@ -1,11 +1,3 @@
-/* TODO
- * - zkusit lepší detekci Windows Terminal např. dle rodičovského procesu
-     nebo zajistit otevírání aplikace v CMD,
- * - přepsat AppleSkript tak, aby přijímal argumenty fce. X a Y,
- * - umožnit nastavení titulku okna argumentem fce., ne symbol. konstantu
- */
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "../globconf.h"
@@ -23,7 +15,7 @@
 
 #if DEBUG == 1
   #define ARG_COUNT  2
-  #define ARG_INFO  "Argumenty:  COLS_X LINES_Y"
+  #define ARG_INFO  "Argumenty: COLS_X LINES_Y"
 #endif
 
 
@@ -80,7 +72,7 @@ bool term_title(void)
 }
 
 /* ROZPRACOVÁNO - prozatím funguje:
-   - Windows CMD
+   - Windows Windows Console Host (ConHost.exe)
    - macOS Terminal */
 bool term_size(int x, int y)
 {
@@ -103,7 +95,7 @@ bool term_size(int x, int y)
         cekej_enter();
       #endif
 
-      /* nejjednodušší způsob pro Windows Console Host (CMD)
+      /* nejjednodušší způsob pro Windows Console Host (ConHost.exe)
         v moderním Windows Terminal (WT) však pouze mění velikost
         bufferu bez změny velikosti okna (text se např. zalamuje) */
 
@@ -178,6 +170,26 @@ bool term_size(int x, int y)
   {
     int ret_value = EXIT_SUCCESS;
     char stiskni_enter[] = "(stiskni Enter...)";
+
+
+    #ifdef OS_WIN
+      /* zajistí otevření v okně starého Windows Console Host při současném
+         použití /link /SUBSYSTEM:windows /ENTRY:mainCRTStartup
+         při kompilaci pomocí cl.exe */
+
+      AllocConsole(); // otevřen nové okno konzole (ConHost.exe)
+      // přesměrování vstupů a výstupů do standardních I/O (program spuštěn pro GUI)
+      freopen("CONOUT$", "w", stdout);
+      freopen("CONOUT$", "w", stderr);
+      freopen("CONIN$", "r", stdin);
+      /* přenesení okna terminálu do popředí (jinak je je nutné na okno
+         terminálu po spuštění aplikace kliknout)
+         vyžaduje připojení knihovny /link user32.lib */
+      HWND hwnd = GetConsoleWindow();
+      if (hwnd) {
+        SetForegroundWindow(hwnd);
+      }
+    #endif
 
     int cmd_size[2] = { 0, 0 };
     // parsování argumentů

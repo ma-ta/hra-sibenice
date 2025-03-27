@@ -1,5 +1,5 @@
 +--------+------------+
-| v1.1.0 | 2025-03-25 | - ROZPRACOVÁNO
+| v1.1.0 | 2025-04-01 | - ROZPRACOVÁNO
 +--------+------------+
 
 
@@ -18,7 +18,7 @@ NOVINKY:
 3) název aplikace jako titulek okna (panelu) terminálu,
    automatické nastavení velikosti okna terminálu pomocí
    přepínače [w], tj. "-w ŠÍŘKA VÝŠKA":
-     - Windows CMD: via příkaz [mode con: cols=X lines=Y],
+     - Windows ConHost: via příkaz [mode con: cols=X lines=Y],
      - macOS Terminal: via AppleScript (rozměry okna v px!)
 
 4) balíčky pro distribuci aplikace:
