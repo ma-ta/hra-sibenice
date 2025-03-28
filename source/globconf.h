@@ -117,12 +117,14 @@
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
-#define ANSI_FORMAT    1   /* zapne formátování ESC sekvencemi */
+#define ANSI_FORMAT    1    /* zapne formátování ESC sekvencemi */
 /* nastavení okna terminálu */
-#define TERM_SET       1   /* zapne nastavení titulku a velikosti terminálu */
+#define TERM_SET       1    /* zapne nastavení titulku a velikosti terminálu */
 #define TERM_TITLE     NAZEV
-#define TERM_SIRKA     73
-#define TERM_VYSKA     36
+#define TERM_SIRKA     73   /* znaků na řádek */
+#define TERM_VYSKA     37   /* počet řádků */
+#define TERM_ISIRKA    750  /* šírka Terminálu v pixelech pro macOS */
+#define TERM_IVYSKA    800  /* výška Terminálu v pixelech pro macOS */
 
 #ifdef OS_DOS
   #undef  ANSI_FORMAT
@@ -179,7 +181,7 @@
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
                       "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
-                       "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"/?\")."
+                       "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"--help\")."
 
 #define arg_hlp_text()  printf("Pouziti: %s [PREPINAC]\n" ARG_HLP_TEXT "\n", argv[0])
 

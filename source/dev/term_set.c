@@ -192,35 +192,59 @@ bool term_size(int x, int y)
 
     int cmd_size[2] = { 0, 0 };
     // parsování argumentů
-    if (argc != ARG_COUNT + 1) {  // počet argumentů
-      fprintf(stderr, ARG_INFO "\n");
-      printf("%s", stiskni_enter);
-      cekej_enter();
-      return EXIT_FAILURE;
-    }
-    for (int i = 0; i < ARG_COUNT; i++) {  // načítání argumentů
-      int argument = i + 1;
-      if (sscanf(argv[argument], "%d", cmd_size + i) != 1) {
-        fprintf(
-          stderr,
-          "Chyba pri nacitani %d. argumentu: \"%s\"!\n",
-          i, argv[argument]
-        );
+    #ifndef OS_MAC
+      if (argc != ARG_COUNT + 1) {  // počet argumentů
+        fprintf(stderr, ARG_INFO "\n");
+        printf("%s", stiskni_enter);
+        cekej_enter();
         return EXIT_FAILURE;
       }
-      else if (cmd_size[i] <= 0) {  // ověření povolených hodnot
-        fprintf(stderr, "X i Y musi byt vetsi nez 0!\n");
-        return EXIT_FAILURE;
+      for (int i = 0; i < ARG_COUNT; i++) {  // načítání argumentů
+        int argument = i + 1;
+        if (sscanf(argv[argument], "%d", cmd_size + i) != 1) {
+          fprintf(
+            stderr,
+            "Chyba pri nacitani %d. argumentu: \"%s\"!\n",
+            i, argv[argument]
+          );
+          return EXIT_FAILURE;
+        }
+        else if (cmd_size[i] <= 0) {  // ověření povolených hodnot
+          fprintf(stderr, "X i Y musi byt vetsi nez 0!\n");
+          return EXIT_FAILURE;
+        }
       }
-    }
+    #endif
+
 
     puts("Nastavuji titulek okna na: " TERM_TITLE);
     ret_value = term_title();
+
+    /* velikost okna se nastavuje v pixelech
+       (výška a šířka orámování pak nedává smysl) */
+    #ifdef OS_MAC
+      cmd_size[0] = TERM_SIRKA;
+      cmd_size[1] = TERM_VYSKA;
+      printf(
+        "Na macOS rozmery X, Y nastaveny konstantami...\n"
+        "Rozmery okna v pixelech rovnez: na X: %d, Y: %d\n",
+        TERM_ISIRKA, TERM_IVYSKA
+      );
+    #endif
 
     printf(
       "Nastavuji velikost okna na X=%d, Y=%d\n",
       cmd_size[0], cmd_size[1]
     );
+
+    /* pokus o nalezení relativně vhodných rozměrů okna v pixelech
+       pro zobrazení počtu znaků TERM_SIRKA a TERM_VYSKA,
+       na macOS 15.3.2 a MacBooku Air M4 (13") zjištěny rozměry
+       682px krát 700px při roztažení Terminálu na 73x37 znaků */
+    #ifdef OS_MAC
+      cmd_size[0] = TERM_ISIRKA;
+      cmd_size[1] = TERM_IVYSKA;
+    #endif
 
     // nastavení nové velikosti okna a test velikosti výpisem znaků
     printf("%s", stiskni_enter);

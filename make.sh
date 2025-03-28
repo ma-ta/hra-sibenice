@@ -20,7 +20,7 @@
 
 
 # nazev spustitelneho souboru
-  bin_nazev='sibenice'  # -linux64 / -linuxARM64 / -linux32 / -...
+  bin_nazev='sibenice'  # -linux64 / -linuxArm64 / -linux32 / -macArm64 /...
 
 # parametry prekladace
   # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'

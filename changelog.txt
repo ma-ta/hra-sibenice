@@ -11,15 +11,15 @@ NOVINKY:
      - Linux   [AArch64, x86_64, x86]
      - macOS   [AArch64, x86_64, + Universal]
 
-2) ikona a metadata aplikace pro Windows:
-     pro kompilátor MSVC ikona a soubor
+2) ikona a metadata aplikace:
+   - Windows: pro kompilátor MSVC ikona a soubor
      VERSIONINFO resource (win-versioninfo.rc)
 
 3) název aplikace jako titulek okna (panelu) terminálu,
    automatické nastavení velikosti okna terminálu pomocí
    přepínače [w], tj. "-w ŠÍŘKA VÝŠKA":
      - Windows ConHost: via příkaz [mode con: cols=X lines=Y],
-     - macOS Terminal: via AppleScript (rozměry okna v px!)
+     - macOS Terminal: via AppleScript (rozměry okna v pixelech)
 
 4) balíčky pro distribuci aplikace:
    obecně    - ZIP a TAR.GZ,
