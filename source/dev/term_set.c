@@ -227,8 +227,8 @@ bool term_size(int x, int y)
       cmd_size[0] = TERM_SIRKA;
       cmd_size[1] = TERM_VYSKA;
       printf(
-        "Na macOS rozmery X, Y nastaveny konstantami...\n"
-        "Rozmery okna v pixelech rovnez: na X: %d, Y: %d\n",
+        "Na macOS jsou rozmery X, Y nastaveny konstantami...\n"
+        "Rozmery okna v pixelech jsou prednastaveny na: X: %d, Y: %d\n",
         TERM_ISIRKA, TERM_IVYSKA
       );
     #endif
@@ -247,35 +247,40 @@ bool term_size(int x, int y)
       cmd_size[1] = TERM_IVYSKA;
     #endif
 
-    // nastavení nové velikosti okna a test velikosti výpisem znaků
+    // nastavení nové velikosti okna a test velikosti oramovanim okna
     printf("%s", stiskni_enter);
     cekej_enter();
 
     if (term_size(cmd_size[0], cmd_size[1]) == EXIT_SUCCESS) {
       vymaz_obr();
 
-      int oramovani_zn;
-      for (int radek = 0; radek < cmd_size[1]; radek++) {
-        for (int sloupec = 0; sloupec < cmd_size[0]; sloupec++) {
-          if (   radek == 0               || sloupec == 0
-              || radek == cmd_size[1] - 1 || sloupec == cmd_size[0] - 1)
-          {
-            oramovani_zn = '#';
+      #ifndef OS_MAC  // v macOS Terminal orámování zlobí (neřešeno)
+        int oramovani_zn;
+        for (int radek = 0; radek < cmd_size[1]; radek++) {
+          for (int sloupec = 0; sloupec < cmd_size[0]; sloupec++) {
+            if (   radek == 0               || sloupec == 0
+                || radek == cmd_size[1] - 1 || sloupec == cmd_size[0] - 1)
+            {
+              oramovani_zn = '#';
+            }
+            else {
+              oramovani_zn = ' ';
+            }
+            putchar(oramovani_zn);
           }
-          else {
-            oramovani_zn = ' ';
-          }
-          putchar(oramovani_zn);
+          if (radek < cmd_size[1] - 1)  putchar('\n');  // konec řádku
         }
-        if (radek < cmd_size[1] - 1)  putchar('\n');  // konec řádku
-      }
 
-      for (int i = 0; i < (int) sizeof(stiskni_enter) - 1 + (2); i++) {
-        putchar('\b');
-      }
-      fflush(stdout);
-      printf(" %s ", stiskni_enter);  // (+2)
-      fflush(stdout);
+        for (int i = 0; i < (int) sizeof(stiskni_enter) - 1 + (2); i++) {
+          putchar('\b');
+        }
+        fflush(stdout);
+        printf(" %s ", stiskni_enter);  // (+2)
+        fflush(stdout);
+      #else
+        puts("Velikost okna upravena.");
+        printf("%s", stiskni_enter);
+      #endif
     }
     else {
       ret_value = EXIT_FAILURE;

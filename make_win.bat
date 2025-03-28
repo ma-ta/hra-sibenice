@@ -19,7 +19,7 @@
 
 
 :: nazev spustitelneho souboru
-   :: -win64 / -winARM64 / -win32 / -...
+   :: -win64 / -winArm64 / -win32 / -...
    set bin_nazev=sibenice-win
 
 :: parametry prekladace

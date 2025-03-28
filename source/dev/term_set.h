@@ -15,11 +15,11 @@
  *  Modul pro nastavení emulátorů terminálu (multiplatformní řešení)
  *  - nastavení titulku okna (panelu)
  *  - nastavení velikost okna (znaků na výšku a šířku) - testováno na:
- *    - (1) Windows:
+ *    - (1) Windows 11 (24H2):
  *      - Windows Console Host (ConHost.exe) - via příkaz [mode]
  *        (moderní Windows Terminal není podporován)
  *        nastaví přímo optimální rozměry terminálu pro hru
- *    - (2) macOS 15:
+ *    - (2) macOS 15.4:
  *      - Terminal - via AppleScript
  *        zajistí změnu velikost okna Terminálu v pixelech (x, y)
  *

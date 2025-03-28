@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.3.2, FreeBSD 14.2
+# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.4, FreeBSD 14.2
 
 ######################################
 #                                    #
@@ -20,7 +20,8 @@
 
 
 # nazev spustitelneho souboru
-  bin_nazev='sibenice'  # -linux64 / -linuxArm64 / -linux32 / -macArm64 /...
+  bin_nazev='sibenice'        # -linux64 / -linuxArm64 / -linux32 /
+                              # -mac64 / -macArm64 / -...
 
 # parametry prekladace
   # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
