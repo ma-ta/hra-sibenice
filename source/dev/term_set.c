@@ -2,13 +2,14 @@
 #include "../libs/ansi_fmt.h"
 
 
-// DEBUG definovano take v globconf.h
+// (definovano take v globconf.h)
 #undef  DEBUG
 //===========================
 #define DEBUG  0  // VYP => 0
 //===========================
 
 // AKTIVACE MODULU (jinak fce. nic nedělají)
+// (definovano take v globconf.h)
 //==========================================
 //#undef  TERM_SET
 //#define TERM_SET  1  // VYP => 0
