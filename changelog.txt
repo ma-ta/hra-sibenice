@@ -9,7 +9,7 @@ NOVINKY:
    rozšírení dostupných binárek o nové architektury:
      - Windows [AArch64, x86_64, x86]
      - Linux   [AArch64, x86_64, x86]
-     - macOS   [AArch64, x86_64, + Universal]
+     - macOS   [AArch64, x86_64, Universal]
 
 2) ikona a metadata aplikace:
    - Windows: pro kompilátor MSVC ikona a soubor
@@ -17,7 +17,8 @@ NOVINKY:
 
 3) název aplikace jako titulek okna (panelu) terminálu,
    automatické nastavení velikosti okna terminálu pomocí
-   přepínače [w], tj. "-w ŠÍŘKA VÝŠKA":
+   přepínače [w], tj. "-w [ŠÍŘKA VÝŠKA]" - bez parametrů
+   naopak kompletně vypíná funkcionalitu modulu term_set.h:
      - Windows ConHost: via příkaz [mode con: cols=X lines=Y],
      - macOS Terminal: via AppleScript (rozměry okna v pixelech)
 
