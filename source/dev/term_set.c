@@ -1,11 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "term_set.h"
-#include "../globconf.h"
 #include "../libs/ansi_fmt.h"
-#ifdef OS_WIN
-#include <windows.h>
-#endif
 
 
 // DEBUG definovano take v globconf.h

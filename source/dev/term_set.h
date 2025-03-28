@@ -32,8 +32,13 @@
 #ifndef TERM_SET_H
 #define TERM_SET_H
 
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
+#include "../globconf.h"
+#ifdef OS_WIN
+  #include <windows.h>
+#endif
 
 
 /* nastaví titulek okna (panelu) emulátoru terminálu
