@@ -1,6 +1,9 @@
 /*
  *  (c) 2025 - Hra Šibenice v1.1.0
  *
+ *  MODUL JE TŘEBA AKTIVOVAT DEFINOVÁNÍM SYMBOLICKÉ KONSTANTY:
+ *  TERM_SET  1
+ *
  *  Ve Windows vyžaduje kompilaci přes cl.exe s přepínači:
  *  [/link] - následující přepínače interpretuje linker,
  *  [/subsystem:windows] - aplikace se bude spouštět jako GUI,
@@ -30,10 +33,13 @@
 #define TERM_SET_H
 
 
+#include <stdbool.h>
+
+
 /* nastaví titulek okna (panelu) emulátoru terminálu
    (1) Windows - CMD, WT
    (2) UN*X - GNOME Terminal, KDE Konsole, macOS Terminal */
-bool term_title(void);
+bool term_title(const char *novy_titulek);
 
 
 /* nastaví rozměry okna (resp. buffer) emulátoru terminálu

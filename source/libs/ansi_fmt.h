@@ -71,8 +71,8 @@
   #define ansi_cursor_off()          CSI "?25l"
   #define ansi_cursor_on()           CSI "?25h"
 
-  #define ansi_osc_title(title)      OSC "0;" title BEL   // titulek terminálu
-  #define ansi_osc_title_kde(title)  OSC "30;" title BEL  // titulek KDE Konsole
+  #define ansi_osc_title             OSC "0;%s" BEL   // titulek terminálu
+  #define ansi_osc_title_kde         OSC "30;%s" BEL  // titulek KDE Konsole
 #else
   #define ansi_format(format)        ""
   #define ansi_light(color)          ""

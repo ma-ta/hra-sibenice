@@ -1,15 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "term_set.h"
 #include "../globconf.h"
 #include "../libs/ansi_fmt.h"
 #ifdef OS_WIN
-  #include <windows.h>
+#include <windows.h>
 #endif
 
 
 // DEBUG definovano take v globconf.h
 #undef  DEBUG
-#define DEBUG  1  // VYP => 0
+//===========================
+#define DEBUG  0  // VYP => 0
+//===========================
+
+// AKTIVACE MODULU (jinak fce. nic nedělají)
+//==========================================
+//#undef  TERM_SET
+//#define TERM_SET  1  // VYP => 0
+//==========================================
+
 
 #if DEBUG == 1
   #define ARG_COUNT  2
@@ -22,7 +32,7 @@ static int pom_ret_val = 0;  // pomocná proměnná
 static char system_prikaz[1000] = "";  // textový buffer
 
 
-bool term_title(void)
+bool term_title(const char *novy_titulek)
 {
   #if DEBUG == 1
     printf(
@@ -32,14 +42,14 @@ bool term_title(void)
   #endif
 
 
-
-  #if TERM_SET == 1  // funkcionalita aktivována
+  // 1 => modul aktivován, 0 => deaktivován (fce. je možné stále volat)
+  #if TERM_SET == 1
 
     #ifdef OS_UNIX
       /* KDE Konsole - bohužel specifické chování
          (kód 30, nový titulek až po stisku klávesy...) */
       if (getenv("KONSOLE_VERSION")) {
-        printf(ansi_osc_title_kde(TERM_TITLE));
+        printf(ansi_osc_title_kde, novy_titulek);
       }
       /* obecný UN*X terminál
          testováno v:
@@ -47,18 +57,18 @@ bool term_title(void)
          - KDE Konsole 24.12.3
          - macOS 15 Terminal */
       else {
-        printf(ansi_osc_title(TERM_TITLE));
+        printf(ansi_osc_title, novy_titulek);
       }
       ret_value = EXIT_SUCCESS;
     #elif defined(OS_WIN)
       // moderní Windows Terminal (fungují ESC, WinAPI nikoli)
       if (getenv("WT_SESSION")) {
-        printf(ansi_osc_title(TERM_TITLE));
+        printf(ansi_osc_title, novy_titulek);
         ret_value = EXIT_SUCCESS;
       }
       // Windows Console Host (via WinAPI)
       else {
-        SetConsoleTitle(TERM_TITLE)
+        SetConsoleTitle(novy_titulek)
           ? (ret_value = EXIT_SUCCESS)
           : (ret_value = EXIT_FAILURE);
       }
@@ -69,7 +79,7 @@ bool term_title(void)
   return ret_value;
 }
 
-/* ROZPRACOVÁNO - prozatím funguje:
+/* prozatím funguje:
    - Windows Windows Console Host (ConHost.exe)
    - macOS Terminal */
 bool term_size(int x, int y)
@@ -218,8 +228,8 @@ bool term_size(int x, int y)
     #endif
 
 
-    puts("Nastavuji titulek okna na: " TERM_TITLE);
-    ret_value = term_title();
+    printf("Nastavuji titulek okna na: %s\n", TERM_TITLE);
+    ret_value = term_title(TERM_TITLE);
 
     /* velikost okna se nastavuje v pixelech
        (výška a šířka orámování pak nedává smysl) */
