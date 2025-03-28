@@ -94,10 +94,10 @@ bool term_size(int x, int y)
       #endif
 
       /* nejjednodušší způsob pro Windows Console Host (ConHost.exe)
-        v moderním Windows Terminal (WT) však pouze mění velikost
-        bufferu bez změny velikosti okna (text se např. zalamuje) */
+         v moderním Windows Terminal (WT) však pouze mění velikost
+         bufferu bez změny velikosti okna (text se např. zalamuje)
 
-      /* ve WT nemá smysl (bohužel, občas není proměnná WT_SESSION ani
+         ve WT nemá smysl (bohužel, občas není proměnná WT_SESSION ani
          ve WT zavedena - je tedy vhodné napsat jinou implementaci,
          která WT spolehlivě detekuje např. podle rodičovského procesu) */
       if (!getenv("WT_SESSION")) {
@@ -172,11 +172,12 @@ bool term_size(int x, int y)
 
     #ifdef OS_WIN
       /* zajistí otevření v okně starého Windows Console Host při současném
-         použití /link /SUBSYSTEM:windows /ENTRY:mainCRTStartup
-         při kompilaci pomocí cl.exe */
+         použití přepínačů /link /subsystem:windows /entry:mainCRTStartup
+         při kompilaci přes cl.exe */
 
       AllocConsole(); // otevřen nové okno konzole (ConHost.exe)
-      // přesměrování vstupů a výstupů do standardních I/O (program spuštěn pro GUI)
+      /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
+         (program byl totiž spuštěn jako Windows GUI aplikace) */
       freopen("CONOUT$", "w", stdout);
       freopen("CONOUT$", "w", stderr);
       freopen("CONIN$", "r", stdin);
