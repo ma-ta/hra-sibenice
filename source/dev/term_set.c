@@ -162,6 +162,7 @@ bool term_size(int x, int y)
 
 
 /* TEST MODULU */
+/* na macOS nefunguje vykreslení rámečku ze znaku '#' (neřešeno) */
 
 #if DEBUG == 1
   int main(int argc, char *argv[])
