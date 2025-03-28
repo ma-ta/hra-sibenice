@@ -4,4 +4,3 @@
 
 cl.exe term_set.c /link /subsystem:windows /entry:mainCRTStartup user32.lib
 del *.obj
-term_set.exe 25 25
