@@ -1,5 +1,5 @@
 +--------+------------+
-| v1.1.0 | 2025-04-01 | - ROZPRACOVÁNO
+| v1.1.0 | 2025-03-31 | - ROZPRACOVÁNO
 +--------+------------+
 
 
@@ -7,20 +7,21 @@ NOVINKY:
 
 1) výpis typu architektury v informacích o verzi [-v],
    rozšírení dostupných binárek o nové architektury:
-     - Windows [AArch64, x86_64, x86]
-     - Linux   [AArch64, x86_64, x86]
-     - macOS   [AArch64, x86_64, Universal]
+   - Windows [AArch64, x86_64, x86]
+   - Linux   [AArch64, x86_64, x86]
+   - macOS   [AArch64, x86_64, Universal]
 
 2) ikona a metadata aplikace:
    - Windows: pro kompilátor MSVC ikona a soubor
      VERSIONINFO resource (win-versioninfo.rc)
 
 3) název aplikace jako titulek okna (panelu) terminálu,
-   automatické nastavení velikosti okna terminálu pomocí
-   přepínače [w], tj. "-w [ŠÍŘKA VÝŠKA]" - bez parametrů
-   naopak kompletně vypíná funkcionalitu modulu term_set.h:
-     - Windows ConHost: via příkaz [mode con: cols=X lines=Y],
-     - macOS Terminal: via AppleScript (rozměry okna v pixelech)
+   automatické nastavení velikosti okna terminálu
+   pomocí přepínače [w]:
+   a) nastavení konkrétní velikost okna terminálu po spuštění
+      "-w [x_sloupecku y_radku]"
+   b) vypnutí automatického nastavení velikosti okna
+      "-w"
 
 4) balíčky pro distribuci aplikace:
    obecně    - ZIP a TAR.GZ,

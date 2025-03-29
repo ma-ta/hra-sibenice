@@ -2,27 +2,37 @@
 #include "../libs/ansi_fmt.h"
 
 
-// (definovano take v globconf.h)
-#undef  DEBUG
+// TEST MODULU - aktivace fce. main()
+// (definováno také v globconf.h)
 //===========================
-#define DEBUG  0  // VYP => 0
+#undef  DEBUG
+#define DEBUG  1  // VYP => 0
 //===========================
 
 // AKTIVACE MODULU (jinak fce. nic nedělají)
-// (definovano take v globconf.h)
+// (definováno také v globconf.h)
 //==========================================
-//#undef  TERM_SET
-//#define TERM_SET  1  // VYP => 0
+#undef  TERM_SET
+#define TERM_SET  1  // VYP => 0
 //==========================================
 
+// (DEBUG == 1)
+// ROZMĚRY OKNA JAKO ARGUMENTY PŘI SPUŠTĚNÍ
+//==========================================
+#define ARGS_ZAP  1  // VYP => 0
+//==========================================
 
-#if DEBUG == 1
-  #define ARG_COUNT  2
-  #define ARG_INFO  "Argumenty: COLS_X LINES_Y"
-#endif
+// NASTAVENÍ VLASTNÍCH ROZMĚRŮ
+// (definováno také globconf.h)
+//=============================
+//#undef   TERM_SIRKA
+//#undef   TERM_VYSKA
+//#define  TERM_SIRKA  73
+//#define  TERM_VYSKA  37
+//=============================
 
 
-static int ret_value = EXIT_FAILURE;  // návratová hodnota fcí. modulu
+static int ret_value  = EXIT_FAILURE;  // návratová hodnota fcí. modulu
 static int pom_ret_val = 0;  // pomocná proměnná
 static char system_prikaz[1000] = "";  // textový buffer
 
@@ -129,18 +139,19 @@ bool term_size(int x, int y)
     // #ifdef OS_WIN
 
     #elif defined(OS_MAC)
-      /* řešení pro macOS via AppleScript - bohužel v pixelech,
-        cílem je tedy jen odhadnout dostatečně velkou plochu,
-        kód nenastavuje konkrétní počet řádků a znaků na řádek */
+      /* řešení pro macOS via AppleScript */
 
       pom_ret_val = snprintf(
         system_prikaz,
         sizeof(system_prikaz),
 
-        "osascript -e '"
-        "tell application \"Terminal\" "
-        "to set size of front window to "
-        "{%d, %d}'",
+        "osascript "
+
+        "-e 'tell application \"Terminal\" "
+        "to set number of columns of front window to %d' "
+
+        "-e 'tell application \"Terminal\" "
+        "to set number of rows of front window to %d'",
 
         x, y
       );
@@ -165,9 +176,14 @@ bool term_size(int x, int y)
 }
 
 
-
 /* TEST MODULU */
-/* na macOS nefunguje vykreslení rámečku ze znaku '#' (neřešeno) */
+
+
+#if (DEBUG == 1) && (ARGS_ZAP == 1)
+  #define ARG_COUNT  2
+  #define ARG_INFO  "Argumenty: COLS_X LINES_Y"
+#endif
+
 
 #if DEBUG == 1
   int main(int argc, char *argv[])
@@ -197,8 +213,10 @@ bool term_size(int x, int y)
     #endif
 
     int cmd_size[2] = { 0, 0 };
+
     // parsování argumentů
-    #ifndef OS_MAC
+
+    #if ARGS_ZAP == 1
       if (argc != ARG_COUNT + 1) {  // počet argumentů
         fprintf(stderr, ARG_INFO "\n");
         printf("%s", stiskni_enter);
@@ -220,72 +238,51 @@ bool term_size(int x, int y)
           return EXIT_FAILURE;
         }
       }
+    #else
+      cmd_size[0] = TERM_SIRKA;
+      cmd_size[1] = TERM_VYSKA;
     #endif
 
+    // informace pro uživatele
 
     printf("Nastavuji titulek okna na: %s\n", TERM_TITLE);
     ret_value = term_title(TERM_TITLE);
-
-    /* velikost okna se nastavuje v pixelech
-       (výška a šířka orámování pak nedává smysl) */
-    #ifdef OS_MAC
-      cmd_size[0] = TERM_SIRKA;
-      cmd_size[1] = TERM_VYSKA;
-      printf(
-        "Na macOS jsou rozmery X, Y nastaveny konstantami...\n"
-        "Rozmery okna v pixelech jsou prednastaveny na: X: %d, Y: %d\n",
-        TERM_ISIRKA, TERM_IVYSKA
-      );
-    #endif
 
     printf(
       "Nastavuji velikost okna na X=%d, Y=%d\n",
       cmd_size[0], cmd_size[1]
     );
 
-    /* pokus o nalezení relativně vhodných rozměrů okna v pixelech
-       pro zobrazení počtu znaků TERM_SIRKA a TERM_VYSKA,
-       na macOS 15.3.2 a MacBooku Air M4 (13") zjištěny rozměry
-       682px krát 700px při roztažení Terminálu na 73x37 znaků */
-    #ifdef OS_MAC
-      cmd_size[0] = TERM_ISIRKA;
-      cmd_size[1] = TERM_IVYSKA;
-    #endif
+    // nastavení nové velikosti terminálu a test velikosti orámováním okna
 
-    // nastavení nové velikosti okna a test velikosti oramovanim okna
     printf("%s", stiskni_enter);
     cekej_enter();
 
     if (term_size(cmd_size[0], cmd_size[1]) == EXIT_SUCCESS) {
       vymaz_obr();
 
-      #ifndef OS_MAC  // v macOS Terminal orámování zlobí (neřešeno)
-        int oramovani_zn;
-        for (int radek = 0; radek < cmd_size[1]; radek++) {
-          for (int sloupec = 0; sloupec < cmd_size[0]; sloupec++) {
-            if (   radek == 0               || sloupec == 0
-                || radek == cmd_size[1] - 1 || sloupec == cmd_size[0] - 1)
-            {
-              oramovani_zn = '#';
-            }
-            else {
-              oramovani_zn = ' ';
-            }
-            putchar(oramovani_zn);
+      int oramovani_zn;
+      for (int radek = 0; radek < cmd_size[1]; radek++) {
+        for (int sloupec = 0; sloupec < cmd_size[0]; sloupec++) {
+          if (   radek == 0               || sloupec == 0
+              || radek == cmd_size[1] - 1 || sloupec == cmd_size[0] - 1)
+          {
+            oramovani_zn = '#';
           }
-          if (radek < cmd_size[1] - 1)  putchar('\n');  // konec řádku
+          else {
+            oramovani_zn = ' ';
+          }
+          putchar(oramovani_zn);
         }
+        if (radek < cmd_size[1] - 1)  putchar('\n');  // konec řádku
+      }
 
-        for (int i = 0; i < (int) sizeof(stiskni_enter) - 1 + (2); i++) {
-          putchar('\b');
-        }
-        fflush(stdout);
-        printf(" %s ", stiskni_enter);  // (+2)
-        fflush(stdout);
-      #else
-        puts("Velikost okna upravena.");
-        printf("%s", stiskni_enter);
-      #endif
+      for (int i = 0; i < (int) sizeof(stiskni_enter) - 1 + (2); i++) {
+        putchar('\b');
+      }
+      fflush(stdout);
+      printf(" %s ", stiskni_enter);  // (+2)
+      fflush(stdout);
     }
     else {
       ret_value = EXIT_FAILURE;

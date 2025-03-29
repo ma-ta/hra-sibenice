@@ -24,7 +24,6 @@
  *        nastaví přímo optimální rozměry terminálu pro hru
  *    - (2) macOS 15.4:
  *      - Terminal - via AppleScript
- *        zajistí změnu velikost okna Terminálu v pixelech (x, y)
  *
  */
 
@@ -46,15 +45,14 @@
    (2) UN*X - GNOME Terminal, KDE Konsole, macOS Terminal */
 bool term_title(const char *novy_titulek);
 
-
 /* nastaví rozměry okna (resp. buffer) emulátoru terminálu
    na určitý počet znaků - x: sloupečky, y: řádky
    (1) Windows - pro Console Host, Windows Terminal není podporován.
        Následující přepínače kompilátoru cl.exe zajistí otevření ConHost:
        [/link /subsystem:windows /entry:mainCRTStartup user32.lib].
-       Více komentáře ve zdrojovém kódu.
-   (2) macOS 15 - Terminal (pouze nastavení velikosti okna v pixelech)
-   (3) Linux - NEIMPLEMENTOVÁNO (nabízí se např. využití D-Bus) */
+       Více komentáře ve zdrojovém kódu. Změna velikosti pomocí [mode]
+   (2) macOS 15 - Terminal. Změna velikosti pomocí AppleScript
+   (3) Linux - NEIMPLEMENTOVÁNO */
 bool term_size(int x, int y);
 
 
