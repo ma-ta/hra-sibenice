@@ -9,28 +9,29 @@
 #define DEBUG  1  // VYP => 0
 //===========================
 
-// AKTIVACE MODULU (jinak fce. nic nedělají)
-// (definováno také v globconf.h)
-//==========================================
-#undef  TERM_SET
-#define TERM_SET  1  // VYP => 0
-//==========================================
+#if DEBUG == 1
+  // AKTIVACE MODULU (jinak fce. nic nedělají)
+  // (definováno také v globconf.h)
+  //==========================================
+  #undef  TERM_SET
+  #define TERM_SET  1  // VYP => 0
+  //==========================================
 
-// (DEBUG == 1)
-// ROZMĚRY OKNA JAKO ARGUMENTY PŘI SPUŠTĚNÍ
-//==========================================
-#define ARGS_ZAP  1  // VYP => 0
-//==========================================
+  // (DEBUG == 1)
+  // ROZMĚRY OKNA JAKO ARGUMENTY PŘI SPUŠTĚNÍ
+  //==========================================
+  #define ARGS_ZAP  1  // VYP => 0
+  //==========================================
 
-// NASTAVENÍ VLASTNÍCH ROZMĚRŮ
-// (definováno také globconf.h)
-//=============================
-//#undef   TERM_SIRKA
-//#undef   TERM_VYSKA
-//#define  TERM_SIRKA  73
-//#define  TERM_VYSKA  37
-//=============================
-
+  // NASTAVENÍ VLASTNÍCH ROZMĚRŮ
+  // (definováno také globconf.h)
+  //=============================
+  //#undef   TERM_SIRKA
+  //#undef   TERM_VYSKA
+  //#define  TERM_SIRKA  73
+  //#define  TERM_VYSKA  37
+  //=============================
+#endif
 
 static int ret_value  = EXIT_FAILURE;  // návratová hodnota fcí. modulu
 static int pom_ret_val = 0;  // pomocná proměnná
