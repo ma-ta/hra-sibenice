@@ -85,6 +85,10 @@ echo ''
   cd $src_dir'/help'
   ${CC} -c *.c
   mv *.o $out_dir
+# slozka libs
+  cd $src_dir'/libs'
+  ${CC} -c *.c
+  mv *.o $out_dir
 # slozka menu
   cd $src_dir'/menu'
   ${CC} -c *.c

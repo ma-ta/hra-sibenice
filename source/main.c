@@ -21,24 +21,32 @@
 #else
   #include <unistd.h>
 #endif
-#include "./globconf.h"
-#include "./libs/ansi_fmt.h"
-#include "./menu/men_glob.h"
-#include "./help/napoveda.h"
-#include "./game/hra.h"
-#include "./game/game_tui/game_tui.h"
-#include "./tui/hlavicka.h"
-#include "./stats/stats.h"
+#include "./globconf.h"  /* globální nastavení */
+#include "./libs/ansi_fmt.h"  /* různé escape sekvence pro terminál */
+#include "./menu/men_glob.h"  /* hlavní herní menu */
+#include "./help/napoveda.h"  /* herní nápověda */
+#include "./game/hra.h"  /* průběh hry */
+#include "./game/game_tui/game_tui.h"  /* vykreslování elementů TUI */
+#include "./tui/hlavicka.h"  /* vykreslování hlavičky s volitelnými texty */
+#include "./stats/stats.h"  /* modul s herními statistikami */
+#include "./libs/term_set.h"  /* nastavení titulku a rozměrů terminálu */
 
 
 /* GLOBÁLNÍ PROMĚNNÉ */
 
+
+#if TERM_SET == 1    /* logika nastavení v globconf.h */
+  int term_set = 1;  /* zapne nastavení rozměrů a titulku terminálu */
+#else
+  int term_set = 0;
+#endif
 
 #ifndef OS_DOS
   int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
 #else
   int nastaveni_tabskore = 1;
 #endif
+
 
 struct tm *p_tmcas = NULL;
 
@@ -63,12 +71,40 @@ int main(int argc, char *argv[])
   /* čas začátku běhu programu */
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;
+  // pro nastavení velikosti terminálu (může změnit přepínač CLI)
+  int term_rozmery[2] = { TERM_SIRKA, TERM_VYSKA };  /* [cols, rows] */
 
   /* přepnutí do složky s programem */
   prepni_adresar(argc, argv);
 
   /* zpracování argumentů CLI */
   zpracuj_argumenty(argc, argv);
+
+  /* nastavení emulátoru terminálu */
+  if (term_set == 1) {
+    #ifdef OS_WIN
+      /* zajistí otevření v okně starého Windows Console Host při současném
+      použití přepínačů /link /subsystem:windows /entry:mainCRTStartup
+      při kompilaci přes cl.exe */
+
+      AllocConsole(); /* otevřen nové okno konzole (ConHost.exe) */
+      /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
+        (program byl totiž spuštěn jako Windows GUI aplikace) */
+      freopen("CONOUT$", "w", stdout);
+      freopen("CONOUT$", "w", stderr);
+      freopen("CONIN$", "r", stdin);
+      /* přenesení okna terminálu do popředí (jinak je je nutné na okno
+        terminálu po spuštění aplikace kliknout)
+        vyžaduje připojení knihovny /link user32.lib */
+      HWND hwnd = GetConsoleWindow();
+      if (hwnd) {
+        SetForegroundWindow(hwnd);
+      }
+    #endif
+
+    term_title(TERM_TITLE);
+    term_size(term_rozmery[0], term_rozmery[1]);
+  }
 
   /* vymaže obrazovku */
   vymaz_obr();
@@ -191,12 +227,49 @@ static void zpracuj_argumenty(int argc, char *argv[])
   }
 
   /* vynutí spuštění v režimu DOS */
-  if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_DOS_SIGN_1, argv[1]) == 0
-                    || strcmp(ARG_SIGN_2 ARG_DOS_SIGN_2, argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_1, argv[1]) == 0
-                    || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
+  if      (argc == 2 && (strcmp(ARG_SIGN_1 ARG_DOS_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_2 ARG_DOS_SIGN_2, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
 
     nastaveni_tabskore = 1;
+  }
+  /* vypne automatické nastavení velikosti okna terminálu */
+  else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_2 ARG_TER_SIGN_2, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_TER_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_TER_SIGN_2, argv[1]) == 0)) {
+
+    #if TERM_SET == 1
+      term_set = 0;
+
+      // DEBUG
+      puts("term_set: vypnuto\n");
+      cekej_enter();
+      // DEBUG
+    #endif
+  }
+  /* nastavi konkretni velikost okna terminalu */
+  else if (argc == 4 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_2 ARG_TER_SIGN_2, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_TER_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_TER_SIGN_2, argv[1]) == 0)) {
+
+    /* byl zadán přepínač pro změnu chování term_set a zbývají dva argumenty,
+       zjistíme tedy, zda se jedná o parsovatelné a správné hodnoty
+       pro nastavení rozměrů okna */
+
+    /* TODO:
+       PARSOVÁNÍ HODNOT Z ARGUMENTŮ A NASTAVENÍ term_rozmery[0..1] */
+
+    #if TERM_SET == 1
+      term_set = 1;
+
+      // DEBUG
+      puts("term_set: nastaveny rozmery X a Y\n");
+      cekej_enter();
+      // DEBUG
+    #endif
   }
   /* chybné argumenty */
   else if (argc > 1) {

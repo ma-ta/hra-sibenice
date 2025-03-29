@@ -117,14 +117,17 @@
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
-#define ANSI_FORMAT    1    /* zapne formátování ESC sekvencemi */
+#define ANSI_FORMAT  1    /* zapne formátování ESC sekvencemi */
 /* nastavení okna terminálu */
-#define TERM_SET       1    /* zapne nastavení titulku a velikosti terminálu */
-#define TERM_TITLE     NAZEV
-#define TERM_SIRKA     73   /* znaků na řádek */
-#define TERM_VYSKA     37   /* počet řádků */
-#define TERM_ISIRKA    750  /* šírka Terminálu v pixelech pro macOS */
-#define TERM_IVYSKA    800  /* výška Terminálu v pixelech pro macOS */
+#if defined(OS_WIN) || defined(OS_MAC)
+  /* zapne nastavení titulku a velikosti terminálu */
+  #define TERM_SET   1
+#else
+  #define TERM_SET   0
+#endif
+#define TERM_TITLE   NAZEV
+#define TERM_SIRKA   73   /* znaků na řádek */
+#define TERM_VYSKA   37   /* počet řádků */
 
 #ifdef OS_DOS
   #undef  ANSI_FORMAT
@@ -159,9 +162,10 @@
 #define ARG_STA_SIGN_2  "stats"
 #define ARG_VER_SIGN_1  "v"       /* zobarzí informace o sestavení */
 #define ARG_VER_SIGN_2  "version"
-#define ARG_DOS_SIGN_1  "c"       /* vynutí spuštení v režimu CLI s max. 25 řádky (DOS) */
+#define ARG_DOS_SIGN_1  "c"       /* vynutí režim CLI s max. 25 řádky (DOS) */
 #define ARG_DOS_SIGN_2  "cli"
-
+#define ARG_TER_SIGN_1  "w"       /* vypíná term_set, s [x y] nastaví rozměry */
+#define ARG_TER_SIGN_2  "window"
 #define ARG_VER_TEXT  "%s\n"  \
                       "Verze:   %s  (%s/%s %s%s - %s, %s)\n"  \
                       "Web:     %s\n"  \
@@ -179,11 +183,13 @@
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
                       "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
-                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
+                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku\n"  \
+                      "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni velikosti terminalu,\n"  \
+                      "\t        pripadne s [x y] nastavi rozmery"
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
                        "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"--help\")."
 
-#define arg_hlp_text()  printf("Pouziti: %s [PREPINAC]\n" ARG_HLP_TEXT "\n", argv[0])
+#define arg_hlp_text()  printf("Pouziti: %s [PREPINAC] [...]\n" ARG_HLP_TEXT "\n", argv[0])
 
 
 /**********************/
