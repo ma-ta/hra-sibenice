@@ -5,6 +5,7 @@
  *  - zpracování argumentů příkazové řádky
  *  - přepnutí pracovního adresáře do složky programu
  *  - měření doby běhu programu
+ *  - nastavení velikosti okna emulátoru terminálu
  *  - obsluhu hlavního menu
  *  - akce vykonávané před ukončením programu
  *    (uvolnění dynamické paměti, uložení dat atd.)
