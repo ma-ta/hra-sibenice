@@ -84,9 +84,9 @@
 #elif defined(__i386__) || defined(_M_IX86)
   #define ARCH  "x86"
 #elif defined(__aarch64__) || defined(_M_ARM64)
-  #define ARCH  "arm64"
+  #define ARCH  "ARM64"
 #elif defined(__arm__) || defined(_M_ARM)
-  #define ARCH  "arm"
+  #define ARCH  "ARM"
 #else
   #define ARCH  "?"
 #endif
