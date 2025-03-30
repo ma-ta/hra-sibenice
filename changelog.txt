@@ -1,5 +1,5 @@
 +--------+------------+
-| v1.1.0 | 2025-04-01 | - ROZPRACOVÁNO
+| v1.1.0 | 2025-03-31 | - ROZPRACOVÁNO
 +--------+------------+
 
 
@@ -18,8 +18,8 @@ NOVINKY:
 3) název aplikace jako titulek okna (panelu) terminálu,
    automatické nastavení velikosti okna terminálu
    pomocí přepínače [w]:
-   a) nastavení konkrétní velikost okna terminálu po spuštění
-      "-w [x_sloupecku y_radku]"
+   a) nastavení konkrétní velikost terminálu po spuštění
+      "-w [x_znaků y_znaků]"
    b) vypnutí automatického nastavení velikosti okna
       "-w"
 

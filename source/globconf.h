@@ -84,9 +84,9 @@
 #elif defined(__i386__) || defined(_M_IX86)
   #define ARCH  "x86"
 #elif defined(__aarch64__) || defined(_M_ARM64)
-  #define ARCH  "ARM64"
+  #define ARCH  "arm64"
 #elif defined(__arm__) || defined(_M_ARM)
-  #define ARCH  "ARM"
+  #define ARCH  "arm"
 #else
   #define ARCH  "?"
 #endif
@@ -118,15 +118,20 @@
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
 #define ANSI_FORMAT  1    /* zapne formátování ESC sekvencemi */
+
 /* nastavení okna terminálu */
-#if defined(OS_WIN) || defined(OS_MAC)
-  /* zapne nastavení titulku a velikosti terminálu */
-  #define TERM_SET   1
-#else
+
+/* zapne nastavení titulku a velikosti terminálu
+   (je potřeba upravit i make_win.bat) */
+#define TERM_SET     1
+
+#if !defined(OS_WIN) && !defined(OS_MAC)
+  #undef  TERM_SET
   #define TERM_SET   0
 #endif
+
 #define TERM_TITLE   NAZEV
-#define TERM_SIRKA   73   /* znaků na řádek */
+#define TERM_SIRKA   74   /* znaků na řádek */
 #define TERM_VYSKA   37   /* počet řádků */
 
 #ifdef OS_DOS
@@ -135,6 +140,7 @@
   #undef  TERM_SET
   #define TERM_SET     0
 #endif
+
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
 
 #define POCET_KOL      9   /* celkový počet kol hry (hádaných slov) */

@@ -8,7 +8,7 @@
 ::  (WINDOWS / BATCH / MSVC)          ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-04-01                ::
+::  datum:  2025-03-31                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -26,6 +26,13 @@
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address
    :: release:  /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
    set cc_param=/D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
+
+:: parametry pro TERM_SET na Windows
+   :: TERM_SET == 1
+      :: /link /subsystem:windows /entry:mainCRTStartup user32.lib
+   :: TERM_SET == 0
+      :: /link /subsystem:console
+   set term_set=/link /subsystem:windows /entry:mainCRTStartup user32.lib
 
 :: prikaz pro spusteni prekladace vc. parametru (cl/clang apod.)
    set cc=cl.exe
@@ -83,6 +90,11 @@ echo.
    %cc% %cc_param% /c *.c
    cd ..\..
    move %src_dir%\help\*.obj %out_dir%
+:: slozka libs
+   cd %src_dir%\libs
+   %cc% %cc_param% /c *.c
+   cd ..\..
+   move %src_dir%\libs\*.obj %out_dir%
 :: slozka menu
    cd %src_dir%\menu
    %cc% %cc_param% /c *.c
@@ -101,7 +113,7 @@ echo.
 
 :: sestaveni spustitelneho souboru
    cd %out_dir%
-   %cc% %cc_param% /Fe%bin_nazev%.exe *.obj %vs_version_info%.res
+   %cc% %cc_param% /Fe%bin_nazev%.exe *.obj %vs_version_info%.res %term_set%
    del *.obj *.res
    cd ..
 
