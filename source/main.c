@@ -65,6 +65,12 @@ static void zpracuj_argumenty(int argc, char *argv[]);
 static void prepni_adresar(int argc, char *argv[]);
 
 
+/* rozmery okna emulatoru terminalu [x_sloupce, y_radky] */
+#if TERM_SET == 1
+  static int term_rozmery[2] = { TERM_SIRKA, TERM_VYSKA };
+#endif
+
+
 /* vstupní bod aplikace */
 
 int main(int argc, char *argv[])
@@ -73,7 +79,6 @@ int main(int argc, char *argv[])
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;
   // pro nastavení velikosti terminálu (může změnit přepínač CLI)
-  int term_rozmery[2] = { TERM_SIRKA, TERM_VYSKA };  /* [cols, rows] */
 
   /* přepnutí do složky s programem */
   prepni_adresar(argc, argv);
@@ -82,30 +87,32 @@ int main(int argc, char *argv[])
   zpracuj_argumenty(argc, argv);
 
   /* nastavení emulátoru terminálu */
-  if (term_set == 1) {
-    #ifdef OS_WIN
-      /* zajistí otevření v okně starého Windows Console Host při současném
-      použití přepínačů /link /subsystem:windows /entry:mainCRTStartup
-      při kompilaci přes cl.exe */
+  #if TERM_SET == 1
+    if (term_set == 1) {
+      #ifdef OS_WIN
+        /* zajistí otevření v okně starého Windows Console Host při současném
+        použití přepínačů /link /subsystem:windows /entry:mainCRTStartup
+        při kompilaci přes cl.exe */
 
-      AllocConsole(); /* otevřen nové okno konzole (ConHost.exe) */
-      /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
-        (program byl totiž spuštěn jako Windows GUI aplikace) */
-      freopen("CONOUT$", "w", stdout);
-      freopen("CONOUT$", "w", stderr);
-      freopen("CONIN$", "r", stdin);
-      /* přenesení okna terminálu do popředí (jinak je je nutné na okno
-        terminálu po spuštění aplikace kliknout)
-        vyžaduje připojení knihovny /link user32.lib */
-      HWND hwnd = GetConsoleWindow();
-      if (hwnd) {
-        SetForegroundWindow(hwnd);
-      }
-    #endif
+        AllocConsole(); /* otevřen nové okno konzole (ConHost.exe) */
+        /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
+          (program byl totiž spuštěn jako Windows GUI aplikace) */
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+        freopen("CONIN$", "r", stdin);
+        /* přenesení okna terminálu do popředí (jinak je je nutné na okno
+          terminálu po spuštění aplikace kliknout)
+          vyžaduje připojení knihovny /link user32.lib */
+        HWND hwnd = GetConsoleWindow();
+        if (hwnd) {
+          SetForegroundWindow(hwnd);
+        }
+      #endif
 
-    term_title(TERM_TITLE);
-    term_size(term_rozmery[0], term_rozmery[1]);
-  }
+      term_title(TERM_TITLE);
+      term_size(term_rozmery[0], term_rozmery[1]);
+    }
+  #endif
 
   /* vymaže obrazovku */
   vymaz_obr();
@@ -243,11 +250,6 @@ static void zpracuj_argumenty(int argc, char *argv[])
 
     #if TERM_SET == 1
       term_set = 0;
-
-      // DEBUG
-      puts("term_set: vypnuto\n");
-      cekej_enter();
-      // DEBUG
     #endif
   }
   /* nastavi konkretni velikost okna terminalu */
@@ -264,16 +266,25 @@ static void zpracuj_argumenty(int argc, char *argv[])
        PARSOVÁNÍ HODNOT Z ARGUMENTŮ A NASTAVENÍ term_rozmery[0..1] */
 
     #if TERM_SET == 1
+
       term_set = 1;
 
-      // DEBUG
-      puts("term_set: nastaveny rozmery X a Y\n");
-      cekej_enter();
-      // DEBUG
+      for (int i = 0; i < 2; i++) {  /* načtení X y Y */
+        /* argumenty jsou 4: "PATH -w X Y" */
+        int argument = i + 2;
+        if (sscanf(argv[argument], "%d", term_rozmery + i) != 1) {
+          goto chybne_argumenty;
+        }
+        else if (term_rozmery[i] <= 0) {  /* přípustnost hodnot */
+          goto chybne_argumenty;
+        }
+      }
+
     #endif
   }
   /* chybné argumenty */
   else if (argc > 1) {
+    chybne_argumenty:
     fputs(ERR_SIGN ERR_ARGUMENTY "\n", stderr);
     exit(1);
   }
