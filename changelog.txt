@@ -7,9 +7,9 @@ NOVINKY:
 
 1) výpis typu architektury v informacích o verzi [-v],
    rozšírení dostupných binárek o nové architektury:
-   - Windows [AArch64, x86_64, x86]
-   - Linux   [AArch64, x86_64, x86]
-   - macOS   [AArch64, x86_64, Universal]
+   - Windows [x86] [x86_64] [AArch64]
+   - Linux   [x86] [x86_64] [AArch64]
+   - macOS   [x86_64] [AArch64] [Universal]
 
 2) ikona a metadata aplikace:
    - Windows: pro kompilátor MSVC ikona a soubor
