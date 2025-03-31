@@ -32,6 +32,12 @@
       - macOS   15         -> [xcode-select --install]
     - spustit [sh make.sh]
 
+    V macOS je mozne vyuzit prepinace:
+      - [-arch arm64] pro Silicon,
+      - [-arch x86_64] pro Intel.
+    A nasledne vytvorit jedinou Universal binarku:
+    [lipo -create -output sibenice-macUni sibenice-macArm64 sibenice-mac64]
+
 
 +-----+
 |  2  |  WINDOWS 11 :
