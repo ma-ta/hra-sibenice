@@ -78,12 +78,13 @@
 
   Prerekvizity:
     Idealne virtualni PC s FreeDOS [www.freedos.org/download].
+
+    Cely system je vhodne aktualizovat on-line pomoci [fdnpkg update].
+
     V systemu FreeDOS nainstalovat DJGPP pomoci nastroje FDIMPLES
     (FreeDOS Installer - My Package List Editor Software)
     Pred spustenim prikazu [fdimples] je treba stahnout a do virtualni
     mechaniky vlozit jeste ISO s rozsirujicim softwarem - FreeDOS BonusCD).
-    Cely system je pote vhodne aktualizovat jeste on-line pomoci
-    [fdnpkg update].
 
     V jinych systemech (napr. i Windows 95/98) je mozne stahnout DJGPP
     ze stranek projektu [www.delorie.com/djgpp/].
