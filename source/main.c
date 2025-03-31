@@ -330,8 +330,13 @@ static void prepni_adresar(int argc, char *argv[])
   /* zjištění aktivní složky */
   (void) getcwd(cesta, sizeof(cesta));
 
+  #if DEBUG == 1
+    printf("--- %s(): ---\n", __func__);
+    printf("Adresar 1: %s\n", cesta);
+  #endif
+
   /* sestavení adresy dle specifik použitého OS */
-  #if !defined(OS_WIN) && !defined(OS_DOS)
+  #if !defined(OS_WIN) && !defined(OS_DOS) && !defined(OS_MAC)
     strcat(cesta, lomitko);
     strcat(cesta, (argc > 0) ? argv[0] : "");
   #else
@@ -343,5 +348,12 @@ static void prepni_adresar(int argc, char *argv[])
   if (p_char != NULL)  *p_char = '\0';
 
   /* přepnutí adresáře */
+  #if DEBUG == 1
+    printf(
+      "Adresar 2: %s\n"
+      "-------------------------\n", cesta
+    );
+  #endif
+
   chdir(cesta);
 }

@@ -99,8 +99,10 @@
      0 - vypnuto
      1 - obrazovka není mazána
      2 - hádá se jedno přednastavené slovo */
+/*******************************************/
 #define DEBUG               0
 #define DEBUG_HADANE_SLOVO  "Ah hoc Chrochrohcroch..."
+/*******************************************/
 
 #define NAZEV    "Hra Sibenice"
 #define VERZE    "1.1.0"
