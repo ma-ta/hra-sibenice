@@ -23,12 +23,6 @@ NOVINKY:
    b) vypnutí automatického nastavení velikosti okna
       "-w"
 
-4) balíčky pro distribuci aplikace:
-   obecně    - ZIP a TAR.GZ,
-   Windows   - Inno Setup,
-   GNU/Linux - AppImage,
-   macOS     - formáty DMG a APP
-
 
 OPRAVENÉ CHYBY:
 
