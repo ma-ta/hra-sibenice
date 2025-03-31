@@ -166,12 +166,6 @@ static void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_2, argv[1]) == 0)) {
 
-    #if TERM_SET == 1
-      if (term_set == 1) {
-        term_size(term_rozmery[0], term_rozmery[1]);
-      }
-    #endif
-
     arg_hlp_text();
 
     #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
@@ -248,12 +242,6 @@ static void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_2, argv[1]) == 0)) {
 
-    #if TERM_SET == 1
-      if (term_set == 1) {
-        term_size(term_rozmery[0], term_rozmery[1]);
-      }
-    #endif
-
     printf(ARG_VER_TEXT);
 
     #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
@@ -271,8 +259,12 @@ static void zpracuj_argumenty(int argc, char *argv[])
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
 
     nastaveni_tabskore = 1;   /* zobrazi mensi herni obrazovku pro 80x25 zn. */
-    term_rozmery[0]    = TERM_SIRKA_DOS;  /* rozmery okna jako DOS shell */
-    term_rozmery[1]    = TERM_VYSKA_DOS;
+    #if TERM_SET == 1
+      if (term_set == 1) {
+        term_rozmery[0]  = TERM_SIRKA_DOS;  /* rozmery okna jako DOS shell */
+        term_rozmery[1]  = TERM_VYSKA_DOS;
+      }
+    #endif
   }
   /* vypne automatické nastavení velikosti okna terminálu */
   else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
