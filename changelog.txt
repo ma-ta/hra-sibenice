@@ -110,7 +110,7 @@ NOVINKY:
    [m] - zobrazí herní manuál
    [s] - vypíše uložené statistiky
    [v] - vypíše informace o verzi
-   [c] - spustí v režimu CLI 80x25 zn. (MS-DOS)
+   [c] - spustí v režimu CLI 80x25 zn. (DOS)
 
 2) vylepšení modulu tui/hlavicka
    (možnost vypsání libovolného textu v dolních buňkách)

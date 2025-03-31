@@ -63,8 +63,8 @@ static void zpracuj_argumenty(int argc, char *argv[]);
 
 /* přepne do adresáře se spustitelným souborem
    kvůli korekci relativních cest */
-
 static void prepni_adresar(int argc, char *argv[]);
+
 /* rozmery okna emulatoru terminalu [x_sloupce, y_radky] */
 #if TERM_SET == 1
   static int term_rozmery[2] = { TERM_SIRKA, TERM_VYSKA };
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
   VOLBY_MENU volba_menu = MENU_MENU;
 
   #if TERM_SET == 1
-  term_init();  /* inicializace ConHost na Windows */
+    term_init();  /* inicializace ConHost na Windows */
   #endif
 
   /* přepnutí do složky s programem */
@@ -264,16 +264,18 @@ static void zpracuj_argumenty(int argc, char *argv[])
     exit(0);
   }
 
-  /* vynutí spuštění v režimu DOS */
+  /* vynutí spuštění v režimu malé herní obrazovky (80x25 znaků) */
   if      (argc == 2 && (strcmp(ARG_SIGN_1 ARG_DOS_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_2 ARG_DOS_SIGN_2, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
 
-    #if TERM_SET == 1
-      term_set         = 0;  /* vypne nastaveni okna emulatoru terminalu */
+    nastaveni_tabskore = 1;   /* zobrazi mensi herni obrazovku pro 80x25 zn. */
+    term_rozmery[0]    = 80;  /* rozmery okna jako DOS shell */
+    term_rozmery[1]    = 25;
+    #ifdef OS_MAC
+      term_rozmery[1]  = 26;  /* v macOS Terminal poskakuje nápověda */
     #endif
-    nastaveni_tabskore = 1;  /* zobrazi mensi herni obrazovku pro 80x25 zn. */
   }
   /* vypne automatické nastavení velikosti okna terminálu */
   else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
