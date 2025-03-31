@@ -1,5 +1,5 @@
 /*
- *  (c) 2025-03  Martin TÁBOR
+ *  (c) 2025  Martin TÁBOR
  *      Hra Šibenice v1.1.0
  *
  *  MODUL JE TŘEBA AKTIVOVAT DEFINOVÁNÍM SYMBOLICKÉ KONSTANTY:

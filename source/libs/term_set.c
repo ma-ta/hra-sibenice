@@ -62,7 +62,7 @@ bool term_title(const char *novy_titulek)
          testováno v:
          - GNOME 48 Terminal/Console
          - KDE Konsole 24.12.3
-         - macOS 15 Terminal */
+         - macOS 15.4 Terminal */
       else {
         printf(ansi_osc_title, novy_titulek);
       }
