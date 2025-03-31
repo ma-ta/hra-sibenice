@@ -21,7 +21,7 @@ rem ::::::::::::::::::::::::::::::::::::::::
 rem :: nazev spustitelneho souboru
        set bin_nazev=sibe-dos
 
-rem :: parametry prekladace
+rem :: parametry pro prekladac (DJGPP)
        rem :: debug:    -Wall -Wextra -pedantic -g
        rem :: release:  -O2
            set cc_param=-O2

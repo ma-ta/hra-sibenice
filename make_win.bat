@@ -22,10 +22,13 @@
    :: -win64 / -winArm64 / -win32 / -...
    set bin_nazev=sibenice-win
 
-:: parametry prekladace
+:: parametry pro prekladac MSVC
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address
-   :: release:  /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
-   set cc_param=/D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
+   :: release:  /nologo /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
+   set cc_param=/nologo /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
+
+:: parametry pro Resource Compiler
+   set res_param=/nologo
 
 :: parametry pro TERM_SET na Windows
    :: TERM_SET == 1
@@ -68,7 +71,7 @@ echo.
 :: kompilace jednotlivych souboru
 
 :: resource files
-   rc.exe %res_dir%\%vs_version_info%.rc
+   rc.exe %res_param% %res_dir%\%vs_version_info%.rc
    move %res_dir%\%vs_version_info%.res .\%out_dir%
 :: korenovy adresar
    cd %src_dir%
