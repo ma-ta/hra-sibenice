@@ -26,7 +26,7 @@
 # parametry prekladace
   # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
   # release: '-O2 -Wno-unused-result'
-  cc_param='-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
+  cc_param='-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g'
 
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
   CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)

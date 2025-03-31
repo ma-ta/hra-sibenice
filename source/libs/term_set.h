@@ -1,5 +1,6 @@
 /*
- *  (c) 2025 - Hra Šibenice v1.1.0
+ *  (c) 2025-03  Martin TÁBOR
+ *      Hra Šibenice v1.1.0
  *
  *  MODUL JE TŘEBA AKTIVOVAT DEFINOVÁNÍM SYMBOLICKÉ KONSTANTY:
  *  TERM_SET  1  (řešeno v globconf.h)
@@ -32,9 +33,9 @@
  *    bez nutnosti kliknutí myší nebo použití Alt+Tab)
  */
 
-
 #ifndef TERM_SET_H
 #define TERM_SET_H
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,5 +61,8 @@ bool term_title(const char *novy_titulek);
    (3) Linux - NEIMPLEMENTOVÁNO */
 bool term_size(int x, int y);
 
+/* funkci je potřeba v některých OS zavolat při spuštění programu
+   - ve Windows např. otevře terminál ConHost a přesměruje I/O */
+void term_init(void);
 
-#endif
+#endif  // TERM_SET_H

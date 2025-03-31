@@ -177,6 +177,34 @@ bool term_size(int x, int y)
   return ret_value;
 }
 
+/* nutné při spouštění programu na Windows
+   - otevře terminál a přesměruje I/O, pokud byla aplikace
+     kompilována s [/subsystem:windows /entry:mainCRTStartup] */
+void term_init(void)
+{
+   #if TERM_SET == 1
+      #ifdef OS_WIN
+        /* zajistí otevření v okně starého Windows Console Host při současném
+        použití přepínačů /link /subsystem:windows /entry:mainCRTStartup
+        při kompilaci přes cl.exe */
+
+        AllocConsole(); /* otevřen nové okno konzole (ConHost.exe) */
+        /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
+        (program byl totiž spuštěn jako Windows GUI aplikace) */
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+        freopen("CONIN$", "r", stdin);
+        /* přenesení okna terminálu do popředí (jinak je je nutné na okno
+          terminálu po spuštění aplikace kliknout)
+          vyžaduje připojení knihovny /link user32.lib */
+        HWND hwnd = GetConsoleWindow();
+        if (hwnd) {
+        SetForegroundWindow(hwnd);
+        }
+      #endif
+   #endif
+}
+
 
 /* TEST MODULU */
 
@@ -192,29 +220,10 @@ bool term_size(int x, int y)
   {
     int ret_value = EXIT_SUCCESS;
     char stiskni_enter[] = "(stiskni Enter...)";
-
-
-    #ifdef OS_WIN
-      /* zajistí otevření v okně starého Windows Console Host při současném
-         použití přepínačů /link /subsystem:windows /entry:mainCRTStartup
-         při kompilaci přes cl.exe */
-
-      AllocConsole(); // otevřen nové okno konzole (ConHost.exe)
-      /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
-         (program byl totiž spuštěn jako Windows GUI aplikace) */
-      freopen("CONOUT$", "w", stdout);
-      freopen("CONOUT$", "w", stderr);
-      freopen("CONIN$", "r", stdin);
-      /* přenesení okna terminálu do popředí (jinak je je nutné na okno
-         terminálu po spuštění aplikace kliknout)
-         vyžaduje připojení knihovny /link user32.lib */
-      HWND hwnd = GetConsoleWindow();
-      if (hwnd) {
-        SetForegroundWindow(hwnd);
-      }
-    #endif
-
     int cmd_size[2] = { 0, 0 };
+
+
+    term_init();
 
     // parsování argumentů
 
