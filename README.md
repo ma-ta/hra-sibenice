@@ -41,22 +41,24 @@ V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umí
 
 - [Všechny dostupné screenshoty zde](/res/screenshots)
 
+![Šibenice&nbsp;&ndash;&nbsp;macOS 15.4 Terminal](/res/screenshots/hra-macos.png)
+
 Hlavní menu:
 
-![Šibenice – Menu](/res/screenshots/menu.png)
+![Šibenice&nbsp;&ndash;&nbsp;Menu](/res/screenshots/menu.png)
 
 Obrazovka hry:
 
-![Šibenice – Hra](/res/screenshots/hra.png)
+![Šibenice&nbsp;&ndash;&nbsp;Hra](/res/screenshots/hra.png)
 
 Herní statistiky:
 
-![Šibenice – Statistiky](/res/screenshots/kronika.png)
+![Šibenice&nbsp;&ndash;&nbsp;Statistiky](/res/screenshots/kronika.png)
 
 Obrazovka hry (DOS – 25x80 znaků):
 
-![Šibenice – MS-DOS](res/screenshots/hra-dos.png)
+![Šibenice&nbsp;&ndash;&nbsp;MS-DOS](res/screenshots/hra-dos.png)
 
 Informace o verzi (DOS):
 
-![Šibenice – MS-DOS](res/screenshots/prepinace-dos.png)
+![Šibenice&nbsp;&ndash;&nbsp;MS-DOS](res/screenshots/prepinace-dos.png)
