@@ -24,8 +24,8 @@
 
 :: parametry pro prekladac MSVC
    :: debug:    /D_CRT_SECURE_NO_WARNINGS /W4 /Od /Zi /DEBUG /fsanitize=address
-   :: release:  /nologo /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
-   set cc_param=/nologo /D_CRT_SECURE_NO_WARNINGS /W2 /O2 /GL
+   :: release:  /nologo /D_CRT_SECURE_NO_WARNINGS /W2 /O2
+   set cc_param=/nologo /D_CRT_SECURE_NO_WARNINGS /W2 /O2
 
 :: parametry pro Resource Compiler
    set res_param=/nologo
