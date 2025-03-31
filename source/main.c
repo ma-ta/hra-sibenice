@@ -271,11 +271,8 @@ static void zpracuj_argumenty(int argc, char *argv[])
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
 
     nastaveni_tabskore = 1;   /* zobrazi mensi herni obrazovku pro 80x25 zn. */
-    term_rozmery[0]    = 80;  /* rozmery okna jako DOS shell */
-    term_rozmery[1]    = 25;
-    #ifdef OS_MAC
-      term_rozmery[1]  = 26;  /* v macOS Terminal poskakuje nápověda */
-    #endif
+    term_rozmery[0]    = TERM_SIRKA_DOS;  /* rozmery okna jako DOS shell */
+    term_rozmery[1]    = TERM_VYSKA_DOS;
   }
   /* vypne automatické nastavení velikosti okna terminálu */
   else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0

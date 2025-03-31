@@ -132,9 +132,11 @@
   #define TERM_SET   0
 #endif
 
-#define TERM_TITLE   NAZEV
-#define TERM_SIRKA   74   /* znaků na řádek */
-#define TERM_VYSKA   37   /* počet řádků */
+#define TERM_TITLE      NAZEV
+#define TERM_SIRKA      74  /* znaků na řádek */
+#define TERM_VYSKA      37  /* počet řádků */
+#define TERM_SIRKA_DOS  80  /* při použití přepínače -c (v GUI) */
+#define TERM_VYSKA_DOS  26  /* při 25 zn. může "poskakovat" Nápověda */
 
 #ifdef OS_DOS
   #undef  ANSI_FORMAT
