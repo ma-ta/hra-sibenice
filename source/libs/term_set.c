@@ -189,6 +189,7 @@ void term_init(void)
         při kompilaci přes cl.exe */
 
         AllocConsole(); /* otevřen nové okno konzole (ConHost.exe) */
+
         /* přesměrování vstupů a výstupů do standardních I/O pro ConHost
         (program byl totiž spuštěn jako Windows GUI aplikace) */
         freopen("CONOUT$", "w", stdout);

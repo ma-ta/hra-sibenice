@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.4, FreeBSD 14.2
+# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.3.2, FreeBSD 14.2
 
 ######################################
 #                                    #
@@ -26,7 +26,7 @@
 # parametry prekladace
   # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
   # release: '-O2 -Wno-unused-result'
-  cc_param='-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g'
+  cc_param='-O2 -Wno-unused-result'
 
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
   CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)

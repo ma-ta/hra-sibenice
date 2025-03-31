@@ -32,7 +32,7 @@
       :: /link /subsystem:windows /entry:mainCRTStartup user32.lib
    :: TERM_SET == 0
       :: /link /subsystem:console
-   set term_set=/link  user32.lib
+   set term_set=/link /subsystem:windows /entry:mainCRTStartup user32.lib
 
 :: prikaz pro spusteni prekladace vc. parametru (cl/clang apod.)
    set cc=cl.exe

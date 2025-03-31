@@ -122,8 +122,10 @@
 /* nastavení okna terminálu */
 
 /* zapne nastavení titulku a velikosti terminálu
-   (je potřeba upravit i make_win.bat) */
+   (je potřeba upravit i make_win.bat pro Windows) */
+/***************************************************/
 #define TERM_SET     1
+/***************************************************/
 
 #if !defined(OS_WIN) && !defined(OS_MAC)
   #undef  TERM_SET
@@ -172,6 +174,7 @@
 #define ARG_DOS_SIGN_2  "cli"
 #define ARG_TER_SIGN_1  "w"       /* vypíná term_set, s [x y] nastaví rozměry */
 #define ARG_TER_SIGN_2  "window"
+
 #define ARG_VER_TEXT  "%s\n"  \
                       "Verze:   %s  (%s/%s %s%s - %s, %s)\n"  \
                       "Web:     %s\n"  \
@@ -184,14 +187,22 @@
                       , __DATE__  \
                       , WEB  \
                       , AUTOR, LICENCE
-#define ARG_HLP_TEXT  "Seznam dostupnych prepinacu:\n"  \
+#define ARG_HLP_TXT1  "Seznam dostupnych prepinacu:\n"  \
                       "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
                       "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
                       "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
-                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku\n"  \
+                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
+#define ARG_HLP_TXT2  "\n"  \
                       "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni velikosti terminalu,\n"  \
                       "\t        pripadne s [x y] nastavi rozmery"
+
+#if TERM_SET == 1
+  #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2
+#else
+  #define ARG_HLP_TEXT  ARG_HLP_TXT1
+#endif
+
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
                        "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"--help\")."
 

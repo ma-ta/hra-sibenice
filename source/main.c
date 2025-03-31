@@ -2,8 +2,8 @@
  *  Zdrojový soubor hry Šibenice se vstupní funkcí main()
  *
  *  Zajišťuje:
- *  - zpracování argumentů příkazové řádky
  *  - přepnutí pracovního adresáře do složky programu
+ *  - zpracování argumentů příkazové řádky
  *  - měření doby běhu programu
  *  - nastavení velikosti okna emulátoru terminálu
  *  - obsluhu hlavního menu
@@ -60,11 +60,11 @@ struct tm *p_tmcas = NULL;
 /* zpracuje argumenty předané
    z příkazové řádky */
 static void zpracuj_argumenty(int argc, char *argv[]);
+
 /* přepne do adresáře se spustitelným souborem
    kvůli korekci relativních cest */
+
 static void prepni_adresar(int argc, char *argv[]);
-
-
 /* rozmery okna emulatoru terminalu [x_sloupce, y_radky] */
 #if TERM_SET == 1
   static int term_rozmery[2] = { TERM_SIRKA, TERM_VYSKA };
@@ -78,20 +78,18 @@ int main(int argc, char *argv[])
   /* čas začátku běhu programu */
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;
-  // pro nastavení velikosti terminálu (může změnit přepínač CLI)
+
+  #if TERM_SET == 1
+  term_init();  /* inicializace ConHost na Windows */
+  #endif
 
   /* přepnutí do složky s programem */
   prepni_adresar(argc, argv);
 
-  /* inicializuje okno terminálu (nutné na Windows) */
-  #if TERM_SET == 1
-    term_init();
-  #endif
-
   /* zpracování argumentů CLI */
   zpracuj_argumenty(argc, argv);
 
-  /* nastavení emulátoru terminálu */
+  /* nastavení velikosti terminálu (může změnit přepínač při spuštění) */
   #if TERM_SET == 1
     if (term_set == 1) {
       term_title(TERM_TITLE);
@@ -168,7 +166,19 @@ static void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_2, argv[1]) == 0)) {
 
+    #if TERM_SET == 1
+      if (term_set == 1) {
+        term_size(term_rozmery[0], term_rozmery[1]);
+      }
+    #endif
+
     arg_hlp_text();
+
+    #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
+      puts("\n");
+      fputs(PROMPT_ENTER_KONEC, stdout);
+      cekej_enter();
+    #endif
     exit(0);
   }
   /* zobrazení hlavní nápovědy */
@@ -177,11 +187,22 @@ static void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_2, argv[1]) == 0)) {
 
+    #if TERM_SET == 1
+      if (term_set == 1) {
+        term_size(term_rozmery[0], term_rozmery[1]);
+      }
+    #endif
+
     napoveda();
     vymaz_obr();
     hlavicka_vykresli("Napoveda", TUI_HLAVICKA_TXT_P);
     putchar('\n');
     puts(ARG_HLP_TEXT "\n");
+    #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
+      puts("");
+      fputs(PROMPT_ENTER_KONEC, stdout);
+      cekej_enter();
+    #endif
     exit(0);
   }
   /* zobrazení herních statistik */
@@ -189,6 +210,13 @@ static void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_2 ARG_STA_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_2, argv[1]) == 0)) {
+
+    #if TERM_SET == 1
+      if (term_set == 1) {
+        term_size(term_rozmery[0], term_rozmery[1]);
+      }
+    #endif
+
     if (stats_nastav()) {
       /* zjištění času poslední změny statistik */
       char s_cas[100] = "";
@@ -207,6 +235,11 @@ static void zpracuj_argumenty(int argc, char *argv[])
     }
     else  puts(STATS_ZADNE_STATS "\n");
 
+    #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
+      puts("");
+      fputs(PROMPT_ENTER_KONEC, stdout);
+      cekej_enter();
+    #endif
     exit(0);
   }
   /* vypíše informace o sestavení */
@@ -215,7 +248,19 @@ static void zpracuj_argumenty(int argc, char *argv[])
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_2, argv[1]) == 0)) {
 
+    #if TERM_SET == 1
+      if (term_set == 1) {
+        term_size(term_rozmery[0], term_rozmery[1]);
+      }
+    #endif
+
     printf(ARG_VER_TEXT);
+
+    #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
+      puts("\n");
+      fputs(PROMPT_ENTER_KONEC, stdout);
+      cekej_enter();
+    #endif
     exit(0);
   }
 
@@ -225,7 +270,10 @@ static void zpracuj_argumenty(int argc, char *argv[])
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
 
-    nastaveni_tabskore = 1;
+    #if TERM_SET == 1
+      term_set         = 0;  /* vypne nastaveni okna emulatoru terminalu */
+    #endif
+    nastaveni_tabskore = 1;  /* zobrazi mensi herni obrazovku pro 80x25 zn. */
   }
   /* vypne automatické nastavení velikosti okna terminálu */
   else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
@@ -246,9 +294,6 @@ static void zpracuj_argumenty(int argc, char *argv[])
     /* byl zadán přepínač pro změnu chování term_set a zbývají dva argumenty,
        zjistíme tedy, zda se jedná o parsovatelné a správné hodnoty
        pro nastavení rozměrů okna */
-
-    /* TODO:
-       PARSOVÁNÍ HODNOT Z ARGUMENTŮ A NASTAVENÍ term_rozmery[0..1] */
 
     #if TERM_SET == 1
 
