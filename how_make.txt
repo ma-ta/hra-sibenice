@@ -96,10 +96,10 @@
         set DJGPP=C:\DEVEL\DJGPP\DJGPP.ENV
         set PATH=C:\DEVEL\DJGPP\BIN;%PATH%
 
-      a provest [reboot]. Po restartu jeste zavolat [go32-v2.exe].
+      a provest [reboot].
       Pote by jiz mel prekladac spravne fungovat [gcc --version].
-    - pro spusteni vytvorene binarky v MS-DOS je nutne umistit soubor
-      [CWSDPMI.EXE] do stejne slozky, jako spustitelny
+    - pro spusteni vytvorene binarky v MS-DOS (16-bit) je nutne
+      umistit soubor [CWSDPMI.EXE] do stejne slozky, jako spustitelny
       soubor hry [sibe_dos.exe]
       -> [https://en.wikipedia.org/wiki/CWSDPMI]
       -> [https://sandmann.dotster.com/cwsdpmi/]
