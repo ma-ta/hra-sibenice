@@ -28,6 +28,11 @@
   # release: '-O2 -Wno-unused-result'
   cc_param='-O2 -Wno-unused-result'
 
+  # pro macOS je mozne vyuzit prepinac:
+    # [-arch arm64] pro Silicon, [-arch x86_64] pro Intel,
+    # a nasledne vytvorit Universal binarku:
+    # [lipo -create -output sibenice-macUni sibenice-macArm64 sibenice-mac64]
+
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
   CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)
 
