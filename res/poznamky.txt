@@ -52,6 +52,12 @@ NÁPADY NA DALŠÍ VÝVOJ:
 
 7) distribuce hry v linuxových repozitářích, MS Store, FreeDOS apod.
 
+8) balíčky pro distribuci aplikace:
+   obecně    - ZIP a TAR.GZ,
+   Windows   - Inno Setup,
+   GNU/Linux - AppImage,
+   macOS     - formáty DMG a APP
+
 
 Hotovo:
 
