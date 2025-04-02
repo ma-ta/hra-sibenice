@@ -195,16 +195,19 @@
                       "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
                       "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
-                      "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni\n"  \
-                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
+                      "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni"
 #define ARG_HLP_TXT2  "\n"  \
+                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
+#define ARG_HLP_TXT3  "\n"  \
                       "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni velikosti terminalu,\n"  \
                       "\t        pripadne s [x y] nastavi rozmery"
 
-#if TERM_SET == 1
+#ifdef OS_DOS  /* vynechá se [-c] a [-w] */
+  #define ARG_HLP_TEXT  ARG_HLP_TXT1
+#elif TERM_SET == 0  /* vynechá se [-w] */
   #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2
 #else
-  #define ARG_HLP_TEXT  ARG_HLP_TXT1
+  #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2 ARG_HLP_TXT3
 #endif
 
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
