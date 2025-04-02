@@ -15,6 +15,7 @@ NOVINKY:
    - Windows: pro kompilátor MSVC ikona a soubor
      VERSIONINFO resource (win-versioninfo.rc)
    - macOS: vytvořena ikona ve formátu .icns
+     ve složce [res/icons/mac]
 
 3) název aplikace jako titulek okna (panelu) terminálu,
    automatické nastavení velikosti okna terminálu
