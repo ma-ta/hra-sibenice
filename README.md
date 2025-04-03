@@ -24,9 +24,12 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 - [Složka s binárkami](bin/)
 
 
-#### Pro systémy typu MS-DOS
+#### Pozn. pro systémy typu MS-DOS
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
+#### Pozn. pro systém macOS
+Stažené binární soubory nejsou podepsané, proto je pravděpodobně bude možné spustit až po odebrání příslušného příznaku.<br>
+Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
