@@ -1,6 +1,6 @@
 @echo off
 
-rem Testovane OS: FreeDOS 1.3
+rem Testovane OS: FreeDOS 1.3 az 1.4
 
 rem ::::::::::::::::::::::::::::::::::::::::
 rem ::                                    ::
