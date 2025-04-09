@@ -34,6 +34,8 @@ OPRAVENÉ CHYBY:
 2) macOS - korektní přepnutí pracovního adresáře při
    spuštění přes Finder
 
+3) DOS - již se nevypisují zbytečné přepínače (-c, -w)
+
 
 +--------+------------+
 | v1.0.0 | 2024-02-29 |
