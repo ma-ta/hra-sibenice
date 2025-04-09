@@ -1,5 +1,5 @@
 +--------+------------+
-| v1.1.0 | 2025-04-01 |
+| v1.1.0 | 2025-03-31 |
 +--------+------------+
 
 
@@ -14,7 +14,7 @@ NOVINKY:
 2) ikona a metadata aplikace:
    - Windows: pro kompilátor MSVC ikona a soubor
      VERSIONINFO resource (win-versioninfo.rc)
-   - macOS: vytvořena ikona ve formátu .icns
+   - macOS: vytvořen koncept ikony ve formátu .icns
      ve složce [res/icons/mac]
 
 3) název aplikace jako titulek okna (panelu) terminálu,

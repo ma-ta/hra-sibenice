@@ -27,7 +27,7 @@
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
       - Ubuntu  24.04 LTS  -> [sudo apt install build-essentials -y]
-      - Fedora  42         -> [sudo dnf groupinstall "Development Tools"]
+      - Fedora  41         -> [sudo dnf groupinstall "Development Tools"]
       - FreeBSD 14         -> [pkg install -y bash && bash]
       - macOS   15         -> [xcode-select --install]
     - spustit [sh make.sh]

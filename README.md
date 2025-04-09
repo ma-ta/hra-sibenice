@@ -36,7 +36,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
   - Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
   - macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
 - MS Windows:
-  - Windows 11 *(MSVC 19.43.34809) &ndash; [x86] [x86_64] [AArch64]*
+  - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
 - DOS:
   - FreeDOS 1.3 *(DJGPP 4.7.1) &ndash; [x86]*
 
