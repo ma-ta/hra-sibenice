@@ -20,7 +20,7 @@ Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba ž
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
 
-- **[All-in-one řešení (soubor ZIP)](bin/hra_sibenice.zip)**
+- **[All-in-one řešení (soubor ZIP)](bin/sibenice_v1.1.0.zip)**
 - [Složka s binárkami](bin/)
 
 
