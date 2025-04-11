@@ -1,5 +1,7 @@
 ## Sada ikon
 
+> Jednotlivá designová řešení dle velikosti ikony (k dispozici je [SVG](ico.svg))
+
 <table>
   <tr>
     <th>256 px</th>
