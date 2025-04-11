@@ -11,10 +11,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Verify .iconset exists
+        run: |
+          if [ ! -d "res/icons/mac/mac-ico.iconset" ]; then
+            echo "Error: .iconset folder not found!"
+            exit 1
+          fi
+
       - name: Convert .iconset to .icns
         run: |
           mkdir -p build
           iconutil -c icns res/icons/mac/mac-ico.iconset -o build/mac-ico.icns
+
+      - name: Verify .icns file exists
+        run: |
+          if [ ! -f "build/mac-ico.icns" ]; then
+            echo "Error: .icns file not created!"
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
