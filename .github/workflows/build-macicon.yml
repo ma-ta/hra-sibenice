@@ -14,7 +14,7 @@ jobs:
       - name: Convert .iconset to .icns
         run: |
           mkdir -p build
-          iconutil -c icns mac-ico.iconset -o build/mac-ico.icns
+          iconutil -c icns res/icons/mac/mac-ico.iconset -o build/mac-ico.icns
           
       - name: Upload artifact
         uses: actions/upload-artifact@v3
