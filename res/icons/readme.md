@@ -4,9 +4,9 @@
 
 <table>
   <tr>
-    <th>256 px</th>
+    <th>1024&ndash;256 px</th>
     <th>128 px</th>
-    <th>64 px</th>
+    <th>64&ndash;16 px</th>
   </tr>
   <tr>
     <td colspan="3">Windows &amp; Linux<br>(2025-03)</td>
