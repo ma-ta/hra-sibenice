@@ -14,6 +14,6 @@
 4. použít CLI utilitu [iconutil -c icns mac-ico.iconset] pro finální ikonu
 
 ### Použitý software
-- Sketch Production Templates pro macOS Sequoia (ver. January 3, 2025)
-- Figma Desktop App (ver. 125.3.5)
-- GitHub Action workflow&nbsp;&ndash;&nbsp;vytvoření [mac-ico.icns](mac-ico.icns) ze zdrojových PNG v [mac-ico.iconset](mac-ico.iconset)
+- Sketch Production Templates *(ver. January 3, 2025)* pro *macOS Sequoia*
+- Figma Desktop App *(ver. 125.3.5)*
+- GitHub Action workflow&nbsp;&ndash;&nbsp;vytvoření [mac-ico.icns](mac-ico.icns) ze zdrojových PNG v [mac-ico.iconset](mac-ico.iconset) *(runner: macos-latest)*
