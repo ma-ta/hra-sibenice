@@ -16,4 +16,4 @@
 ### Použitý software
 - Sketch Production Templates *(ver. January 3, 2025)* pro *macOS Sequoia*
 - Figma Desktop App *(ver. 125.3.5)*
-- GitHub Action [workflow](//github.com/ma-ta/hra-sibenice/actions/workflows/build-macicon.yml)&nbsp;&ndash;&nbsp;vytvoření [mac-ico.icns](mac-ico.icns) ze zdrojových PNG v [mac-ico.iconset](mac-ico.iconset) *(runner: macOS 14.7.4)*
+- GitHub Action [workflow](//github.com/ma-ta/hra-sibenice/actions/workflows/build-macicon.yml)&nbsp;&ndash;&nbsp;vytvoření [mac-ico.icns](mac-ico.icns) ze zdrojových PNG v [mac-ico.iconset](mac-ico.iconset) *(runner: macOS 14.7.4 | Xcode CLT 16.2)*
