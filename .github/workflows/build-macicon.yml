@@ -8,6 +8,22 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Build environment info
+        run: |
+          echo "::group::macOS system:"
+          sw_vers
+          sw_vers > diag.txt
+          echo "Xcode CLT:"
+          pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
+          pkgutil --pkg-info=com.apple.pkg.CLTools_Executables >> diag.txt
+          echo "::endgroup::"
+      
+      - name: Build environment info (Upload)
+        uses: actions/checkout@v4
+        with:
+          name: diagnostics
+          path: diag.txt        
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
