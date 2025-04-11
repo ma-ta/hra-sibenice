@@ -9,7 +9,7 @@
     <th>64 px</th>
   </tr>
   <tr>
-    <td colspan="3">Windows</td>
+    <td colspan="3">Windows &amp; Linux</td>
   </tr>
   <tr>
     <td><img src="ico-256.png" alt="256px ikonka pro Windows"></td>
