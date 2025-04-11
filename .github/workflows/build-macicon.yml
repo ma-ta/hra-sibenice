@@ -15,7 +15,7 @@ jobs:
         run: |
           mkdir -p build
           iconutil -c icns res/icons/mac/mac-ico.iconset -o build/mac-ico.icns
-          
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
