@@ -1,3 +1,5 @@
+![64px ikonka pro macOS](mac-ico.iconset/icon_32x32@2x.png)
+
 ## HOW-TO
 
 1. stáhnout šablonu ze stránky
