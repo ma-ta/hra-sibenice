@@ -1,0 +1,27 @@
+name: Build .icns Icon for macOS
+
+on:
+  push:
+    paths:
+      - 'res/icons/mac/mac-ico.iconset/**'
+      - '.github/workflows/build-macicon.yml'
+  workflow_dispatch:
+
+jobs:
+  build-icon:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Convert .iconset to .icns
+        run: |
+          mkdir -p build
+          iconutil -c icns mac-ico.iconset -o build/mac-ico.icns
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: mac-ico.icns
+          path: build/mac-ico.icns
