@@ -1,6 +1,8 @@
-![64px ikonka pro macOS](mac-ico.iconset/icon_32x32@2x.png)
-
 ## HOW-TO
+
+256 px | 128 px | 64 px
+-|-|-
+![256px ikonka pro macOS](mac-ico.iconset/icon_256x256.png) | ![128px ikonka pro macOS](mac-ico.iconset/icon_128x128.png) | ![64px ikonka pro macOS](mac-ico.iconset/icon_32x32@2x.png)
 
 1. stáhnout šablonu ze stránky
 [https://developer.apple.com/design/resources/#macos-apps]
