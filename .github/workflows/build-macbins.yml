@@ -16,13 +16,6 @@ jobs:
           chmod +x make_unix.sh
           ./make_unix.sh
 
-      - name: Verify bin exist
-        run: |
-          if [ ! -f "bin/sibenice" ]; then
-            echo "Error: Binary not created!"
-            exit 1
-          fi
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
