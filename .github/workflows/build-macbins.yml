@@ -13,6 +13,7 @@ jobs:
 
       - name: Run build script
         run: |
+          chmod +x make_unix.sh
           ./make_unix.sh
 
       - name: Verify bin exist
