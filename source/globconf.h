@@ -52,7 +52,11 @@
     #define CCVER   _MSC_VER
   #elif defined(__WATCOMC__)
     #define CCNAME  "Watcom"
-    #define CCVER   (-1)
+    #ifdef WATCOMC_VER
+      #define CCVER  WATCOMC_VER
+    #else
+      #define CCVER  (-1)
+    #endif
   #elif defined(__clang__)
     #define CCNAME   "Clang"
     #define CCVER    __clang_major__
@@ -67,7 +71,7 @@
     #define CCMINOR  __GNUC_MINOR__
   #else
     #define CCNAME  "?"
-    #define CCVER   (-1)
+    #define CCVER  (-1)
   #endif
   #ifndef CCMINOR
     #define CCMINOR  (-1)
@@ -81,6 +85,8 @@
 /* detekce architektury */
 #if defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
   #define ARCH  "x86_64"
+#elif defined(_M_I86)  /* 16-bit: MSVC, Watcom */
+  #define ARCH  "x86 16-bit"
 #elif defined(__i386__) || defined(_M_IX86)
   #define ARCH  "x86"
 #elif defined(__aarch64__) || defined(_M_ARM64)
@@ -108,7 +114,7 @@
 #define VERZE    "1.1.0"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
-#define LICENCE  "(GPLv3+)"
+#define LICENCE  "GPLv3+"
 
 /* externí soubory */
 #define HRA_SLOVA_SOUBOR          "./data/game_cs.dat"  /* seznam slov k hádání        (textový) */
@@ -179,18 +185,21 @@
 #define ARG_TER_SIGN_1  "w"       /* vypíná term_set, s [x y] nastaví rozměry */
 #define ARG_TER_SIGN_2  "window"
 
+/* výpis informací o verzi (sestavení) */
 #define ARG_VER_TEXT  "%s\n"  \
-                      "Verze:   %s  (%s/%s %s%s - %s, %s)\n"  \
+                      "Verze:   %s  (%s)\n"  \
+                      "Build:   %s/%s v%s%s - %s\n"  \
                       "Web:     %s\n"  \
-                      "Napsal:  %s  %s\n"  \
+                      "Napsal:  %s  (%s)\n"  \
                       , NAZEV  \
-                      , VERZE, OSNAME, CCNAME  \
+                      , VERZE, __DATE__  \
+                      , OSNAME, CCNAME  \
                       , (CCVER == (-1)) ? "" : xstr(CCVER)  \
                       , (CCVER == (-1) || CCMINOR == (-1)) ? "" : "." xstr(CCMINOR)  \
                       , ARCH  \
-                      , __DATE__  \
                       , WEB  \
                       , AUTOR, LICENCE
+/* výpis dostupných přepínačů */
 #define ARG_HLP_TXT1  "Seznam dostupnych prepinacu:\n"  \
                       "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
                       "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
@@ -234,7 +243,9 @@
 #define cekej_enter()  while (getchar() != '\n')  ;
 
 #define konec()  { hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_KONEC);  \
-                   printf("\n\n" ARG_VER_TEXT "\n\n");  \
+                   printf("\n\n" ARG_VER_TEXT);  \
+                   fflush(stdout);  /* resi problem znaku ')' az po "\n\n" */  \
+                   fputs("\n\n", stdout);  \
                    \
                    hra_vycisti();  \
                    ukazatelsibenice_vycisti();  \

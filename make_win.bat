@@ -8,7 +8,7 @@
 ::  (WINDOWS / BATCH / MSVC)          ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-04-10                ::
+::  datum:  2025-04-12                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -67,6 +67,9 @@ echo.
 :: zkopiruje slozku data do slozky bin
    mkdir %out_dir%\data
    xcopy %src_dir%\data %out_dir%\data /E /S
+:: zkopiruje info a napovedu do slozky bin
+   copy %src_dir%\..\res\info.txt %out_dir%
+   copy %src_dir%\..\res\napoveda.txt %out_dir%
 
 :: kompilace jednotlivych souboru
 

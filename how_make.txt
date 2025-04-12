@@ -1,27 +1,37 @@
-+-----------------------------------------------------+
-|                                                     |
-|         Ma-TA {}       H R A                        |
-|            games            S I _ E _ I C E         |
-|                                                     |
-+--------------------------+--------------------------+
-|    (c) 2025  Freeware    |          v1.1.0          |
-+--------------------------+--------------------------+
-
-+-----------------------------------------------------+
-|           KOMPILACE ZE ZDROJOVYCH SOUBORU           |
-+-----------------------------------------------------+
+         +-----------------------------------------------------+
+         |                                                     |
+         |         Ma-TA {}       H R A                        |
+         |            games            S I _ E _ I C E         |
+         |                                                     |
+         +--------------------------+--------------------------+
+         |    (c) 2025  Freeware    |          v1.1.0          |
+         +--------------------------+--------------------------+
+         |    SESTAVENI PROJEKTU    |        2025-04-12        |
+         +--------------------------+--------------------------+
 
 
-+-----+
-|  1  |  UN*X (GNU/Linux, BSD, macOS, ...) :
-+-----+
+
++-------------------+-------------------------------+-------------------+
+|                   |                               |                   |
+|     ooooooooo     | +---+---+---+---+             |     ooooooooo     |
+|   oo   o o   oo   | | G | C | C | / |             |   oo   O o   oo   |
+|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |
+|  oo  ~~ - ~~  oo  |             | L | L | V | M | |  oo  ~~ O ~~  oo  |
+|   ooooooooooooo   |             +---+---+---+---+ |   ooooooooooooo   |
+|                   |                               |                   |
++-------------------+-------------------------------+-------------------+
++-----+-----------------------------------------------------------------+
+|  1  |  UN*X (GNU/Linux, BSD, macOS, ...)                              |
++-----+-----------------------------------------------------------------+
 
 
-  Spustit skript make.sh
+  Spustit skript make_unix.sh
+
 
   Prerekvizity:
     Nastroje pro kompilaci zdrojovych kodu v C
-    (typicky GNU GCC nebo LLVM/Clang).
+      - typicky GNU GCC nebo LLVM Clang,
+      - v macOS Xcode Command Line Tools (CLT) pro Apple Clang.
 
   Poznamky:
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
@@ -39,12 +49,23 @@
     [lipo -create -output sibenice-macUni sibenice-macArm64 sibenice-mac64]
 
 
-+-----+
-|  2  |  WINDOWS 11 :
-+-----+
+
++-------------------+-------------------------------+-------------------+
+|                   |                               |                   |
+|     ooooooooo     | +---+---+---+---+             |     ooooooooo     |
+|   oo   o o   oo   | |   |   | M | S |             |   oo   O o   oo   |
+|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |
+|  oo  ~~ - ~~  oo  |             | V | C |   |   | |  oo  ~~ O ~~  oo  |
+|   ooooooooooooo   |             +---+---+---+---+ |   ooooooooooooo   |
+|                   |                               |                   |
++-------------------+-------------------------------+-------------------+
++-----+-----------------------------------------------------------------+
+|  2  |  WINDOWS 11                                                     |
++-----+-----------------------------------------------------------------+
 
 
   Spustit skript make_win.bat z vyvojarske konzole
+
 
   Prerekvizity:
     Vyvojovy nastroj Microsoft Visual Studio, resp. MSVC.
@@ -64,44 +85,57 @@
       vyjimku nebo docasne vypnout antivirovou ochranu v realnem case)
 
 
-+-----+
-|  3  |  DOS (FreeDOS 1.3):
-+-----+
+
++-------------------+-------------------------------+-------------------+
+|                   |                               |                   |
+|     ooooooooo     | +---+---+---+---+             |     ooooooooo     |
+|   oo   o o   oo   | | 1 | 6 | / | 3 |             |   oo   O o   oo   |
+|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |
+|  oo  ~~ - ~~  oo  |             | 2 | B | I | T | |  oo  ~~ O ~~  oo  |
+|   ooooooooooooo   |             +---+---+---+---+ |   ooooooooooooo   |
+|                   |                               |                   |
++-------------------+-------------------------------+-------------------+
++-----+-----------------------------------------------------------------+
+|  3  |  FREEDOS 1.4                                                    |
++-----+-----------------------------------------------------------------+
 
 
-  Spustit skript make_dos.bat
+  POZOR:
+    DOS (resp. FAT16) vyzaduje konvenci max. 8 znaku pro nazev souboru
+    plus dalsi max. 3 znaky za teckou jako priponu (typ souboru) !!!
+
 
   a) vytvorit a pripojit ISO se zdrojovymi soubory k virtualnimu PC,
   b) zkopirovat soubory z ISO na HDD napr. prikazem
-     [xcopy D: C:\sibenice /S],
-  c) vstoupit do slozky [cd C:\sibenice] a spustit [make_dos.bat].
+     [xcopy /S D: C:\sibenice],
+  c) vstoupit do slozky [cd C:\sibenice].
+
+
+  varianta 1:
+    OPEN WATCOM (pro 16-bit binarku):  spustit skript [mk_dos16.bat]
+  varianta 2:
+    DJGPP GCC   (pro 32-bit binarku):  spustit skript [mk_dos32.bat]
+
 
   Prerekvizity:
     Idealne virtualni PC s FreeDOS [www.freedos.org/download].
-
     Cely system je vhodne aktualizovat on-line pomoci [fdnpkg update].
 
-    V systemu FreeDOS nainstalovat DJGPP pomoci nastroje FDIMPLES
-    (FreeDOS Installer - My Package List Editor Software)
-    Pred spustenim prikazu [fdimples] je treba stahnout a do virtualni
-    mechaniky vlozit jeste ISO s rozsirujicim softwarem - FreeDOS BonusCD).
+    varianta 1 - OPEN WATCOM
+    {
+      - pripojit BonusCD do virtualni mechaniky (FD14BNS.iso)
+      - spustit [fdimples]
+      - nainstalovat [Development -> WATCOMC]
+      - idealne znovu aktualizovat system [fdnpkg update]
+      - idealne [reboot]
+    }
 
-    V jinych systemech (napr. i Windows 95/98) je mozne stahnout DJGPP
-    ze stranek projektu [www.delorie.com/djgpp/].
-
-  Poznamky:
-    - po nainstalovani DJGPP pres [FDIMPLES] je treba pridat nasledujici
-      radky do C:\FDAUTO.BAT (napr. prikazem [edit fdauto.bat]):
-
-        set DJGPP=C:\DEVEL\DJGPP\DJGPP.ENV
-        set PATH=C:\DEVEL\DJGPP\BIN;%PATH%
-
-      a provest [reboot].
-      Pote by jiz mel prekladac spravne fungovat [gcc --version].
-    - pro spusteni vytvorene binarky v MS-DOS (16-bit) je nutne
-      umistit soubor [CWSDPMI.EXE] do stejne slozky, jako spustitelny
-      soubor hry [sibe_dos.exe]
-      -> [https://en.wikipedia.org/wiki/CWSDPMI]
-      -> [https://sandmann.dotster.com/cwsdpmi/]
-    - u DOSu je treba hlidat tez konvenci max. 8 znaku pro nazvy
-      souboru (FAT16)
+    varianta 2 - DJGPP GCC
+    {
+      - nainstalovat prekladac z on-line repozitare
+        (od FreeDOS 1.4 se DJGPP nenachazi na BonusCD)
+          [fdnpkg install djgpp]
+          [fdnpkg install dj_gcc]
+          [fdnpkg install dj_bin]
+      - idealne [reboot]
+    }

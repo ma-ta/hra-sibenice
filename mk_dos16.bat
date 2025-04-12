@@ -1,14 +1,18 @@
 @echo off
 
-rem Testovane OS: FreeDOS 1.3 az 1.4
+rem SKRIPT PRO 16-BIT BINARKU:
+rem (hra vyzaduje vetsi zasobnik nez vychozi u Open Watcom)
+
+
+rem Testovane OS: FreeDOS 1.4
 
 rem ::::::::::::::::::::::::::::::::::::::::
 rem ::                                    ::
 rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
-rem ::  (DOS / BATCH / DJGPP)             ::
+rem ::  (FreeDOS / BATCH / OPEN WATCOM)   ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-04-10                ::
+rem ::  datum:  2025-04-12                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 
@@ -19,15 +23,21 @@ rem ::::::::::::::::::::::::::::::::::::::::
 
 
 rem :: nazev spustitelneho souboru
-       set bin_nazev=sibe-dos
+       set bin_nazev=sibe-d16
 
-rem :: parametry pro prekladac (DJGPP)
-       rem :: debug:    -Wall -Wextra -pedantic -g
-       rem :: release:  -O2
-           set cc_param=-O2
+rem :: verze Open Watcom (zjistitelne prikazem [wcc])
+       set cc_ver=1.9
 
-rem :: prikaz pro spusteni prekladace vc. parametru (gcc/wcc apod.)
-       set cc=gcc
+rem :: nastaveni velikosti zasobniku pro [wcl] (8 KB = Stack Overflow!)
+       set wcl_stack=16384
+
+rem :: parametry pro prekladac (Open Watcom)
+       rem :: debug:    -q -g -k%wcl_stack% -d__MSDOS__ -dWATCOMC_VER=%cc_ver%
+       rem :: release:  -q -ox -k%wcl_stack% -d__MSDOS__ -dWATCOMC_VER=%cc_ver%
+           set cc_param=-q -ox -k%wcl_stack% -d__MSDOS__ -dWATCOMC_VER=%cc_ver%
+
+rem :: prikaz pro spusteni prekladace vc. parametru (gcc/wcl,wcc apod.)
+       set cc=wcl
 
 rem :: korenovy adresar se zdrojovymi kody
        set src_dir=.\source
@@ -49,9 +59,15 @@ echo SESTAVUJI - Vypis chyb a udalosti:
 echo %oramovani%
 echo.
 
+rem :: nastaveni prostredi pro WATCOMC
+       call c:\devel\watcomc\owsetenv.bat
+
 rem :: zkopiruje slozku data do slozky bin
        mkdir %out_dir%\data
        xcopy %src_dir%\data %out_dir%\data /E /S
+rem :: zkopiruje info a napovedu do slozky bin
+       copy %src_dir%\..\res\info.txt %out_dir%
+       copy %src_dir%\..\res\napoveda.txt %out_dir%
 
 rem :: kompilace jednotlivych souboru
 
@@ -59,42 +75,42 @@ rem :: korenovy adresar
        cd %src_dir%
        %cc% %cc_param% -c *.c
        cd ..
-       move %src_dir%\*.o %out_dir%
+       move %src_dir%\*.obj %out_dir%
 rem :: slozka game
        cd %src_dir%\game
        %cc% %cc_param% -c *.c
        cd ..\..
-       move %src_dir%\game\*.o %out_dir%
+       move %src_dir%\game\*.obj %out_dir%
 rem :: slozka game\game_tui
        cd %src_dir%\game\game_tui
        %cc% %cc_param% -c *.c
        cd ..\..\..
-       move %src_dir%\game\game_tui\*.o %out_dir%
+       move %src_dir%\game\game_tui\*.obj %out_dir%
 rem :: slozka help
        cd %src_dir%\help
        %cc% %cc_param% -c *.c
        cd ..\..
-       move %src_dir%\help\*.o %out_dir%
+       move %src_dir%\help\*.obj %out_dir%
 rem :: slozka menu
        cd %src_dir%\menu
        %cc% %cc_param% -c *.c
        cd ..\..
-       move %src_dir%\menu\*.o %out_dir%
+       move %src_dir%\menu\*.obj %out_dir%
 rem :: složka stats
        cd %src_dir%\stats
        %cc% %cc_param% -c *.c
        cd ..\..
-       move %src_dir%\stats\*.o %out_dir%
+       move %src_dir%\stats\*.obj %out_dir%
 rem :: slozka tui
        cd %src_dir%\tui
        %cc% %cc_param% -c *.c
        cd ..\..
-       move %src_dir%\tui\*.o %out_dir%
+       move %src_dir%\tui\*.obj %out_dir%
 
-rem :: sestaveni spustitelneho souboru
+rem :: sestaveni spustitelneho souboru (slinkovani: wcl, wlink)
        cd %out_dir%
-       %cc% %cc_param% -o %bin_nazev%.exe *.o
-       del *.o
+       %cc% %cc_param% -fe=%bin_nazev%.exe *.obj
+       del *.obj
        cd ..
 
 

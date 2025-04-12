@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(__WATCOMC__)
   #include <direct.h>
 #else
   #include <unistd.h>

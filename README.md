@@ -38,7 +38,9 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 - MS Windows:
   - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
 - DOS:
-  - FreeDOS 1.4 *(DJGPP GCC 12.2.0) &ndash; [x86]*
+  - FreeDOS 1.4:
+    - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
+    - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
 
 ### Snímky obrazovky
 
