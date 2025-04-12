@@ -1,10 +1,10 @@
 @echo off
 
-rem SKRIPT PRO 16-BIT BINARKU:
-rem (hra vyzaduje vetsi zasobnik nez vychozi u Open Watcom)
+rem :: SKRIPT PRO 16-BIT BINARKU:
+rem :: (hra vyzaduje vetsi zasobnik nez vychozi u Open Watcom)
 
 
-rem Testovane OS: FreeDOS 1.4
+rem :: Testovane OS: FreeDOS 1.4
 
 rem ::::::::::::::::::::::::::::::::::::::::
 rem ::                                    ::
