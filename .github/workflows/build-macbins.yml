@@ -1,0 +1,29 @@
+name: Build binaries for macOS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-binaries:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run build script
+        run: |
+          ./make_unix.sh
+
+      - name: Verify bin exist
+        run: |
+          if [ ! -f "bin/sibenice" ]; then
+            echo "Error: Binary not created!"
+            exit 1
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sibenice-macArm64
+          path: bin/sibenice
