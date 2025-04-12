@@ -1,4 +1,4 @@
-name: Build .icns Icon for macOS
+name: Build icon (.icns) for macOS
 
 on:
   workflow_dispatch:
