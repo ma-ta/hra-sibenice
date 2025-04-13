@@ -17,9 +17,8 @@
 | x86 32-bit | ✅ | ✅ | ❌ | ✅
 | x86 16-bit | ❌ | ❌ | ❌ | ✅
 
-Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
-
-- **⬇️&nbsp;[Stáhnout hru Šibenice (.ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-v1.1.0.zip)&nbsp;⬇️**
+- **⬇️&nbsp;[Stáhnout hru Šibenice (.ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-v1.1.0.zip)&nbsp;⬇️**<br>
+  (rozbalte archiv a vyberte spustitelný soubor pro vaši platformu)
 - [Jednotlivá vydání &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
 - [Adresář s binárkami](bin/)
 
