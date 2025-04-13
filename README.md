@@ -7,6 +7,7 @@
 
 ![Šibenice – ikona](/res/github.png)
 
+
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
@@ -20,8 +21,8 @@ Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba ž
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
 
-- **[Aktuální verze ke stažení](//github.com/ma-ta/hra-sibenice/releases)**
-- [ZIP s binárkami (celý adresář)](bin/sibenice-v1.1.0.zip)
+- **⬇️&nbsp;[Stáhnout hru Šibenice (.ZIP)](bin/sibenice_latest.zip)&nbsp;⬇️**
+- [Jednotlivá vydání &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
 - [Adresář s binárkami](bin/)
 
 
