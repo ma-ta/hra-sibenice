@@ -29,15 +29,15 @@
 | x86 16-bit | ❌ | ❌ | ❌ | ✅ 🆕 ☢️
 
 **Legenda:**
-  - ✅&nbsp;&ndash;&nbsp;nativní binárka (aktuální build:&nbsp;**2025-04-12**) ve složce [bin](bin/),
-  - ✔️&nbsp;&ndash;&nbsp;nativní binárka (starší build) ve složce [bin](bin/),
+  - ✅&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**) ve složce [bin](bin/),
+  - ✔️&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení) ve složce [bin](bin/),
   - 🆕&nbsp;&ndash;&nbsp;nově zařazená binárka (vznikla s poslední verzí),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
   - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](bin-setup),
   - ❌&nbsp;&ndash;&nbsp;nepodporovaná/neexistující/netestovaná platforma.
 
 **Další odkazy:**
-- [Jednotlivé verze &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
+- [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
 - [Adresář s binárkami](bin/)
 
 
