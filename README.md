@@ -10,7 +10,7 @@
 
 ### Binárky ke stažení
 
-- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-setupwin.zip)**
+- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-setupwin.exe)**
 - ⬇️&nbsp;[Stáhnout All-in-1 řešení (.ZIP&nbsp;📦)](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-bin.zip)<br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](bin/readme.md) dle vaší platformy):
 
