@@ -23,11 +23,11 @@ V  soucasne  dobe hra nepodporuje ceskou diakritiku a hadana slova jsou
 tedy zobrazena bez hacku a carek!
 
 
-Obsah aktualni slozky:
+Obsah aktualni slozky (nemusi byt kompletni):
 
 ./
- info.txt             - (tento) soubor s rychlymi instrukcemi  (textovy)
- napoveda.txt         - kompletni napoveda ke hre              (textovy)
+ info.md              - (tento) soubor s rychlymi instrukcemi  (textovy)
+ napoveda.md          - kompletni napoveda ke hre              (textovy)
  sibenice-linux32     - platforma GNU/Linux (32-bit, x86)      (program)
  sibenice-linux64     - platforma GNU/Linux (64-bit, x86-64)   (program)
  sibenice-linuxArm64  - platforma GNU/Linux (64-bit, AArch64)  (program)
