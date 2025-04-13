@@ -59,6 +59,10 @@ NÁPADY NA DALŠÍ VÝVOJ:
    GNU/Linux - AppImage,
    macOS     - formáty DMG a APP
 
+9) v modulu term_set přidat podporu pro změnu velikosti písma emu. terminálu
+   (výchozí písmo po instalaci OS může být pro hru příliš malé
+    + volitelně pojistit monospaced font)
+
 
 Hotovo:
 
