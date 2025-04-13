@@ -12,7 +12,7 @@
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
 
-- **⬇️&nbsp;[Stáhnout hru Šibenice (.ZIP)](bin/sibenice_latest.zip)&nbsp;⬇️**
+- **⬇️&nbsp;[Stáhnout hru Šibenice (.ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-v1.1.0.zip)&nbsp;⬇️**
 - [Jednotlivá vydání &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
 - [Adresář s binárkami](bin/)
 
