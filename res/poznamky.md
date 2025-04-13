@@ -54,8 +54,6 @@ NÁPADY NA DALŠÍ VÝVOJ:
 7) distribuce hry v linuxových repozitářích, MS Store, FreeDOS apod.
 
 8) balíčky pro distribuci aplikace:
-   obecně    - ZIP a TAR.GZ,
-   Windows   - Inno Setup,
    GNU/Linux - AppImage,
    macOS     - formáty DMG a APP
 
@@ -63,8 +61,14 @@ NÁPADY NA DALŠÍ VÝVOJ:
    (výchozí písmo po instalaci OS může být pro hru příliš malé
     + volitelně pojistit monospaced font)
 
+10) zašifrovat seznam hádaných slov ve slovníku [data/game_cs.dat]
+    (např. Caesarova šifra, Vernamova šifra či cokoliv "zábavného")
+
 
 Hotovo:
+
+3) [v1.1.0]
+   instalátor pro Windows (via Inno Setup)
 
 2) [v0.0.3]
    přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
