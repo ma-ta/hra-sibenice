@@ -1,3 +1,4 @@
+```
 +--------+------------+
 | v1.1.0 | 2025-04-12 |
 +--------+------------+
@@ -161,3 +162,4 @@ NOVINKY:
    [*] - zobrazí seznam dostupných voleb
    [0] - kdykoli ukončí probíhající hru
    [1] - zobrazí velkou nápovědou
+```
