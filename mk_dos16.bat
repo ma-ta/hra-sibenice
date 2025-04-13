@@ -66,8 +66,8 @@ rem :: zkopiruje slozku data do slozky bin
        mkdir %out_dir%\data
        xcopy %src_dir%\data %out_dir%\data /E /S
 rem :: zkopiruje info a napovedu do slozky bin
-       copy %src_dir%\..\res\info.txt %out_dir%
-       copy %src_dir%\..\res\napoveda.txt %out_dir%
+       copy %src_dir%\..\res\info.md %out_dir%
+       copy %src_dir%\..\res\napoveda.md %out_dir%
 
 rem :: kompilace jednotlivych souboru
 
