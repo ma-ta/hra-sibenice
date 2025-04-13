@@ -25,20 +25,20 @@ Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba ž
 - [Nápověda ke hře](/res/napoveda.txt)
 - [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
 
-#### Pozn. pro systémy typu 💾 DOS
+#### Pozn. pro systémy typu 💾&nbsp;DOS
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
-#### Pozn. pro systém 🍎 macOS
+#### Pozn. pro systém 🍎&nbsp;macOS
 Stažené binární soubory nejsou podepsané, proto je pravděpodobně bude možné spustit až po odebrání příslušného příznaku.<br>
 Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
-  - 🐧 Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
-  - 🍎 macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
-- 🪟 Win:
+  - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
+  - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
+- 🪟&nbsp;Win:
   - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
-- 💾 DOS:
+- 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
