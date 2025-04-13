@@ -1,3 +1,4 @@
+```
         +-----------------------------------------------------+
         |                                                     |
         |         Ma-TA {}       H R A                        |
@@ -54,3 +55,4 @@ DATA/
 Autor         :  (c) 2022-25  Martin TABOR
 Licence       :  GNU GPLv3+ (Freeware & Open source)
 Zdrojove kody :  https://github.com/ma-ta/hra-sibenice
+```
