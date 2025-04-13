@@ -26,8 +26,8 @@ LicenseFile=..\..\..\LICENSE
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
-OutputDir=..\..\..\bin-setup\win
-OutputBaseFilename=HraSibenice-Setup
+OutputDir=..\..\..\bin-setup
+OutputBaseFilename=sibenice-setupwin
 SetupIconFile=..\..\icons\win\win-ico.ico
 SolidCompression=yes
 WizardStyle=modern
