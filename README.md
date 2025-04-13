@@ -23,14 +23,14 @@
 
 | Platforma | 🪟&nbsp;Windows | 🐧&nbsp;Linux |  🍎&nbsp;macOS | 💾&nbsp;DOS
 |---|---|---|---|---
-| x86_64 | ✅ 💽 | ✅ | ✅ 🆕 | ❌ 
-| AArch64 | ✅ 🆕 💽 | ✅ 🆕 | ✅ 🆕 | ❌ 
+| x86_64 | ✅ 💽 | ✅ | ✔️ 🆕 | ❌ 
+| AArch64 | ✅ 🆕 💽 | ✅ 🆕 | ✔️ 🆕 | ❌ 
 | x86 32-bit | ✅ 💽 | ✅ 🆕 | ❌ | ✅
 | x86 16-bit | ❌ | ❌ | ❌ | ✅ 🆕 ☢️
 
 **Legenda:**
-  - ✅&nbsp;&ndash;&nbsp;nativní binárka (aktuální release) ve složce [bin](bin/),
-  - ✔️&nbsp;&ndash;&nbsp;nativní binárka (starší release) ve složce [bin](bin/),
+  - ✅&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**) ve složce [bin](bin/),
+  - ✔️&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení) ve složce [bin](bin/),
   - 🆕&nbsp;&ndash;&nbsp;nově zařazená binárka (vznikla s poslední verzí),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
   - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](bin-setup),
