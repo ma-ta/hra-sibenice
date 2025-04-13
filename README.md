@@ -8,15 +8,6 @@
 ![Šibenice – ikona](/res/github.png)
 
 
-### Popis a stručné instrukce
-Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
-Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
-
-- **[Základní instrukce k sestavení](how_make.txt)**
-- [Nápověda ke hře](/res/napoveda.txt)
-- [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
-
-
 ### Binárky ke stažení
 
 Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
@@ -26,20 +17,28 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
 - [Adresář s binárkami](bin/)
 
 
-#### Pozn. pro systémy typu MS-DOS
+### Popis a stručné instrukce
+Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
+Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
+
+- **[Základní instrukce k sestavení](how_make.txt)**
+- [Nápověda ke hře](/res/napoveda.txt)
+- [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
+
+#### Pozn. pro systémy typu 💾 DOS
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
 
-#### Pozn. pro systém macOS
+#### Pozn. pro systém 🍎 macOS
 Stažené binární soubory nejsou podepsané, proto je pravděpodobně bude možné spustit až po odebrání příslušného příznaku.<br>
 Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
-  - Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
-  - macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
-- MS Windows:
+  - 🐧 Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
+  - 🍎 macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
+- 🪟 Win:
   - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
-- DOS:
+- 💾 DOS:
   - FreeDOS 1.4:
     - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
