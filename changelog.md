@@ -29,8 +29,8 @@ NOVINKY:
 
 OPRAVENÉ CHYBY:
 
-1) redukce zbytečných chybových hlášek při kompilaci
-   pod Ubuntu 24.04/GCC (make.sh: -Wno-unused-result)
+1) Ubuntu 24.04/GCC - redukce zbytečných chybových hlášek při kompilaci
+   (v make.sh přidán parametr: -Wno-unused-result)
 
 2) macOS - korektní přepnutí pracovního adresáře při
    spuštění přes Finder
