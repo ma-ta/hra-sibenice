@@ -108,7 +108,11 @@
   a) vytvorit a pripojit ISO se zdrojovymi soubory k virtualnimu PC,
   b) zkopirovat soubory z ISO na HDD napr. prikazem
      [xcopy /S D: C:\sibenice],
-  c) vstoupit do slozky [cd C:\sibenice].
+  c) vstoupit do slozky [cd C:\sibenice],
+  d) sestavit projekt (viz nize),
+  e) - pri pouziti VM vypnout FreeDOS prikazem [shutdown],
+     - nalezt soubor virtualniho disku a extrahovat vytvorenou binarku
+       (napr. disky .VMDK z VMware Workstation Pro lze otevrit pres 7-Zip).
 
 
   varianta 1:
