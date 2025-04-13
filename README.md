@@ -18,10 +18,11 @@ Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba ž
 
 ### Binárky ke stažení
 
-Rozbalte archiv ZIP a vyberte spustitelný soubor pro váš operační systém.
+Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
 
-- **[All-in-one řešení (soubor ZIP)](bin/sibenice-v1.1.0.zip)**
-- [Složka s binárkami](bin/)
+- **[Aktuální verze ke stažení](//github.com/ma-ta/hra-sibenice/releases)**
+- [ZIP s binárkami (celý adresář)](bin/sibenice-v1.1.0.zip)
+- [Adresář s binárkami](bin/)
 
 
 #### Pozn. pro systémy typu MS-DOS
