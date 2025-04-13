@@ -1,3 +1,4 @@
+```
 ------------
 ZNÁMÉ CHYBY:
 ------------
@@ -69,3 +70,4 @@ Hotovo:
 1) [v0.0.2]
    možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
    a vrátit se zpět do hry)
+```
