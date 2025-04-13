@@ -2,6 +2,11 @@
 
 > Multiplatformní implementace známé slovní hry Šibenice pro terminál
 
+![Windows](https://img.shields.io/badge/OS-Windows-lightgrey?logo=pcgamingwiki&logoColor=white)
+![macOS](https://img.shields.io/badge/OS-macOS-black?logo=apple&logoColor=white)
+![Linux](https://img.shields.io/badge/OS-Linux-black?logo=linux&logoColor=white)
+![DOS](https://img.shields.io/badge/OS-DOS-lightgrey?logo=d&logoColor=white)
+
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
 
