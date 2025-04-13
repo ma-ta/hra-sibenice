@@ -21,9 +21,9 @@ Rozbalte archiv ZIP a vyberte spustitelný soubor pro vaši platformu.
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
-- **[Základní instrukce k sestavení](how_make.txt)**
-- [Nápověda ke hře](/res/napoveda.txt)
-- [Známé chyby a nápady na další vývoj](/res/poznamky.txt)
+- **[Základní instrukce k sestavení](how_make.md)**
+- [Nápověda ke hře](/res/napoveda.md)
+- [Známé chyby a nápady na další vývoj](/res/poznamky.md)
 
 #### Pozn. pro systémy typu 💾&nbsp;DOS
 V případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).
