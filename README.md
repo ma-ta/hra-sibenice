@@ -11,7 +11,7 @@
 ### Binárky ke stažení
 
 - **⬇️&nbsp;[Stáhnout hru Šibenice (.ZIP)](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-v1.1.0.zip)&nbsp;⬇️**<br>
-  (rozbalte archiv a vyberte spustitelný soubor pro vaši platformu):
+  (rozbalte stažený archiv a zvolte spustitelný [soubor](bin/readme.md) dle vaší platformy):
 
 | Platforma | 🪟&nbsp;Windows | 🐧&nbsp;Linux |  🍎&nbsp;macOS | 💾&nbsp;DOS
 |---|---|---|---|---
