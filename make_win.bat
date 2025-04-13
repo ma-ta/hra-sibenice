@@ -68,7 +68,7 @@ echo.
    mkdir %out_dir%\data
    xcopy %src_dir%\data %out_dir%\data /E /S
 :: zkopiruje info a napovedu do slozky bin
-   copy %src_dir%\..\res\info.md %out_dir%
+   copy %src_dir%\..\res\readme.md %out_dir%
    copy %src_dir%\..\res\napoveda.md %out_dir%
 
 :: kompilace jednotlivych souboru
