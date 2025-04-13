@@ -15,11 +15,17 @@
 
 | Platforma | 🪟&nbsp;Windows | 🐧&nbsp;Linux |  🍎&nbsp;macOS | 💾&nbsp;DOS
 |---|---|---|---|---
-| x86_64 | ✅ | ✅ | ✅ | ❌ 
-| AArch64 | ✅ | ✅ | ✅ | ❌ 
-| x86 32-bit | ✅ | ✅ | ❌ | ✅
+| x86_64 | ✅ 💽 | ✅ | ✅ | ❌ 
+| AArch64 | ✅ 💽 | ✅ | ✅ | ❌ 
+| x86 32-bit | ✅ 💽 | ✅ | ❌ | ✅
 | x86 16-bit | ❌ | ❌ | ❌ | ✅
 
+**Legenda:**
+  - ✅&nbsp;&ndash;&nbsp;nativní binárka ve složce [bin](bin/),
+  - ❌&nbsp;&ndash;&nbsp;nepodporovaná/neexistující/netestovaná platforma,
+  - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor.
+
+**Další odkazy:**
 - [Jednotlivá vydání &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
 - [Adresář s binárkami](bin/)
 
