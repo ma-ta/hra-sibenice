@@ -21,18 +21,17 @@
   [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-bin.zip)&nbsp;📦<br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](bin/readme.md) dle vaší platformy):
 
-| Platforma       | 💽 | x86_64         | AArch64       | x86 32-bit     | x86 16-bit  | Wasm
-|-----------------|--------|--------------|---------------|----------------|-------------|------------
-| 🪟&nbsp;Windows | ✅ 🆕 | ✅           | ✅ 🆕         | ✅             | ❌          | &ndash;
-| 🐧&nbsp;Linux   |        | ✅           | ✅ 🆕        | ✅ 🆕          | ❌          | &ndash;
-| 🍎&nbsp;macOS   |        | ✔️ 🆕        | ✔️ 🆕        | ❌             | ❌          | &ndash;
-| 💾&nbsp;DOS     |        | ❌           | ❌            | ✅             | ✅ 🆕 ☢️   | &ndash;
-| 🌐&nbsp;Web     |        | &ndash;      | &ndash;       | &ndash;        | &ndash;      | 🔥
+| Platforma       | 💽 | x86_64       | AArch64       | x86 32-bit     | x86 16-bit  | Wasm
+|-----------------|----|--------------|---------------|----------------|--------------|------------
+| 🪟&nbsp;Windows | 🆕 | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
+| 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
+| 🍎&nbsp;macOS   |    | ✅           | ✅            | ❌            | ❌          | &ndash;
+| 💾&nbsp;DOS     |    | ❌           | ❌            | 🆕            | 🆕 ☢️       | &ndash;
+| 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🔥
 
 **Legenda:**
-  - ✅&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**),
-  - ✔️&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
-  - 🆕&nbsp;&ndash;&nbsp;zařazeno v poslední době (např. s poslední verzí),
+  - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**),
+  - ✅&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
   - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](bin-setup),
   - 🔥&nbsp;&ndash;&nbsp;ve vývoji,
