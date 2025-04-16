@@ -5,7 +5,7 @@
         |            games            S I _ E _ I C E         |
         |                                                     |
         +--------------------------+--------------------------+
-        |    (c) 2025  Freeware    |          v1.1.0          |
+        |    (c) 2025  Freeware    |          v1.2.0          |
         +--------------------------+--------------------------+
 
                              V i t e j t e
@@ -41,7 +41,7 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibe-d32.exe         - platforma DOS       (32-bit, x86)      (program)
  CWSDPMI.EXE          - nutne pro 32-bit verzi v MS-DOS        (binarni)
 
-DATA/
+data/
  (stats.sav)          - soubor s ulozenymi statistikami        (binarni)
                         (vytvoren az po prvnim spusteni hry)
  game_cs.dat          - slovnik 1000 nahodnych ceskych slov    (textovy)
@@ -49,6 +49,8 @@ DATA/
  help.dat             - zdrojovy soubor napovedy pro aplikaci  (textovy)
  stats.dat            - zdrojovy soubor obrazovky statistik    (textovy)
 
+wasm/                 - platforma WebAssembly
+ 
 
 ------------------------------------------------------------------------
 

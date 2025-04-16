@@ -75,6 +75,12 @@ static void prepni_adresar(int argc, char *argv[]);
 
 int main(int argc, char *argv[])
 {
+  #ifdef OS_WEB
+    /* vypnutí bufferování pro okamžitý výstup (např. Xterm.js) */
+    setvbuf(stdout, NULL, _IONBF, 0);
+    setvbuf(stderr, NULL, _IONBF, 0);
+  #endif
+
   /* čas začátku běhu programu */
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;

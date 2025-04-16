@@ -16,10 +16,16 @@
 #define arrlen(arr)  ((int) (sizeof(arr) / sizeof(arr[0])))
 
 #include <stdbool.h>
+#ifdef __EMSCRIPTEN__
+  #include <emscripten/emscripten.h>
+#endif
 
 /* detekce operačního systému */
 #ifndef OSNAME
-  #if defined(__MSDOS__)
+  #if defined (__EMSCRIPTEN__)
+    #define OSNAME "Web"
+    #define OS_WEB
+  #elif defined(__MSDOS__)
     #define OSNAME  "DOS"
     #define OS_DOS
   #elif defined(_WIN32) || defined(_WIN64)
@@ -47,7 +53,12 @@
 
 /* detekce překladače */
 #ifndef CCNAME
-  #if defined(_MSC_VER)
+  #if defined (__EMSCRIPTEN__)
+    #define CCNAME  "Emscripten"
+    #define CCVER   __EMSCRIPTEN_major__
+    #define CCMINOR __EMSCRIPTEN_minor__
+    #define CCTINY  __EMSCRIPTEN_tiny__
+  #elif defined(_MSC_VER)
     #define CCNAME  "MSVC"
     #define CCVER   _MSC_VER
   #elif defined(__WATCOMC__)
@@ -61,6 +72,7 @@
     #define CCNAME   "Clang"
     #define CCVER    __clang_major__
     #define CCMINOR  __clang_minor__
+    #define CCTINY   __clang_patchlevel__
   #elif defined(__GNUC__)
     #if defined(__DJGPP__)
       #define CCNAME  "DJGPP"
@@ -69,12 +81,17 @@
     #endif
     #define CCVER    __GNUC__
     #define CCMINOR  __GNUC_MINOR__
+    #define CCTINY   __GNUC_PATCHLEVEL__
   #else
     #define CCNAME  "?"
     #define CCVER  (-1)
   #endif
+
   #ifndef CCMINOR
     #define CCMINOR  (-1)
+  #endif
+  #ifndef CCTINY
+    #define CCTINY  (-1)
   #endif
 #else
   #ifndef CCVER
@@ -83,7 +100,17 @@
 #endif
 
 /* detekce architektury */
-#if defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
+#if defined(__EMSCRIPTEN__)
+  #if defined(__wasm64__)
+    #define ARCH  "wasm64"
+  #elif defined(__wasm32__)
+    #define ARCH  "wasm32"
+  #elif defined(__wasm__)
+    #define ARCH  "Wasm"
+  #else
+    #define ARCH  "?"
+  #endif
+#elif defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
   #define ARCH  "x86_64"
 #elif defined(_M_I86)  /* 16-bit: MSVC, Watcom */
   #define ARCH  "x86 16-bit"
@@ -111,7 +138,7 @@
 /*******************************************/
 
 #define NAZEV    "Hra Sibenice"
-#define VERZE    "1.1.0"
+#define VERZE    "1.2.0"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
 #define LICENCE  "GPLv3+"
@@ -188,7 +215,7 @@
 /* výpis informací o verzi (sestavení) */
 #define ARG_VER_TEXT  "%s\n"  \
                       "Verze:   %s  (%s)\n"  \
-                      "Build:   %s/%s v%s%s - %s\n"  \
+                      "Build:   %s/%s v%s%s%s - %s\n"  \
                       "Web:     %s\n"  \
                       "Napsal:  %s  (%s)\n"  \
                       , NAZEV  \
@@ -196,6 +223,7 @@
                       , OSNAME, CCNAME  \
                       , (CCVER == (-1)) ? "" : xstr(CCVER)  \
                       , (CCVER == (-1) || CCMINOR == (-1)) ? "" : "." xstr(CCMINOR)  \
+                      , (CCVER == (-1) || CCMINOR == (-1) || CCTINY == (-1)) ? "" : "." xstr(CCTINY)  \
                       , ARCH  \
                       , WEB  \
                       , AUTOR, LICENCE

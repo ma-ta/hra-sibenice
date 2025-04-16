@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 41, macOS 15.4, FreeBSD 14.2
+# Testovane OS: Ubuntu 24.04.2 LTS + Emscripten v4.0.7
 
 ######################################
 #                                    #
 #  SKRIPT NA SESTAVENI HRY SIBENICE  #
-#  (UN*X / BASH|ZSH / GCC|CLANG)     #
+#  (UN*X / BASH|ZSH / EMSCRIPTEN     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-04-12                #
+#  datum:  2025-04-16                #
 #                                    #
 ######################################
 
@@ -18,38 +18,39 @@
 # KONFIGURACE:
 ######################################
 
-
 # nazev spustitelneho souboru
-  # -linux64 / -linuxArm64 / -linux32 /
-  # -mac64 / -macArm64 / -...
-  bin_nazev='sibenice'
-
-# parametry prekladace
-  # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
-  # release: '-O2 -Wno-unused-result'
-  cc_param='-O2 -Wno-unused-result'
-
-  # pro macOS je mozne vyuzit prepinace:
-    # [-arch arm64] pro Silicon, [-arch x86_64] pro Intel,
-    # a nasledne vytvorit jedinou Universal binarku:
-    # [lipo -create -output sibenice-macUni sibenice-macArm64 sibenice-mac64]
-
-  # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
-  CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)
-
-  # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat prislusne radky nize)
-  # AArch64:
-    #sudo apt install gcc-aarch64-linux-gnu -y
-    #CC='aarch64-linux-gnu-gcc '$cc_param
-  # x86 (i386):
-    #sudo apt install gcc-multilib
-    #CC='gcc -m32 '$cc_param
+  # -web / -nodejs / -...
+  bin_nazev='sibenice-web.js'
 
 # korenovy adresar se zdrojovymi kody
   src_dir=`pwd`'/source'
 
 # korenovy adresar pro binarni soubory
-  out_dir=`pwd`'/bin'
+  out_dir=`pwd`'/bin/wasm'
+
+# parametry prekladace
+  # debug (navíc):
+    #  -g4  \
+    #  -s ASSERTIONS=1
+  # release:
+    #  --preload-file data@data  \
+    #  -s EXIT_RUNTIME=0  \
+    #  -s WASM=1  \
+    #  -s MODULARIZE=1  \
+    #  -s EXPORT_ES6=1  \
+    #  -s ENVIRONMENT="web"  \
+    #  -s FORCE_FILESYSTEM=1
+  cc_param=--preload-file data@data -g  \
+    -s ASSERTIONS=1  \
+    -s EXIT_RUNTIME=0  \
+    -s WASM=1  \
+    -s MODULARIZE=1  \
+    -s EXPORT_ES6=1  \
+    -s ENVIRONMENT="web"  \
+    -s FORCE_FILESYSTEM=1
+
+  # prikaz pro spusteni prekladace vc. parametru (emcc apod.)
+  CC='emcc '$cc_param
 
 # oramovani
   oramovani='----------------------------------'
@@ -68,10 +69,10 @@ echo ''
 # vytvori adresar bin pro vystupy
   mkdir $out_dir
 # zkopiruje slozku data do slozky bin
-  cp -R $src_dir'/data' $out_dir
+  #cp -R $src_dir'/data' $out_dir
 # zkopiruje info a napovedu do slozky bin
-  cp $src_dir'/../res/readme.md' $out_dir
-  cp $src_dir'/../res/napoveda.md' $out_dir
+  #cp $src_dir'/../res/readme.md' $out_dir
+  #cp $src_dir'/../res/napoveda.md' $out_dir
 
 # kompilace jednotlivych souboru
 
@@ -110,19 +111,9 @@ echo ''
 
 # sestaveni spustitelneho souboru
   cd $out_dir
-  ${CC} *.o -o $bin_nazev
+  ${CC} *.o --preload-file ../../source/data@data -o $bin_nazev
   rm *.o
 
-
-# spusteni sestaveneho programu
-  echo ''
-  echo $oramovani
-  echo 'Spoustim:'
-  echo "${out_dir}/${bin_nazev}"
-  echo $oramovani
-  echo ''
-
-  $out_dir/$bin_nazev -v
 
 # vyckani na stisk klavesy
   echo ''
