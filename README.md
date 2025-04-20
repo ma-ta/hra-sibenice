@@ -6,6 +6,7 @@
 ![macOS](https://img.shields.io/badge/OS-macOS-black?logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/OS-Linux-black?logo=linux&logoColor=white)
 ![DOS](https://img.shields.io/badge/OS-DOS-lightgrey?logo=d&logoColor=white)
+![DOS](https://img.shields.io/badge/Web-Assembly-654FF0?logo=webassembly&logoColor=white)
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/ma-ta/hra-sibenice)
@@ -27,7 +28,7 @@
 | 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
 | 🍎&nbsp;macOS   |    | ✅           | ✅            | ❌            | ❌          | &ndash;
 | 💾&nbsp;DOS     |    | ❌           | ❌            | 🆕            | 🆕 ☢️       | &ndash;
-| 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🔥
+| 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🔥 ☢️
 
 **Legenda:**
   - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**),
