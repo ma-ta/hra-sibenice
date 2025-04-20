@@ -1,0 +1,31 @@
+{
+  "name": "@ma-ta/hra-sibenice",
+  "version": "1.0.0",
+  "description": "Multiplatformní implementace známé slovní hry Šibenice pro terminál",
+  "keywords": [
+    "šibenice",
+    "oběšenec",
+    "hangman",
+    "hra",
+    "game"
+  ],
+  "homepage": "https://github.com/ma-ta/hra-sibenice#readme",
+  "bugs": {
+    "url": "https://github.com/ma-ta/hra-sibenice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ma-ta/hra-sibenice.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": "Martin TÁBOR (alias @ma-ta)",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@xterm/xterm": "^5.5.0",
+    "xterm-pty": "^0.11.1"
+  }
+}
