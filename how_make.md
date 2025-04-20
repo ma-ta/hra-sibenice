@@ -26,7 +26,7 @@
 +-----+-----------------------------------------------------------------+
 
 
-  Spustit skript make_unix.sh
+  Spustit skript [make_unix.sh].
 
 
   Prerekvizity:
@@ -38,7 +38,7 @@
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
       - Ubuntu  24.04 LTS  -> [sudo apt install build-essentials -y]
-      - Fedora  41         -> [sudo dnf groupinstall "Development Tools"]
+      - Fedora  42         -> [sudo dnf install gcc]
       - FreeBSD 14         -> [pkg install -y bash && bash]
       - macOS   15         -> [xcode-select --install]
     - spustit [sh make.sh]
@@ -65,7 +65,8 @@
 +-----+-----------------------------------------------------------------+
 
 
-  Spustit skript make_win.bat z vyvojarske konzole
+  Spustit skript [make_win.bat] z vyvojarske konzole
+  (tj. Native Tools Command Prompt for VS 2022).
 
 
   Prerekvizity:
@@ -144,4 +145,31 @@
           [fdnpkg install dj_bin]
       - idealne [reboot]
     }
+
+
+
++-------------------+-------------------------------+-------------------+
+|                   |                               |                   |
+|     ooooooooo     | +---+---+---+---+             |     ooooooooo     |
+|   oo   o o   oo   | | E | M | C | C |             |   oo   O o   oo   |
+|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |
+|  oo  ~~ - ~~  oo  |             | H | T | T | P | |  oo  ~~ O ~~  oo  |
+|   ooooooooooooo   |             +---+---+---+---+ |   ooooooooooooo   |
+|                   |                               |                   |
++-------------------+-------------------------------+-------------------+
++-----+-----------------------------------------------------------------+
+|  4  |  WEB (EMSCRIPTEN - WASM)                                        |
++-----+-----------------------------------------------------------------+
+
+
+  Spustit skript [make_wasm.sh].
+
+
+  Prerekvizity:
+    - unixove prostredi (resp. Bash shell),
+    - nainstalovane a nastavene EMSDK [source emsdk/emsdk_env.sh]
+      pro sestavovani Wasm pres Emscripten (obsahuje i potrebne npm)
+      [https://emscripten.org/docs/getting_started/downloads.html].
+
+
 ```
