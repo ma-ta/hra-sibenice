@@ -58,7 +58,7 @@
 
 
 ######################################
-# ČÁST 1 - vytvoření webu s Xterm.js:
+# ČÁST 1 - vytvoreni webove casti, npm
 ######################################
 
 clear
