@@ -138,7 +138,7 @@ echo ''
   out_dir=$top_dir'/bin/wasm'
 
 # kopirovani souboru pro frontend
-  cp -R $src_dir $out_dir
+  cp -R $src_dir'/.' $out_dir
 
 # vyckani na stisk klavesy
   echo ''
