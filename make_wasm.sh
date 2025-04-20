@@ -25,10 +25,13 @@
   # -wasm.js / -wasm.mjs / -wasm.html
   bin_nazev='sibenice-wasm.mjs'
 
-# korenovy adresar se zdrojovymi kody
-  src_dir=$top_dir'/source'
+# korenovy adresar se zdrojovymi kody (C)
+  c_dir=$top_dir'/source'
 
-# korenovy adresar pro binarni soubory
+# korenovy adresar se zdrojovymi kody (WEB)
+  web_dir=$top_dir'/source-web'
+
+# korenovy adresar pro sestaveni
   out_dir=$top_dir'/bin/wasm'
 
 # parametry prekladace
@@ -55,15 +58,52 @@
 
 
 ######################################
-# ČÁST 1 - kompilace Wasm:
+# ČÁST 1 - vytvoření webu s Xterm.js:
 ######################################
 
 clear
 
 echo $oramovani
-echo 'SESTAVUJI - Vypis chyb a udalosti:'
+echo 'VYTVARIM WEB - npm, frontend atd.:'
 echo $oramovani
 echo ''
+
+# korenovy adresar se zdrojovymi kody
+  src_dir=$web_dir
+
+# korenovy adresar pro binarni soubory
+  out_dir=$out_dir
+
+# overeni a aktualizace zavislosti
+  cd $src_dir
+  ./make_web.sh
+  cd $top_dir
+
+# kopirovani souboru pro frontend
+  cp -R -p $src_dir'/.' $out_dir
+
+# vyckani na stisk klavesy
+  echo ''
+  echo $oramovani
+  echo ''
+  echo '(stiskni Enter...)'
+  read INPUT
+
+
+######################################
+# ČÁST 2 - kompilace Wasm s xterm-pty:
+######################################
+
+echo $oramovani
+echo 'KOMPILUJI - Emscripten, Wasm:'
+echo $oramovani
+echo ''
+
+# korenovy adresar se zdrojovymi kody
+  src_dir=$c_dir
+
+# korenovy adresar pro binarni soubory
+  out_dir=$out_dir
 
 # vytvori adresar bin pro vystupy
   mkdir -p $out_dir
@@ -113,32 +153,6 @@ echo ''
   ${CC} $link_param $fs_data $js_libs *.o -o $bin_nazev
   rm *.o
 
-
-# vyckani na stisk klavesy
-  echo ''
-  echo $oramovani
-  echo ''
-  echo '(stiskni Enter...)'
-  read INPUT
-
-
-######################################
-# ČÁST 2 - vytvoření webu s Xterm.js:
-######################################
-
-echo $oramovani
-echo 'VYTVARIM WEB - backend, frontend:'
-echo $oramovani
-echo ''
-
-# korenovy adresar se zdrojovymi kody
-  src_dir=$top_dir'/source-web'
-
-# korenovy adresar pro binarni soubory
-  out_dir=$top_dir'/bin/wasm'
-
-# kopirovani souboru pro frontend
-  cp -R $src_dir'/.' $out_dir
 
 # vyckani na stisk klavesy
   echo ''

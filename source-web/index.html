@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
   <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Multiplatformní implementace známé slovní hry Šibenice pro terminál">
+    <meta name="keywords" content="šibenice, oběšenec, hra šibenice, hra oběšenec">
+    <meta name="author" content="Martin TÁBOR (alias Ma-TA)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
+    <title>Hra Šibenice</title>
     <style>
       body {
         font-size: 14pt;
@@ -10,20 +16,20 @@
         background-color: #fff;
       }
       #terminal {
-        margin: auto;
         width: 37em;
-        height: 74em;
+        margin: auto;
       }
-    </style>
+      </style>
   </head>
   <body>
     <div id="terminal"></div>
     <script type="module">
       import './node_modules/@xterm/xterm/lib/xterm.js';
       import { openpty } from './node_modules/xterm-pty/index.mjs';
-      import initEmscripten from './sibenice-wasm.mjs';
+      import sibeniceWasm from './sibenice-wasm.mjs';
 
-      let xterm = new Terminal({
+      const xterm = new Terminal({
+        fontSize: 15,
         fontFamily: ['JetBrains Mono', 'Consolas', 'monospace'],
         rows: 37,
         cols: 74,
@@ -36,15 +42,16 @@
         },
         convertEol: true,
       });
+
+      // spuštění terminálu
       xterm.open(document.getElementById('terminal'));
 
-      // Create master/slave objects
+      // vytvoření objektů master/slave (xterm-pty)
       const { master, slave } = openpty();
-
-      // Connect the master object to xterm.js
+      // napojení objektu master (xterm-pty) k Xterm.js
       xterm.loadAddon(master);
-
-      await initEmscripten({ pty: slave });
+      // napojení objektu slave (xterm-pty) k Emscriptenu
+      await sibeniceWasm({ pty: slave });
     </script>
   </body>
 </html>
