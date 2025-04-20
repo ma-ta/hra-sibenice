@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 24.04.2 LTS + Emscripten v4.0.7
+# Testovane OS: Ubuntu 24.04.2 LTS + Emscripten v4.0.7 + xterm-pty v0.11.1
 
 ######################################
 #                                    #
@@ -9,7 +9,7 @@
 #  (UN*X / BASH|ZSH / EMSCRIPTEN     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-04-16                #
+#  datum:  2025-04-20                #
 #                                    #
 ######################################
 
@@ -18,46 +18,45 @@
 # KONFIGURACE:
 ######################################
 
+# ulozeni vychoziho adresare
+  top_dir=`pwd`
+
 # nazev spustitelneho souboru
-  # -web / -nodejs / -...
-  bin_nazev='sibenice-web.js'
+  # -wasm.js / -wasm.mjs / -wasm.html
+  bin_nazev='sibenice-wasm.mjs'
 
 # korenovy adresar se zdrojovymi kody
-  src_dir=`pwd`'/source'
+  src_dir=$top_dir'/source'
 
 # korenovy adresar pro binarni soubory
-  out_dir=`pwd`'/bin/wasm'
+  out_dir=$top_dir'/bin/wasm'
 
 # parametry prekladace
-  # debug (navíc):
-    #  -g4  \
-    #  -s ASSERTIONS=1
-  # release:
-    #  --preload-file data@data  \
-    #  -s EXIT_RUNTIME=0  \
-    #  -s WASM=1  \
-    #  -s MODULARIZE=1  \
-    #  -s EXPORT_ES6=1  \
-    #  -s ENVIRONMENT="web"  \
-    #  -s FORCE_FILESYSTEM=1
-  cc_param=--preload-file data@data -g  \
-    -s ASSERTIONS=1  \
-    -s EXIT_RUNTIME=0  \
-    -s WASM=1  \
-    -s MODULARIZE=1  \
-    -s EXPORT_ES6=1  \
-    -s ENVIRONMENT="web"  \
-    -s FORCE_FILESYSTEM=1
+  cc_param='-O3'
+
+# parametry pri linkovani *.o
+  link_param='-s ASYNCIFY
+    -s WASM=1
+    -s EXIT_RUNTIME=1
+    -s FORCE_FILESYSTEM=1'
 
   # prikaz pro spusteni prekladace vc. parametru (emcc apod.)
   CC='emcc '$cc_param
 
-# oramovani
+  # cesta k souborum, ktere maji byt zahrnuty ve virtualnim FS
+  fs_data='--preload-file ../../source/data@data'
+
+  # cesta ke JS-knihovnam (emscripten-pty.js apod.)
+  js_libs='--js-library=../../source-web/node_modules/xterm-pty/emscripten-pty.js'
+
+
+# oramovani (pouze pro vystup skriptu)
   oramovani='----------------------------------'
 
 
 ######################################
-
+# ČÁST 1 - kompilace Wasm:
+######################################
 
 clear
 
@@ -67,7 +66,7 @@ echo $oramovani
 echo ''
 
 # vytvori adresar bin pro vystupy
-  mkdir $out_dir
+  mkdir -p $out_dir
 # zkopiruje slozku data do slozky bin
   #cp -R $src_dir'/data' $out_dir
 # zkopiruje info a napovedu do slozky bin
@@ -111,9 +110,35 @@ echo ''
 
 # sestaveni spustitelneho souboru
   cd $out_dir
-  ${CC} *.o --preload-file ../../source/data@data -o $bin_nazev
+  ${CC} $link_param $fs_data $js_libs *.o -o $bin_nazev
   rm *.o
 
+
+# vyckani na stisk klavesy
+  echo ''
+  echo $oramovani
+  echo ''
+  echo '(stiskni Enter...)'
+  read INPUT
+
+
+######################################
+# ČÁST 2 - vytvoření webu s Xterm.js:
+######################################
+
+echo $oramovani
+echo 'VYTVARIM WEB - backend, frontend:'
+echo $oramovani
+echo ''
+
+# korenovy adresar se zdrojovymi kody
+  src_dir=$top_dir'/source-web'
+
+# korenovy adresar pro binarni soubory
+  out_dir=$top_dir'/bin/wasm'
+
+# kopirovani souboru pro frontend
+  cp -R $src_dir $out_dir
 
 # vyckani na stisk klavesy
   echo ''

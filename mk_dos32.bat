@@ -11,7 +11,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (FreeDOS / BATCH / DJGPP GCC)     ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-04-12                ::
+rem ::  datum:  2025-04-20                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 
@@ -26,8 +26,8 @@ rem :: nazev spustitelneho souboru
 
 rem :: parametry pro prekladac (DJGPP)
        rem :: debug:    -Wall -Wextra -pedantic -g
-       rem :: release:  -O2
-           set cc_param=-O2
+       rem :: release:  -O3
+           set cc_param=-O3
 
 rem :: prikaz pro spusteni prekladace vc. parametru (gcc/wcc apod.)
        set cc=gcc
@@ -38,7 +38,8 @@ rem :: korenovy adresar se zdrojovymi kody
 rem :: korenovy adresar pro binarni soubory
        set out_dir=.\bin
 
-rem :: oramovani
+
+rem :: oramovani (pouze pro vystup skriptu)
        set oramovani=----------------------------------
 
 
@@ -117,6 +118,7 @@ rem :: spusteni sestaveneho programu
        echo.
 
        %out_dir%\%bin_nazev%.exe -v
+
 
 rem :: vyckani na stisk klavesy
        echo.

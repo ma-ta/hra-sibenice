@@ -173,9 +173,12 @@
 #define TERM_SIRKA_DOS  80  /* při použití přepínače -c (v GUI) */
 #define TERM_VYSKA_DOS  26  /* při 25 zn. může "poskakovat" Nápověda */
 
-#ifdef OS_DOS
+#if defined(OS_DOS)
   #undef  ANSI_FORMAT
   #define ANSI_FORMAT  0
+#endif
+
+#if defined(OS_DOS) || defined(OS_WEB)
   #undef  TERM_SET
   #define TERM_SET     0
 #endif
@@ -239,7 +242,7 @@
                       "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni velikosti terminalu,\n"  \
                       "\t        pripadne s [x y] nastavi rozmery"
 
-#ifdef OS_DOS  /* vynechá se [-c] a [-w] */
+#if defined(OS_DOS) || defined(OS_WEB)  /* vynechá se [-c] a [-w] */
   #define ARG_HLP_TEXT  ARG_HLP_TXT1
 #elif TERM_SET == 0  /* vynechá se [-w] */
   #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2
@@ -258,10 +261,15 @@
 
 /* detekce OS pro příkaz vymazání obrazovky */
 #if (DEBUG == 0)
-  #if (defined(OS_WIN) || defined(OS_DOS))
-    #define vymaz_obr()  system("cls")
-  #else
+  #if defined(OS_UNIX)
     #define vymaz_obr()  system("clear")
+  #elif (defined(OS_WIN) || defined(OS_DOS))
+    #define vymaz_obr()  system("cls")
+  #else  /* ANSI escape */
+    #define vymaz_obr() {  \
+      printf(ansi_erase_scr(ANSI_ERASE_ALL));  \
+      printf(ansi_position(0, 0));  \
+    }
   #endif
 #else
   #define vymaz_obr()

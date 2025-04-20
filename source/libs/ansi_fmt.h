@@ -41,7 +41,7 @@
 #define ANSI_WHITE    "7"  /* bílá */
 #define ANSI_BLACK    "0"  /* černá */
 
-#define ANSI_LIGHT     ";1"  /* světlejší varianta barvy */
+#define ANSI_LIGHT     "1;"  /* světlejší varianta barvy */
 #define ANSI_COLOR_OFF  "9"  /* implicitní barva */
 
 /* kurzor */
@@ -64,10 +64,11 @@
 
 #if ANSI_FORMAT == 1
   #define ansi_format(format)        CSI format SGR
-  /* použije se např. jako parametr ansi_frcolor() nebo ansi_bgcolor() */
-  #define ansi_light(color)          color ANSI_LIGHT
-  #define ansi_frcolor(color)        CSI ANSI_FRCOLOR color SGR
-  #define ansi_bgcolor(color)        CSI ANSI_BGCOLOR color SGR
+
+  /* (všechny barvy nastaveny na LIGHT variantu) */
+  #define ansi_frcolor(color)        CSI ANSI_LIGHT ANSI_FRCOLOR color SGR
+  #define ansi_bgcolor(color)        CSI ANSI_LIGHT ANSI_BGCOLOR color SGR
+
   #define ansi_cursor_off()          CSI "?25l"
   #define ansi_cursor_on()           CSI "?25h"
 
@@ -75,7 +76,6 @@
   #define ansi_osc_title_kde         OSC "30;%s" BEL  // titulek KDE Konsole
 #else
   #define ansi_format(format)        ""
-  #define ansi_light(color)          ""
   #define ansi_frcolor(color)        ""
   #define ansi_bgcolor(color)        ""
   #define ansi_cursor_off()          ""

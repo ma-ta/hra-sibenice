@@ -9,7 +9,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-04-12                #
+#  datum:  2025-04-20                #
 #                                    #
 ######################################
 
@@ -22,12 +22,12 @@
 # nazev spustitelneho souboru
   # -linux64 / -linuxArm64 / -linux32 /
   # -mac64 / -macArm64 / -...
-  bin_nazev='sibenice'
+  bin_nazev='sibenice-unix'
 
 # parametry prekladace
   # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
-  # release: '-O2 -Wno-unused-result'
-  cc_param='-O2 -Wno-unused-result'
+  # release: '-O3 -Wno-unused-result'
+  cc_param='-O3 -Wno-unused-result'
 
   # pro macOS je mozne vyuzit prepinace:
     # [-arch arm64] pro Silicon, [-arch x86_64] pro Intel,
@@ -51,7 +51,8 @@
 # korenovy adresar pro binarni soubory
   out_dir=`pwd`'/bin'
 
-# oramovani
+
+# oramovani (pouze pro vystup skriptu)
   oramovani='----------------------------------'
 
 
@@ -66,7 +67,7 @@ echo $oramovani
 echo ''
 
 # vytvori adresar bin pro vystupy
-  mkdir $out_dir
+  mkdir -p $out_dir
 # zkopiruje slozku data do slozky bin
   cp -R $src_dir'/data' $out_dir
 # zkopiruje info a napovedu do slozky bin
@@ -123,6 +124,7 @@ echo ''
   echo ''
 
   $out_dir/$bin_nazev -v
+
 
 # vyckani na stisk klavesy
   echo ''

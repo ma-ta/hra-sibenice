@@ -8,7 +8,7 @@
 ::  (WINDOWS / BATCH / MSVC)          ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-04-12                ::
+::  datum:  2025-04-20                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -50,7 +50,8 @@
    set res_dir=.\res
    set vs_version_info=win-versioninfo
 
-:: oramovani
+
+:: oramovani (pouze pro vystup skriptu)
    set oramovani=----------------------------------
 
 
@@ -133,6 +134,7 @@ echo.
    echo.
 
    %out_dir%\%bin_nazev%.exe -v
+
 
 :: vyckani na stisk klavesy
    echo.

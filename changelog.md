@@ -9,10 +9,17 @@ NOVINKY:
 1) webová verze hry na bázi WebAssembly a Xterm.js
    (lze spustit lokálně téměř v jakémkoli v prohlížeči)
 
-2) Windows: automatické nastavení písma terminálu
+2) Windows: automatické nastavení fontu terminálu na
+   Cascadia Mono
 
 3) zašifrování hádaných slov ve zdrojovém souboru [game_cs.dat]
    (již nejdou jednoduše zobrazit např. v textovém editoru)
+
+
+OPRAVENÉ CHYBY:
+
+1) barevné texty přepnuty na jasnější varianty pro
+   lepší čitelnost (ANSI escape code "1;")
 
 
 +--------+------------+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
+    <style>
+      body {
+        font-size: 16pt;
+        margin: 0;
+        padding: 1em;
+        background-color: #fff;
+      }
+      #terminal {
+        margin: auto;
+        width: 37em;
+        height: 74em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="terminal"></div>
+    <script type="module">
+      import './node_modules/@xterm/xterm/lib/xterm.js';
+      import { openpty } from './node_modules/xterm-pty/index.mjs';
+      import initEmscripten from './emscripten/sibenice-wasm.mjs';
+
+      let xterm = new Terminal({
+        fontSize: 14,
+        fontFamily: ['JetBrains Mono', 'Cascadia Code', 'monospace'],
+        rows: 37,
+        cols: 74,
+        cursorBlink: true,
+        theme: {
+          background: '#121212',
+          foreground: '#cccccc',
+          cursor: '#cccccc',
+          selection: '#ffffff',
+        },
+        convertEol: true,
+      });
+      xterm.open(document.getElementById('terminal'));
+
+      // Create master/slave objects
+      const { master, slave } = openpty();
+
+      // Connect the master object to xterm.js
+      xterm.loadAddon(master);
+
+      await initEmscripten({ pty: slave });
+    </script>
+  </body>
+</html>

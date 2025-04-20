@@ -45,7 +45,8 @@ rem :: korenovy adresar se zdrojovymi kody
 rem :: korenovy adresar pro binarni soubory
        set out_dir=.\bin
 
-rem :: oramovani
+
+rem :: oramovani (pouze pro vystup skriptu)
        set oramovani=----------------------------------
 
 
@@ -123,6 +124,7 @@ rem :: spusteni sestaveneho programu
        echo.
 
        %out_dir%\%bin_nazev%.exe -v
+
 
 rem :: vyckani na stisk klavesy
        echo.

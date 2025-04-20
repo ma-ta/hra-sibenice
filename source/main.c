@@ -76,9 +76,9 @@ static void prepni_adresar(int argc, char *argv[]);
 int main(int argc, char *argv[])
 {
   #ifdef OS_WEB
-    /* vypnutí bufferování pro okamžitý výstup (např. Xterm.js) */
+    /* vypnutí bufferování pro okamžitý výstup (např. Emscripten) */
     setvbuf(stdout, NULL, _IONBF, 0);
-    setvbuf(stderr, NULL, _IONBF, 0);
+    setvbuf(stderr, NULL, _IONBF, 0);  /* pro jistotu */
   #endif
 
   /* čas začátku běhu programu */
