@@ -1,3 +1,6 @@
+/* KÓD NENÍ BEZ CHYB, nicméně funkční pro omezený rozsah
+   predikovatelných vstupních hodnot (v rámci aplikace) */
+
 #include <stdio.h>
 #include "../globconf.h"
 #include "krypto.h"
