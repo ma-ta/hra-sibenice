@@ -10,7 +10,9 @@ NOVINKY:
    (lze spustit lokálně téměř v jakémkoli v prohlížeči)
 
 2) zašifrování hádaných slov v datovém souboru [game_cs.dat]
-   (slovník již nelze jednoduše přečíst v textovém editoru)
+   => slovník již nelze jednoduše přečíst nebo podvrhnout
+   vlastním "alternativním" seznamem slov (v tom případě se
+   ve hře jednoduše objeví nesmyslné řetězce)
 
 
 OPRAVENÉ CHYBY:
