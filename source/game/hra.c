@@ -11,6 +11,7 @@
 #include "../tui/hlavicka.h"
 #include "../help/napoveda.h"
 #include "../stats/stats.h"
+#include "../libs/krypto.h"
 
 
 typedef enum {
@@ -19,7 +20,9 @@ typedef enum {
 static char *volby_seznam[] = { HRA_VOLBY_SZN };  /* popisky zvláštních voleb */
 static int  volby_hodnoty[] = { HRA_VOLBY_HODNOTY };
 static FILE *f_slova = NULL;  /* soubor se slovy k hádání */
-static char *slova[HRA_POCETSLOV];  /* dynamické pole pro uložení slov ze souboru */
+static char *slova[HRA_POCETSLOV];  /* pole pro uložení slov ze souboru
+                                       TODO: změnit na dynamické a alokovat
+                                             až dle počtu slov v souboru */
 bool slova_nactena = false;
 
 extern int hlaska_fmt;            /* slouží provizorně k resetování formátu hlášky v modulu tui_slov.c */
@@ -204,7 +207,9 @@ static bool nacti_slova(void)
     return false;
   }
 
-  /* načte slova do paměti */
+  /* načte slova do paměti
+     TODO: bylo by vhodné zavést automatickou detekci počtu řádků (slov)
+           (aktuálně na základě sym. konst. HRA_POCETSLOV) */
   for (i = 0; i < (int) (sizeof(slova) / sizeof(slova[0])); i++) {
     if (!feof(f_slova)) {
       /* načtení řádku */
@@ -225,6 +230,11 @@ static bool nacti_slova(void)
         return false;
       }
       else {
+        #if HRA_SLOVA_SIF_ZAP == 1
+          /* dešifrování slova - výsledek musí mít max. stejnou délku !!
+             (případně nutné přepsat kód pro alokaci paměti výše) */
+          sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo);
+        #endif
         /* zkopírování načteného slova do pole slov */
         strcpy(slova[i], slovo);
       }

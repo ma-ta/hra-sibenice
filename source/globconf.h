@@ -388,8 +388,11 @@
 
 /* hra */
 
-#define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku */
-#define HRA_POMOC_ZN_CENA   10    /* počet bodů za pomoc - doplnění písmene */
+#define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku, TODO: automatizovat detekci */
+#define HRA_SLOVA_SIF_ZAP   1     /* aplikovat dešifrování na načítaná slova */
+/* tajný klíč (XOR) k dešifrování slovníku */
+#define HRA_SLOVA_SIF_KEY   9    /* klíč (heslo, konstanta) k dešifrování slov */
+#define HRA_POMOC_ZN_CENA   10   /* počet bodů za pomoc - doplnění písmene (NEIMPLEMENTOVÁNO) */
 #define HRA_HLASKA_FORMAT   ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"
 
@@ -451,7 +454,7 @@
 
 /* statistiky */
 
-#define STATS_TAJNE_HESLO   "TajneHeslo"  /* konstanta pro editaci statistik a ověření souboru */
+#define STATS_TAJNE_HESLO   "TajneHeslo"  /* (NEIMPLEMENTOVÁNO) pro kontrolní součet */
 #define STATS_VYCHOZI_JMN   "Ma-TA"  /* výchozí nejlepší hráč */
 #define STATS_TOPNEJ_BARVA  ansi_frcolor(ANSI_YELLOW)  /* obarvení NEJ záznamů */
 #define STATS_VYCHOZI_B     50  /* výchozí nejlepší skóre */
