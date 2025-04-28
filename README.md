@@ -27,7 +27,7 @@
 | 🪟&nbsp;Windows | 🆕 | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
 | 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
 | 🍎&nbsp;macOS   |    | ✅           | ✅            | ❌            | ❌          | &ndash;
-| 💾&nbsp;DOS     |    | ❌           | ❌            | 🆕            | 🆕 ☢️       | &ndash;
+| 💾&nbsp;DOS     |    | ❌           | ❌            | ❌            | 🆕 ☢️       | &ndash;
 | 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🆕 ☢️
 
 **Legenda:**
@@ -67,7 +67,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
   - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
-    - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
+    - *~~(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]~~*&nbsp;&nbsp;❌&nbsp;(pouze do [v1.1.0](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0))
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
 - 🌐&nbsp;Web:
   - Wasm *(Emscripten 4.0.7) &ndash; [wasm-32]*
