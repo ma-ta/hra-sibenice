@@ -12,7 +12,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (FreeDOS / BATCH / OPEN WATCOM)   ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-04-12                ::
+rem ::  datum:  2025-04-28                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 

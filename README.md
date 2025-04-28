@@ -16,11 +16,11 @@
 
 ### Binárky ke stažení
 
-- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-setupwin.exe)**
+- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-setupwin.exe)**
 - ⬇️&nbsp;Stáhnout All-in-1 řešení: 
-  [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-bin.tar.gz)&nbsp;📦, 
-  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.1.0/sibenice-bin.zip)&nbsp;📦<br>
-  (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.1.0/bin/readme.md) dle vaší platformy):
+  [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.tar.gz)&nbsp;📦, 
+  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.zip)&nbsp;📦<br>
+  (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/bin/readme.md) dle vaší platformy):
 
 | Platforma       | 💽 | x86_64       | AArch64       | x86 32-bit     | x86 16-bit  | Wasm
 |-----------------|----|--------------|---------------|----------------|--------------|------------
@@ -31,25 +31,25 @@
 | 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🆕 ☢️
 
 **Legenda:**
-  - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**),
+  - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-28**),
   - ✅&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
-  - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.1.0/bin-setup),
+  - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup),
   - 🔥&nbsp;&ndash;&nbsp;ve vývoji,
   - ❌&nbsp;&ndash;&nbsp;nepodporovaná/neexistující/netestovaná platforma.
 
 **Další odkazy:**
 - [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
-- [Adresář s binárkami](https://github.com/ma-ta/hra-sibenice/tree/v1.1.0/bin)
+- [Adresář s binárkami](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin)
 
 
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
-- **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.1.0/how_make.md)**
-- [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.1.0/res/napoveda.md)
-- [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.1.0/res/poznamky.md)
+- **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/how_make.md)**
+- [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/res/napoveda.md)
+- [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/res/poznamky.md)
 
 #### Pozn. pro systémy typu 💾&nbsp;DOS
 U 32-bit binárky v případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).  
@@ -74,7 +74,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 ### Snímky obrazovky
 
-- [Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.1.0/res/screenshots)
+- [Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/res/screenshots)
 
 ![Šibenice&nbsp;&ndash;&nbsp;macOS 15.4 Terminal](/res/screenshots/hra-macos.png)
 

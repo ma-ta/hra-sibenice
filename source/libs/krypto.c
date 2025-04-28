@@ -6,16 +6,16 @@
 #include "krypto.h"
 
 
-// TEST MODULU - aktivace fce. main()
-// (definováno také v globconf.h)
-//===========================
+/* TEST MODULU - aktivace fce. main()
+   (definováno také v globconf.h)  */
+/***********************************/
 #undef  DEBUG
-#define DEBUG  0  // VYP => 0
-//===========================
+#define DEBUG  0       /* VYP => 0 */
+/***********************************/
 #if DEBUG == 1
   #include <string.h>
 #endif
-//===========================
+/***********************************/
 
 
 /* klasická Caesarova šifra

@@ -3,7 +3,7 @@
 rem :: SKRIPT PRO 32-BIT BINARKU:
 rem :: (hra vyzaduje DOS extender - napr. CWSDPMI)
 
-rem :: Testovane OS: FreeDOS 1.3 az 1.4
+rem :: Testovane OS: FreeDOS 1.4
 
 rem ::::::::::::::::::::::::::::::::::::::::
 rem ::                                    ::
@@ -11,7 +11,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (FreeDOS / BATCH / DJGPP GCC)     ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-04-20                ::
+rem ::  datum:  2025-04-28                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 
