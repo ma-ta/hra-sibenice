@@ -23,7 +23,7 @@ rem ::::::::::::::::::::::::::::::::::::::::
 
 
 rem :: nazev spustitelneho souboru
-       set bin_nazev=sibe-d16
+       set bin_nazev=sibe-dos
 
 rem :: verze Open Watcom (zjistitelne prikazem [wcc])
        set cc_ver=1.9
