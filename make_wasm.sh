@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-# Testovane OS: Ubuntu 24.04.2 LTS + Emscripten v4.0.7 + xterm-pty v0.11.1
+# Testovane prostredi pro sestaveni:
+#   - Ubuntu 24.04.2 LTS + Emscripten v4.0.7,
+#   - npm v11.3.0 + vite v6.3.3, xterm v5.5.0, xterm-pty v0.11.1
 
 ######################################
 #                                    #
@@ -9,7 +11,7 @@
 #  (UN*X / BASH|ZSH / EMSCRIPTEN     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-04-20                #
+#  datum:  2025-04-28                #
 #                                    #
 ######################################
 
@@ -152,7 +154,6 @@ echo ''
   cd $out_dir
   ${CC} $link_param $fs_data $js_libs *.o -o $bin_nazev
   rm *.o
-
 
 # vyckani na stisk klavesy
   echo ''

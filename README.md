@@ -28,7 +28,7 @@
 | 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
 | 🍎&nbsp;macOS   |    | ✅           | ✅            | ❌            | ❌          | &ndash;
 | 💾&nbsp;DOS     |    | ❌           | ❌            | 🆕            | 🆕 ☢️       | &ndash;
-| 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🔥 ☢️
+| 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🆕 ☢️
 
 **Legenda:**
   - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-12**),
@@ -69,6 +69,8 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
   - FreeDOS 1.4:
     - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
+- 🌐&nbsp;Web:
+  - Wasm *(Emscripten 4.0.7) &ndash; [wasm-32]*
 
 ### Snímky obrazovky
 

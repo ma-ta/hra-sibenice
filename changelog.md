@@ -1,6 +1,6 @@
 ```
 +--------+------------+
-| v1.2.0 | 2025-05-01 | - VE VÝVOJI
+| v1.2.0 | 2025-04-28 |
 +--------+------------+
 
 
@@ -11,8 +11,8 @@ NOVINKY:
 
 2) zašifrování hádaných slov v datovém souboru [game_cs.dat]
    => slovník již nelze jednoduše přečíst nebo podvrhnout
-   vlastním "alternativním" seznamem slov (v tom případě se
-   ve hře jednoduše objeví nesmyslné řetězce)
+   vlastním "alternativním" seznamem slov (v tomto případě
+   se ve hře jednoduše objeví nesmyslné řetězce)
 
 
 OPRAVENÉ CHYBY:

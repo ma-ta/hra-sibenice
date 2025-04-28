@@ -50,7 +50,8 @@ data/
  stats.dat            - zdrojovy soubor obrazovky statistik    (textovy)
 
 wasm/                 - platforma WebAssembly
- 
+ index.html           - hlavni stranka (vyzaduje http server)  (webpage)
+ (*)                  - dalsi soubory potrebne pro index.html
 
 ------------------------------------------------------------------------
 

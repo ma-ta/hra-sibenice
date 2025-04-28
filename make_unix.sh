@@ -9,7 +9,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-04-20                #
+#  datum:  2025-04-28                #
 #                                    #
 ######################################
 
@@ -39,7 +39,7 @@
 
   # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat prislusne radky nize)
   # AArch64:
-    #sudo apt install gcc-aarch64-linux-gnu -y
+    #sudo apt install gcc-aarch64-linux-gnu
     #CC='aarch64-linux-gnu-gcc '$cc_param
   # x86 (i386):
     #sudo apt install gcc-multilib
