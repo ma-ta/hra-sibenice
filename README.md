@@ -78,6 +78,10 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 ![Šibenice&nbsp;&ndash;&nbsp;macOS 15.4 Terminal](/res/screenshots/hra-macos.png)
 
+Webové rozhraní:
+
+![Šibenice&nbsp;&ndash;&nbsp;webový prohlížeč](/res/screenshots/hra-web.png)
+
 Hlavní menu:
 
 ![Šibenice&nbsp;&ndash;&nbsp;Menu](/res/screenshots/menu.png)
