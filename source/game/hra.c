@@ -8,10 +8,10 @@
 #include "./game_tui/game_tui.h"
 #include "./hra.h"
 #include "../libs/ansi_fmt.h"
+#include "../libs/krypto.h"
 #include "../tui/hlavicka.h"
 #include "../help/napoveda.h"
 #include "../stats/stats.h"
-#include "../libs/krypto.h"
 
 
 typedef enum {
@@ -233,7 +233,7 @@ static bool nacti_slova(void)
         #if HRA_SLOVA_SIF_ZAP == 1
           /* dešifrování slova - výsledek musí mít max. stejnou délku !!
              (případně nutné přepsat kód pro alokaci paměti výše) */
-          sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo);
+          (void) sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo);
         #endif
         /* zkopírování načteného slova do pole slov */
         strcpy(slova[i], slovo);

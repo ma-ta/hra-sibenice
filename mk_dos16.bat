@@ -92,6 +92,11 @@ rem :: slozka help
        %cc% %cc_param% -c *.c
        cd ..\..
        move %src_dir%\help\*.obj %out_dir%
+rem :: slozka libs
+       cd %src_dir%\libs
+       %cc% %cc_param% -c *.c
+       cd ..\..
+       move %src_dir%\libs\*.obj %out_dir%
 rem :: slozka menu
        cd %src_dir%\menu
        %cc% %cc_param% -c *.c

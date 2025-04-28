@@ -24,10 +24,16 @@
     liší - nutno přepsat načítání slov a alokaci paměti v hra.c) */
 char *sifrovani_slov(int rezim, int klic, char *buffer)
 {
-  if (!buffer)  return NULL;
-
   char *p_znak = buffer;  /* zpracovávaný znak */
   int posun;  /* šifrovací konstanta (k přičtení/odečtení) */
+  int dolni_znak;  /* hodnota prvního znaku ('a', 'A', '0') */
+  int rozsah;  /* poslední znak ('z', 'Z', '9') */
+  int znak;  /* kvůli dereferencování (pro pohodlnost) */
+
+
+  if (buffer == NULL) {
+    return NULL;
+  }
 
   /* nastavení režimu funce dle parametru */
   switch (rezim) {
@@ -45,9 +51,7 @@ char *sifrovani_slov(int rezim, int klic, char *buffer)
   /* výkonná část */
 
   while (*p_znak != '\0') {
-    int dolni_znak;  /* hodnota prvního znaku ('a', 'A', '0') */
-    int rozsah;  /* poslední znak ('z', 'Z', '9') */
-    int znak = *p_znak;  /* kvůli dereferencování (pro pohodlnost) */
+    znak = (int) *p_znak;
 
     /* zpracovat či přeskočit znak */
     if (znak >= 'a' && znak <= 'z') {
