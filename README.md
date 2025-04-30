@@ -76,6 +76,8 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 - [Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/res/screenshots)
 
+macOS 15 (Sequoia):
+
 ![Šibenice&nbsp;&ndash;&nbsp;macOS 15.4 Terminal](/res/screenshots/hra-macos.png)
 
 Webové rozhraní:
