@@ -1,4 +1,4 @@
-Z technických důvodů nelze otevřít soubor [index.html] přímo v prohlížeči,  
+⚠️ Z technických důvodů nelze otevřít soubor [index.html] přímo v prohlížeči,  
 ale je nutný přístup přes jakýkoli jednoduchý webový server. Např.
 - Node.js (npm):  
   [npx http-server .],
