@@ -82,7 +82,7 @@ macOS 15 (Sequoia):
 
 Webové rozhraní:
 
-
+![Šibenice&nbsp;&ndash;&nbsp;webový prohlížeč](/res/screenshots/hra-web.png)
 
 Hlavní menu:
 
