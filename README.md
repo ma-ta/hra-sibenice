@@ -74,25 +74,25 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 ### Snímky obrazovky
 
-- [Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/res/screenshots)
+[Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/res/screenshots)
 
-> macOS 15 (Sequoia):
+- macOS 15.4 (Sequoia) Terminal:
 ![Šibenice&nbsp;&ndash;&nbsp;macOS 15.4 Terminal](/res/screenshots/hra-macos.png)
 
-Webové rozhraní:
-> ![Šibenice&nbsp;&ndash;&nbsp;webový prohlížeč](/res/screenshots/hra-web.png)
+- Webové rozhraní (Google Chrome 136):
+![Šibenice&nbsp;&ndash;&nbsp;webový prohlížeč](/res/screenshots/hra-web.png)
 
-Hlavní menu:
-> ![Šibenice&nbsp;&ndash;&nbsp;Menu](/res/screenshots/menu.png)
+- Informace o verzi (DOSBox-X 2025.02.01):
+![Šibenice&nbsp;&ndash;&nbsp;MS-DOS](res/screenshots/prepinace-dos.png)
 
-Obrazovka hry:
-> ![Šibenice&nbsp;&ndash;&nbsp;Hra](/res/screenshots/hra.png)
+- Hlavní menu:
+![Šibenice&nbsp;&ndash;&nbsp;Menu](/res/screenshots/menu.png)
 
-Herní statistiky:
-> ![Šibenice&nbsp;&ndash;&nbsp;Statistiky](/res/screenshots/kronika.png)
+- Obrazovka hry:
+![Šibenice&nbsp;&ndash;&nbsp;Hra](/res/screenshots/hra.png)
 
-Obrazovka hry (DOS – 25x80 znaků):
-> ![Šibenice&nbsp;&ndash;&nbsp;MS-DOS](res/screenshots/hra-dos.png)
+- Herní statistiky:
+![Šibenice&nbsp;&ndash;&nbsp;Statistiky](/res/screenshots/kronika.png)
 
-Informace o verzi (DOS):
-> ![Šibenice&nbsp;&ndash;&nbsp;MS-DOS](res/screenshots/prepinace-dos.png)
+- Obrazovka hry (DOS – 25x80 znaků):
+![Šibenice&nbsp;&ndash;&nbsp;MS-DOS](res/screenshots/hra-dos.png)
