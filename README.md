@@ -5,6 +5,7 @@
 ![Windows](https://img.shields.io/badge/OS-Windows-lightgrey?logo=pcgamingwiki&logoColor=white)
 ![macOS](https://img.shields.io/badge/OS-macOS-black?logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/OS-Linux-black?logo=linux&logoColor=white)
+![FreeBSD](https://img.shields.io/badge/OS-FreeBSD-black?logo=freebsd&logoColor=white)
 ![DOS](https://img.shields.io/badge/OS-DOS-lightgrey?logo=d&logoColor=white)
 ![DOS](https://img.shields.io/badge/Web-Assembly-654FF0?logo=webassembly&logoColor=white)
 
@@ -24,19 +25,19 @@
 
 | Platforma       | 💽 | x86_64       | AArch64       | x86 32-bit     | x86 16-bit  | Wasm
 |-----------------|----|--------------|---------------|----------------|--------------|------------
-| 🪟&nbsp;Windows | 🆕 | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
-| 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            | ❌          | &ndash;
-| 🍎&nbsp;macOS   |    | ✅           | ✅            | ❌            | ❌          | &ndash;
-| 💾&nbsp;DOS     |    | ❌           | ❌            | ❌            | 🆕 ☢️       | &ndash;
-| 🌐&nbsp;Web     |    | &ndash;      | &ndash;       | &ndash;        | &ndash;     | 🆕 ☢️
+| 🪟&nbsp;Windows | 🆕 | 🆕           | 🆕            | 🆕            |              | 
+| 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            |              | 
+| 🍎&nbsp;macOS   |    | ✅           | ✅            |                |              | 
+| 😈&nbsp;FreeBSD |    | 🆕           |               |                |              | 
+| 💾&nbsp;DOS     |    |              |               |                | 🆕 ☢️        | 
+| 🌐&nbsp;Web     |    |              |               |                |              | 🆕 ☢️
 
 **Legenda:**
   - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-28**),
   - ✅&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
   - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup),
-  - 🔥&nbsp;&ndash;&nbsp;ve vývoji,
-  - ❌&nbsp;&ndash;&nbsp;nepodporovaná/neexistující/netestovaná platforma.
+  - 🔥&nbsp;&ndash;&nbsp;ve vývoji.
 
 **Další odkazy:**
 - [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
@@ -63,6 +64,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 - UN*X:
   - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
+  - 😈&nbsp;FreeBSD 14.2 *(LLVM Clang 18.1.6) &ndash; [x86_64]*
 - 🪟&nbsp;Win:
   - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
 - 💾&nbsp;DOS:
