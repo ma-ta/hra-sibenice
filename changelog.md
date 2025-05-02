@@ -14,6 +14,8 @@ NOVINKY:
    vlastním "alternativním" seznamem slov (v tomto případě
    se ve hře jednoduše objeví nesmyslné řetězce)
 
+3) binárka pro FreeBSD [x86_64]
+
 
 OPRAVENÉ CHYBY:
 
