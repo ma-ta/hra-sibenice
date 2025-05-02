@@ -27,13 +27,13 @@
 |-----------------|----|--------------|---------------|----------------|--------------|------------
 | 🪟&nbsp;Windows | 🆕 | 🆕           | 🆕            | 🆕            |              | 
 | 🐧&nbsp;Linux   |    | 🆕           | 🆕            | 🆕            |              | 
-| 🍎&nbsp;macOS   |    | ✅           | ✅            |                |              | 
+| 🍎&nbsp;macOS   |    | ✅&nbsp;v1.1.0           | ✅&nbsp;v1.1.0            |                |              | 
 | 😈&nbsp;FreeBSD |    | 🆕           |               |                |              | 
 | 💾&nbsp;DOS     |    |              |               |                | 🆕 ☢️        | 
 | 🌐&nbsp;Web     |    |              |               |                |              | 🆕 ☢️
 
 **Legenda:**
-  - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**2025-04-28**),
+  - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**v1.2.0**),
   - ✅&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
   - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup),
