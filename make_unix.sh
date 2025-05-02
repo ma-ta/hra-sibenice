@@ -9,7 +9,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-04-28                #
+#  datum:  2025-05-02                #
 #                                    #
 ######################################
 
@@ -20,8 +20,8 @@
 
 
 # nazev spustitelneho souboru
-  # -linux64 / -linuxArm64 / -linux32 /
-  # -mac64 / -macArm64 / -...
+  # -linux64 / -linuxArm64 / -linux32
+  # -mac64 / -macArm64 / -freebsd64
   bin_nazev='sibenice-unix'
 
 # parametry prekladace
