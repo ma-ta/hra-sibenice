@@ -9,7 +9,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-05-02                #
+#  datum:  2025-05-03                #
 #                                    #
 ######################################
 
@@ -20,8 +20,9 @@
 
 
 # nazev spustitelneho souboru
-  # -linux64 / -linuxArm64 / -linux32
-  # -mac64 / -macArm64 / -freebsd64
+  # -linux64 / -linuxArm64 / -linux32 /
+  # -freebsd64 / -freebsdArm64 /
+  # -mac64 / -macArm64 / ...
   bin_nazev='sibenice-unix'
 
 # parametry prekladace
@@ -37,13 +38,21 @@
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
   CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)
 
-  # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat prislusne radky nize)
-  # AArch64:
-    #sudo apt install gcc-aarch64-linux-gnu
-    #CC='aarch64-linux-gnu-gcc '$cc_param
-  # x86 (i386):
-    #sudo apt install gcc-multilib
-    #CC='gcc -m32 '$cc_param
+  # CROSS KOMPILACE:
+    # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat prislusne radky nize)
+      # AArch64:
+        #sudo apt install gcc-aarch64-linux-gnu
+        #CC='aarch64-linux-gnu-gcc '$cc_param
+      # x86 (i386):
+        #sudo apt install gcc-multilib
+        #CC='gcc -m32 '$cc_param
+  # cross-kompilace pod FreeBSD 14.2 x86_64 (od-komentovat prislusne radky nize)
+    # AArch64:
+      #mkdir -p /opt/sysroot-aarch64
+      #fetch https://download.freebsd.org/ftp/releases/arm64/14.2-RELEASE/base.txz
+      #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
+      #CC='clang --target=aarch64-unknown-freebsd14.2 --sysroot=/opt/sysroot-aarch64'
+
 
 # korenovy adresar se zdrojovymi kody
   src_dir=`pwd`'/source'
