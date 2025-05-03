@@ -46,12 +46,12 @@
       # x86 (i386):
         #sudo apt install gcc-multilib
         #CC='gcc -m32 '$cc_param
-  # cross-kompilace pod FreeBSD 14.2 x86_64 (od-komentovat radky nize)
-    # AArch64:
-      #fetch https://download.freebsd.org/ftp/releases/arm64/14.2-RELEASE/base.txz
-      #mkdir -p /opt/sysroot-aarch64
-      #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
-      #CC='clang --target=aarch64-unknown-freebsd14.2 --sysroot=/opt/sysroot-aarch64'
+    # cross-kompilace pod FreeBSD 14.2 x86_64 (od-komentovat radky nize)
+      # AArch64:
+        #fetch https://download.freebsd.org/ftp/releases/arm64/14.2-RELEASE/base.txz
+        #mkdir -p /opt/sysroot-aarch64
+        #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
+        #CC='clang --target=aarch64-unknown-freebsd14.2 --sysroot=/opt/sysroot-aarch64'
 
 
 # korenovy adresar se zdrojovymi kody
