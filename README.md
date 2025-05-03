@@ -62,7 +62,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 #### Použité kompilátory *(testované platformy)*:
 - UN*X:
-  - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GNU GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
+  - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
   - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86_64] [AArch64]*
 - 🪟&nbsp;Win:
