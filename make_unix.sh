@@ -43,7 +43,6 @@
       # AArch64:
         #sudo apt install gcc-aarch64-linux-gnu
         #CC='aarch64-linux-gnu-gcc '$cc_param
-        # file $out_dir/$bin_nazev  # pro informace o binarce
       # x86 (i386):
         #sudo apt install gcc-multilib
         #CC='gcc -m32 '$cc_param
@@ -53,7 +52,6 @@
       #mkdir -p /opt/sysroot-aarch64
       #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
       #CC='clang --target=aarch64-unknown-freebsd14.2 --sysroot=/opt/sysroot-aarch64'
-      #file $out_dir/$bin_nazev  # pro informace o binarce
 
 
 # korenovy adresar se zdrojovymi kody
@@ -135,6 +133,11 @@ echo ''
   echo ''
 
   $out_dir/$bin_nazev -v
+
+# pro informace o binarce
+  echo $oramovani
+  echo ''
+  file $out_dir/$bin_nazev
 
 
 # vyckani na stisk klavesy
