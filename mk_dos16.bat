@@ -1,7 +1,6 @@
 @echo off
 
 rem :: SKRIPT PRO 16-BIT BINARKU:
-rem :: (hra vyzaduje vetsi zasobnik nez vychozi u Open Watcom)
 
 
 rem :: Testovane OS: FreeDOS 1.4
@@ -12,7 +11,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (FreeDOS / BATCH / OPEN WATCOM)   ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-04-28                ::
+rem ::  datum:  2025-05-04                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 
@@ -28,7 +27,8 @@ rem :: nazev spustitelneho souboru
 rem :: verze Open Watcom (zjistitelne prikazem [wcc])
        set cc_ver=1.9
 
-rem :: nastaveni velikosti zasobniku pro [wcl] (8 KB = Stack Overflow!)
+rem :: nastaveni velikosti zasobniku pro [wcl] (8 KB == Stack Overflow!)
+       rem :: (hra vyzaduje vetsi zasobnik nez je vychozi u Open Watcom)
        set wcl_stack=16384
 
 rem :: parametry pro prekladac (Open Watcom)

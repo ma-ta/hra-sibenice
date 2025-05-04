@@ -2,7 +2,7 @@
  *  Modul herních statistik
  *
  *  Zajišťuje načítání, aktualizaci a ukládání herních statistik do souboru.
- *  Rovněž vypisuje obrazovku "Herní kronika" a poskytuje znednodušený
+ *  Rovněž vypisuje obrazovku "Herní kronika" a poskytuje zjednodušený
  *  výstup do terminálu pomocí přepínače -s.
  *
  */

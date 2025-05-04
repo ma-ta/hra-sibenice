@@ -23,7 +23,7 @@
   [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.zip)&nbsp;📦<br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/bin/#readme) dle vaší platformy):
 
-| Platforma       | 💽 | x86_64         | AArch64        | x86 32-bit     | x86 16-bit  | Wasm
+| Platforma       | 💽 | x86_64         | AArch64        | x86 32-bit     | x86 16-bit  | wasm32
 |-----------------|----|-----------------|----------------|---------------|--------------|------------
 | 🪟&nbsp;Windows | 🆕 | 🆕             | 🆕             | 🆕            |              |
 | 🐧&nbsp;Linux   |    | 🆕             | 🆕             | 🆕            |              |
