@@ -4,3 +4,4 @@ ale je nutný přístup přes jakýkoli jednoduchý webový server. Např.
   [npx http-server .],
 - Live Preview pro VS Code  
   [https://marketplace.visualstudio.com/items/?itemName=ms-vscode.live-server].
+  
