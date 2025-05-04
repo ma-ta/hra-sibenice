@@ -28,8 +28,8 @@
 | 🪟&nbsp;Windows | 🆕 | 🆕             | 🆕             | 🆕            |              |
 | 🐧&nbsp;Linux   |    | 🆕             | 🆕             | 🆕            |              |
 | 🍎&nbsp;macOS   |    | ✅&nbsp;v1.1.0 | ✅&nbsp;v1.1.0 |               |              |
-| 😈&nbsp;FreeBSD |    | 🆕             | 🆕 ☢️          |               |               |
-| 💾&nbsp;DOS     |    |                |                 |               | 🆕 ☢️        |
+| 😈&nbsp;FreeBSD |    | 🆕             | 🆕 ☢️          |               |              |
+| 💾&nbsp;DOS     |    |                |                 |               | 🆕 ☢️       |
 | 🌐&nbsp;Web     |    |                |                 |               |              | 🆕 ☢️
 
 **Legenda:**
@@ -72,7 +72,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
     - *~~(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]~~*&nbsp;&nbsp;❌&nbsp;(pouze do [v1.1.0](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0))
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
 - 🌐&nbsp;Web:
-  - Wasm *(Emscripten 4.0.7) &ndash; [wasm-32]*
+  - Wasm *(Emscripten 4.0.7) &ndash; [wasm32]*
 
 ### Snímky obrazovky
 
