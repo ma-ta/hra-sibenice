@@ -72,7 +72,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
     - *~~(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]~~*&nbsp;&nbsp;❌&nbsp;(pouze do [v1.1.0](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0))
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
 - 🌐&nbsp;Web:
-  - Wasm *(Emscripten 4.0.7) &ndash; [wasm32]*
+  - Wasm *(Emscripten 4.0.8) &ndash; [wasm32]*
 
 ### Snímky obrazovky
 
