@@ -90,7 +90,7 @@ rem :: slozka libs
        cd %src_dir%\libs
        %cc% %cc_param% -c *.c
        cd ..\..
-       move %src_dir%\libs\*.obj %out_dir%
+       move %src_dir%\libs\*.o %out_dir%
 rem :: slozka menu
        cd %src_dir%\menu
        %cc% %cc_param% -c *.c

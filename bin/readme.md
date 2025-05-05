@@ -42,6 +42,8 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibenice-win32.exe   - platforma Windows   (32-bit, x86)      (program)
  sibenice-winArm64    - platforma Windows   (64-bit, AArch64)  (program)
  sibe-dos.exe         - platforma DOS       (16-bit, x86)      (program)
+ sibe-d32.exe         - platforma DOS       (32-bit, x86)      (program)
+ CWSDPMI.EXE          - nutne pro beh 32-bit verze v MS-DOS    (32-DPMI)
 
 data/
  (stats.sav)          - soubor s ulozenymi statistikami        (binarni)
