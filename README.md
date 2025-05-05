@@ -23,14 +23,14 @@
   [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.zip)&nbsp;📦<br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/bin/#readme) dle vaší platformy):
 
-| Platforma       | 💽 | x86-64         | ARM64 (AArch64)   | ARM (armhf) | x86 32-bit | x86 16-bit  | riscv64 | wasm32
-|-----------------|----|-----------------|------------------|-------------|------------|--------------|---------|------------
-| 🪟&nbsp;Windows | 🆕 | 🆕             | 🆕               |             | 🆕         |              |         |
-| 🐧&nbsp;Linux   |    | 🆕             | 🆕               | 🆕 ☢️       | 🆕         |              | 🆕 ☢️   |
-| 🍎&nbsp;macOS   |    | ✅&nbsp;v1.1.0 | ✅&nbsp;v1.1.0   |             |            |              |         |
-| 😈&nbsp;FreeBSD |    | 🆕             | 🆕 ☢️            |             |            |              |         |
-| 💾&nbsp;DOS     |    |                |                   |             |            | 🆕 ☢️       |         |
-| 🌐&nbsp;Web     |    |                |                   |             |            |              |         | 🆕 ☢️
+| Platforma       | 💽 | x86-64         | ARM64 (AArch64)   | ARM (armhf) | x86 32-bit | x86 16-bit  | RISC-V (riscv64) | wasm32
+|-----------------|----|-----------------|------------------|-------------|------------|--------------|-----------------|------------
+| 🪟&nbsp;Windows | 🆕 | 🆕             | 🆕               |             | 🆕         |              |                 |
+| 🐧&nbsp;Linux   |    | 🆕             | 🆕               | 🆕 ☢️       | 🆕         |              | 🆕 ☢️          |
+| 🍎&nbsp;macOS   |    | ✅&nbsp;v1.1.0 | ✅&nbsp;v1.1.0   |             |            |              |                 |
+| 😈&nbsp;FreeBSD |    | 🆕             | 🆕 ☢️            |             |            |              |                 |
+| 💾&nbsp;DOS     |    |                |                   |             |            | 🆕 ☢️       |                 |
+| 🌐&nbsp;Web     |    |                |                   |             |            |              |                 | 🆕 ☢️
 
 **Legenda:**
   - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**v1.2.0**),
