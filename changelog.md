@@ -16,7 +16,7 @@ NOVINKY:
 
 3) nové binárky:
    - FreeBSD [x86-64] [AArch64]
-   - Linux   [riscv64]
+   - Linux   [armhf] [riscv64]
 
 
 OPRAVENÉ CHYBY:
