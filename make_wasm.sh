@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / EMSCRIPTEN     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-05-04                #
+#  datum:  2025-05-05                #
 #                                    #
 ######################################
 

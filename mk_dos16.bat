@@ -2,7 +2,6 @@
 
 rem :: SKRIPT PRO 16-BIT BINARKU:
 
-
 rem :: Testovane OS: FreeDOS 1.4
 
 rem ::::::::::::::::::::::::::::::::::::::::
@@ -11,7 +10,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (FreeDOS / BATCH / OPEN WATCOM)   ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-05-04                ::
+rem ::  datum:  2025-05-05                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 

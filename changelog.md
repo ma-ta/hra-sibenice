@@ -14,7 +14,7 @@ NOVINKY:
    vlastním "alternativním" seznamem slov (v tomto případě
    se ve hře jednoduše objeví nesmyslné řetězce)
 
-3) binárka pro FreeBSD [x86_64] [AArch64]
+3) binárka pro FreeBSD [x86-64] [AArch64]
 
 
 OPRAVENÉ CHYBY:
@@ -32,9 +32,9 @@ NOVINKY:
 
 1) výpis typu architektury v informacích o verzi [-v],
    rozšírení dostupných binárek o nové architektury:
-   - Windows [x86_64] [AArch64] [x86]
-   - Linux   [x86_64] [AArch64] [x86]
-   - macOS   [AArch64] [x86_64] [Universal]
+   - Windows [x86-64] [AArch64] [x86]
+   - Linux   [x86-64] [AArch64] [x86]
+   - macOS   [AArch64] [x86-64] [Universal]
    - DOS     [x86 16-bit] [x86 32-bit]
 
 2) ikona a metadata aplikace:

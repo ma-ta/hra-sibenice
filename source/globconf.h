@@ -111,7 +111,7 @@
     #define ARCH  "?"
   #endif
 #elif defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
-  #define ARCH  "x86_64"
+  #define ARCH  "x86-64"
 #elif defined(_M_I86)  /* 16-bit: MSVC, Watcom */
   #define ARCH  "x86 16-bit"
 #elif defined(__i386__) || defined(_M_IX86)

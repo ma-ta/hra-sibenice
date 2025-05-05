@@ -23,7 +23,7 @@
   [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.zip)&nbsp;📦<br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/bin/#readme) dle vaší platformy):
 
-| Platforma       | 💽 | x86_64         | AArch64        | x86 32-bit     | x86 16-bit  | wasm32
+| Platforma       | 💽 | x86-64         | AArch64        | x86 32-bit     | x86 16-bit  | wasm32
 |-----------------|----|-----------------|----------------|---------------|--------------|------------
 | 🪟&nbsp;Windows | 🆕 | 🆕             | 🆕             | 🆕            |              |
 | 🐧&nbsp;Linux   |    | 🆕             | 🆕             | 🆕            |              |
@@ -62,11 +62,11 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 #### Použité kompilátory *(testované platformy)*:
 - UN*X:
-  - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86_64] [AArch64]*
-  - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86_64] [AArch64] [Universal]*
-  - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86_64] [AArch64]*
+  - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64]*
+  - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
+  - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86-64] [AArch64]*
 - 🪟&nbsp;Win:
-  - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86_64] [AArch64]*
+  - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *~~(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]~~*&nbsp;&nbsp;❌&nbsp;(pouze do [v1.1.0](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0))
