@@ -119,7 +119,15 @@
 #elif defined(__aarch64__) || defined(_M_ARM64)
   #define ARCH  "arm64"
 #elif defined(__arm__) || defined(_M_ARM)
-  #define ARCH  "arm"
+  #define ARCH  "arm 32-bit"
+#elif defined(__riscv)
+  #if __riscv_xlen == 64
+    #define ARCH  "riscv64"
+  #elif __riscv_xlen == 32
+    #define ARCH  "riscv32"
+  #else
+    #define ARCH  "risc-v"
+  #endif
 #else
   #define ARCH  "?"
 #endif

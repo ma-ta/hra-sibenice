@@ -20,8 +20,9 @@
 
 
 # nazev spustitelneho souboru
-  # -linux64 / -linuxArm64 / -linux32 / -fbsd64 / -fbsdArm64 /
-  # -mac64 / -macArm64 / ...
+  # -linux64 / -linux32 / -linuxArm64 / -linuxArm / -linuxRV64 / -...
+  # -fbsd64 / -fbsdArm64 / -...
+  # -mac64 / -macArm64 / -...
   bin_nazev='sibenice-unix'
 
 # parametry prekladace
@@ -39,12 +40,18 @@
 
   # CROSS KOMPILACE:
     # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat radky nize)
-      # AArch64:
+      # AArch64 (64-bit):
         #sudo apt install gcc-aarch64-linux-gnu
         #CC='aarch64-linux-gnu-gcc '$cc_param
-      # x86 (i386):
+      # x86 (i386, 32-bit):
         #sudo apt install gcc-multilib
         #CC='gcc -m32 '$cc_param
+      # riscv64 (RV64, RISC-V 64-bit):
+        #sudo apt install gcc-riscv64-linux-gnu
+        #CC='riscv64-linux-gnu-gcc '$cc_param
+      # armhf (ARM 32-bit):
+        #sudo apt install gcc-arm-linux-gnueabihf
+        #CC='arm-linux-gnueabihf-gcc '$cc_param
     # cross-kompilace pod FreeBSD 14.2 x86_64 (od-komentovat radky nize)
       # AArch64:
         #fetch https://download.freebsd.org/ftp/releases/arm64/14.2-RELEASE/base.txz
