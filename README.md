@@ -36,8 +36,7 @@
   - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**v1.2.0**),
   - ✅&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
   - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
-  - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup),
-  - 🔥&nbsp;&ndash;&nbsp;ve vývoji.
+  - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup).
 
 **Další odkazy:**
 - [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
@@ -60,7 +59,7 @@ Nativní 16-bit verze běží samostatně.
 Stažené binární soubory nejsou podepsané, proto je pravděpodobně bude možné spustit až po odebrání příslušného příznaku.<br>
 Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
-#### Použité kompilátory *(testované platformy)*:
+#### Použité kompilátory *(platformy)*:
 - UN*X:
   - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*

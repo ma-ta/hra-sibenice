@@ -28,7 +28,7 @@
 # parametry prekladace
   # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
   # release: '-O3 -Wno-unused-result'
-  cc_param='-O3 -Wno-unused-result'
+  cc_param='-O3 -Wno-unused-result'  # pro testovani cross-kompilace pridat [-static]
 
   # pro macOS je mozne vyuzit prepinace:
     # [-arch arm64] pro Silicon, [-arch x86_64] pro Intel,
@@ -36,22 +36,22 @@
     # [lipo -create -output sibenice-macUni sibenice-macArm64 sibenice-mac64]
 
   # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
-  CC='cc '$cc_param  # (pro cross-kompilaci řádek za-komentovat)
+  CC='cc '$cc_param
 
   # CROSS KOMPILACE:
     # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat radky nize)
-      # AArch64 (64-bit):
-        #sudo apt install gcc-aarch64-linux-gnu
-        #CC='aarch64-linux-gnu-gcc '$cc_param
       # x86 (i386, 32-bit):
         #sudo apt install gcc-multilib
         #CC='gcc -m32 '$cc_param
-      # riscv64 (RV64, RISC-V 64-bit):
-        #sudo apt install gcc-riscv64-linux-gnu
-        #CC='riscv64-linux-gnu-gcc '$cc_param
+      # AArch64 (ARM 64-bit):
+        #sudo apt install gcc-aarch64-linux-gnu
+        #CC='aarch64-linux-gnu-gcc '$cc_param
       # armhf (ARM 32-bit):
         #sudo apt install gcc-arm-linux-gnueabihf
         #CC='arm-linux-gnueabihf-gcc '$cc_param
+      # riscv64 (RV64, RISC-V 64-bit):
+        #sudo apt install gcc-riscv64-linux-gnu
+        #CC='riscv64-linux-gnu-gcc '$cc_param
     # cross-kompilace pod FreeBSD 14.2 x86_64 (od-komentovat radky nize)
       # AArch64:
         #fetch https://download.freebsd.org/ftp/releases/arm64/14.2-RELEASE/base.txz
