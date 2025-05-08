@@ -4,7 +4,7 @@
 +--------+------------+
 
 
-NOVINKY:
+OPRAVENÉ CHYBY:
 
 1) vylepšeno načítání slov ze slovníku v kódu [source/game/hra.c]:
    - automatické zjištění počtu slov v souboru
@@ -14,10 +14,7 @@ NOVINKY:
 2) obsah slovníku [res/data/game_cs.dat] nebude nadále zašifrovaný
    (pouze jeho kopie ve složce [bin/data])
 
-
-OPRAVENÉ CHYBY:
-
-1) objeveno a nahrazeno nesmyslné slovo ve slovníku [game_cs.dat]:
+3) objeveno a nahrazeno nesmyslné slovo ve slovníku [game_cs.dat]:
    "ubraz"
 
 
