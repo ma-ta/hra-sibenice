@@ -32,11 +32,11 @@
 | 💾&nbsp;DOS     |    |                 | 🆕            | 🆕&nbsp;☢️   |                    |                       |                     |
 | 🌐&nbsp;Web     |    |                 |               |               |                    |                       |                     | 🆕 ☢️
 
-**Legenda:**
-  - 🆕&nbsp;&ndash;&nbsp;nativní binárka (aktuální sestavení:&nbsp;**v1.2.0**),
-  - ✅&nbsp;&ndash;&nbsp;nativní binárka (starší sestavení),
-  - ☢️&nbsp;&ndash;&nbsp;nedostatečně otestovaná platforma,
-  - 💽&nbsp;&ndash;&nbsp;dostupný user-friendly (🐤&nbsp;BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup).
+> **Legenda:**  
+🆕&nbsp;–&nbsp;aktuální sestavení: v1.2.0,  
+✅&nbsp;–&nbsp;starší sestavení,  
+☢️&nbsp;–&nbsp;nedostatečně otestovaná platforma,  
+💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup).
 
 **Další odkazy:**
 - [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
