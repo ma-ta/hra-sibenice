@@ -17,39 +17,39 @@
 
 ### Binárky ke stažení
 
-- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-setupwin.exe)**
+- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.1/sibenice-setupwin.exe)**
 - ⬇️&nbsp;Stáhnout All-in-1 balíček (všechny binárky): 
-  [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.tar.gz)&nbsp;📦, 
-  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.zip)&nbsp;📦<br>
-  (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/bin/#readme) dle vaší platformy):
+  [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.1/sibenice-bin.tar.gz)&nbsp;📦, 
+  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.1/sibenice-bin.zip)&nbsp;📦<br>
+  (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.1/bin/#readme) dle vaší platformy):
 
-| Platforma       | <span title="Instalátor">💽</span> | x86-64          | x86<br>32-bit | x86<br>16-bit | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
-|-----------------|------------------------------------|-----------------|---------------|---------------|--------------------|-----------------------|---------------------|--------------------------------------------------
-| 🪟&nbsp;Windows | 🆕                                 | 🆕             | 🆕            |               | 🆕                 |                       |                     |
-| 🐧&nbsp;Linux   |                                    | 🆕              | 🆕           |               | 🆕                 | 🆕 ☢️                 | 🆕 ☢️              |
-| 🍎&nbsp;macOS   |                                    | ✅&nbsp;v1.1.0  |               |               | ✅&nbsp;v1.1.0    |                       |                     |
-| 😈&nbsp;FreeBSD |                                    | 🆕              |               |               | 🆕 ☢️             |                       |                     |
-| 💾&nbsp;DOS     |                                    |                 | 🆕            | 🆕 ☢️        |                    |                       |                     |
-| 🌐&nbsp;Web     |                                    |                 |               |               |                    |                       |                     | 🆕 ☢️
+| Platforma       | <span title="Instalátor">💽</span> | x86-64          | x86<br>32-bit  | x86<br>16-bit      | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
+|-----------------|------------------------------------|-----------------|----------------|--------------------|--------------------|-----------------------|---------------------|--------------------------------------------------
+| 🪟&nbsp;Windows | 🆕                                 | 🆕             | 🆕             |                    | 🆕                 |                       |                     |
+| 🐧&nbsp;Linux   |                                    | 🆕              | 🆕             |                    | 🆕                 | 🆕 ☢️                 | 🆕 ☢️              |
+| 🍎&nbsp;macOS   |                                    | ✅&nbsp;v1.1.0  |                |                    | ✅&nbsp;v1.1.0     |                       |                     |
+| 😈&nbsp;FreeBSD |                                    | ✅&nbsp;v1.2.0  |                |                    | ✅&nbsp;v1.2.0 ☢️  |                       |                     |
+| 💾&nbsp;DOS     |                                    |                 | ✅&nbsp;v1.2.0 | ✅&nbsp;v1.2.0 ☢️ |                    |                       |                     |
+| 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | ✅&nbsp;v1.2.0 ☢️
 
 > **Legenda:**  
-🆕&nbsp;–&nbsp;aktuální verze: **1.2.0**,  
+🆕&nbsp;–&nbsp;aktuální verze: **1.2.1**,  
 ✅&nbsp;–&nbsp;starší sestavení,  
 ☢️&nbsp;–&nbsp;nedostatečně otestovaná platforma,  
-💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup).
+💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.1/bin-setup).
 
 **Další odkazy:**
 - [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
-- [Adresář s binárkami](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin)
+- [Adresář s binárkami](https://github.com/ma-ta/hra-sibenice/tree/v1.2.1/bin)
 
 
 ### Popis a stručné instrukce
 Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
 
-- **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/how_make.md)**
-- [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/res/napoveda.md)
-- [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/res/poznamky.md)
+- **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.2.1/how_make.md)**
+- [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.2.1/res/napoveda.md)
+- [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.2.1/res/poznamky.md)
 
 #### Pozn. pro systémy typu 💾&nbsp;DOS
 U 32-bit binárky v případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).  
@@ -75,7 +75,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 ### Snímky obrazovky
 
-[Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/res/screenshots)
+[Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.2.1/res/screenshots)
 
 <figure>
   <figcaption>macOS 15.4 (Sequoia) Terminal:</figcaption>
