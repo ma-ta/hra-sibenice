@@ -1,3 +1,7 @@
+----------------------------------
+Ubuntu 24.04.2 (LTS) | file v5.45:
+----------------------------------
+
 ./sibenice-bin.tar.gz:     gzip compressed data, from Unix, original size modulo 2^32 2560000
 ./sibenice-bin.zip:        Zip archive data, at least v2.0 to extract, compression method=deflate
 
