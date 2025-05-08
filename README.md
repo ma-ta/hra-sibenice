@@ -33,7 +33,7 @@
 | 🌐&nbsp;Web     |                                    |                 |               |               |                    |                       |                     | 🆕 ☢️
 
 > **Legenda:**  
-🆕&nbsp;–&nbsp;aktuální sestavení: v1.2.0,  
+🆕&nbsp;–&nbsp;aktuální verze: **1.2.0**,  
 ✅&nbsp;–&nbsp;starší sestavení,  
 ☢️&nbsp;–&nbsp;nedostatečně otestovaná platforma,  
 💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.0/bin-setup).
