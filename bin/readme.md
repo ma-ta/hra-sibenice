@@ -28,6 +28,7 @@ Obsah aktualni slozky (nemusi byt kompletni):
 ./
  info.md              - (tento) soubor s rychlymi instrukcemi  (textovy)
  napoveda.md          - kompletni napoveda ke hre              (textovy)
+ soubory.txt          - log unixove utility [file] k souborum  (textovy)
  sibenice-linux64     - platforma GNU/Linux (64-bit, x86-64)   (program)
  sibenice-linux32     - platforma GNU/Linux (32-bit, x86)      (program)
  sibenice-linuxArm64  - platforma GNU/Linux (64-bit, AArch64)  (program)
