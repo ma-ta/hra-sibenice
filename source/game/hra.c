@@ -210,7 +210,7 @@ static bool nacti_slova(void)
   /* načte slova do paměti
      TODO: bylo by vhodné zavést automatickou detekci počtu řádků (slov)
            (aktuálně na základě sym. konst. HRA_POCETSLOV) */
-  for (i = 0; i < (int) (sizeof(slova) / sizeof(slova[0])); i++) {
+  for (i = 0; i < arrlen(slova); i++) {
     if (!feof(f_slova)) {
       /* načtení řádku */
       fgets(slovo, sizeof(slovo), f_slova);

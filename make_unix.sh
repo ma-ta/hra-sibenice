@@ -130,20 +130,22 @@ echo ''
   rm *.o
 
 
-# spusteni sestaveneho programu
+# informace o vytvorene binarce
   echo ''
   echo $oramovani
-  echo 'Spoustim:'
-  echo "${out_dir}/${bin_nazev}"
+  echo ''
+  echo "Informace o vytvorenem souboru [file ${bin_nazev}]:"
+  echo ''
+  file -b $out_dir/$bin_nazev | sed 's/, */,\n/g'
+  echo ''
+
+# spusteni sestaveneho programu
   echo $oramovani
+  echo ''
+  echo "Spoustim [./${bin_nazev} -v]:"
   echo ''
 
   $out_dir/$bin_nazev -v
-
-# pro informace o binarce
-  echo $oramovani
-  echo ''
-  file $out_dir/$bin_nazev
 
 
 # vyckani na stisk klavesy
