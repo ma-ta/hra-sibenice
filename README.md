@@ -23,7 +23,7 @@
   [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.2.0/sibenice-bin.zip)&nbsp;📦<br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.2.0/bin/#readme) dle vaší platformy):
 
-| Platforma       | 💽 | x86-64          | x86<br>32-bit | x86<br>16-bit | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | Wasm<br>(wasm32)
+| Platforma       | 💽 | x86-64          | x86<br>32-bit | x86<br>16-bit | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
 |-----------------|----|-----------------|---------------|---------------|--------------------|-----------------------|---------------------|-----------------
 | 🪟&nbsp;Windows | 🆕 | 🆕             | 🆕            |               | 🆕                 |                       |                     |
 | 🐧&nbsp;Linux   |    | 🆕              | 🆕           |               | 🆕                 | 🆕 ☢️                 | 🆕 ☢️              |
