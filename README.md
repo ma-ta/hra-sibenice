@@ -26,16 +26,15 @@
 | Platforma       | <span title="Instalátor">💽</span> | x86-64          | x86<br>32-bit  | x86<br>16-bit      | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
 |-----------------|------------------------------------|-----------------|----------------|--------------------|--------------------|-----------------------|---------------------|--------------------------------------------------
 | 🪟&nbsp;Windows | 🆕                                 | 🆕             | 🆕             |                    | 🆕                 |                       |                     |
-| 🐧&nbsp;Linux   |                                    | 🆕              | 🆕             |                    | 🆕                 | 🆕 ☢️                 | 🆕 ☢️              |
+| 🐧&nbsp;Linux   |                                    | 🆕              | 🆕             |                    | 🆕                 | 🆕                   | 🆕                  |
 | 🍎&nbsp;macOS   |                                    | ✅&nbsp;v1.1.0  |                |                    | ✅&nbsp;v1.1.0     |                       |                     |
-| 😈&nbsp;FreeBSD |                                    | ✅&nbsp;v1.2.0  |                |                    | ✅&nbsp;v1.2.0 ☢️  |                       |                     |
-| 💾&nbsp;DOS     |                                    |                 | ✅&nbsp;v1.2.0 | ✅&nbsp;v1.2.0 ☢️ |                    |                       |                     |
-| 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | ✅&nbsp;v1.2.0 ☢️
+| 😈&nbsp;FreeBSD |                                    | 🆕              |                |                    | 🆕                 |                       |                     |
+| 💾&nbsp;DOS     |                                    |                 | 🆕             | 🆕                 |                    |                       |                     |
+| 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | 🆕
 
 > **Legenda:**  
 🆕&nbsp;–&nbsp;aktuální verze: **1.2.1**,  
 ✅&nbsp;–&nbsp;starší sestavení,  
-☢️&nbsp;–&nbsp;nedostatečně otestovaná platforma,  
 💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.2.1/bin-setup).
 
 **Další odkazy:**
