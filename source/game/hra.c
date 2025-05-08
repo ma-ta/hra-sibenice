@@ -20,9 +20,8 @@ typedef enum {
 static char *volby_seznam[] = { HRA_VOLBY_SZN };  /* popisky zvláštních voleb */
 static int  volby_hodnoty[] = { HRA_VOLBY_HODNOTY };
 static FILE *f_slova = NULL;  /* soubor se slovy k hádání */
-static char *slova[HRA_POCETSLOV];  /* pole pro uložení slov ze souboru
-                                       TODO: změnit na dynamické a alokovat
-                                             až dle počtu slov v souboru */
+static char **slova = NULL;  /* pole pro uložení slov ze souboru */
+static int slova_size = 0; /* pro uložení zjištěného počtu slov ve slovníku */
 bool slova_nactena = false;
 
 extern int hlaska_fmt;            /* slouží provizorně k resetování formátu hlášky v modulu tui_slov.c */
@@ -105,8 +104,16 @@ void hra_vycisti(void)
 {
   register int i = 0;
 
-  for (i = 0; i < (int) (sizeof(slova) / sizeof(slova[0])); i++) {
-    free((void *) slova[i]);
+  if (slova) {
+    for (i = 0; i < slova_size; i++) {
+      if (slova[i]) {
+        free((void *) slova[i]);
+        slova[i] = NULL;
+      }
+    }
+    free((void *) slova);
+    slova = NULL;
+    slova_size = 0;
   }
 }
 
@@ -133,7 +140,7 @@ void hra_nastav(int kol, int zivotu) {
   #if (DEBUG == 2)
     ukazatelslov_nastav(DEBUG_HADANE_SLOVO);
   #else
-    ukazatelslov_nastav(slova[rand() % (sizeof(slova) / sizeof(slova[0]))]);
+    ukazatelslov_nastav(slova[rand() % slova_size]);
   #endif
   ukazatelpismen_nastav(pocet_kol, UKAZATELE_SIRKA_BUNKY);
   ukazatelpismen_nastav(pocet_kol, UKAZATELE_SIRKA_BUNKY);
@@ -174,7 +181,7 @@ int hra_start(void) {
       #if (DEBUG == 2)
         ukazatelslov_nastav(DEBUG_HADANE_SLOVO);
       #else
-        ukazatelslov_nastav(slova[rand() % (sizeof(slova) / sizeof(slova[0]))]);
+        ukazatelslov_nastav(slova[rand() % slova_size]);
       #endif
       ukazatelpismen_nastav(pocet_kol, UKAZATELE_SIRKA_BUNKY);
     }
@@ -194,8 +201,12 @@ int hra_start(void) {
 static bool nacti_slova(void)
 {
   register int i = 0;
-  char slovo[100] = "";
   char *p_char = NULL;
+  char slovo[100] = ""; /* pomocný buffer pro načítání slov ze souboru */
+  int pocet_slov = 0;  /* pro zjištění počtu slov v souboru */
+  int pocet_slov_min = (HRA_POCETSLOV_MIN > 0) ? HRA_POCETSLOV_MIN : 1;
+  bool nacteno = true;  /* nastavuje na konci fce., zda byla slova načtena */
+  bool ret_val = true;  /* návratová hodnota fce. */
 
   /* ukončí funkci, pakliže jsou slova již načtena */
   if (slova_nactena)  return true;
@@ -207,27 +218,64 @@ static bool nacti_slova(void)
     return false;
   }
 
-  /* načte slova do paměti
-     TODO: bylo by vhodné zavést automatickou detekci počtu řádků (slov)
-           (aktuálně na základě sym. konst. HRA_POCETSLOV) */
-  for (i = 0; i < arrlen(slova); i++) {
+  /* zjištění počtu slov v souboru */
+
+  while (fgets(slovo, sizeof(slovo), f_slova)) {
+    /* odstranění znaku konce řádku */
+    if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
+    if ((p_char = strchr(slovo, '\n')) != NULL)  *p_char = '\0';
+    if (strlen(slovo) < 1) {
+      /* přeskočení v případě prázdného řádku */
+      continue;
+    }
+    else {
+      /* zvýšení čítače slov v souboru */
+      pocet_slov++;
+    }
+  }
+
+  /* příliš malý počet slov v souboru */
+  if (pocet_slov < pocet_slov_min) {
+    fprintf(stderr, ERR_SIGN "Prilis malo slov v souboru slovniku...\n");
+    nacteno = false;
+    ret_val = false;
+    goto f_nacti_slova_konec;
+  }
+
+  /* alokace pole pro slova (pole ukazatelů na char*) */
+  if (!(slova = (char **) malloc(pocet_slov * sizeof(char *)))) {
+    fprintf(stderr, ERR_SIGN "Nedostatek volne pameti pro %d slov...\n", pocet_slov);
+    nacteno = false;
+    ret_val = false;
+    goto f_nacti_slova_konec;
+  }
+
+  slova_size = pocet_slov;  /* uložení velikosti pole slov */
+  for (register int i = 0; i < slova_size; i++) {
+    slova[i] = NULL;
+  }
+
+  /* návrat na začátek souboru */
+  fseek(f_slova, 0L, SEEK_SET);
+
+  /* načte slova do paměti */
+
+  for (i = 0; i < slova_size; i++) {
     if (!feof(f_slova)) {
       /* načtení řádku */
       fgets(slovo, sizeof(slovo), f_slova);
-      /* ukončení v případě prázdného řádku */
-      if (strlen(slovo) < 1)  continue;
       /* odstranění znaku konce řádku */
       if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
       if ((p_char = strchr(slovo, '\n')) != NULL)  *p_char = '\0';
+      /* přeskočení v případě prázdného řádku */
+      if (strlen(slovo) < 1)  continue;
 
-      if ((slova[i] = (char *) malloc(strlen(slovo) + 1)) == NULL) {
+      if (!(slova[i] = (char *) malloc(strlen(slovo) + 1))) {
         fputs(ERR_SIGN "Nedostatek volne pameti - slova nenactena...\n", stderr);
-        slova_nactena = false;
         /* uzavře soubor se slovy */
-        if (fclose(f_slova) == EOF) {
-          fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
-        }
-        return false;
+        nacteno = false;
+        ret_val = false;
+        goto f_nacti_slova_konec;
       }
       else {
         #if HRA_SLOVA_SIF_ZAP == 1
@@ -245,13 +293,15 @@ static bool nacti_slova(void)
 
   }
 
+  f_nacti_slova_konec:
+
   /* uzavře soubor se slovy */
   if (fclose(f_slova) == EOF) {
     fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
   }
 
-  slova_nactena = true;
-  return true;
+  slova_nactena = nacteno;
+  return ret_val;
 }
 
 static int hra_kolo(void) {

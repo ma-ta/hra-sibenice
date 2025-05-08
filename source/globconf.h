@@ -396,11 +396,11 @@
 
 /* hra */
 
-#define HRA_POCETSLOV       1000  /* počet slov načítaných ze slovníku, TODO: automatizovat detekci */
+#define HRA_POCETSLOV_MIN   1000  /* min. požadovaný počet slov ve slovníku (0 => kontrola VYP) */
 #define HRA_SLOVA_SIF_ZAP   1     /* aplikovat dešifrování na načítaná slova */
 /* tajný klíč (XOR) k dešifrování slovníku */
-#define HRA_SLOVA_SIF_KEY   9    /* klíč (heslo, konstanta) k dešifrování slov */
-#define HRA_POMOC_ZN_CENA   10   /* počet bodů za pomoc - doplnění písmene (NEIMPLEMENTOVÁNO) */
+#define HRA_SLOVA_SIF_KEY   9   /* klíč (heslo, konstanta) k dešifrování slov */
+#define HRA_POMOC_ZN_CENA   10  /* počet bodů za pomoc - doplnění písmene (NEIMPLEMENTOVÁNO) */
 #define HRA_HLASKA_FORMAT   ansi_format(ANSI_INVER) ansi_format(ANSI_BLICK)
 #define HRA_PROPOKRACOVANI  "(stiskni Enter...)"
 

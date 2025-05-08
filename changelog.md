@@ -1,5 +1,27 @@
 ```
 +--------+------------+
+| v1.2.1 | 2025-05-08 |
++--------+------------+
+
+
+NOVINKY:
+
+1) vylepšeno načítání slov ze slovníku v kódu [source/game/hra.c]:
+   - automatické zjištění počtu slov v souboru
+   - definován minimální počet slov, který je požadován
+     v [source/globconf.h] přes [HRA_POCETSLOV_MIN]
+
+2) obsah slovníku [res/data/game_cs.dat] nebude nadále zašifrovaný
+   (pouze jeho kopie ve složce [bin/data])
+
+
+OPRAVENÉ CHYBY:
+
+1) objeveno a nahrazeno nesmyslné slovo ve slovníku [game_cs.dat]:
+   "ubraz"
+
+
++--------+------------+
 | v1.2.0 | 2025-05-05 |
 +--------+------------+
 
