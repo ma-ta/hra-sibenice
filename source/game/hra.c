@@ -251,7 +251,7 @@ static bool nacti_slova(void)
   }
 
   slova_size = pocet_slov;  /* uložení velikosti pole slov */
-  for (register int i = 0; i < slova_size; i++) {
+  for (i = 0; i < slova_size; i++) {
     slova[i] = NULL;
   }
 
