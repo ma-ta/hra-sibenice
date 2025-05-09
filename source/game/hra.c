@@ -249,8 +249,9 @@ static bool nacti_slova(void)
     ret_val = false;
     goto f_nacti_slova_konec;
   }
-
-  slova_size = pocet_slov;  /* uložení velikosti pole slov */
+  /* uložení velikosti pole slov */
+  slova_size = pocet_slov;
+  /* inicializace hodnot v alokovaném poli */
   for (i = 0; i < slova_size; i++) {
     slova[i] = NULL;
   }
