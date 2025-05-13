@@ -49,7 +49,7 @@
   CC='emcc '$cc_param
 
   # cesta k souborum, ktere maji byt zahrnuty ve virtualnim FS
-  # (pozor: v [../../res/data/game_cs.dat] nejsou slova sifrovana)
+  # (pozor: v [../../source/data/game_cs.dat] nejsou slova sifrovana)
   fs_data='--preload-file ../../bin/data@data'
 
   # cesta ke JS-knihovnam (emscripten-pty.js apod.)
