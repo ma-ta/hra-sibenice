@@ -140,6 +140,22 @@ void hra_nastav(int kol, int zivotu) {
   #if (DEBUG == 2)
     ukazatelslov_nastav(DEBUG_HADANE_SLOVO);
   #else
+    /* DEBUG - vypíše hádaná slova a jejich počet na stderr */
+      /*
+      fprintf(stderr, "slova_size: %d\n\n", slova_size);
+      for (int i = 0; i < slova_size; i++) {
+        if (slova[i]) {
+          fprintf(stderr, "%s\n", slova[i]);
+          fflush(stderr);
+        }
+        else  {
+          fprintf(stderr, "NULL\n");
+          fflush(stderr);
+        }
+      }
+      */
+    /* //DEBUG */
+
     ukazatelslov_nastav(slova[rand() % slova_size]);
   #endif
   ukazatelpismen_nastav(pocet_kol, UKAZATELE_SIRKA_BUNKY);
@@ -202,6 +218,8 @@ static bool nacti_slova(void)
 {
   register int i = 0;
   char *p_char = NULL;
+  char **pp_char = NULL;
+  int c = '\0';  /* pomocná proměnná pro načítání znaků */
   char slovo[100] = ""; /* pomocný buffer pro načítání slov ze souboru */
   int pocet_slov = 0;  /* pro zjištění počtu slov v souboru */
   int pocet_slov_min = (HRA_POCETSLOV_MIN > 0) ? HRA_POCETSLOV_MIN : 1;
@@ -215,28 +233,45 @@ static bool nacti_slova(void)
   if ((f_slova = fopen(HRA_SLOVA_SOUBOR, "r")) == NULL) {
     vymaz_obr();
     fprintf(stderr, "\n" ERR_SIGN ERR_SOUBOR "\n", HRA_SLOVA_SOUBOR);
-    return false;
+    goto f_nacti_slova_konec;
   }
 
   /* zjištění počtu slov v souboru */
 
   while (fgets(slovo, sizeof(slovo), f_slova)) {
-    /* odstranění znaku konce řádku */
-    if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
-    if ((p_char = strchr(slovo, '\n')) != NULL)  *p_char = '\0';
-    if (strlen(slovo) < 1) {
-      /* přeskočení v případě prázdného řádku */
-      continue;
+    /* odstranění znaků konce řádku */
+
+    /* odstranění \n z bufferu + kontrola načtení celého řádku */
+    if ((p_char = strchr(slovo, '\n')) != NULL) {
+      *p_char = '\0';
     }
     else {
-      /* zvýšení čítače slov v souboru */
+      /* případ, kdy se do bufferu nevešel celý řádek */
+      while ((c = fgetc(f_slova)) != '\n' && c != EOF)
+        ;  /* přeskočení zbytku řádku */
+    }
+    if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
+
+    /* přeskočení v případě prázdného řádku */
+    if (strlen(slovo) < 1) {
+      continue;
+    }
+    /* zvýšení čítače slov v souboru */
+    else {
       pocet_slov++;
     }
   }
 
   /* příliš malý počet slov v souboru */
   if (pocet_slov < pocet_slov_min) {
-    fprintf(stderr, ERR_SIGN "Prilis malo slov v souboru slovniku...\n");
+    vymaz_obr();
+    fprintf(
+      stderr
+      , ERR_SIGN "Min. pocet slov ve slovniku je %d,\n"
+        "    dostupnych aktualne max. %d slov...\n"
+      , HRA_POCETSLOV_MIN
+      , pocet_slov
+    );
     nacteno = false;
     ret_val = false;
     goto f_nacti_slova_konec;
@@ -244,61 +279,119 @@ static bool nacti_slova(void)
 
   /* alokace pole pro slova (pole ukazatelů na char*) */
   if (!(slova = (char **) malloc(pocet_slov * sizeof(char *)))) {
+    vymaz_obr();
     fprintf(stderr, ERR_SIGN "Nedostatek volne pameti pro %d slov...\n", pocet_slov);
     nacteno = false;
     ret_val = false;
     goto f_nacti_slova_konec;
   }
-  /* uložení velikosti pole slov */
+
+  /* uložení velikosti pole do glob. proměnné */
   slova_size = pocet_slov;
+
   /* inicializace hodnot v alokovaném poli */
   for (i = 0; i < slova_size; i++) {
     slova[i] = NULL;
   }
 
+  /* načte slova do paměti */
+
   /* návrat na začátek souboru */
   fseek(f_slova, 0L, SEEK_SET);
 
-  /* načte slova do paměti */
+  i = 0;  /* hlídá rozsah pole a postupně vkládá slova */
+  while (fgets(slovo, sizeof(slovo), f_slova) && i < slova_size)
+  {
+    /* odstranění znaků konce řádku */
 
-  for (i = 0; i < slova_size; i++) {
-    if (!feof(f_slova)) {
-      /* načtení řádku */
-      fgets(slovo, sizeof(slovo), f_slova);
-      /* odstranění znaku konce řádku */
-      if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
-      if ((p_char = strchr(slovo, '\n')) != NULL)  *p_char = '\0';
-      /* přeskočení v případě prázdného řádku */
-      if (strlen(slovo) < 1)  continue;
+    /* odstranění \n z bufferu + kontrola načtení celého řádku */
+    if ((p_char = strchr(slovo, '\n')) != NULL) {
+      *p_char = '\0';
+    }
+    else {
+      /* případ, kdy se do bufferu nevešel celý řádek */
+      fprintf(
+        stderr
+        , ERR_SIGN "Nacitany radek je delsi nez buffer[%ld]...\n"
+        , sizeof(slovo)
+      );
 
-      if (!(slova[i] = (char *) malloc(strlen(slovo) + 1))) {
-        fputs(ERR_SIGN "Nedostatek volne pameti - slova nenactena...\n", stderr);
-        /* uzavře soubor se slovy */
+      pocet_slov--;
+      /* příliš malý počet načtených slov */
+      if (pocet_slov < pocet_slov_min) {
+        vymaz_obr();
+        fprintf(
+          stderr
+          , ERR_SIGN "Min. pocet slov ve slovniku je %d,\n"
+            "    dostupnych aktualne max. %d slov...\n"
+          , HRA_POCETSLOV_MIN
+          , pocet_slov
+        );
         nacteno = false;
         ret_val = false;
         goto f_nacti_slova_konec;
       }
-      else {
-        #if HRA_SLOVA_SIF_ZAP == 1
-          /* dešifrování slova - výsledek musí mít max. stejnou délku !!
-             (případně nutné přepsat kód pro alokaci paměti výše) */
-          (void) sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo);
-        #endif
-        /* zkopírování načteného slova do pole slov */
-        strcpy(slova[i], slovo);
-      }
+
+      while ((c = fgetc(f_slova)) != '\n' && c != EOF)
+        ;  /* přeskočení zbytku řádku */
+
+      continue;
     }
-    else {
-      break;
+    /* odstranění z bufferu \r */
+    if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
+
+    /* přeskočení v případě prázdného řádku (nezapočítávání do počtu slov
+       je již vyřešeno před alokací pole [slova]) */
+    if (strlen(slovo) < 1) {
+      continue;
     }
 
+    /* začlenění načteného slova do hádaných slov */
+
+    #if HRA_SLOVA_SIF_ZAP == 1
+      /* dešifrování slova */
+      if (!sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo, sizeof(slovo))) {
+        vymaz_obr();
+        fputs(ERR_SIGN "Nacitane slovo nelze desifrovat...\n", stderr);
+        nacteno = false;
+        ret_val = false;
+        goto f_nacti_slova_konec;
+      }
+    #endif
+
+    /* pokus o alokaci paměti pro slovo */
+    if (!(slova[i] = (char *) malloc(strlen(slovo) + 1))) {
+      vymaz_obr();
+      fputs(ERR_SIGN "Nedostatek volne pameti - slova nenactena...\n", stderr);
+      nacteno = false;
+      ret_val = false;
+      goto f_nacti_slova_konec;
+    }
+    else {
+      /* zkopírování načteného slova do pole hádaných slov */
+      strcpy(slova[i], slovo);
+      i++;
+    }
+  }
+
+  /* příp. redukce alok. paměti dle počtu skutečně načtených slov */
+  slova_size = i;  /* i když se realloc() nezdaří, zbytek pole je NULL */
+  if (!(pp_char = (char **) realloc(slova, sizeof(char *) * slova_size))) {
+    fputs(ERR_SIGN "Nepodarilo se zmensit alokovanou pamet...\n", stderr);
+  }
+  else {
+    slova = pp_char;
+    pp_char = NULL;
   }
 
   f_nacti_slova_konec:
 
   /* uzavře soubor se slovy */
-  if (fclose(f_slova) == EOF) {
-    fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
+  if (f_slova) {
+    if (fclose(f_slova) == EOF) {
+      vymaz_obr();
+      fputs(ERR_SIGN "Nelze zavrit soubor se slovy...\n", stderr);
+    }
   }
 
   slova_nactena = nacteno;

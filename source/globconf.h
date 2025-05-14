@@ -396,7 +396,7 @@
 
 /* hra */
 
-#define HRA_POCETSLOV_MIN   1000  /* min. požadovaný počet slov ve slovníku (0 => kontrola VYP) */
+#define HRA_POCETSLOV_MIN   1000  /* min. požadovaný počet slov ve slovníku (<= 0 => 1) */
 #define HRA_SLOVA_SIF_ZAP   1     /* aplikovat dešifrování na načítaná slova */
 /* tajný klíč (XOR) k dešifrování slovníku */
 #define HRA_SLOVA_SIF_KEY   9   /* klíč (heslo, konstanta) k dešifrování slov */
