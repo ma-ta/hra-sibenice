@@ -2,8 +2,8 @@
 Ubuntu 24.04.2 (LTS) | file v5.45:
 ----------------------------------
 
+./sibenice-bin.tar.gz:      gzip compressed data, from Unix, original size modulo 2^32 2580480
 ./sibenice-bin.zip:         Zip archive data, at least v2.0 to extract, compression method=deflate
-./sibenice-bin.tar.gz:      gzip compressed data, from Unix, original size modulo 2^32 2570240
 
 ./CWSDPMI.EXE:              MS-DOS executable, MZ for MS-DOS
 
@@ -11,11 +11,11 @@ Ubuntu 24.04.2 (LTS) | file v5.45:
 ./sibe-dos.exe:             MS-DOS executable, MZ for MS-DOS
 ./sibenice-fbsd64:          ELF 64-bit LSB executable, x86-64, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.2, FreeBSD-style, with debug_info, not stripped
 ./sibenice-fbsdArm64:       ELF 64-bit LSB executable, ARM aarch64, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.2, FreeBSD-style, with debug_info, not stripped
-./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=8a818809e9494304cd6347e27b074a9746ed6990, for GNU/Linux 3.2.0, not stripped
-./sibenice-linux64:         ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=25a2bd24a2c45d7aed28fe9184203ab5453fd521, for GNU/Linux 3.2.0, not stripped
-./sibenice-linuxArm:        ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=0fe4a2c50deaf886a3f2e2680839e32bb0197082, for GNU/Linux 3.2.0, not stripped
-./sibenice-linuxArm64:      ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=d9343b6276c34ba8b39deb8a3bd7129b2fd29bb2, for GNU/Linux 3.7.0, not stripped
-./sibenice-linuxRV64:       ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=cb24ed072505d42425186af135c1b6f1ee682ef9, for GNU/Linux 4.15.0, not stripped
+./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=50eab1f1e4a752ec574ea465e46c321d36f60135, for GNU/Linux 3.2.0, not stripped
+./sibenice-linux64:         ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=a76dde59cc63d428bdb45ff3e8bdffc665dd21d1, for GNU/Linux 3.2.0, not stripped
+./sibenice-linuxArm:        ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=6e8c6b5a44ae68d01bd0ade8776790cf3121001e, for GNU/Linux 3.2.0, not stripped
+./sibenice-linuxArm64:      ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=0a2d42e3c1b407409be3779721ea5b9bf05ba6a7, for GNU/Linux 3.7.0, not stripped
+./sibenice-linuxRV64:       ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=686937a26147c8c5d6c19261feb438c8504b437f, for GNU/Linux 4.15.0, not stripped
 ./sibenice-mac64:           Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
 ./sibenice-macArm64:        Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
 ./sibenice-macUni:          Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>] [\012- arm64:\012- Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>]
