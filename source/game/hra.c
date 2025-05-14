@@ -312,8 +312,8 @@ static bool nacti_slova(void)
       /* případ, kdy se do bufferu nevešel celý řádek */
       fprintf(
         stderr
-        , ERR_SIGN "Nacitany radek je delsi nez buffer[%ld]...\n"
-        , sizeof(slovo)
+        , ERR_SIGN "Nacitany radek je delsi nez buffer[%d]...\n"
+        , (int) sizeof(slovo)
       );
 
       pocet_slov--;
