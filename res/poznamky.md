@@ -13,8 +13,14 @@ ZNÁMÉ CHYBY:
 3) při zadávání jména do kroniky může způsobit problémy, když uživatel
    použije jiné znaky než ASCII (chybné zarovnání na obr. statistik)
 
+4) ze souboru slovníku se mohou načíst i řádky, které obsahují jen mezery
+   (tj. znak ' ')
+
 
 Hotovo:
+
+3) [v1.2.1]
+   lépe ošetřeno načítání slov ze souboru slovníku v modulu [hra.c]
 
 2) [v0.0.4]
    hledání písmen 'CH' při zadání písmene 'C'
