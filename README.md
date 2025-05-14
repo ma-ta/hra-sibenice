@@ -64,7 +64,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
   - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86-64] [AArch64]*
 - 🪟&nbsp;Win:
-  - Windows 11 *(MSVC 19.43.34810) &ndash; [x86] [x86-64] [AArch64]*
+  - Windows 11 *(MSVC 19.44.35207.1) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
