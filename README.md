@@ -87,7 +87,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 </figure>
 
 <figure>
-  <figcaption>Informace o verzi (DOSBox-X 2025.02.01):</figcaption>
+  <figcaption>Informace o verzi (DOSBox-X 2025.05.03):</figcaption>
   <img src="res/screenshots/prepinace-dos.png" alt="Šibenice - MS-DOS">
 </figure>
 
