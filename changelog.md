@@ -11,7 +11,7 @@ OPRAVENÉ CHYBY:
    - definován minimální počet slov, který je požadován
      v [source/globconf.h] přes [HRA_POCETSLOV_MIN]
 
-2) obsah slovníku [res/data/game_cs.dat] nebude nadále zašifrovaný
+2) obsah slovníku [source/data/game_cs.dat] nebude nadále zašifrovaný
    (pouze jeho kopie ve složce [bin/data])
 
 3) opravy v seznamu hádaných slov - slovník [game_cs.dat]:
