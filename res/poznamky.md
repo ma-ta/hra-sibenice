@@ -27,9 +27,9 @@ Hotovo:
      (počet slov v souboru je variabilní),
    - zavedeno makro HRA_POCETSLOV_MIN v [globconf.h] umožňující stanovit
      minimální velikost slovníku,
-   - celkově robustnější řešení a ošetření chyb,
    - případná duplicitní slova ve slovníku se načtou a započítají do limitu
-     HRA_POCETSLOV_MIN jen jednou.
+     HRA_POCETSLOV_MIN jen jednou,
+   - celkově robustnější řešení a ošetření chyb.
 
 2) [v0.0.4]
    hledání písmen 'CH' při zadání písmene 'C'
