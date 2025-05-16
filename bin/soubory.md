@@ -1,3 +1,4 @@
+```
 ----------------------------------
 Ubuntu 24.04.2 (LTS) | file v5.45:
 ----------------------------------
@@ -24,3 +25,4 @@ Ubuntu 24.04.2 (LTS) | file v5.45:
 ./sibenice-winArm64.exe:    PE32+ executable (GUI) Aarch64, for MS Windows, 7 sections
 
 ./wasm/sibenice-wasm.wasm:  WebAssembly (wasm) binary module version 0x1 (MVP)
+```
