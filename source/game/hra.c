@@ -145,12 +145,10 @@ void hra_nastav(int kol, int zivotu) {
       fprintf(stderr, "slova_size: %d\n\n", slova_size);
       for (int i = 0; i < slova_size; i++) {
         if (slova[i]) {
-          fprintf(stderr, "%s\n", slova[i]);
-          fflush(stderr);
+          fprintf(stderr, "\"%s\"\n", slova[i]);
         }
         else  {
           fprintf(stderr, "NULL\n");
-          fflush(stderr);
         }
       }
       */
@@ -252,8 +250,15 @@ static bool nacti_slova(void)
     }
     if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
 
-    /* přeskočení v případě prázdného řádku */
+    /* přeskočení řádku ve specifických případech */
+
+    /* přeskočení - prázdný řádek */
     if (strlen(slovo) < 1) {
+      continue;
+    }
+    /* přeskočení - obsahuje mezeru ' ' */
+    else if (strchr(slovo, ' ') != NULL) {
+      fputs(ERR_SIGN "Radek slovniku nesmi obsahovat mezery (' ')...\n", stderr);
       continue;
     }
     /* zvýšení čítače slov v souboru */
