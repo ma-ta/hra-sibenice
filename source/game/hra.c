@@ -37,6 +37,7 @@ static int zbyva_zivotu = 0;
 /* hlavičky lokálních funkcí */
 static int hra_kolo(void);
 static bool nacti_slova(void);
+static bool slova_duplicita(char *slovo, char **seznam, int seznam_size);
 
 
 /* veřejné funkce */
@@ -323,20 +324,6 @@ static bool nacti_slova(void)
       );
 
       pocet_slov--;
-      /* příliš malý počet načtených slov */
-      if (pocet_slov < pocet_slov_min) {
-        vymaz_obr();
-        fprintf(
-          stderr
-          , ERR_SIGN "Min. pocet slov ve slovniku je %d,\n"
-            "    dostupnych aktualne max. %d slov...\n"
-          , HRA_POCETSLOV_MIN
-          , pocet_slov
-        );
-        nacteno = false;
-        ret_val = false;
-        goto f_nacti_slova_konec;
-      }
 
       while ((c = fgetc(f_slova)) != '\n' && c != EOF)
         ;  /* přeskočení zbytku řádku */
@@ -346,16 +333,19 @@ static bool nacti_slova(void)
     /* odstranění z bufferu \r */
     if ((p_char = strchr(slovo, '\r')) != NULL)  *p_char = '\0';
 
-    /* přeskočení v případě prázdného řádku (nezapočítávání do počtu slov
-       je již vyřešeno před alokací pole [slova]) */
+    /* přeskočení řádku ve specifických případech */
+
+    /* přeskočení - prázdný řádek (pocet_slov -> viz výše) */
     if (strlen(slovo) < 1) {
       continue;
     }
+    /* přeskočení - obsahuje mezeru ' ' (pocet_slov -> viz výše) */
+    else if (strchr(slovo, ' ') != NULL) {
+      continue;
+    }
 
-    /* začlenění načteného slova do hádaných slov */
-
+    /* dešifrování slova */
     #if HRA_SLOVA_SIF_ZAP == 1
-      /* dešifrování slova */
       if (!sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo, sizeof(slovo))) {
         vymaz_obr();
         fputs(ERR_SIGN "Nacitane slovo nelze desifrovat...\n", stderr);
@@ -364,6 +354,29 @@ static bool nacti_slova(void)
         goto f_nacti_slova_konec;
       }
     #endif
+
+    if (slova_duplicita(slovo, slova, slova_size)) {
+      fprintf(stderr, ERR_SIGN "Slovo \"%s\" se ve slovniku opakuje...\n", slovo);
+      pocet_slov--;
+      continue;
+    }
+
+    /* příliš malý počet načtených slov */
+    if (pocet_slov < pocet_slov_min) {
+      vymaz_obr();
+      fprintf(
+        stderr
+        , ERR_SIGN "Min. pocet slov ve slovniku je %d,\n"
+          "    dostupnych aktualne max. %d slov...\n"
+        , HRA_POCETSLOV_MIN
+        , pocet_slov
+      );
+      nacteno = false;
+      ret_val = false;
+      goto f_nacti_slova_konec;
+    }
+
+    /* začlenění načteného slova do hádaných slov */
 
     /* pokus o alokaci paměti pro slovo */
     if (!(slova[i] = (char *) malloc(strlen(slovo) + 1))) {
@@ -378,6 +391,21 @@ static bool nacti_slova(void)
       strcpy(slova[i], slovo);
       i++;
     }
+  }
+
+  /* příliš malý počet načtených slov - kontrola posledního řádku */
+  if (pocet_slov < pocet_slov_min) {
+    vymaz_obr();
+    fprintf(
+      stderr
+      , ERR_SIGN "Min. pocet slov ve slovniku je %d,\n"
+        "    dostupnych aktualne max. %d slov...\n"
+      , HRA_POCETSLOV_MIN
+      , pocet_slov
+    );
+    nacteno = false;
+    ret_val = false;
+    goto f_nacti_slova_konec;
   }
 
   /* příp. redukce alok. paměti dle počtu skutečně načtených slov */
@@ -518,4 +546,26 @@ static int hra_kolo(void) {
   }
 
   return zbyva_zivotu;
+}
+
+
+/* return: true => [slovo] se vyskytuje v [seznam] */
+static bool slova_duplicita(char *slovo, char **seznam, int seznam_size)
+{
+  register int i;
+
+  /* kontrola argumentů */
+  if ((!slovo) || (!seznam) || (seznam_size <= 0))  return false;
+
+  /* hledání slova v poli */
+  for (i = 0; i < seznam_size; i++) {
+    if (seznam[i] == NULL) {
+      continue;
+    }
+    else if (strcmp(slovo, seznam[i]) == 0) {
+      return true;
+    }
+  }
+
+  return false;
 }

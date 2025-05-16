@@ -13,17 +13,23 @@ ZNÁMÉ CHYBY:
 3) při zadávání jména do kroniky může způsobit problémy, když uživatel
    použije jiné znaky než ASCII (chybné zarovnání na obr. statistik)
 
+4) [v1.2.1]
+   poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
+   jinak je vypsána chyba, že se nevešlo do bufferu (není načteno)
+
 
 Hotovo:
 
 3) [v1.2.1]
    lépe vyřešeno načítání slov ze souboru slovníku v modulu [hra.c]:
-   - nenačtou se prázdné řádky či řádky se znaky mezery (' ')
+   - nenačtou se prázdné řádky či řádky se znaky mezery (' '),
    - paměť dynamicky alokována dle skutečného počtu načtených slov ze souboru
-     (počet slov v souboru je variabilní)
+     (počet slov v souboru je variabilní),
    - zavedeno makro HRA_POCETSLOV_MIN v [globconf.h] umožňující stanovit
-     minimální velikost slovníku
-   - celkově robustnější řešení a ošetření chyb
+     minimální velikost slovníku,
+   - celkově robustnější řešení a ošetření chyb,
+   - případná duplicitní slova ve slovníku se načtou a započítají do limitu
+     HRA_POCETSLOV_MIN jen jednou.
 
 2) [v0.0.4]
    hledání písmen 'CH' při zadání písmene 'C'
