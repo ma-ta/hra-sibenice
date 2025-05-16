@@ -254,6 +254,7 @@ static bool nacti_slova(void)
 
     /* přeskočení - prázdný řádek */
     if (strlen(slovo) < 1) {
+      fputs(ERR_SIGN "Preskocen prazdny radek ve slovniku...\n", stderr);
       continue;
     }
     /* přeskočení - obsahuje mezeru ' ' */
