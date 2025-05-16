@@ -463,7 +463,7 @@
 /* statistiky */
 
 #define STATS_TAJNE_HESLO   "TajneHeslo"  /* (NEIMPLEMENTOVÁNO) pro kontrolní součet */
-#define STATS_VYCHOZI_JMN   "Ma-TA"  /* výchozí nejlepší hráč */
+#define STATS_VYCHOZI_JMN   "Ele"  /* výchozí nejlepší hráč */
 #define STATS_TOPNEJ_BARVA  ansi_frcolor(ANSI_YELLOW)  /* obarvení NEJ záznamů */
 #define STATS_VYCHOZI_B     50  /* výchozí nejlepší skóre */
 #define STATS_JMENO_STRLN   43  /* maximální délka jména */
