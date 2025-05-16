@@ -18,6 +18,9 @@ OPRAVENÉ CHYBY:
    - nahrazeno nesmyslné slovo "ubraz",
    - nahrazena jedna duplicita.
 
+4) při spuštění s přepínačem [-s] se již nemaže obrazovka
+   (vhodnější např. pro možnost přesměrování výstupu do souboru)
+
 
 +--------+------------+
 | v1.2.0 | 2025-05-05 |
