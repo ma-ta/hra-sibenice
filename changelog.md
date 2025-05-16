@@ -1,6 +1,6 @@
 ```
 +--------+------------+
-| v1.2.1 | 2025-05-15 |
+| v1.2.1 | 2025-05-16 |
 +--------+------------+
 
 
@@ -14,8 +14,9 @@ OPRAVENÉ CHYBY:
 2) obsah slovníku [res/data/game_cs.dat] nebude nadále zašifrovaný
    (pouze jeho kopie ve složce [bin/data])
 
-3) objeveno a nahrazeno nesmyslné slovo ve slovníku [game_cs.dat]:
-   "ubraz"
+3) opravy v seznamu hádaných slov - slovník [game_cs.dat]:
+   - nahrazeno nesmyslné slovo "ubraz",
+   - nahrazena jedna duplicita.
 
 
 +--------+------------+
