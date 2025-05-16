@@ -32,7 +32,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.4677326"
-     inkscape:cx="637.71834"
+     inkscape:cx="638.059"
      inkscape:cy="360.07921"
      inkscape:window-width="2560"
      inkscape:window-height="1351"
@@ -66,7 +66,8 @@
        x="-77.191154"
        y="94.157852"
        inkscape:label="sablona-github"
-       style="display:inline" /><text
+       style="display:inline"
+       transform="translate(-1.0208334e-6)" /><text
        xml:space="preserve"
        style="font-weight:800;font-size:9.09027px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#000000;stroke:#ffffff;stroke-width:4.26108"
        x="-57.847374"
@@ -183,4 +184,4 @@
          x="236.66853"
          y="218.65677">|</tspan></text></g><metadata
      id="metadata36"><rdf:RDF><cc:Work
-         rdf:about=""><dc:creator><cc:Agent><dc:title>Martin TÁBOR (Ma-TA)</dc:title></cc:Agent></dc:creator><dc:title>Hra Šibenice</dc:title><dc:date>2025-05-15</dc:date></cc:Work></rdf:RDF></metadata></svg>
+         rdf:about=""><dc:creator><cc:Agent><dc:title>Martin TÁBOR (Ma-TA)</dc:title></cc:Agent></dc:creator><dc:title>Hra Šibenice</dc:title><dc:date>2025-05-16</dc:date></cc:Work></rdf:RDF></metadata></svg>
