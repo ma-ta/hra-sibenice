@@ -7,7 +7,7 @@
 ![Linux](https://img.shields.io/badge/OS-Linux-black?logo=linux&logoColor=white)
 ![FreeBSD](https://img.shields.io/badge/OS-FreeBSD-black?logo=freebsd&logoColor=white)
 ![DOS](https://img.shields.io/badge/OS-DOS-lightgrey?logo=d&logoColor=white)
-![Android](https://img.shields.io/badge/Emulator-Termux-3DDC84?logo=android&logoColor=white)
+![Android](https://img.shields.io/badge/OS-Android-3DDC84?logo=android&logoColor=white)
 ![WebAssembly](https://img.shields.io/badge/Web-Assembly-654FF0?logo=webassembly&logoColor=white)
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ma-ta/hra-sibenice?include_prereleases)
@@ -29,7 +29,7 @@
 | 🪟&nbsp;Windows | 🆕                                 | 🆕             | 🆕             |                    | 🆕                 |                       |                     |
 | 🍎&nbsp;macOS   |                                    | ✅&nbsp;v1.1.0  |                |                    | ✅&nbsp;v1.1.0     |                       |                     |
 | 🐧&nbsp;Linux   |                                    | 🆕              | 🆕             |                    | 🆕                 | 🆕                   | 🆕                  |
-| 🤖&nbsp;Termux  |                                    |                 |                |                    | 🆕                 |                       |                     |
+| 🤖&nbsp;Android |                                    |                 |                |                    | 🆕                 |                       |                     |
 | 😈&nbsp;FreeBSD |                                    | 🆕              |                |                    | 🆕                 |                       |                     |
 | 💾&nbsp;DOS     |                                    |                 | 🆕             | 🆕                 |                    |                       |                     |
 | 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | 🆕
@@ -63,9 +63,9 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 #### Použité kompilátory *(platformy)*:
 - UN*X:
   - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
-  - 🤖&nbsp;Termux 0.118.2 *(Clang 20.1.4) &ndash; [AArch64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
   - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86-64] [AArch64]*
+  - 🤖&nbsp;Android 14/Termux 0.118.2 *(Clang 20.1.4) &ndash; [AArch64]*
 - 🪟&nbsp;Win:
   - Windows 11 *(MSVC 19.44.35207.1) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
