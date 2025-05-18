@@ -52,13 +52,17 @@ Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba ž
 - [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.2.1/res/napoveda.md)
 - [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.2.1/res/poznamky.md)
 
-#### Pozn. pro systémy typu 💾&nbsp;DOS
-U 32-bit binárky v případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).  
-Nativní 16-bit verze běží samostatně.
-
 #### Pozn. pro systém 🍎&nbsp;macOS
 Stažené binární soubory nejsou podepsané, proto je pravděpodobně bude možné spustit až po odebrání příslušného příznaku.<br>
 Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
+
+#### Pozn. pro systém 🤖&nbsp;Android
+Hra byla sestavena a otestována v emulátoru terminálu [Termux](https://termux.dev/en/), který je možné
+nainstalovat přes alternativní obchod [F-Droid](https://f-droid.org/en/packages/com.termux/).
+
+#### Pozn. pro systémy typu 💾&nbsp;DOS
+U 32-bit binárky v případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).  
+Nativní 16-bit verze běží samostatně.
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
