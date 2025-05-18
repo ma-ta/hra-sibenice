@@ -34,6 +34,7 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibenice-linuxArm64  - platforma GNU/Linux (64-bit, AArch64)  (program)
  sibenice-linuxArm    - platforma GNU/Linux (32-bit, armhf)    (program)
  sibenice-linuxRV64   - platforma GNU/Linux (64-bit, riscv64)  (program)
+ sibenice-termuxArm64 - platforma Termux    (64-bit, AArch64)  (program)
  sibenice-fbsd64      - platforma FreeBSD   (64-bit, x86-64)   (program)
  sibenice-fbsdArm64   - platforma FreeBSD   (64-bit, AArch64)  (program)
  sibenice-macUni      - platforma macOS     (Intel & Silicon)  (program)
