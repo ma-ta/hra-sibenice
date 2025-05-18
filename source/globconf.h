@@ -22,7 +22,10 @@
 
 /* detekce operačního systému */
 #ifndef OSNAME
-  #if defined (__EMSCRIPTEN__)
+  #if defined(__ANDROID__)
+    #define OSNAME "Android"
+    #define OS_ANDROID
+  #elif defined (__EMSCRIPTEN__)
     #define OSNAME "Web"
     #define OS_WEB
   #elif defined(__MSDOS__)
