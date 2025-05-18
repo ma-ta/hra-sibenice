@@ -4,6 +4,12 @@
 +--------+------------+
 
 
+NOVINKY:
+
+1) nová binárka pro emulátor linuxového terminálu:
+   - Android/Termux [AArch64]
+
+
 OPRAVENÉ CHYBY:
 
 1) vylepšeno načítání slov ze slovníku v kódu [source/game/hra.c]:
