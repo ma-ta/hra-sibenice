@@ -1,11 +1,12 @@
------------------------
-Fedora 42 | file v5.46:
------------------------
+-----------
+file v5.46:
+-----------
 
 ./CWSDPMI.EXE:              MS-DOS executable, MZ for MS-DOS
 
 ./sibe-d32.exe:             MS-DOS executable, COFF for MS-DOS, DJGPP go32 v2.05 DOS extender (stub), autoload "CWSDPMI.EXE"
 ./sibe-dos.exe:             MS-DOS executable, MZ for MS-DOS
+./sibenice-android:         ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, for Android 24, built by NDK r27c (12479018), not stripped
 ./sibenice-fbsd64:          ELF 64-bit LSB executable, x86-64, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.2, FreeBSD-style, with debug_info, not stripped
 ./sibenice-fbsdArm64:       ELF 64-bit LSB executable, ARM aarch64, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.2, FreeBSD-style, with debug_info, not stripped
 ./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel i386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=10be6ffbd704f94bfd2a4579f1d12b1ba870a0b0, for GNU/Linux 3.2.0, not stripped
@@ -16,7 +17,6 @@ Fedora 42 | file v5.46:
 ./sibenice-mac64:           Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
 ./sibenice-macArm64:        Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
 ./sibenice-macUni:          Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>] [\012- arm64:\012- Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>]
-./sibenice-termuxArm64:     ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, for Android 24, built by NDK r27c (12479018), not stripped
 ./sibenice-win32.exe:       PE32 executable for MS Windows 6.00 (GUI), Intel i386, 6 sections
 ./sibenice-win64.exe:       PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
 ./sibenice-winArm64.exe:    PE32+ executable for MS Windows 6.02 (GUI), ARM64, 7 sections
