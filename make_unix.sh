@@ -2,7 +2,7 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 # Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.4, FreeBSD 14.2,
-#               Termux v0.118.2/Android 14
+#               Android 14/Termux v0.118.2
 
 ######################################
 #                                    #
@@ -24,7 +24,7 @@
   # -linux64 / -linux32 / -linuxArm64 / -linuxArm / -linuxRV64 / -...
   # -fbsd64 / -fbsdArm64 / -...
   # -mac64 / -macArm64 / -...
-  # -termux / -...
+  # -android (Termux) / -...
   bin_nazev='sibenice-unix'
 
 # parametry prekladace
