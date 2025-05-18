@@ -7,7 +7,7 @@
 NOVINKY:
 
 1) nová binárka pro emulátory terminálu:
-   - Android/Termux  [AArch64]
+   - Android (např. Termux)  [AArch64]
 
 
 OPRAVENÉ CHYBY:
