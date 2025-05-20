@@ -6,8 +6,8 @@
 
 NOVINKY:
 
-1) nová binárka pro emulátory terminálu:
-   - Android (např. Termux)  [AArch64]
+1) nové binárky:
+   - Android (např. pro emulátor terminálu Termux)  [AArch64]
 
 
 OPRAVENÉ CHYBY:
@@ -21,8 +21,10 @@ OPRAVENÉ CHYBY:
    (pouze jeho kopie ve složce [bin/data])
 
 3) opravy v seznamu hádaných slov - slovník [game_cs.dat]:
-   - nahrazeno nesmyslné slovo "ubraz",
-   - nahrazena jedna duplicita.
+   - nahrazeno několik nevhodných slov,
+   - nahrazena jedna duplicita,
+   - slovník v [source/data] seřazen dle abecedy, přičemž
+     řádky šifrované kopie v [bin/data] odpovídají předloze.
 
 4) při spuštění s přepínačem [-s] se již nemaže obrazovka
    (vhodnější např. pro možnost přesměrování výstupu do souboru)
