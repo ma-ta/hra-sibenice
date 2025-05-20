@@ -77,7 +77,7 @@ Nativní 16-bit verze běží samostatně.
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
     - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
 - 🌐&nbsp;Web:
-  - Wasm *(Emscripten 4.0.8) &ndash; [wasm32]*
+  - Wasm *(Emscripten 4.0.9) &ndash; [wasm32]*
 
 ### Snímky obrazovky
 
