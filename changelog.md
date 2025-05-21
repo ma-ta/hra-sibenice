@@ -1,5 +1,36 @@
 ```
 +--------+------------+
+| v1.3.0 | 2025-05-25 |  -  V PŘÍPRAVĚ
++--------+------------+
+
+
+NOVINKY:
+
+1) možnost vlastního slovníku pomocí přepínače [-v] [cesta_k_souboru]:
+   - umožní načíst slova z vlastního slovníku,
+   - vypne dešifrování při načítání slov,
+   - vypne hlídání minimálního počtu slov ve slovníku,
+   - vypne ukládání herních statistik (kromě odehráté doby).
+
+2) první znak '#' na řádku slovníku značí komentář, který bude při
+   načítání souboru přeskočen (to umožní vepsat libovolné informace)
+
+3) vylepšení vzhledu:
+   - WIN: automatické nastavení písma a barvy terminálu Console Host,
+   - DOS: obarvení herní obrazovky pomocí přímého přístupu k Video RAM
+     (adresa 0xB800:0000),
+   - UN*X: obarvení herní obrazovky pomocí ANSI sekvence.
+
+
+OPRAVENÉ CHYBY:
+
+1) všechny přepínače lze nově zadat buď malým nebo velkým písmenem
+
+2) při načítání slov ze slovníku se zobrazí upozornění
+   (vhodné u pomalých systémů s MS-DOS apod.)
+
+
++--------+------------+
 | v1.2.1 | 2025-05-16 |
 +--------+------------+
 

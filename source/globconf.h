@@ -149,13 +149,13 @@
 /*******************************************/
 
 #define NAZEV    "Hra Sibenice"
-#define VERZE    "1.2.1"
+#define VERZE    "1.3.0"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
 #define LICENCE  "GPLv3+"
 
 /* externí soubory */
-#define HRA_SLOVA_SOUBOR          "./data/game_cs.dat"  /* seznam slov k hádání        (textový) */
+#define HRA_SLOVA_SOUBOR          "./data/dict_cs.dat"  /* seznam slov k hádání        (textový) */
 #define UKAZATELSIBENICE_SOUBOR   "./data/game.dat"     /* šablona s obrázky šibenice  (textový) */
 #define NAPOVEDA_SOUBOR           "./data/help.dat"     /* šablona české nápovědy      (textový) */
 #define STATISTIKY_OBRSAB_SOUBOR  "./data/stats.dat"    /* šablona obrazovky statistik (textový) */
@@ -465,8 +465,7 @@
 
 /* statistiky */
 
-#define STATS_TAJNE_HESLO   "TajneHeslo"  /* (NEIMPLEMENTOVÁNO) pro kontrolní součet */
-#define STATS_VYCHOZI_JMN   "Ele"  /* výchozí nejlepší hráč */
+#define STATS_VYCHOZI_JMN   "Eli-TA"  /* výchozí nejlepší hráč */
 #define STATS_TOPNEJ_BARVA  ansi_frcolor(ANSI_YELLOW)  /* obarvení NEJ záznamů */
 #define STATS_VYCHOZI_B     50  /* výchozí nejlepší skóre */
 #define STATS_JMENO_STRLN   43  /* maximální délka jména */
