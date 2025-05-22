@@ -44,9 +44,9 @@ NOVINKY:
 OPRAVENÉ CHYBY:
 
 1) vylepšeno načítání slov ze slovníku v kódu [source/game/hra.c]:
-   - automatické zjištění počtu slov v souboru
+   - automatické zjištění počtu slov v souboru,
    - definován minimální počet slov, který je požadován
-     v [source/globconf.h] přes [HRA_POCETSLOV_MIN]
+     v [source/globconf.h] přes [HRA_POCETSLOV_MIN].
 
 2) obsah slovníku [source/data/game_cs.dat] nebude nadále zašifrovaný
    (pouze jeho kopie ve složce [bin/data])
