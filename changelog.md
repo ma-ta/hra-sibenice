@@ -1,6 +1,6 @@
 ```
 +--------+------------+
-| v1.3.0 | 2025-05-25 |  -  V PŘÍPRAVĚ
+| v1.3.0 | 2025-??-?? |  -  V PŘÍPRAVĚ
 +--------+------------+
 
 
@@ -17,8 +17,9 @@ NOVINKY:
 
 3) vylepšení vzhledu:
    - WIN: automatické nastavení písma a barvy terminálu Console Host,
-   - DOS: obarvení herní obrazovky pomocí přímého přístupu k Video RAM
-     (adresa 0xB800:0000),
+   - DOS: - obarvení herní obrazovky pomocí přímého přístupu k VRAM
+            (adresa 0xB800:0000)
+          - hezčí TUI díky využití znakové sady Code page 437
    - UN*X: obarvení herní obrazovky pomocí ANSI sekvence.
 
 

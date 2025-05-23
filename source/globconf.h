@@ -28,7 +28,7 @@
   #elif defined (__EMSCRIPTEN__)
     #define OSNAME "Web"
     #define OS_WEB
-  #elif defined(__MSDOS__)
+  #elif defined(__DOS__) || defined(__MSDOS__) || defined(MSDOS)
     #define OSNAME  "DOS"
     #define OS_DOS
   #elif defined(_WIN32) || defined(_WIN64)
@@ -69,7 +69,7 @@
     #ifdef WATCOMC_VER
       #define CCVER  WATCOMC_VER
     #else
-      #define CCVER  (-1)
+      #define CCVER  __WATCOMC__
     #endif
   #elif defined(__clang__)
     #define CCNAME   "Clang"
