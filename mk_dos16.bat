@@ -24,15 +24,15 @@ rem :: nazev spustitelneho souboru
        set bin_nazev=sibe-dos
 
 rem :: verze Open Watcom (zjistitelne prikazem [wcc])
-       set cc_ver=1.9
+       rem ::set cc_ver=1.9  :: (makro __WATCOMC__ == např. 1900)
 
 rem :: nastaveni velikosti zasobniku pro [wcl] (8 KB == Stack Overflow!)
        rem :: (hra vyzaduje vetsi zasobnik nez je vychozi u Open Watcom)
        set wcl_stack=16384
 
 rem :: parametry pro prekladac (Open Watcom)
-       rem :: debug:    -q -g -k%wcl_stack%   :: -dWATCOMC_VER=%cc_ver%
-       rem :: release:  -q -ox -k%wcl_stack%  :: -dWATCOMC_VER=%cc_ver%
+       rem :: debug:    -q -g -k%wcl_stack%   ::-dWATCOMC_VER=%cc_ver%
+       rem :: release:  -q -ox -k%wcl_stack%  ::-dWATCOMC_VER=%cc_ver%
            set cc_param=-q -ox -k%wcl_stack%
 
 rem :: prikaz pro spusteni prekladace vc. parametru (gcc/wcl,wcc apod.)
