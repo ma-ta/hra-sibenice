@@ -16,9 +16,6 @@
 #define arrlen(arr)  ((int) (sizeof(arr) / sizeof(arr[0])))
 
 #include <stdbool.h>
-#ifdef __EMSCRIPTEN__
-  #include <emscripten/emscripten.h>
-#endif
 
 /* detekce operačního systému */
 #ifndef OSNAME
@@ -28,6 +25,7 @@
   #elif defined (__EMSCRIPTEN__)
     #define OSNAME "Web"
     #define OS_WEB
+    #include <emscripten/emscripten.h>
   #elif defined(__DOS__) || defined(__MSDOS__) || defined(MSDOS)
     #define OSNAME  "DOS"
     #define OS_DOS
