@@ -46,6 +46,7 @@
   int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
 #else
   int nastaveni_tabskore = 1;  /* když 1, skóre se vykresluje do tabulky */
+  char tui_colors[] = TUI_COLORS;  /* výchozí barva pozadí a písma */
 #endif
 
 
@@ -75,15 +76,15 @@ static void prepni_adresar(int argc, char *argv[]);
 
 int main(int argc, char *argv[])
 {
-  #ifdef OS_WEB
-    /* vypnutí bufferování pro okamžitý výstup (např. Emscripten) */
-    setvbuf(stdout, NULL, _IONBF, 0);
-    setvbuf(stderr, NULL, _IONBF, 0);  /* pro jistotu */
-  #endif
-
   /* čas začátku běhu programu */
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;
+
+  #ifdef OS_WEB
+    /* vypnutí bufferování pro okamžitý výstup (např. Emscripten) */
+    setvbuf(stdout, NULL, _IONBF, 0);  /* stdout */
+    setvbuf(stderr, NULL, _IONBF, 0);  /* stderr - pro jistotu */
+  #endif
 
   #if TERM_SET == 1
     term_init();  /* inicializace ConHost na Windows */
