@@ -45,7 +45,7 @@
 #ifndef OS_DOS
   int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
 #else
-  int nastaveni_tabskore = 1;
+  int nastaveni_tabskore = 1;  /* když 1, skóre se vykresluje do tabulky */
 #endif
 
 
