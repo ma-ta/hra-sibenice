@@ -7,20 +7,17 @@
 NOVINKY:
 
 1) možnost vlastního slovníku pomocí přepínače [-v] [cesta_k_souboru]:
-   - umožní načíst slova z vlastního slovníku,
-   - vypne dešifrování při načítání slov,
-   - vypne hlídání minimálního počtu slov ve slovníku,
-   - vypne ukládání herních statistik (kromě odehráté doby).
+   - umožní načíst slova z vlastního slovníku
+   - vypne dešifrování při načítání slov
+   - vypne hlídání minimálního počtu slov ve slovníku
+   - vypne ukládání herních statistik (kromě odehráté doby)
 
 2) první znak '#' na řádku slovníku značí komentář, který bude při
    načítání souboru přeskočen (to umožní vepsat libovolné informace)
 
 3) vylepšení vzhledu:
-   - WIN: automatické nastavení písma a barvy terminálu Console Host,
-   - DOS: - obarvení herní obrazovky pomocí přímého přístupu k VRAM
-            (adresa 0xB800:0000)
-          - hezčí TUI díky využití znakové sady Code page 437
-   - UN*X: obarvení herní obrazovky pomocí ANSI sekvence.
+   - WIN: automatické nastavení písma a barvy pozadí Console Host
+   - DOS: změna barvy pozadí na základě stavu hry
 
 
 OPRAVENÉ CHYBY:
