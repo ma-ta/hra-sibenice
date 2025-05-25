@@ -226,7 +226,18 @@ static bool nacti_slova(void)
   bool ret_val = true;  /* návratová hodnota fce. */
 
   /* ukončí funkci, pakliže jsou slova již načtena */
-  if (slova_nactena)  return true;
+  if (slova_nactena) {
+    return true;
+  }
+  else {
+    printf("      |\n      +--> "
+      ansi_format(ANSI_INVER)
+      ansi_format(ANSI_BLICK)
+        "Nacitam slova ze slovniku..."
+      ansi_format(ANSI_RESET)
+    );
+    fflush(stdout);
+  }
 
   /* otevře soubor se slovy */
   if ((f_slova = fopen(HRA_SLOVA_SOUBOR, "r")) == NULL) {
