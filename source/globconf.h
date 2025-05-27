@@ -16,6 +16,7 @@
 #define arrlen(arr)  ((int) (sizeof(arr) / sizeof(arr[0])))
 
 #include <stdbool.h>
+#include "./libs/term_set.h"
 
 /* detekce operačního systému */
 #ifndef OSNAME
@@ -171,9 +172,14 @@
 #define TERM_SET     1
 /***************************************************/
 
-#if !defined(OS_WIN) && !defined(OS_MAC)
+#if !defined(OS_WIN) && !defined(OS_MAC) && !defined(OS_DOS)
   #undef  TERM_SET
   #define TERM_SET   0
+#endif
+
+#if defined(OS_DOS)
+  #undef  ANSI_FORMAT
+  #define ANSI_FORMAT  0
 #endif
 
 #define TERM_TITLE      NAZEV
@@ -181,16 +187,8 @@
 #define TERM_VYSKA      37  /* počet řádků */
 #define TERM_SIRKA_DOS  80  /* při použití přepínače -c (v GUI) */
 #define TERM_VYSKA_DOS  26  /* při 25 zn. může "poskakovat" Nápověda */
-
-#if defined(OS_DOS)
-  #undef  ANSI_FORMAT
-  #define ANSI_FORMAT  0
-#endif
-
-#if defined(OS_DOS) || defined(OS_WEB)
-  #undef  TERM_SET
-  #define TERM_SET     0
-#endif
+#define TERM_POZADI     TERM_BLUE
+#define TERM_POPREDI    TERM_LWHITE
 
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
 

@@ -1,5 +1,6 @@
 #include "term_set.h"
 #include "../libs/ansi_fmt.h"
+#include "../globconf.h"
 
 
 // TEST MODULU - aktivace fce. main()
@@ -38,6 +39,49 @@ static int ret_value  = EXIT_FAILURE;  // návratová hodnota fcí. modulu
 static int pom_ret_val = 0;  // pomocná proměnná
 static char system_prikaz[1000] = "";  // textový buffer
 
+static term_color_bgfg term_bgfg = {
+  .bg = TERM_BLACK,
+  .fg = TERM_WHITE
+};
+
+
+void term_barvy(term_color pozadi, term_color text)
+{
+  #if TERM_SET == 1
+
+    /* barvy jsou již nastaveny */
+    if (pozadi == term_bgfg.bg && text == term_bgfg.fg) {
+      return;
+    }
+
+    term_bgfg.bg = ((int) pozadi > 0) ? pozadi : TERM_POZADI;
+    term_bgfg.fg = ((int) text   > 0) ? text   : TERM_POPREDI;
+
+    #ifdef OS_DOS
+      snprintf(
+        system_prikaz
+        , sizeof(system_prikaz)
+        , "color %c%c"
+        , term_bgfg.bg
+        , term_bgfg.fg
+      );
+
+      system(system_prikaz);
+    #endif
+
+  #endif
+}  /* term_barvy() */
+
+void term_barvy_reset(void)
+{
+  #if TERM_SET == 1
+
+    #ifdef OS_DOS
+      system("color");
+    #endif
+
+  #endif
+}
 
 bool term_title(const char *novy_titulek)
 {
@@ -79,9 +123,12 @@ bool term_title(const char *novy_titulek)
           ? (ret_value = EXIT_SUCCESS)
           : (ret_value = EXIT_FAILURE);
       }
-    #endif  // OS_WIN
+    #elif defined(OS_DOS)
+      /* funkce nic nedělá */
+      ret_value = EXIT_SUCCESS;
+    #endif  // rozvětvení systémů
 
-  #endif  // TERM_SET == 1
+  #endif  /* TERM_SET == 1 */
 
   return ret_value;
 }
@@ -169,8 +216,13 @@ bool term_size(int x, int y)
           fprintf(stderr, "(!) %s(): sizeof(system_prikaz)\n", __func__);
         #endif  // DEBUG
       }
+    /* #ifdef OS_MAC */
 
-    #endif  // OS_MAC
+    #elif defined(OS_DOS)
+      /* funkce nic nedělá */
+      ret_value = EXIT_SUCCESS;
+
+    #endif  /* rozvětvení systémů */
 
   #endif  // TERM_SET == 1
 

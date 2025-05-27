@@ -1,6 +1,6 @@
 /*
  *  (c) 2025  Martin TÁBOR
- *      Hra Šibenice v1.1.0
+ *      Hra Šibenice v1.3.0
  *
  *  MODUL JE TŘEBA AKTIVOVAT DEFINOVÁNÍM SYMBOLICKÉ KONSTANTY:
  *  TERM_SET  1  (řešeno v globconf.h)
@@ -40,11 +40,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../globconf.h"
 #ifdef OS_WIN
   #include <windows.h>
+#elif defined(OS_DOS)
+   #include <dos.h>
 #endif
 
+typedef enum {
+   TERM_BGFG,   /* výchozí barvy */
+   TERM_BLACK   = '0',
+   TERM_BLUE,
+   TERM_GREEN,
+   TERM_AQUA,
+   TERM_RED,
+   TERM_PURPLE,
+   TERM_YELLOW,
+   TERM_WHITE,
+   TERM_GRAY,
+   TERM_LBLUE,
+   TERM_LGREEN  = 'A',
+   TERM_LAQUA,
+   TERM_LRED,
+   TERM_LPURPLE,
+   TERM_LYELLOW,
+   TERM_LWHITE
+} term_color;
+
+typedef struct {
+  term_color bg;
+  term_color fg;
+} term_color_bgfg;
+
+/* nastaví barvu pozadí terminálu (resp. obrazovky),
+   při zadání hodnoty 0 se daná barva nezmění,
+   (1) DOS - volá příkaz [color]
+   (2) Windows - pro Console Host pomocí WinAPI
+   (3) macOS/UN*X - NEIMPLEMENTOVÁNO (otestovat ANSI sekvence) */
+void term_barvy(term_color pozadi, term_color text);
+
+/* nastavení původních barev terminálu */
+void term_barvy_reset(void);
 
 /* nastaví titulek okna (panelu) emulátoru terminálu
    (1) Windows - CMD, WT

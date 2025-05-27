@@ -192,7 +192,7 @@ void ukazatelsibenice_nastav(int zivoty, int body)
   tabskore_obr = (zivoty < zbyvajici_zivoty) ? true : false;
   zbyvajici_zivoty = zivoty;
   celkove_body     = body;
-  
+
 
   if (!nastaveno) {
     if (!ukazatelsibenice_nahrajobr()) {
@@ -216,13 +216,29 @@ int ukazatelsibenice_zjisti_body(void) {
 /* vykreslování hodnot skóre na obrazovku
    pomocí šibenice nebo tabulky */
 void ukazatelsibenice_vykresli(void) {
-  
+
   if (nastaveno) {
     if (!nastaveni_tabskore) {
       vykresli_sibenici();
     }
     else {
+      #ifdef OS_DOS
+        term_barvy(TERM_BLACK, TERM_LRED);
+      #endif
       vykresli_tabskore(tabskore_obr);
+      #ifdef OS_DOS
+        if (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW) {
+          /* výchozí barva - průběh hry */
+          term_barvy(0, 0);
+        }
+        else if (zbyvajici_zivoty <= 0)
+          /* prohra */
+          term_barvy(TERM_BLACK, TERM_LRED);
+        else {
+          /* zbývá málo životů */
+          term_barvy(TERM_RED, TERM_LWHITE);
+        }
+      #endif
       tabskore_obr = false;
     }
   }

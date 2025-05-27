@@ -65,8 +65,8 @@ static void zpracuj_argumenty(int argc, char *argv[]);
    kvůli korekci relativních cest */
 static void prepni_adresar(int argc, char *argv[]);
 
-/* rozmery okna emulatoru terminalu [x_sloupce, y_radky] */
 #if TERM_SET == 1
+  /* rozmery okna emulatoru terminalu [x_sloupce, y_radky] */
   static int term_rozmery[2] = { TERM_SIRKA, TERM_VYSKA };
 #endif
 
@@ -79,6 +79,12 @@ int main(int argc, char *argv[])
   time_t cas_spusteni = time(NULL);
   VOLBY_MENU volba_menu = MENU_MENU;
 
+  /* přepnutí do složky s programem */
+  prepni_adresar(argc, argv);
+
+  /* zpracování argumentů CLI */
+  zpracuj_argumenty(argc, argv);
+
   #ifdef OS_WEB
     /* vypnutí bufferování pro okamžitý výstup (např. Emscripten) */
     setvbuf(stdout, NULL, _IONBF, 0);  /* stdout */
@@ -86,14 +92,11 @@ int main(int argc, char *argv[])
   #endif
 
   #if TERM_SET == 1
-    term_init();  /* inicializace ConHost na Windows */
+    /* inicializace ConHost na Windows */
+    term_init();
+    /* nastavení výchozích barev */
+    term_barvy(TERM_POZADI, TERM_POPREDI);
   #endif
-
-  /* přepnutí do složky s programem */
-  prepni_adresar(argc, argv);
-
-  /* zpracování argumentů CLI */
-  zpracuj_argumenty(argc, argv);
 
   /* nastavení velikosti terminálu (může změnit přepínač při spuštění) */
   #if TERM_SET == 1
@@ -156,6 +159,9 @@ int main(int argc, char *argv[])
   fputs(PROMPT_ENTER_KONEC, stdout);
   cekej_enter();
   /*vymaz_obr();*/
+  #if TERM_SET == 1
+    term_barvy_reset();
+  #endif
 
   return 0;
 }
@@ -166,6 +172,8 @@ int main(int argc, char *argv[])
 
 static void zpracuj_argumenty(int argc, char *argv[])
 {
+  int i;
+
   /* vypíše seznam dostupných přepínačů */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_HLP_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_2 ARG_HLP_SIGN_2, argv[1]) == 0
@@ -296,7 +304,7 @@ static void zpracuj_argumenty(int argc, char *argv[])
 
       term_set = 1;
 
-      for (int i = 0; i < 2; i++) {  /* načtení X y Y */
+      for (i = 0; i < 2; i++) {  /* načtení X y Y */
         /* argumenty jsou 4: "PATH -w X Y" */
         int argument = i + 2;
         if (sscanf(argv[argument], "%d", term_rozmery + i) != 1) {
