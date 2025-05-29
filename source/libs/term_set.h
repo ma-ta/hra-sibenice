@@ -40,6 +40,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../globconf.h"
 #ifdef OS_WIN
   #include <windows.h>
 #elif defined(OS_DOS)
@@ -48,6 +49,7 @@
 
 typedef enum {
    TERM_BGFG,   /* výchozí barvy */
+   /* barvy dle MS-DOS */
    TERM_BLACK   = '0',
    TERM_BLUE,
    TERM_GREEN,
