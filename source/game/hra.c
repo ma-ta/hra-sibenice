@@ -79,9 +79,9 @@ void hra_vysledek(int skore)
       stats_zadej_jmeno(umisteni);
       vymaz_obr();
       stats_vypis(false);
-      #ifdef OS_DOS
+      if (term_color_zap) {
         term_barvy(TERM_POZADI, TERM_POPREDI);
-      #endif
+      }
       return;
     }
     /* dosažené skóre není významné */
@@ -92,9 +92,9 @@ void hra_vysledek(int skore)
   }
   /* prohra */
   else {
-    #ifdef OS_DOS
+    if (term_color_zap) {
       term_barvy(TERM_BLACK, TERM_LRED);
-    #endif
+    }
     fputs(HRA_HLASKA_PROHRA, stdout);
     fputs(ansi_format(ANSI_RESET), stdout);
     puts("\n\n\n" HRA_OBR_PROHRA);
@@ -103,9 +103,9 @@ void hra_vysledek(int skore)
   /* čekání na stisk klávesy Enter */
   fputs("\n\n   " HRA_PROPOKRACOVANI, stdout);
   cekej_enter();
-  #ifdef OS_DOS
+  if (term_color_zap) {
     term_barvy(TERM_POZADI, TERM_POPREDI);
-  #endif
+  }
   vymaz_obr();
 }
 
@@ -561,9 +561,9 @@ static int hra_kolo(void) {
       #if (ZVUKY == 1)
         putchar('\a');
       #endif
-      #ifdef OS_DOS
+      if (term_color_zap) {
         term_barvy(TERM_GREEN, TERM_LWHITE);
-      #endif
+      }
       fputs(ansi_format(ANSI_INVER) HRA_HLASKA_UHODL ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
       cekej_enter();  /* čekání na stisk klávesy enter */
       break;

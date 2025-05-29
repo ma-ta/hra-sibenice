@@ -163,6 +163,7 @@
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
 #define ANSI_FORMAT  1    /* zapne formátování ESC sekvencemi */
+#define TERM_COLOR   1    /* zapne obarvování pomocí modulu term_set */
 
 /* nastavení okna terminálu */
 
@@ -180,6 +181,8 @@
 #if defined(OS_DOS)
   #undef  ANSI_FORMAT
   #define ANSI_FORMAT  0
+  #undef  TERM_COLOR
+  #define TERM_COLOR   1
 #endif
 
 #define TERM_TITLE      NAZEV
@@ -187,8 +190,13 @@
 #define TERM_VYSKA      37  /* počet řádků */
 #define TERM_SIRKA_DOS  80  /* při použití přepínače -c (v GUI) */
 #define TERM_VYSKA_DOS  26  /* při 25 zn. může "poskakovat" Nápověda */
-#define TERM_POZADI     TERM_BLUE
-#define TERM_POPREDI    TERM_LWHITE
+#ifdef OS_DOS
+  #define TERM_POZADI   TERM_BLUE
+  #define TERM_POPREDI  TERM_LWHITE
+#else
+  #define TERM_POZADI   TERM_BLACK
+  #define TERM_POPREDI  TERM_LWHITE
+#endif
 
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
 
@@ -270,7 +278,9 @@
 #if (DEBUG == 0)
   #if defined(OS_UNIX)
     #define vymaz_obr()  system("clear")
-  #elif (defined(OS_WIN) || defined(OS_DOS))
+  #elif defined(OS_WIN)
+    #define vymaz_obr()  system("cls")
+  #elif defined(OS_DOS)
     #define vymaz_obr()  system("cls")
   #else  /* ANSI escape */
     #define vymaz_obr() {  \

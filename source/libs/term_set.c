@@ -53,21 +53,24 @@ void term_barvy(term_color pozadi, term_color text)
     if (pozadi == term_bgfg.bg && text == term_bgfg.fg) {
       return;
     }
-
-    term_bgfg.bg = ((int) pozadi > 0) ? pozadi : TERM_POZADI;
-    term_bgfg.fg = ((int) text   > 0) ? text   : TERM_POPREDI;
+    else {
+      term_bgfg.bg = pozadi;
+      term_bgfg.fg = text;
+    }
 
     #ifdef OS_DOS
+
       snprintf(
         system_prikaz
         , sizeof(system_prikaz)
         , "color %c%c"
-        , term_bgfg.bg
-        , term_bgfg.fg
+        , (term_bgfg.bg <= 9) ? (term_bgfg.bg + '0') : (term_bgfg.bg + 'A' - 10)
+        , (term_bgfg.fg <= 9) ? (term_bgfg.fg + '0') : (term_bgfg.fg + 'A' - 10)
       );
 
       system(system_prikaz);
-    #endif
+
+    #endif  /* rozvětvení OS */
 
   #endif
 }  /* term_barvy() */

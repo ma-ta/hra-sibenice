@@ -222,14 +222,14 @@ void ukazatelsibenice_vykresli(void) {
       vykresli_sibenici();
     }
     else {
-      #ifdef OS_DOS
+      if (term_color_zap) {
         term_barvy(TERM_BLACK, TERM_LRED);
-      #endif
+      }
       vykresli_tabskore(tabskore_obr);
-      #ifdef OS_DOS
+      if (term_color_zap) {
         if (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW) {
           /* výchozí barva - průběh hry */
-          term_barvy(0, 0);
+          term_barvy(TERM_POZADI, TERM_POPREDI);
         }
         else if (zbyvajici_zivoty <= 0)
           /* prohra */
@@ -238,7 +238,7 @@ void ukazatelsibenice_vykresli(void) {
           /* zbývá málo životů */
           term_barvy(TERM_RED, TERM_LWHITE);
         }
-      #endif
+      }
       tabskore_obr = false;
     }
   }

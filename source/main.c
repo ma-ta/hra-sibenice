@@ -41,6 +41,11 @@
 #else
   int term_set = 0;
 #endif
+#if TERM_COLOR == 1
+  int term_color_zap = 1;
+#else
+  int term_color_zap = 0;
+#endif
 
 #ifndef OS_DOS
   int nastaveni_tabskore = 0;  /* když 1, skóre se vykresluje do tabulky */
@@ -95,7 +100,9 @@ int main(int argc, char *argv[])
     /* inicializace ConHost na Windows */
     term_init();
     /* nastavení výchozích barev */
-    term_barvy(TERM_POZADI, TERM_POPREDI);
+    if (term_color_zap) {
+      term_barvy(TERM_POZADI, TERM_POPREDI);
+    }
   #endif
 
   /* nastavení velikosti terminálu (může změnit přepínač při spuštění) */
@@ -159,9 +166,9 @@ int main(int argc, char *argv[])
   fputs(PROMPT_ENTER_KONEC, stdout);
   cekej_enter();
   /*vymaz_obr();*/
-  #if TERM_SET == 1
+  if (term_color_zap) {
     term_barvy_reset();
-  #endif
+  }
 
   return 0;
 }

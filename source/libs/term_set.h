@@ -48,9 +48,7 @@
 #endif
 
 typedef enum {
-   TERM_BGFG,   /* výchozí barvy */
-   /* barvy dle MS-DOS */
-   TERM_BLACK   = '0',
+   TERM_BLACK,
    TERM_BLUE,
    TERM_GREEN,
    TERM_AQUA,
@@ -60,7 +58,7 @@ typedef enum {
    TERM_WHITE,
    TERM_GRAY,
    TERM_LBLUE,
-   TERM_LGREEN  = 'A',
+   TERM_LGREEN,
    TERM_LAQUA,
    TERM_LRED,
    TERM_LPURPLE,
@@ -72,6 +70,8 @@ typedef struct {
   term_color bg;
   term_color fg;
 } term_color_bgfg;
+
+extern int term_color_zap;  /* definováno v main.c */
 
 /* nastaví barvu pozadí terminálu (resp. obrazovky),
    při zadání hodnoty 0 se daná barva nezmění,
