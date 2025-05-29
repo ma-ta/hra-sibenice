@@ -81,8 +81,8 @@
   #define ansi_cursor_off()          ""
   #define ansi_cursor_on()           ""
 
-  #define ansi_osc_title(title)      ""
-  #define ansi_osc_title_kde(title)  ""
+  #define ansi_osc_title             ""
+  #define ansi_osc_title_kde         ""
 #endif
 
 #define ansi_scroll(mode, count)     CSI #count mode
