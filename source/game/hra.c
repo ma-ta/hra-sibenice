@@ -49,6 +49,17 @@ void hra_vysledek(int skore)
   /* započítání herního času */
   stats_zpracuj_cas(true, (skore > 0) ? true : false);
 
+  if (term_color_zap) {
+    if (skore > 0) {
+      term_barvy(TERM_GREEN, TERM_LWHITE);
+    }
+    else {
+      term_barvy(TERM_BLACK, TERM_LRED);
+    }
+
+    vymaz_obr();
+  }
+
   hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_P);
   puts("\n");
 
@@ -79,9 +90,6 @@ void hra_vysledek(int skore)
       stats_zadej_jmeno(umisteni);
       vymaz_obr();
       stats_vypis(false);
-      if (term_color_zap) {
-        term_barvy(TERM_POZADI, TERM_POPREDI);
-      }
       return;
     }
     /* dosažené skóre není významné */
@@ -92,9 +100,6 @@ void hra_vysledek(int skore)
   }
   /* prohra */
   else {
-    if (term_color_zap) {
-      term_barvy(TERM_BLACK, TERM_LRED);
-    }
     fputs(HRA_HLASKA_PROHRA, stdout);
     fputs(ansi_format(ANSI_RESET), stdout);
     puts("\n\n\n" HRA_OBR_PROHRA);
@@ -103,10 +108,6 @@ void hra_vysledek(int skore)
   /* čekání na stisk klávesy Enter */
   fputs("\n\n   " HRA_PROPOKRACOVANI, stdout);
   cekej_enter();
-  if (term_color_zap) {
-    term_barvy(TERM_POZADI, TERM_POPREDI);
-  }
-  vymaz_obr();
 }
 
 
@@ -185,6 +186,10 @@ int hra_start(void) {
     if (bodu_kolo < 1) {
       /* slovo jsi neuhodl */
       celkem_bodu = 0;
+
+      if (term_color_zap) {
+        term_barvy(TERM_BLACK, TERM_LRED);
+      }
       ukazatelslov_odkryj();
       vymaz_obr();
       ukazatele_vykresli();
@@ -462,6 +467,17 @@ static int hra_kolo(void) {
 
   while (hra_probiha) {
 
+   if (term_color_zap) {
+      if (zbyva_zivotu > UKAZATELSIBE_ZIVOT_LOW) {
+        /* výchozí barva - průběh hry */
+        term_barvy(TERM_POZADI, TERM_POPREDI);
+      }
+      else {
+        /* zbývá málo životů */
+        term_barvy(TERM_RED, TERM_LWHITE);
+      }
+    }
+
     vymaz_obr();
     ukazatele_vykresli();
 
@@ -563,6 +579,8 @@ static int hra_kolo(void) {
       #endif
       if (term_color_zap) {
         term_barvy(TERM_GREEN, TERM_LWHITE);
+        vymaz_obr();
+        ukazatele_vykresli();
       }
       fputs(ansi_format(ANSI_INVER) HRA_HLASKA_UHODL ansi_format(ANSI_RESET) "  " HRA_PROPOKRACOVANI, stdout);
       cekej_enter();  /* čekání na stisk klávesy enter */

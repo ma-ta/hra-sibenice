@@ -162,7 +162,7 @@
 
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
 
-#define ANSI_FORMAT  1    /* zapne formátování ESC sekvencemi */
+#define ANSI_FORMAT  0    /* zapne formátování ESC sekvencemi */
 #define TERM_COLOR   1    /* zapne obarvování pomocí modulu term_set */
 
 /* nastavení okna terminálu */
@@ -190,13 +190,8 @@
 #define TERM_VYSKA      37  /* počet řádků */
 #define TERM_SIRKA_DOS  80  /* při použití přepínače -c (v GUI) */
 #define TERM_VYSKA_DOS  26  /* při 25 zn. může "poskakovat" Nápověda */
-#ifdef OS_DOS
-  #define TERM_POZADI   TERM_BLUE
-  #define TERM_POPREDI  TERM_LWHITE
-#else
-  #define TERM_POZADI   TERM_BLACK
-  #define TERM_POPREDI  TERM_LWHITE
-#endif
+#define TERM_POZADI     TERM_WHITE
+#define TERM_POPREDI    TERM_BLACK
 
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
 

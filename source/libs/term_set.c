@@ -70,6 +70,14 @@ void term_barvy(term_color pozadi, term_color text)
 
       system(system_prikaz);
 
+    #elif defined(OS_WIN)
+
+    unsigned char win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
+    unsigned char win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    SetConsoleTextAttribute(hConsole, win_pozadi | win_text);
+
     #endif  /* rozvětvení OS */
 
   #endif
@@ -96,7 +104,7 @@ bool term_title(const char *novy_titulek)
   #endif
 
 
-  // 1 => modul aktivován, 0 => deaktivován (fce. je možné stále volat)
+  /* 1 => modul aktivován, 0 => deaktivován (fce. je možné stále volat) */
   #if TERM_SET == 1
 
     #ifdef OS_UNIX

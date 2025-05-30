@@ -99,10 +99,6 @@ int main(int argc, char *argv[])
   #if TERM_SET == 1
     /* inicializace ConHost na Windows */
     term_init();
-    /* nastavení výchozích barev */
-    if (term_color_zap) {
-      term_barvy(TERM_POZADI, TERM_POPREDI);
-    }
   #endif
 
   /* nastavení velikosti terminálu (může změnit přepínač při spuštění) */

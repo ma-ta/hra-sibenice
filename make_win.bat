@@ -133,7 +133,7 @@ echo.
    echo %oramovani%
    echo.
 
-   %out_dir%\%bin_nazev%.exe -v
+   rem :: %out_dir%\%bin_nazev%.exe -v
 
 
 :: vyckani na stisk klavesy

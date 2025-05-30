@@ -128,6 +128,10 @@ void vykresli_tabskore(bool vykreslit_obr)
 
   /* vykreslí samostatnou obrazovku s šibenicí při ztrátě života */
   if (vykreslit_obr) {
+    if (term_color_zap) {
+      term_barvy(TERM_BLACK, TERM_LRED);
+      vymaz_obr();
+    }
     vykresli_sibenici();
     fputs(ansi_cursor_off(), stdout);
     fputs("\n\n" ansi_format(ANSI_INVER) "Prisel jsi o zivot!" ansi_format(ANSI_RESET)
@@ -135,6 +139,16 @@ void vykresli_tabskore(bool vykreslit_obr)
           , stdout);
     cekej_enter();
     fputs(ansi_cursor_on(), stdout);
+    if (term_color_zap) {
+      if (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW) {
+        /* výchozí barva - průběh hry */
+        term_barvy(TERM_POZADI, TERM_POPREDI);
+      }
+      else if (zbyvajici_zivoty > 0) {
+        /* zbývá málo životů */
+        term_barvy(TERM_RED, TERM_LWHITE);
+      }
+    }
     vymaz_obr();
   }
 
@@ -222,23 +236,7 @@ void ukazatelsibenice_vykresli(void) {
       vykresli_sibenici();
     }
     else {
-      if (term_color_zap) {
-        term_barvy(TERM_BLACK, TERM_LRED);
-      }
       vykresli_tabskore(tabskore_obr);
-      if (term_color_zap) {
-        if (zbyvajici_zivoty > UKAZATELSIBE_ZIVOT_LOW) {
-          /* výchozí barva - průběh hry */
-          term_barvy(TERM_POZADI, TERM_POPREDI);
-        }
-        else if (zbyvajici_zivoty <= 0)
-          /* prohra */
-          term_barvy(TERM_BLACK, TERM_LRED);
-        else {
-          /* zbývá málo životů */
-          term_barvy(TERM_RED, TERM_LWHITE);
-        }
-      }
       tabskore_obr = false;
     }
   }

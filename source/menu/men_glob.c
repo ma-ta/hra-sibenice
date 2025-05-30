@@ -21,6 +21,12 @@ VOLBY_MENU menu(void)
   int pocet_mezer_p = (MENU_SIRKA - strlen(menu_nadpis) - strlen(MENU_NADPIS_P)
                        - strlen(MENU_NADPIS_P) - 1) / 2;
 
+  /* nastavení výchozích barev */
+  if (term_color_zap) {
+    term_barvy(TERM_POZADI, TERM_POPREDI);
+  }
+
+  vymaz_obr();
 
   hlavicka_vykresli(TUI_HLAVICKA_TXT_L, TUI_HLAVICKA_TXT_P);
   putchar('\n');
