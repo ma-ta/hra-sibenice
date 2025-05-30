@@ -48,22 +48,40 @@
 #endif
 
 typedef enum {
-   TERM_BLACK,
-   TERM_BLUE,
-   TERM_GREEN,
-   TERM_AQUA,
-   TERM_RED,
-   TERM_PURPLE,
-   TERM_YELLOW,
-   TERM_WHITE,
-   TERM_GRAY,
-   TERM_LBLUE,
-   TERM_LGREEN,
-   TERM_LAQUA,
-   TERM_LRED,
-   TERM_LPURPLE,
-   TERM_LYELLOW,
-   TERM_LWHITE
+   #if defined(OS_WIN) || defined(OS_DOS)
+      TERM_BLACK,
+      TERM_BLUE,
+      TERM_GREEN,
+      TERM_AQUA,
+      TERM_RED,
+      TERM_PURPLE,
+      TERM_YELLOW,
+      TERM_WHITE,
+      TERM_GRAY,
+      TERM_LBLUE,
+      TERM_LGREEN,
+      TERM_LAQUA,
+      TERM_LRED,
+      TERM_LPURPLE,
+      TERM_LYELLOW,
+      TERM_LWHITE
+   #else
+      TERM_BLACK,
+      TERM_RED,
+      TERM_GREEN,
+      TERM_YELLOW,
+      TERM_BLUE,
+      TERM_PURPLE,  /* magenta */
+      TERM_AQUA,    /* cyan */
+      TERM_WHITE,
+      TERM_LRED,    /* níže světlé varianty s "1;" */
+      TERM_LGREEN,
+      TERM_LYELLOW,
+      TERM_LBLUE,
+      TERM_LPURPLE,
+      TERM_LAQUA,
+      TERM_LWHITE
+   #endif
 } term_color;
 
 typedef struct {

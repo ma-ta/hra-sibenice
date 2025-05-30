@@ -161,10 +161,10 @@ int main(int argc, char *argv[])
   puts("\n\n");
   fputs(PROMPT_ENTER_KONEC, stdout);
   cekej_enter();
-  /*vymaz_obr();*/
   if (term_color_zap) {
     term_barvy_reset();
   }
+  vymaz_obr();
 
   return 0;
 }

@@ -173,16 +173,9 @@
 #define TERM_SET     1
 /***************************************************/
 
-#if !defined(OS_WIN) && !defined(OS_MAC) && !defined(OS_DOS)
-  #undef  TERM_SET
-  #define TERM_SET   0
-#endif
-
 #if defined(OS_DOS)
   #undef  ANSI_FORMAT
   #define ANSI_FORMAT  0
-  #undef  TERM_COLOR
-  #define TERM_COLOR   1
 #endif
 
 #define TERM_TITLE      NAZEV

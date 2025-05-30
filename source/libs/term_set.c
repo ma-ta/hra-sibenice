@@ -72,11 +72,38 @@ void term_barvy(term_color pozadi, term_color text)
 
     #elif defined(OS_WIN)
 
-    unsigned char win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
-    unsigned char win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+      unsigned char win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
+      unsigned char win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
+      HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    SetConsoleTextAttribute(hConsole, win_pozadi | win_text);
+      SetConsoleTextAttribute(hConsole, win_pozadi | win_text);
+
+    #else  /* jiný systém než DOS a WIN => ANSI esc */
+
+      #define LBARVY  7  /* posun v enum term_color */
+
+      int ansi_text   = 30 + ((term_bgfg.fg <= LBARVY)
+                               ? (term_bgfg.fg)
+                               : (term_bgfg.fg - LBARVY));
+      int ansi_pozadi = 40 + ((term_bgfg.bg <= LBARVY)
+                               ? (term_bgfg.bg)
+                               : (term_bgfg.bg - LBARVY));
+
+      snprintf(
+        system_prikaz
+        , sizeof(system_prikaz)
+        , CSI "%s%d" SGR CSI "%d" SGR
+        , ((term_bgfg.fg > LBARVY) ? (ANSI_LIGHT) : (""))
+        , ansi_text
+        , ansi_pozadi
+      );
+
+      printf("%s", system_prikaz);
+      fflush(stdout);
+
+      /* DEBUG */
+      fprintf(stderr, "%s\n", system_prikaz);
+      /* // DEBUG */
 
     #endif  /* rozvětvení OS */
 
@@ -89,6 +116,13 @@ void term_barvy_reset(void)
 
     #ifdef OS_DOS
       system("color");
+    #elif (!defined(OS_WIN))
+      printf(CSI ANSI_RESET SGR);
+      fflush(stdout);
+
+      /* DEBUG */
+      fprintf(stderr, "%s\n", CSI ANSI_RESET SGR);
+      /* // DEBUG */
     #endif
 
   #endif

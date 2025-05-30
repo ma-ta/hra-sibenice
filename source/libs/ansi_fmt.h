@@ -32,6 +32,7 @@
 #define ANSI_FRCOLOR  "3"  /* prefix pro barvu textu */
 #define ANSI_BGCOLOR  "4"  /* prefix pro barvu pozadí */
 
+#define ANSI_BLACK    "0"  /* černá */
 #define ANSI_RED      "1"  /* červená */
 #define ANSI_GREEN    "2"  /* zelená */
 #define ANSI_YELLOW   "3"  /* žlutá */
@@ -39,10 +40,9 @@
 #define ANSI_MAGENTA  "5"  /* purpurová */
 #define ANSI_CYAN     "6"  /* tyrkysová */
 #define ANSI_WHITE    "7"  /* bílá */
-#define ANSI_BLACK    "0"  /* černá */
 
-#define ANSI_LIGHT     "1;"  /* světlejší varianta barvy */
-#define ANSI_COLOR_OFF  "9"  /* implicitní barva */
+#define ANSI_LIGHT      "1;"  /* světlejší varianta barvy */
+#define ANSI_COLOR_OFF  "9"   /* implicitní barva */
 
 /* kurzor */
 
@@ -71,19 +71,16 @@
 
   #define ansi_cursor_off()          CSI "?25l"
   #define ansi_cursor_on()           CSI "?25h"
-
-  #define ansi_osc_title             OSC "0;%s" BEL   // titulek terminálu
-  #define ansi_osc_title_kde         OSC "30;%s" BEL  // titulek KDE Konsole
 #else
   #define ansi_format(format)        ""
   #define ansi_frcolor(color)        ""
   #define ansi_bgcolor(color)        ""
   #define ansi_cursor_off()          ""
   #define ansi_cursor_on()           ""
-
-  #define ansi_osc_title             ""
-  #define ansi_osc_title_kde         ""
 #endif
+
+#define ansi_osc_title               OSC "0;%s" BEL   // titulek terminálu
+#define ansi_osc_title_kde           OSC "30;%s" BEL  // titulek KDE Konsole
 
 #define ansi_scroll(mode, count)     CSI #count mode
 #define ansi_cursor(mode, count)     CSI #count mode
