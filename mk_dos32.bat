@@ -11,7 +11,7 @@ rem ::  SKRIPT NA SESTAVENI HRY SIBENICE  ::
 rem ::  (FreeDOS / BATCH / DJGPP GCC)     ::
 rem ::                                    ::
 rem ::  autor:  Martin TABOR (Ma-TA)      ::
-rem ::  datum:  2025-05-16                ::
+rem ::  datum:  2025-06-09                ::
 rem ::                                    ::
 rem ::::::::::::::::::::::::::::::::::::::::
 
