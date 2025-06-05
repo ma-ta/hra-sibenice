@@ -40,7 +40,7 @@
   src_dir=`pwd`'/source'
 
 # korenovy adresar pro binarni soubory
-  out_dir=`pwd`'/pokus-dos'
+  out_dir=`pwd`'/bin'
 
 
 # oramovani (pouze pro vystup skriptu)

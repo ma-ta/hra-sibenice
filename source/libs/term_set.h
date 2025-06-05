@@ -40,15 +40,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../globconf.h"
-#ifdef OS_WIN
-  #include <windows.h>
-#elif defined(OS_DOS)
-   #include <dos.h>
-#endif
 
 typedef enum {
-   #if defined(OS_WIN) || defined(OS_DOS)
+   #if (defined(_WIN32) || defined(_WIN64) || defined(__DOS__) || defined(__MSDOS__) || defined(MSDOS))
       TERM_BLACK,
       TERM_BLUE,
       TERM_GREEN,
@@ -65,7 +59,7 @@ typedef enum {
       TERM_LPURPLE,
       TERM_LYELLOW,
       TERM_LWHITE
-   #else
+   #else  /* ANSI sekvence */
       TERM_BLACK,
       TERM_RED,
       TERM_GREEN,
@@ -74,7 +68,7 @@ typedef enum {
       TERM_PURPLE,  /* magenta */
       TERM_AQUA,    /* cyan */
       TERM_WHITE,
-      TERM_LRED,    /* níže světlé varianty s "1;" */
+      TERM_LRED,    /* níže světlé varianty převedené na "1;" */
       TERM_LGREEN,
       TERM_LYELLOW,
       TERM_LBLUE,

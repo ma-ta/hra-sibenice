@@ -1,6 +1,12 @@
-#include "term_set.h"
 #include "../libs/ansi_fmt.h"
 #include "../globconf.h"
+#include "term_set.h"
+
+#ifdef OS_WIN
+  #include <windows.h>
+#elif defined(OS_DOS)
+   #include <dos.h>
+#endif
 
 
 // TEST MODULU - aktivace fce. main()
@@ -58,7 +64,8 @@ void term_barvy(term_color pozadi, term_color text)
       term_bgfg.fg = text;
     }
 
-    #ifdef OS_DOS
+
+    #if defined(OS_DOS)
 
       snprintf(
         system_prikaz
@@ -70,13 +77,13 @@ void term_barvy(term_color pozadi, term_color text)
 
       system(system_prikaz);
 
-    #elif defined(OS_WIN)
+    #elif defined(OS_WIN)  /* v ConHost funguje i řešení s [color] pro DOS výše */
 
-      unsigned char win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
-      unsigned char win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
+      WORD win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
+      WORD win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
       HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-      SetConsoleTextAttribute(hConsole, win_pozadi | win_text);
+      SetConsoleTextAttribute(hConsole, win_text | win_pozadi);
 
     #else  /* jiný systém než DOS a WIN => ANSI esc */
 
