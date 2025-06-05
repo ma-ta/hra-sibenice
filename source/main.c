@@ -182,10 +182,15 @@ int main(int argc, char *argv[])
 static void zpracuj_argumenty(int argc, char *argv_orig[])
 {
   int i, j, buffer_pozice = 0;
-  char buffer_argv[1000] = "";  /* pro zkopírování všech argumentů */
-  char *argv[10];  /* pro ukazatele na začátky řetězců */
 
-  /* převod na malá písmena a kopírování */
+  char buffer_argv[1000] = "";  /* pro zkopírování všech argumentů */
+  char *argv[10];               /* pro ukazatele na začátky řetězců */
+
+  /* převod na malá písmena a kopírování
+
+     TODO:
+     spíše odstranit a změnit fce. porovnávání řetězců (strcmp) u argumentů níže
+     (i pro možnost přepínače s cestou k alternativnímu slovníku apod.) */
 
   if (argc > 1) {
     for (i = 0; i < argc; i++) {
