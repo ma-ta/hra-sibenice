@@ -123,12 +123,12 @@
     DJGPP GCC   (pro 32-bit binarku):  spustit skript [mk_dos32.bat]
 
   varianta 3:
-    Ubuntu/Open Watcom + DOSBox-X (pro rychlé ladění)
+    Ubuntu/Open Watcom + DOSBox-X (pro rychle ladeni)
     a) nainstalovat [sudo snap install open-watcom],
-    b) kompilovat pomocí skriptu [make_ubu2dos.sh],
-    c) v DOSBox-X připojit složku [mount c .\bin] a spustit [dos-test.exe]
-       nebo rovnou nainstalovat DOSBox-X v Ubuntu pomocí
-       [sudo apt get install dosbox-x] a spustit jej s připojenou složkou
+    b) kompilovat pomoci skriptu [make_ubu2dos.sh],
+    c) v DOSBox-X pripojit slozku [mount c .\bin] a spustit [dos-test.exe]
+       nebo rovnou nainstalovat DOSBox-X v Ubuntu pomoci
+       [sudo apt get install dosbox-x] a spustit jej s pripojenym adresarem
        [dosbox-x ./bin].
 
 
