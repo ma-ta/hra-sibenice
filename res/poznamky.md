@@ -1,4 +1,22 @@
 ```
++--------+------------+
+| v1.4.0 | ????-??-?? |  -  V PLÁNU
++--------+------------+
+
+
+NOVINKY:
+
+1) vylepšení slovníku (hádaných slov):
+   a) možnost vlastního slovníku pomocí přepínače [-v] [cesta_k_souboru]:
+      - umožní načíst slova z vlastního slovníku,
+      - vypne dešifrování při načítání slov,
+      - vypne hlídání minimálního počtu slov ve slovníku,
+      - vypne ukládání herních statistik (kromě odehráté doby).
+
+   b) první znak '#' na řádku slovníku značí komentář, který bude při
+      načítání souboru přeskočen (to umožní vepsat libovolné informace)
+
+
 ------------
 ZNÁMÉ CHYBY:
 ------------
@@ -19,6 +37,11 @@ ZNÁMÉ CHYBY:
 
 
 Hotovo:
+
+4) [v1.3.0]
+   - přepínače nově nejsou case sensitive (vhodné pro DOS a WIN)
+   - zobrazí se hláška před načítáním slov ze slovníku
+     (obrazovka tedy na pomalém HW zdánlivě pouze nezamrzne)
 
 3) [v1.2.1]
    lépe vyřešeno načítání slov ze souboru slovníku v modulu [hra.c]:

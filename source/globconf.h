@@ -22,6 +22,7 @@
 #ifndef OSNAME
   #if defined(__ANDROID__)
     #define OSNAME "Android"
+    #define OS_UNIX
     #define OS_ANDROID
   #elif defined (__EMSCRIPTEN__)
     #define OSNAME "Web"
@@ -246,11 +247,11 @@
 #define ARG_HLP_TXT2  "\n"  \
                       "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
 #define ARG_HLP_TXT3  "\n"  \
-                      "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni velikosti terminalu,\n"  \
-                      "\t        pripadne s [x y] nastavi rozmery"
+                      "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni barev, pisma atd.,\n"  \
+                      "\t        pripadne s [x y] konkretni rozmery okna"
 
-#if defined(OS_DOS) || defined(OS_WEB)  /* vynechá se [-c] a [-w] */
-  #define ARG_HLP_TEXT  ARG_HLP_TXT1
+#if defined(OS_DOS)  /* vynechá se [-c] */
+  #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT3
 #elif TERM_SET == 0  /* vynechá se [-w] */
   #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2
 #else
@@ -258,7 +259,8 @@
 #endif
 
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
-                       "    Pro napovedu spustte s prepinacem \"-?\" (resp. \"--help\")."
+                       "    Pro napovedu spustte s prepinacem\n"  \
+                       "    \"-?\" nebo \"--help\"."
 
 #define arg_hlp_text()  printf("Pouziti: %s [PREPINAC] [...]\n" ARG_HLP_TEXT "\n", argv[0])
 

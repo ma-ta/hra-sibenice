@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <time.h>
 #if defined(_MSC_VER) || defined(__WATCOMC__)
   #include <direct.h>
@@ -64,7 +65,7 @@ struct tm *p_tmcas = NULL;
 
 /* zpracuje argumenty předané
    z příkazové řádky */
-static void zpracuj_argumenty(int argc, char *argv[]);
+static void zpracuj_argumenty(int argc, char *argv_orig[]);
 
 /* přepne do adresáře se spustitelným souborem
    kvůli korekci relativních cest */
@@ -174,9 +175,47 @@ int main(int argc, char *argv[])
 /* definice lokálních funkcí */
 
 
-static void zpracuj_argumenty(int argc, char *argv[])
+static void zpracuj_argumenty(int argc, char *argv_orig[])
 {
-  int i;
+  int i, j, buffer_pozice = 0;
+  char buffer_argv[65] = "";  /* pro zkopírování všech argumentů */
+  char *argv[10];  /* pro ukazatele na začátky řetězců */
+
+  /* převod na malá písmena a kopírování */
+
+  if (argc > 1) {
+    for (i = 0; i < argc; i++) {
+
+      if (i >= arrlen(argv)) {  /* statické pole ukazatelů ! */
+        fprintf(stderr, "%s(): Prilis mnoho argumentu...\n", __func__);
+        exit(1);
+      }
+
+      argv[i] = buffer_argv + buffer_pozice;
+      for (j = 0; argv_orig[i][j] != '\0'; j++, buffer_pozice++) {
+        if (buffer_pozice + 1 > arrlen(buffer_argv)) {
+          /* při testech zjištěno, že je potřeba buffer od 2 bajty (znaky) větší
+             než je délka nejdelšího argumentu (vč. +1 přo '\0') - neopraveno */
+          fprintf(stderr, "%s(): Nedostatecny buffer pro argumenty...\n", __func__);
+          exit(1);
+        }
+        buffer_argv[buffer_pozice] = ((isupper(argv_orig[i][j]))
+                                       ? tolower(argv_orig[i][j])
+                                       : argv_orig[i][j]);
+      }
+      buffer_argv[buffer_pozice++] = '\0';
+    }
+
+    /* DEBUG */
+      /*
+      for (i = 0; i < argc; i++) {
+        fprintf(stderr, "%d: \"%s\"\n", i, argv[i]);
+      }
+      */
+    /* // DEBUG */
+  }  /* // if (argc > 1) */
+
+  /* implementace přepínačů */
 
   /* vypíše seznam dostupných přepínačů */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_HLP_SIGN_1, argv[1]) == 0

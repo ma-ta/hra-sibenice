@@ -6,25 +6,16 @@
 
 NOVINKY:
 
-1) možnost vlastního slovníku pomocí přepínače [-v] [cesta_k_souboru]:
-   - umožní načíst slova z vlastního slovníku
-   - vypne dešifrování při načítání slov
-   - vypne hlídání minimálního počtu slov ve slovníku
-   - vypne ukládání herních statistik (kromě odehráté doby)
-
-2) první znak '#' na řádku slovníku značí komentář, který bude při
-   načítání souboru přeskočen (to umožní vepsat libovolné informace)
-
-3) vylepšení vzhledu herního TUI:
-   - obarvení pozadí a písma terminálu dle aktuálního stavu hry
-   - Windows: automatické nastavení fontu a jeho velikosti
+1) vylepšení vzhledu herního TUI - lze vypnout přes [-w]:
+   - obarvení pozadí a písma terminálu dle aktuálního stavu hry,
+   - Windows: automatické nastavení fontu a jeho velikosti.
 
 
 OPRAVENÉ CHYBY:
 
 1) všechny přepínače lze nově zadat buď malým nebo velkým písmenem
 
-2) při načítání slov ze slovníku se zobrazí upozornění
+2) po volbě NOVÁ HRA se při načítání slov ze slovníku zobrazí upozornění
    (vhodné u pomalých systémů s MS-DOS apod.)
 
 
