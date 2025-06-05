@@ -179,6 +179,13 @@
   #define ANSI_FORMAT  0
 #endif
 
+#if defined(OS_WEB)
+  #undef  TERM_SET
+  #define TERM_SET     0
+  #undef  ANSI_FORMAT
+  #define ANSI_FORMAT  1
+#endif
+
 #define TERM_TITLE      NAZEV
 #define TERM_SIRKA      74  /* znaků na řádek */
 #define TERM_VYSKA      37  /* počet řádků */

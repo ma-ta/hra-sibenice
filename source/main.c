@@ -167,9 +167,13 @@ int main(int argc, char *argv[])
     term_barvy_reset();
   }
   vymaz_obr();
+  #ifdef OS_WEB  /* je třeba stisknout tlačítko na webu */
+    printf("Stiskni tlacitko RESTART vpravo dole...");
+    puts(" \xF0\x9F\x98\x89");  /* smajlík '😉' z Unicode */
+  #endif
 
   return 0;
-}
+}  /* main() */
 
 
 /* definice lokálních funkcí */
