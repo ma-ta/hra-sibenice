@@ -41,9 +41,12 @@
 #endif
 
 
-static int ret_value  = EXIT_FAILURE;  // návratová hodnota fcí. modulu
-static int pom_ret_val = 0;  // pomocná proměnná
-static char system_prikaz[1000] = "";  // textový buffer
+/* dodělávka pro přepínač [-w], který by měl vypnout i barvy */
+extern int term_set;
+
+static int ret_value  = EXIT_FAILURE;  /* návratová hodnota fcí. modulu */
+static int pom_ret_val = 0;  /* pomocná proměnná */
+static char system_prikaz[1000] = "";  /* textový buffer */
 
 static term_color_bgfg term_bgfg = {
   .bg = TERM_BLACK,
@@ -55,64 +58,68 @@ void term_barvy(term_color pozadi, term_color text)
 {
   #if TERM_SET == 1
 
-    /* barvy jsou již nastaveny */
-    if (pozadi == term_bgfg.bg && text == term_bgfg.fg) {
-      return;
-    }
-    else {
-      term_bgfg.bg = pozadi;
-      term_bgfg.fg = text;
-    }
+    if (term_set) {  /* nouzová dodělávka pro přepínač [-w] */
+
+        /* barvy jsou již nastaveny */
+        if (pozadi == term_bgfg.bg && text == term_bgfg.fg) {
+          return;
+        }
+        else {
+          term_bgfg.bg = pozadi;
+          term_bgfg.fg = text;
+        }
 
 
-    #if defined(OS_DOS)
+        #if defined(OS_DOS)
 
-      snprintf(
-        system_prikaz
-        , sizeof(system_prikaz)
-        , "color %c%c"
-        , (term_bgfg.bg <= 9) ? (term_bgfg.bg + '0') : (term_bgfg.bg + 'A' - 10)
-        , (term_bgfg.fg <= 9) ? (term_bgfg.fg + '0') : (term_bgfg.fg + 'A' - 10)
-      );
+          snprintf(
+            system_prikaz
+            , sizeof(system_prikaz)
+            , "color %c%c"
+            , (term_bgfg.bg <= 9) ? (term_bgfg.bg + '0') : (term_bgfg.bg + 'A' - 10)
+            , (term_bgfg.fg <= 9) ? (term_bgfg.fg + '0') : (term_bgfg.fg + 'A' - 10)
+          );
 
-      system(system_prikaz);
+          system(system_prikaz);
 
-    #elif defined(OS_WIN)  /* v ConHost funguje i řešení s [color] pro DOS výše */
+        #elif defined(OS_WIN)  /* v ConHost funguje i řešení s [color] pro DOS výše */
 
-      WORD win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
-      WORD win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
-      HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+          WORD win_text   = term_bgfg.fg;  /* dolní 4 bity, tj. 0-15 */
+          WORD win_pozadi = ((term_bgfg.bg) << 4);  /* horní 4 bity */
+          HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-      SetConsoleTextAttribute(hConsole, win_text | win_pozadi);
+          SetConsoleTextAttribute(hConsole, win_text | win_pozadi);
 
-    #else  /* jiný systém než DOS a WIN => ANSI esc */
+        #else  /* jiný systém než DOS a WIN => ANSI esc */
 
-      #define LBARVY  7  /* posun v enum term_color */
+          #define LBARVY  7  /* posun v enum term_color */
 
-      int ansi_text   = 30 + ((term_bgfg.fg <= LBARVY)
-                               ? (term_bgfg.fg)
-                               : (term_bgfg.fg - LBARVY));
-      int ansi_pozadi = 40 + ((term_bgfg.bg <= LBARVY)
-                               ? (term_bgfg.bg)
-                               : (term_bgfg.bg - LBARVY));
+          int ansi_text   = 30 + ((term_bgfg.fg <= LBARVY)
+                                  ? (term_bgfg.fg)
+                                  : (term_bgfg.fg - LBARVY));
+          int ansi_pozadi = 40 + ((term_bgfg.bg <= LBARVY)
+                                  ? (term_bgfg.bg)
+                                  : (term_bgfg.bg - LBARVY));
 
-      snprintf(
-        system_prikaz
-        , sizeof(system_prikaz)
-        , CSI "%s%d" SGR CSI "%d" SGR
-        , ((term_bgfg.fg > LBARVY) ? (ANSI_LIGHT) : (""))
-        , ansi_text
-        , ansi_pozadi
-      );
+          snprintf(
+            system_prikaz
+            , sizeof(system_prikaz)
+            , CSI "%s%d" SGR CSI "%d" SGR
+            , ((term_bgfg.fg > LBARVY) ? (ANSI_LIGHT) : (""))
+            , ansi_text
+            , ansi_pozadi
+          );
 
-      printf("%s", system_prikaz);
-      fflush(stdout);
+          printf("%s", system_prikaz);
+          fflush(stdout);
 
-      /* DEBUG */
-      fprintf(stderr, "%s\n", system_prikaz);
-      /* // DEBUG */
+          /* DEBUG */
+          fprintf(stderr, "%s\n", system_prikaz);
+          /* // DEBUG */
 
-    #endif  /* rozvětvení OS */
+     #endif  /* rozvětvení OS */
+
+    }  /* // if (term_set) */
 
   #endif
 }  /* term_barvy() */
@@ -121,15 +128,50 @@ void term_barvy_reset(void)
 {
   #if TERM_SET == 1
 
-    #ifdef OS_DOS
-      system("color");
-    #elif (!defined(OS_WIN))
-      printf(CSI ANSI_RESET SGR);
-      fflush(stdout);
+    if (term_set) {  /* nouzová dodělávka pro přepínač [-w] */
 
-      /* DEBUG */
-      fprintf(stderr, "%s\n", CSI ANSI_RESET SGR);
-      /* // DEBUG */
+      #if (defined(OS_DOS) || defined(OS_WIN))
+        system("color");
+      #else
+        printf(CSI ANSI_RESET SGR);
+        fflush(stdout);
+      #endif
+
+    }  /* // if (term_set) */
+
+  #endif
+}
+
+void term_font(const char *font, int velikost, bool tucne)
+{
+  #if TERM_SET == 1
+
+    /* kontrola argumentů */
+    if (!font || velikost <= 0) {
+      fprintf(stderr, ERR_SIGN "%s(): Chyba v argumentech...\n", __func__);
+      return;
+    }
+
+    #ifdef OS_WIN
+
+      wchar_t novy_font[LF_FACESIZE];  /* max velikost pro jméno fontu */
+      MultiByteToWideChar(CP_UTF8, 0, font, -1, novy_font, LF_FACESIZE);
+
+      HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+      CONSOLE_FONT_INFOEX cfi;
+      cfi.cbSize = sizeof(cfi);
+      cfi.nFont = 0;
+      cfi.dwFontSize.X = 0;         /* šířka písma (0 => auto) */
+      cfi.dwFontSize.Y = velikost;  /* výška písma */
+      cfi.FontFamily = FF_MODERN;
+      cfi.FontWeight = (tucne) ? FW_BOLD : FW_NORMAL;
+      wcscpy(cfi.FaceName, novy_font);  /* název písma */
+
+      if (!SetCurrentConsoleFontEx(hConsole, FALSE, &cfi)) {
+          fprintf(stderr, ERR_SIGN "Nepodarilo se nastavit font...\n");
+      }
+
     #endif
 
   #endif

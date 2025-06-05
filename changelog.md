@@ -1,6 +1,6 @@
 ```
 +--------+------------+
-| v1.3.0 | 2025-??-?? |  -  V PŘÍPRAVĚ
+| v1.3.0 | 2025-06-09 |
 +--------+------------+
 
 
@@ -15,9 +15,9 @@ NOVINKY:
 2) první znak '#' na řádku slovníku značí komentář, který bude při
    načítání souboru přeskočen (to umožní vepsat libovolné informace)
 
-3) vylepšení vzhledu:
-   - WIN: automatické nastavení písma a barvy pozadí Console Host
-   - DOS: změna barvy pozadí na základě stavu hry
+3) vylepšení vzhledu herního TUI:
+   - obarvení pozadí a písma terminálu dle aktuálního stavu hry
+   - Windows: automatické nastavení fontu a jeho velikosti
 
 
 OPRAVENÉ CHYBY:

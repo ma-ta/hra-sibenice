@@ -101,11 +101,12 @@ int main(int argc, char *argv[])
     term_init();
   #endif
 
-  /* nastavení velikosti terminálu (může změnit přepínač při spuštění) */
+  /* nastavení terminálu (může změnit přepínač při spuštění) */
   #if TERM_SET == 1
     if (term_set == 1) {
       term_title(TERM_TITLE);
       term_size(term_rozmery[0], term_rozmery[1]);
+      term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
     }
   #endif
 
@@ -283,7 +284,7 @@ static void zpracuj_argumenty(int argc, char *argv[])
       }
     #endif
   }
-  /* vypne automatické nastavení velikosti okna terminálu */
+  /* vypne term_set: automatické nastavení velikosti okna, písma, barev */
   else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_2 ARG_TER_SIGN_2, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_TER_SIGN_1, argv[1]) == 0

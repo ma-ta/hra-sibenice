@@ -185,6 +185,10 @@
 #define TERM_VYSKA_DOS  26  /* při 25 zn. může "poskakovat" Nápověda */
 #define TERM_POZADI     TERM_WHITE
 #define TERM_POPREDI    TERM_BLACK
+/* nastavení fontu pro ConHost ve Windows*/
+#define TERM_FONT       "Cascadia Mono SemiBold"  /* název písma */
+#define TERM_FONT_SZ    24  /* velikost */
+#define TERM_FONT_B     0   /* normální => 0, tučné => 1 */
 
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
 

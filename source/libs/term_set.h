@@ -95,6 +95,10 @@ void term_barvy(term_color pozadi, term_color text);
 /* nastavení původních barev terminálu */
 void term_barvy_reset(void);
 
+/* nastaví font terminálu
+   (1) Windows - pro Console Host pomocí WinAPI */
+void term_font(const char *font, int velikost, bool tucne);
+
 /* nastaví titulek okna (panelu) emulátoru terminálu
    (1) Windows - CMD, WT
    (2) UN*X - GNOME Terminal, KDE Konsole, macOS Terminal */
