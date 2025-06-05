@@ -138,11 +138,18 @@
 
     varianta 1 - OPEN WATCOM
     {
-      - pripojit BonusCD do virtualni mechaniky (FD14BNS.iso)
-      - spustit [fdimples]
-      - nainstalovat [Development -> WATCOMC]
-      - idealne znovu aktualizovat system [fdnpkg update]
-      - idealne [reboot]
+      {
+        - pripojit BonusCD do virtualni mechaniky (FD14BNS.iso)
+        - spustit [fdimples]
+        - nainstalovat [Development -> WATCOMC]
+        - idealne znovu aktualizovat system [fdnpkg update]
+        - idealne [reboot]
+      }
+      nebo on-line
+      {
+        - spustit [fdnpkg install watcomc], coz stahne Open Watcom
+          pomoci balickovaciho nastroje z repozitare FreeDOS
+      }
     }
 
     varianta 2 - DJGPP GCC
