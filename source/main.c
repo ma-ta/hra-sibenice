@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
 static void zpracuj_argumenty(int argc, char *argv_orig[])
 {
   int i, j, buffer_pozice = 0;
-  char buffer_argv[65] = "";  /* pro zkopírování všech argumentů */
+  char buffer_argv[1000] = "";  /* pro zkopírování všech argumentů */
   char *argv[10];  /* pro ukazatele na začátky řetězců */
 
   /* převod na malá písmena a kopírování */
