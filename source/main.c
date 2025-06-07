@@ -203,8 +203,8 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       argv[i] = buffer_argv + buffer_pozice;
       for (j = 0; argv_orig[i][j] != '\0'; j++, buffer_pozice++) {
         if (buffer_pozice + 1 > arrlen(buffer_argv)) {
-          /* při testech zjištěno, že je potřeba buffer od 2 bajty (znaky) větší
-             než je délka nejdelšího argumentu (vč. +1 přo '\0') - neopraveno */
+          /* při testech zjištěno, že je potřeba buffer o 2 bajty (znaky) větší
+             než je délka nejdelšího argumentu (vč. +1 pro '\0') - neopraveno */
           fprintf(stderr, "%s(): Nedostatecny buffer pro argumenty...\n", __func__);
           exit(1);
         }
