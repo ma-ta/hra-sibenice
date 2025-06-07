@@ -84,7 +84,7 @@ Nativní 16-bit verze běží samostatně.
 [Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.3.0/res/screenshots)
 
 <figure>
-  <figcaption>macOS 15.4 (Sequoia) Terminal&nbsp;&ndash;&nbsp;obrazovka hry:</figcaption>
+  <figcaption>macOS 15.4 (Sequoia) Terminal&nbsp;&ndash;&nbsp;obrazovka hry (v1.1.0):</figcaption>
   <img src="res/screenshots/hra-macos.png" alt="Šibenice - macOS 15.4 Terminal&nbsp;&ndash;&nbsp;obrazovka hry">
 </figure>
 
