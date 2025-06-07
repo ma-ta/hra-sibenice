@@ -1,4 +1,4 @@
-# Hra Š I _ E _ I C E
+# Hra&nbsp;Š&nbsp;I&nbsp;\_&nbsp;E&nbsp;_&nbsp;I&nbsp;C&nbsp;E
 
 > Multiplatformní implementace známé slovní hry Šibenice pro terminál
 
