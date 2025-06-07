@@ -16,6 +16,10 @@ NOVINKY:
    b) první znak '#' na řádku slovníku značí komentář, který bude při
       načítání souboru přeskočen (to umožní vepsat libovolné informace)
 
+2) vylepšení vzhledu TUI - žluté pozadí:
+   - při dosažení předposledního kola hry (8. a 9. hádané slovo),
+   - při zobrazení HERNÍ KRONIKY z hlavního menu.
+
 
 ------------
 ZNÁMÉ CHYBY:
@@ -34,6 +38,16 @@ ZNÁMÉ CHYBY:
 4) [v1.2.1]
    poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
    jinak je vypsána chyba, že se nevešlo do bufferu (není načteno)
+
+5) [v1.3.0]
+   - při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
+     podbarvení terminálu (při aktuálně vykresleném textu), poté se
+     text vymaže a vykreslí nový (alespoň při použití příkazu color
+     v MS-DOS
+   - při pomalém HW (např. v DOSBox-X) pozorováno jiné chování při
+     změně pozadí na zelenou během hry (u jiných barev ne)
+   - ne zcela správně implementovaný převod atributů příkazové řádky
+     ve fci. main() na malá písmena (lépe změnit fce. porovnávání)
 
 
 Hotovo:
