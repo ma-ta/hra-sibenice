@@ -99,18 +99,18 @@ Nativní 16-bit verze běží samostatně.
 </figure>
 
 <figure>
+  <figcaption>Herní statistiky:</figcaption>
+  <img src="res/screenshots/kronika.png" alt="Šibenice - Statistiky">
+</figure>
+
+<figure>
   <figcaption>Informace o verzi (DOSBox-X 2025.05.03):</figcaption>
   <img src="res/screenshots/prepinace-dos.png" alt="Šibenice - MS-DOS">
 </figure>
 
 <figure>
-  <figcaption>Hlavní menu:</figcaption>
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;hlavní menu:</figcaption>
   <img src="res/screenshots/menu-dos.png" alt="Šibenice - Menu">
-</figure>
-
-<figure>
-  <figcaption>Herní statistiky:</figcaption>
-  <img src="res/screenshots/kronika.png" alt="Šibenice - Statistiky">
 </figure>
 
 <figure>
