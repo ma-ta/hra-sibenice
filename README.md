@@ -84,13 +84,18 @@ Nativní 16-bit verze běží samostatně.
 [Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.3.0/res/screenshots)
 
 <figure>
-  <figcaption>macOS 15.4 (Sequoia) Terminal:</figcaption>
-  <img src="/res/screenshots/hra-macos.png" alt="Šibenice - macOS 15.4 Terminal">
+  <figcaption>macOS 15.4 (Sequoia) Terminal&nbsp;&ndash;&nbsp;obrazovka hry:</figcaption>
+  <img src="res/screenshots/hra-macos.png" alt="Šibenice - macOS 15.4 Terminal&nbsp;&ndash;&nbsp;obrazovka hry">
+</figure>
+
+<figure>
+  <figcaption>Windows 11 (24H2)&nbsp;&ndash;&nbsp;obrazovka hry:</figcaption>
+  <img src="res/screenshots/hra-win.png" alt="Šibenice - Windows 11 (24H2)&nbsp;&ndash;&nbsp;obrazovka hry">
 </figure>
 
 <figure>
   <figcaption>Webové rozhraní (Google Chrome 136):</figcaption>
-  <img src="/res/screenshots/hra-web.png" alt="Šibenice - webový prohlížeč">
+  <img src="res/screenshots/hra-web.png" alt="Šibenice - webový prohlížeč">
 </figure>
 
 <figure>
@@ -100,20 +105,40 @@ Nativní 16-bit verze běží samostatně.
 
 <figure>
   <figcaption>Hlavní menu:</figcaption>
-  <img src="/res/screenshots/menu.png" alt="Šibenice - Menu">
-</figure>
-
-<figure>
-  <figcaption>Obrazovka hry:</figcaption>
-  <img src="/res/screenshots/hra.png" alt="Šibenice - Hra">
+  <img src="res/screenshots/menu-dos.png" alt="Šibenice - Menu">
 </figure>
 
 <figure>
   <figcaption>Herní statistiky:</figcaption>
-  <img src="/res/screenshots/kronika.png" alt="Šibenice - Statistiky">
+  <img src="res/screenshots/kronika.png" alt="Šibenice - Statistiky">
 </figure>
 
 <figure>
-  <figcaption>DOS&nbsp;&ndash;&nbsp;25&times;80 znaků:</figcaption>
-  <img src="/res/screenshots/hra-dos.png" alt="Šibenice - MS-DOS">
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;obrazovka hry:</figcaption>
+  <img src="res/screenshots/hra-dos.png" alt="Šibenice - MS-DOS">
+</figure>
+
+<figure>
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;slovo uhodnuto:</figcaption>
+  <img src="res/screenshots/uhodl-dos.png" alt="Šibenice - MS-DOS">
+</figure>
+
+<figure>
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;tři a méně žitovů:</figcaption>
+  <img src="res/screenshots/malozivotu-dos.png" alt="Šibenice - MS-DOS">
+</figure>
+
+<figure>
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;slovo neuhodnuto:</figcaption>
+  <img src="res/screenshots/neuhodl-dos.png" alt="Šibenice - MS-DOS">
+</figure>
+
+<figure>
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;obrazovka prohry:</figcaption>
+  <img src="res/screenshots/prohra2-dos.png" alt="Šibenice - MS-DOS">
+</figure>
+
+<figure>
+  <figcaption>MS-DOS&nbsp;&ndash;&nbsp;konec programu:</figcaption>
+  <img src="res/screenshots/konec-dos.png" alt="Šibenice - MS-DOS">
 </figure>
