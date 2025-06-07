@@ -68,7 +68,7 @@ Nativní 16-bit verze běží samostatně.
 - UN*X:
   - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
-  - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86-64] [AArch64]*
+  - 😈&nbsp;FreeBSD 14.2 *(Clang 18.1.6) &ndash; [x86] [x86-64] [AArch64]*
   - 🤖&nbsp;Android 14/Termux 0.118.3 *(Clang 20.1.6) &ndash; [AArch64]*
 - 🪟&nbsp;Win:
   - Windows 11 *(MSVC 19.44.35209) &ndash; [x86] [x86-64] [AArch64]*
