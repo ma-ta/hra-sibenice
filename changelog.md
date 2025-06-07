@@ -10,6 +10,9 @@ NOVINKY:
    - obarvení pozadí a písma terminálu dle aktuálního stavu hry,
    - Windows: automatické nastavení fontu a jeho velikosti.
 
+2) nové binárky:
+   - FreeBSD [x86 32-bit]
+
 
 OPRAVENÉ CHYBY:
 
