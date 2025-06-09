@@ -3,10 +3,10 @@
 > Multiplatformní implementace známé slovní hry Šibenice pro terminál
 
 ![Windows](https://img.shields.io/badge/OS-Windows-lightgrey?logo=pcgamingwiki&logoColor=white)
+![DOS](https://img.shields.io/badge/OS-DOS-lightgrey?logo=d&logoColor=white)
 ![macOS](https://img.shields.io/badge/OS-macOS-black?logo=apple&logoColor=white)
 ![Linux](https://img.shields.io/badge/OS-Linux-black?logo=linux&logoColor=white)
 ![FreeBSD](https://img.shields.io/badge/OS-FreeBSD-black?logo=freebsd&logoColor=white)
-![DOS](https://img.shields.io/badge/OS-DOS-lightgrey?logo=d&logoColor=white)
 ![Android](https://img.shields.io/badge/OS-Android-3DDC84?logo=android&logoColor=white)
 ![WebAssembly](https://img.shields.io/badge/Web-Assembly-654FF0?logo=webassembly&logoColor=white)
 
@@ -45,8 +45,8 @@
 
 
 ### Popis a stručné instrukce
-Známá slovní hra (alias Oběšenec, Hangman) založená na hádání jednotlivých písmen tajného slova.
-Program je napsán v jazyce C a pro jeho spuštění by neměly být potřeba žádné nestandardní knihovny.
+Známá <a title="Wikipedie" href="//cs.wikipedia.org/wiki/%C5%A0ibenice_(hra)">slovní hra</a> (alias Oběšenec, Kat, Hangman) založená na hádání jednotlivých písmen tajného slova.
+Program je napsán v jazyce C a pro jeho spuštění či sestavení by neměly být potřeba žádné dodatečné komponenty.
 
 - **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.3.0/how_make.md)**
 - [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.3.0/res/napoveda.md)
