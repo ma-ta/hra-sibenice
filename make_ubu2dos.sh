@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
+
 # Testovane OS: Ubuntu 24.04.2 LTS
 
 # Skript umožňuje cross kompilaci MS-DOS binárky pomocí Open Watcom v Ubuntu
