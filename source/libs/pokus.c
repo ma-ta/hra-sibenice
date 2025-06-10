@@ -1,3 +1,6 @@
+#ifdef POKUS  /* vyřazení souboru z kompilace */
+
+
 /*
  *  (TESTOVACÍ SOUBOR - rozpracováno)
  *
@@ -51,3 +54,6 @@ int main(void)
 
     return 0;
 }
+
+
+#endif
