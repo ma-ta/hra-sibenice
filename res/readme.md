@@ -51,7 +51,7 @@ Obsah aktualni slozky (nemusi byt kompletni):
 data/
  (stats.sav)          - soubor s ulozenymi statistikami        (binarni)
                         (vytvoren az po prvnim spusteni hry)
- game_cs.dat          - slovnik 1000 nahodnych ceskych slov    (textovy)
+ dict_cs.dat          - slovnik 1000 nahodnych ceskych slov    (textovy)
  game.dat             - zdrojovy soubor ascii-artu sibenice    (textovy)
  help.dat             - zdrojovy soubor napovedy pro aplikaci  (textovy)
  stats.dat            - zdrojovy soubor obrazovky statistik    (textovy)
