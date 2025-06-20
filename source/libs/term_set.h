@@ -14,6 +14,8 @@
  *            (moderní Windows Terminal není podporován)
  *    - (2) macOS 15.4:
  *          - Terminal via AppleScript
+ *  - nastavení typu fontu:
+ *    pouze Windows Console Host (via WinAPI)
  *
  *  Ve Windows vyžaduje kompilaci přes cl.exe s přepínači
  *  [/link] - následující přepínače interpretuje linker:
