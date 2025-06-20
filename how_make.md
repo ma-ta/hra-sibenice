@@ -126,7 +126,7 @@
     Ubuntu/Open Watcom + DOSBox-X (pro rychle ladeni)
     a) nainstalovat [sudo snap install open-watcom],
     b) kompilovat pomoci skriptu [make_ubu2dos.sh],
-    c) v DOSBox-X pripojit slozku [mount c .\bin] a spustit [dos-test.exe]
+    c) v DOSBox-X pripojit slozku [mount c .\bin] a spustit [test-dos.exe]
        nebo rovnou nainstalovat DOSBox-X v Ubuntu pomoci
        [sudo apt get install dosbox-x] a spustit jej s pripojenym adresarem
        [dosbox-x ./bin].

@@ -26,8 +26,8 @@
 
 
 # nazev spustitelneho souboru
-  # dos-test.exe
-  bin_nazev='dos-test.exe'
+  # test-dos.exe
+  bin_nazev='test-dos.exe'
 
 # parametry prekladace
   # velikosti zasobniku pro ow (8 KB == Stack Overflow!)
