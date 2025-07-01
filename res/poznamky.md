@@ -1,45 +1,13 @@
 ```
-+--------+------------+
-| v1.4.0 | ????-??-?? |  -  V PLÁNU
-+--------+------------+
++-------------+
+| ZNÁMÉ CHYBY |
++-------------+
 
-
-NOVINKY:
-
-1) vylepšení slovníku (hádaných slov):
-   a) možnost vlastního slovníku pomocí přepínače [-v] [cesta_k_souboru]:
-      - umožní načíst slova z vlastního slovníku,
-      - vypne dešifrování při načítání slov,
-      - vypne hlídání minimálního počtu slov ve slovníku,
-      - vypne ukládání herních statistik (kromě odehráté doby).
-
-   b) první znak '#' na řádku slovníku značí komentář, který bude při
-      načítání souboru přeskočen (to umožní vepsat libovolné informace)
-
-2) vylepšení vzhledu TUI - žluté pozadí:
-   - při dosažení předposledního kola hry (8. a 9. hádané slovo),
-   - při zobrazení HERNÍ KRONIKY z hlavního menu.
-
-
-------------
-ZNÁMÉ CHYBY:
-------------
-
-1) není zajištěno, aby se v rámci kola/hry nemohla opakovat slova
-   (leč pseudonáhodná čísla jsou generována v rovnoměrném rozložení)
-
-2) není zajištěno, aby se v rámci kola nemohly ihned za sebou
-   opakovat stejné hlášky o výsledku tahu
-   (tzn. vyloučit poslední položku nebo změnit na carousel)
-
-3) při zadávání jména do kroniky může způsobit problémy, když uživatel
-   použije jiné znaky než ASCII (chybné zarovnání na obr. statistik)
-
-4) [v1.2.1]
-   poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
-   jinak je vypsána chyba, že se nevešlo do bufferu (není načteno)
 
 5) [v1.3.0]
+   - v UN*Xu je po spuštění hry zobrazeno běžné písmo a v jejím
+     průběhu nebo po ukončení se najednou font změní na tučný
+   - nejsou vyřešeny možné kombinace přepínačů (-wc, -cw, ...)
    - při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
      podbarvení terminálu (při aktuálně vykresleném textu), poté se
      text vymaže a vykreslí nový (alespoň při použití příkazu color
@@ -48,6 +16,19 @@ ZNÁMÉ CHYBY:
      změně pozadí na zelenou během hry (u jiných barev ne)
    - ne zcela správně implementovaný převod atributů příkazové řádky
      ve fci. main() na malá písmena (lépe změnit fce. porovnávání)
+
+4) [v1.2.1]
+   poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
+   jinak je vypsána chyba, že se nevešlo do bufferu (není načteno)
+
+3) při zadávání jména do kroniky může způsobit problémy, když uživatel
+   použije jiné znaky než ASCII (chybné zarovnání na obr. statistik)
+2) není zajištěno, aby se v rámci kola nemohly ihned za sebou
+   opakovat stejné hlášky o výsledku tahu
+   (tzn. vyloučit poslední položku nebo změnit na carousel)
+
+1) není zajištěno, aby se v rámci kola/hry nemohla opakovat slova
+   (leč pseudonáhodná čísla jsou generována v rovnoměrném rozložení)
 
 
 Hotovo:
@@ -78,9 +59,36 @@ Hotovo:
    => vyřešeno funkcí prepni_adresar() v main.c
 
 
-----------------------
-NÁPADY NA DALŠÍ VÝVOJ:
-----------------------
++-----------------------+
+| NÁPADY NA DALŠÍ VÝVOJ |
++-----------------------+
+
+
+------------------------------------------------------------------------------
+
++--------+------------+
+| v1.4.0 | ????-??-?? |  -  V PLÁNU
++--------+------------+
+
+
+NOVINKY:
+
+1) vylepšení slovníku (hádaných slov):
+   a) možnost vlastního slovníku pomocí přepínače [-v] [cesta_k_souboru]:
+      - umožní načíst slova z vlastního slovníku,
+      - vypne dešifrování při načítání slov,
+      - vypne hlídání minimálního počtu slov ve slovníku,
+      - vypne ukládání herních statistik (kromě odehráté doby).
+
+   b) první znak '#' na řádku slovníku značí komentář, který bude při
+      načítání souboru přeskočen (to umožní vepsat libovolné informace)
+
+2) vylepšení vzhledu TUI - žluté pozadí:
+   - při dosažení předposledního kola hry (8. a 9. hádané slovo),
+   - při zobrazení HERNÍ KRONIKY z hlavního menu.
+
+------------------------------------------------------------------------------
+
 
 1) vylepšit odkrývání spřežek/skupin znaků (české písmeno 'CH' apod.)
    (definice znaků budou např. součástí slovníků pro jednotlivé jazyky)
@@ -115,19 +123,4 @@ NÁPADY NA DALŠÍ VÝVOJ:
 
 10) zašifrovat seznam hádaných slov ve slovníku [data/game_cs.dat]
     (např. Caesarova šifra, Vernamova šifra či cokoliv "zábavného")
-
-
-Hotovo:
-
-3) [v1.1.0]
-   instalátor pro Windows (via Inno Setup)
-
-2) [v0.0.3]
-   přidání "Síně slávy / Herní kroniky" do hlavního menu - výsledky úspěšně dokončených
-   her se budou ukládat spolu se jménem hráče / zobrazení statistik,
-   výsledku poslední hry apod. na obrazovce s hlavním menu
-
-1) [v0.0.2]
-   možnost ukončit hru v průběhu hádání slov (příp. zobrazit nápovědu
-   a vrátit se zpět do hry)
 ```
