@@ -284,10 +284,10 @@
   #elif defined(OS_DOS)
     #define vymaz_obr()  system("cls")
   #else  /* ANSI escape */
-    #define vymaz_obr() {  \
+    #define vymaz_obr() do {  \
       printf(ansi_erase_scr(ANSI_ERASE_ALL));  \
       printf(ansi_position(0, 0));  \
-    }
+    } while (0);
   #endif
 #else
   #define vymaz_obr()
