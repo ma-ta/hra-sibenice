@@ -8,7 +8,7 @@
 ::  (WINDOWS / BATCH / MSVC)          ::
 ::                                    ::
 ::  autor:  Martin TABOR (Ma-TA)      ::
-::  datum:  2025-06-09                ::
+::  datum:  2025-07-03                ::
 ::                                    ::
 ::::::::::::::::::::::::::::::::::::::::
 
@@ -19,7 +19,7 @@
 
 
 :: nazev spustitelneho souboru
-   :: -win64 / -winArm64 / -win32 / -...
+   :: sibenice-win64 / -winArm64 / -win32 / -...
    set bin_nazev=test-win
 
 :: parametry pro prekladac MSVC
@@ -133,7 +133,7 @@ echo.
    echo %oramovani%
    echo.
 
-   rem :: %out_dir%\%bin_nazev%.exe -v
+   %out_dir%\%bin_nazev%.exe -v
 
 
 :: vyckani na stisk klavesy

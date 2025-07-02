@@ -51,8 +51,10 @@ static int ret_value  = EXIT_FAILURE;  /* návratová hodnota fcí. modulu */
 static int pom_ret_val = 0;  /* pomocná proměnná */
 static char system_prikaz[1000] = "";  /* textový buffer */
 
-static int xy_vychozi[2];  /* výchozí rozměry terminálu */
-static struct winsize w_size;  /* struktura pro změnu velikosti UN*X terminálu */
+#ifdef OS_UNIX
+  static int xy_vychozi[2];  /* výchozí rozměry terminálu */
+  static struct winsize w_size;  /* struktura pro změnu velikosti UN*X terminálu */
+#endif
 
 static term_color_bgfg term_bgfg = {
   .bg = TERM_BLACK,

@@ -1,6 +1,6 @@
 ```
 +--------+------------+
-| v1.3.1 | 2025-07-02 |
+| v1.3.1 | 2025-07-03 |
 +--------+------------+
 
 
@@ -15,6 +15,8 @@ OPRAVENÉ CHYBY:
 
 1) v UN*X terminálech se při změně barvy písma měnil také font na tučný
    (nově pro lepší čitelnost zapnuto tučné písmo jako výchozí)
+
+2) vylepšeno chování přepínačů v různých systémech
 
 
 +--------+------------+

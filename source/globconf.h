@@ -149,7 +149,7 @@
 /*******************************************/
 
 #define NAZEV    "Hra Sibenice"
-#define VERZE    "1.3.0"
+#define VERZE    "1.3.1"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
 #define LICENCE  "GPLv3+"

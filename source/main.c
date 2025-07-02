@@ -199,6 +199,16 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     for (i = 0; i < argc; i++) {
 
       if (i >= arrlen(argv)) {  /* statické pole ukazatelů ! */
+        #if TERM_SET == 1
+          term_init();
+          if (term_set == 1) {
+            #ifdef OS_WIN
+              term_title(TERM_TITLE);
+              term_size(term_rozmery[0], term_rozmery[1]);
+              term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
+            #endif
+          }
+        #endif
         fprintf(stderr, "%s(): Prilis mnoho argumentu...\n", __func__);
         exit(1);
       }
@@ -208,6 +218,16 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
         if (buffer_pozice + 1 > arrlen(buffer_argv)) {
           /* při testech zjištěno, že je potřeba buffer o 2 bajty (znaky) větší
              než je délka nejdelšího argumentu (vč. +1 pro '\0') - neopraveno */
+          #if TERM_SET == 1
+            term_init();
+            if (term_set == 1) {
+              #ifdef OS_WIN
+                term_title(TERM_TITLE);
+                term_size(term_rozmery[0], term_rozmery[1]);
+                term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
+              #endif
+            }
+          #endif
           fprintf(stderr, "%s(): Nedostatecny buffer pro argumenty...\n", __func__);
           exit(1);
         }
@@ -218,7 +238,7 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       buffer_argv[buffer_pozice++] = '\0';
     }
 
-    /* DEBUG */
+    /* DEBUG - výpis pole argumentů */
       /*
       for (i = 0; i < argc; i++) {
         fprintf(stderr, "%d: \"%s\"\n", i, argv[i]);
@@ -234,6 +254,17 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
                     || strcmp(ARG_SIGN_2 ARG_HLP_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_2, argv[1]) == 0)) {
+
+    #if TERM_SET == 1
+      term_init();
+      if (term_set == 1) {
+        #ifdef OS_WIN
+          term_title(TERM_TITLE);
+          term_size(term_rozmery[0], term_rozmery[1]);
+          term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
+        #endif
+      }
+    #endif
 
     arg_hlp_text();
 
@@ -251,14 +282,23 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
                     || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_2, argv[1]) == 0)) {
 
     #if TERM_SET == 1
+      term_init();
       if (term_set == 1) {
         term_title(TERM_TITLE);
-        term_init();
         term_size(term_rozmery[0], term_rozmery[1]);
+        term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
       }
     #endif
 
     napoveda();
+    #ifdef OS_UNIX
+      #if TERM_SET == 1
+        if (term_set == 1) {
+          term_size_reset();
+          term_barvy_reset();
+        }
+      #endif
+    #endif
     vymaz_obr();
     hlavicka_vykresli("Napoveda", TUI_HLAVICKA_TXT_P);
     putchar('\n');
@@ -267,12 +307,6 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       puts("");
       fputs(PROMPT_ENTER_KONEC, stdout);
       cekej_enter();
-    #elif defined(OS_UNIX)
-      #if TERM_SET == 1
-        if (term_set == 1) {
-          term_size_reset();
-        }
-      #endif
     #endif
     exit(0);
   }
@@ -288,6 +322,16 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       }
     #endif
     */
+    #if TERM_SET == 1
+      term_init();
+      if (term_set == 1) {
+        #ifdef OS_WIN
+          term_title(TERM_TITLE);
+          term_size(term_rozmery[0], term_rozmery[1]);
+          term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
+        #endif
+      }
+    #endif
 
     if (stats_nastav()) {
       /* zjištění času poslední změny statistik */
@@ -320,6 +364,15 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_2, argv[1]) == 0)) {
 
+    #if TERM_SET == 1
+      term_init();
+      if (term_set == 1) {
+        #ifdef OS_WIN
+          term_title(TERM_TITLE);
+          term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
+        #endif
+      }
+    #endif
     printf(ARG_VER_TEXT);
 
     #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
@@ -383,8 +436,23 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
   }
   /* chybné argumenty */
   else if (argc > 1) {
+    #if TERM_SET == 1
+      term_init();
+      if (term_set == 1) {
+        #ifdef OS_WIN
+          term_title(TERM_TITLE);
+          term_size(term_rozmery[0], term_rozmery[1]);
+          term_font(TERM_FONT, TERM_FONT_SZ, TERM_FONT_B);
+        #endif
+      }
+    #endif
     chybne_argumenty:
     fputs(ERR_SIGN ERR_ARGUMENTY "\n", stderr);
+    #ifdef OS_WIN
+      puts("");  /* odřádkování */
+      fputs(PROMPT_ENTER_KONEC, stdout);
+      cekej_enter();
+    #endif
     exit(1);
   }
 }

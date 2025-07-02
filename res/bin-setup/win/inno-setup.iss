@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Hra Šibenice"
-#define MyAppVersion "1.3.0"
+#define MyAppVersion "1.3.1"
 #define MyAppPublisher "Martin TÁBOR (alias Ma-TA)"
 #define MyAppURL "https://github.com/ma-ta/hra-sibenice"
 #define MyAppExeName "sibenice"

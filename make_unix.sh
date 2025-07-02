@@ -2,7 +2,7 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.4, FreeBSD 14.2,
+# Testovane OS: Ubuntu 24.04.2 LTS, Fedora 42, macOS 15.4, FreeBSD 14.3,
 #               Android 14/Termux v0.118.3
 
 ######################################
@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-06-09                #
+#  datum:  2025-07-03                #
 #                                    #
 ######################################
 
@@ -22,7 +22,7 @@
 
 
 # nazev spustitelneho souboru
-  # -linux64 / -linux32  / -linuxArm64 / -linuxArm / -linuxRV64 / -...
+  # sibenice-linux64 / -linux32  / -linuxArm64 / -linuxArm / -linuxRV64 / -...
   # -fbsd64  / -fbsd32   / -fbsdArm64  / -...
   # -mac64   / -macArm64 / -...
   # -android (Termux)    / -...
@@ -55,14 +55,14 @@
       # riscv64 (RV64, RISC-V 64-bit):
         #sudo apt install gcc-riscv64-linux-gnu
         #CC='riscv64-linux-gnu-gcc '$cc_param
-    # cross-kompilace pod FreeBSD 14.2 x86_64 (od-komentovat radky nize)
+    # cross-kompilace pod FreeBSD 14.3 x86_64 (od-komentovat radky nize)
       # x86 (i386, 32-bit):
         #CC='clang -m32 '$cc_param
       # AArch64:
-        #fetch https://download.freebsd.org/ftp/releases/arm64/14.2-RELEASE/base.txz
+        #fetch https://download.freebsd.org/ftp/releases/arm64/14.3-RELEASE/base.txz
         #mkdir -p /opt/sysroot-aarch64
         #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
-        #CC='clang --target=aarch64-unknown-freebsd14.2 --sysroot=/opt/sysroot-aarch64'
+        #CC='clang --target=aarch64-unknown-freebsd14.3 --sysroot=/opt/sysroot-aarch64'
 
 
 # korenovy adresar se zdrojovymi kody
