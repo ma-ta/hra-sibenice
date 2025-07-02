@@ -1,5 +1,23 @@
 ```
 +--------+------------+
+| v1.3.1 | 2025-07-02 |
++--------+------------+
+
+
+NOVINKY:
+
+1) UN*X:
+     doimplementován kód pro změnu velikosti okna terminálu - term_size()
+     (řešení funguje pouze v GNOME Terminal a XTerm)
+
+
+OPRAVENÉ CHYBY:
+
+1) v UN*X terminálech se při změně barvy písma měnil také font na tučný
+   (nově pro lepší čitelnost zapnuto tučné písmo jako výchozí)
+
+
++--------+------------+
 | v1.3.0 | 2025-06-09 |
 +--------+------------+
 

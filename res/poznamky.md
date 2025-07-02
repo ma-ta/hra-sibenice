@@ -5,17 +5,15 @@
 
 
 5) [v1.3.0]
-   - v UN*Xu je po spuštění hry zobrazeno běžné písmo a v jejím
-     průběhu nebo po ukončení se najednou font změní na tučný
-   - nejsou vyřešeny možné kombinace přepínačů (-wc, -cw, ...)
-   - při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
-     podbarvení terminálu (při aktuálně vykresleném textu), poté se
-     text vymaže a vykreslí nový (alespoň při použití příkazu color
-     v MS-DOS
-   - při pomalém HW (např. v DOSBox-X) pozorováno jiné chování při
-     změně pozadí na zelenou během hry (u jiných barev ne)
-   - ne zcela správně implementovaný převod atributů příkazové řádky
-     ve fci. main() na malá písmena (lépe změnit fce. porovnávání)
+   d) nejsou vyřešeny možné kombinace přepínačů (-wc, -cw, ...)
+   c) ne zcela správně implementovaný převod atributů příkazové řádky
+      ve fci. main() na malá písmena (lépe změnit fce. porovnávání)
+   b) při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
+      podbarvení terminálu (při aktuálně vykresleném textu), poté se
+      text vymaže a vykreslí nový (alespoň při použití příkazu color
+      v MS-DOS
+   a) při pomalém HW (např. v DOSBox-X) pozorováno jiné chování při
+      změně pozadí na zelenou během hry (u jiných barev ne)
 
 4) [v1.2.1]
    poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
@@ -32,6 +30,12 @@
 
 
 Hotovo:
+
+5) [v1.3.1]
+   a) v UN*Xu je po spuštění hry zobrazeno běžné písmo a v jejím
+      průběhu nebo po ukončení se najednou font změní na tučný
+   -> terminály zobrazí jasnější barvy (ANSI "1;") zároveň jako tučný font,
+      tučné písmo v UN*X nově zapnuto plošně pro lepší čitelnost
 
 4) [v1.3.0]
    - přepínače nově nejsou case sensitive (vhodné pro DOS a WIN)

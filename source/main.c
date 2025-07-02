@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
   #endif
 
   #if TERM_SET == 1
-    /* inicializace ConHost na Windows */
+    /* inicializace ConHost na Windows či uložení rozměrů UN*X terminálu */
     term_init();
   #endif
 
@@ -165,6 +165,9 @@ int main(int argc, char *argv[])
   cekej_enter();
   if (term_color_zap) {
     term_barvy_reset();
+  }
+  if (term_set == 1) {
+    term_size_reset();
   }
   vymaz_obr();
   #ifdef OS_WEB  /* je třeba stisknout tlačítko na webu */
@@ -249,6 +252,8 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
 
     #if TERM_SET == 1
       if (term_set == 1) {
+        term_title(TERM_TITLE);
+        term_init();
         term_size(term_rozmery[0], term_rozmery[1]);
       }
     #endif
@@ -262,6 +267,12 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       puts("");
       fputs(PROMPT_ENTER_KONEC, stdout);
       cekej_enter();
+    #elif defined(OS_UNIX)
+      #if TERM_SET == 1
+        if (term_set == 1) {
+          term_size_reset();
+        }
+      #endif
     #endif
     exit(0);
   }
@@ -270,12 +281,13 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
                     || strcmp(ARG_SIGN_2 ARG_STA_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_2, argv[1]) == 0)) {
-
+    /*
     #if TERM_SET == 1
       if (term_set == 1) {
         term_size(term_rozmery[0], term_rozmery[1]);
       }
     #endif
+    */
 
     if (stats_nastav()) {
       /* zjištění času poslední změny statistik */

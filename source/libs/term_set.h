@@ -113,11 +113,15 @@ bool term_title(const char *novy_titulek);
        [/link /subsystem:windows /entry:mainCRTStartup user32.lib].
        Více komentáře ve zdrojovém kódu. Změna velikosti pomocí [mode]
    (2) macOS 15 - Terminal. Změna velikosti pomocí AppleScript
-   (3) Linux - NEIMPLEMENTOVÁNO */
+   (3) Linux - funguje pouze v GNOME Terminal (ne v kgx) a XTerm */
 bool term_size(int x, int y);
 
+/* v UN*X vrátí velikost terminálu do stavu před spuštěním programu */
+void term_size_reset(void);
+
 /* funkci je potřeba v některých OS zavolat při spuštění programu
-   - ve Windows např. otevře terminál ConHost a přesměruje I/O */
+   - ve Windows např. otevře terminál ConHost a přesměruje I/O
+   - v UN*X uloží původní velikost terminálu před změnou jeho velikosti */
 void term_init(void);
 
 #endif  // TERM_SET_H

@@ -6,6 +6,9 @@
   #include <windows.h>
 #elif defined(OS_DOS)
    #include <dos.h>
+#elif (defined(OS_UNIX) && !defined(OS_MAC))
+  #include <sys/ioctl.h>  /* pro term_size() */
+  #include <unistd.h>     /* pro term_size() */
 #endif
 
 
@@ -47,6 +50,9 @@ extern int term_set;
 static int ret_value  = EXIT_FAILURE;  /* návratová hodnota fcí. modulu */
 static int pom_ret_val = 0;  /* pomocná proměnná */
 static char system_prikaz[1000] = "";  /* textový buffer */
+
+static int xy_vychozi[2];  /* výchozí rozměry terminálu */
+static struct winsize w_size;  /* struktura pro změnu velikosti UN*X terminálu */
 
 static term_color_bgfg term_bgfg = {
   .bg = TERM_BLACK,
@@ -329,12 +335,36 @@ bool term_size(int x, int y)
       /* funkce nic nedělá */
       ret_value = EXIT_SUCCESS;
 
+    #elif defined(OS_UNIX)
+
+      /* změna velikosti okna (řídicí sekvence XTerm a Gnome Terminal) */
+      printf("\033[8;%d;%dt", y, x);
+      fflush(stdout);
+      ret_value = EXIT_SUCCESS;
+
     #endif  /* rozvětvení systémů */
 
   #endif  // TERM_SET == 1
 
   return ret_value;
 }
+
+
+void term_size_reset(void)
+{
+  #if TERM_SET == 1
+
+    #ifdef OS_UNIX
+
+      /* změna velikosti okna (řídicí sekvence XTerm a Gnome Terminal) */
+      printf("\033[8;%d;%dt", xy_vychozi[1], xy_vychozi[0]);
+      fflush(stdout);
+
+    #endif
+
+  #endif  /* // #if TERM_SET == 1 */
+}
+
 
 /* nutné při spouštění programu na Windows
    - otevře terminál a přesměruje I/O, pokud byla aplikace
@@ -361,6 +391,12 @@ void term_init(void)
         if (hwnd) {
         SetForegroundWindow(hwnd);
         }
+      #elif defined(OS_UNIX)
+
+        ioctl(STDOUT_FILENO, TIOCGWINSZ, &w_size);  /* inicializace struktury winsize */
+        xy_vychozi[0] = w_size.ws_col;  /* výchozí šířka terminálu */
+        xy_vychozi[1] = w_size.ws_row;  /* výchozí výška terminálu */
+
       #endif
    #endif
 }

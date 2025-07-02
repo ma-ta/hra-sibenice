@@ -4,8 +4,10 @@
 /*
  *  (TESTOVACÍ SOUBOR - rozpracováno)
  *
- *  Nastavení velikosti okna emulátoru (GNOME Terminal, ...)
- *  v UN*X systémech -> k implementaci do term_set.c
+ *  Nastavení velikosti okna emulátoru terminálu v UN*X systémech
+ *  -> k implementaci do term_set.c
+ *  (funguje pouze v GNOME Terminal (nikoli [kgx]) a XTerm ...)
+ *
  */
 
 
