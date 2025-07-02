@@ -20,6 +20,7 @@
 
 #define ANSI_RESET      "0"   /* RESET */
 #define ANSI_BOLD       "1"   /* tučný text */
+#define ANSI_BOLD_OFF   "22"
 #define ANSI_ULINE      "4"   /* jednoduché podtržení */
 #define ANSI_BLICK      "5"   /* blikající text */
 #define ANSI_BLICK_OFF  "25"

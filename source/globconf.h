@@ -197,6 +197,10 @@
 #define TERM_FONT       "Cascadia Mono SemiBold"  /* název písma */
 #define TERM_FONT_SZ    24  /* velikost */
 #define TERM_FONT_B     0   /* normální => 0, tučné => 1 */
+#ifdef OS_UNIX  /* ANSI 1; stejně většinou mění normální písmo na tučné (!) */
+  #undef  TERM_FONT_B
+  #define TERM_FONT_B   1
+#endif
 
 #define ZVUKY          1   /* zapne vkládání znaku '\a' */
 

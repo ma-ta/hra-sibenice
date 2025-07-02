@@ -105,6 +105,7 @@ void term_barvy(term_color pozadi, term_color text)
             system_prikaz
             , sizeof(system_prikaz)
             , CSI "%s%d" SGR CSI "%d" SGR
+              /* světlá barva "1;" nebo ne - způsobí i tučné písmo (!) */
             , ((term_bgfg.fg > LBARVY) ? (ANSI_LIGHT) : (""))
             , ansi_text
             , ansi_pozadi
@@ -170,6 +171,18 @@ void term_font(const char *font, int velikost, bool tucne)
 
       if (!SetCurrentConsoleFontEx(hConsole, FALSE, &cfi)) {
           fprintf(stderr, ERR_SIGN "Nepodarilo se nastavit font...\n");
+      }
+
+    #elif defined OS_UNIX
+
+      if (tucne) {
+        printf(CSI ANSI_BOLD SGR);
+        fflush(stdout);
+      }
+      else if (!tucne)
+      {
+        printf(CSI ANSI_BOLD_OFF SGR);
+        fflush(stdout);
       }
 
     #endif
