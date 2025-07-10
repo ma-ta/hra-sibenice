@@ -4,16 +4,19 @@
 
 ./CWSDPMI.EXE:              MS-DOS executable, MZ for MS-DOS
 
-./sibe-d32.exe:             MS-DOS executable, MZ for MS-DOS, COFF for MS-DOS, DJGPP go32 DOS extender
+./sibe-d32.exe:             MS-DOS executable, COFF for MS-DOS, DJGPP go32 v2.05 DOS extender (stub), autoload "CWSDPMI.EXE"
 ./sibe-dos.exe:             MS-DOS executable, MZ for MS-DOS
-./sibenice-android:         ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, not stripped
-./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=747ffe372ae4a075fcd0a37f9ab4202c1b9d7e10, for GNU/Linux 3.2.0, not stripped
+./sibenice-android:         ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, for Android 24, built by NDK r27c (12479018), not stripped
+./sibenice-fbsd32:          ELF 32-bit LSB executable, Intel i386, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.3, FreeBSD-style, with debug_info, not stripped
+./sibenice-fbsd64:          ELF 64-bit LSB executable, x86-64, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.3, FreeBSD-style, with debug_info, not stripped
+./sibenice-fbsdArm64:       ELF 64-bit LSB executable, ARM aarch64, version 1 (FreeBSD), dynamically linked, interpreter /libexec/ld-elf.so.1, for FreeBSD 14.3, FreeBSD-style, with debug_info, not stripped
+./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel i386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=747ffe372ae4a075fcd0a37f9ab4202c1b9d7e10, for GNU/Linux 3.2.0, not stripped
 ./sibenice-linux64:         ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=c8d4213c70d63c7b68a314b4ea8e56ef9c09eb38, for GNU/Linux 3.2.0, not stripped
 ./sibenice-linuxArm:        ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=bb8462cf2dd52f1a57855ff0de5dd0b505a2fc46, for GNU/Linux 3.2.0, not stripped
 ./sibenice-linuxArm64:      ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=5c8afe4b698575be63bf54d5adbbe3a32f10db07, for GNU/Linux 3.7.0, not stripped
 ./sibenice-linuxRV64:       ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=f908efbab2c40394acd4fe0c57bff6ffee8a1c5c, for GNU/Linux 4.15.0, not stripped
-./sibenice-win32.exe:       PE32 executable (GUI) Intel 80386, for MS Windows, 6 sections
-./sibenice-win64.exe:       PE32+ executable (GUI) x86-64, for MS Windows, 7 sections
-./sibenice-winArm64.exe:    PE32+ executable (GUI) Aarch64, for MS Windows, 7 sections
+./sibenice-win32.exe:       PE32 executable for MS Windows 6.00 (GUI), Intel i386, 6 sections
+./sibenice-win64.exe:       PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+./sibenice-winArm64.exe:    PE32+ executable for MS Windows 6.02 (GUI), ARM64, 7 sections
 
 ./wasm/sibenice-wasm.wasm:  WebAssembly (wasm) binary module version 0x1 (MVP)
