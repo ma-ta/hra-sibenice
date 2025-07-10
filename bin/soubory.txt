@@ -12,9 +12,6 @@
 ./sibenice-linuxArm:        ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=bb8462cf2dd52f1a57855ff0de5dd0b505a2fc46, for GNU/Linux 3.2.0, not stripped
 ./sibenice-linuxArm64:      ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=5c8afe4b698575be63bf54d5adbbe3a32f10db07, for GNU/Linux 3.7.0, not stripped
 ./sibenice-linuxRV64:       ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=f908efbab2c40394acd4fe0c57bff6ffee8a1c5c, for GNU/Linux 4.15.0, not stripped
-./sibenice-mac64:           Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
-./sibenice-macArm64:        Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>
-./sibenice-macUni:          Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>] [\012- arm64:\012- Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|PIE>]
 ./sibenice-win32.exe:       PE32 executable (GUI) Intel 80386, for MS Windows, 6 sections
 ./sibenice-win64.exe:       PE32+ executable (GUI) x86-64, for MS Windows, 7 sections
 ./sibenice-winArm64.exe:    PE32+ executable (GUI) Aarch64, for MS Windows, 7 sections
