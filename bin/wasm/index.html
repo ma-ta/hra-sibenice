@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Multiplatformní implementace známé slovní hry Šibenice pro terminál">
+    <meta name="keywords" content="šibenice, oběšenec, hra šibenice, hra oběšenec">
+    <meta name="author" content="Martin TÁBOR (alias Ma-TA)">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
+    <title>Hra Šibenice</title>
+    <style>
+      html, body {
+        font-size: 15pt;
+        color: white;
+        font-family: 'JetBrains Mono', 'Consolas', 'monospace';
+        margin: 0;
+        padding: 1em;
+        background-color: #212121;
+        text-align: center;
+      }
+      h1 {
+        letter-spacing: 10px;
+        margin: 3rem;
+      }
+      .terminal {
+        text-align: left;
+        margin: auto;
+        padding: 2em;
+        border: 5px solid #4d4d4d;
+        border-radius: 5%;
+        overflow: hidden;
+        width: 37em;
+      }
+      .xterm-viewport::-webkit-scrollbar {
+        background-color: #424242;
+        color: white;
+      }
+      #restart {
+        margin: 2em;
+        padding: 1em;
+        color: white;
+        background-color: #4d4d4d;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        font-weight: bold;
+      }
+      #ver_info {
+        font-size: 8pt;
+        margin: 2em;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hra Šibenice</h1>
+    <div id="terminal"></div>
+    <button id="restart">Restart</button>
+    <div id="ver_info">Šibenice Web GUI v1.0.1 (2025-05)</div>
+
+    <!-- hlavní JS skript -->
+    <script type="module">
+      import './node_modules/@xterm/xterm/lib/xterm.js';  // Xterm.js
+      import { openpty } from './node_modules/xterm-pty/index.mjs';  // xterm-pty
+      import sibeniceWasm from './sibenice-wasm.mjs';  // zkompilovaná hra (Wasm)
+
+      // tlačítko pro reload stránky (restart hry)
+      document.getElementById("restart").addEventListener("click", () => {
+        location.reload();
+      });
+
+      const xterm = new Terminal({
+        fontSize: 16,
+        fontFamily: ['JetBrains Mono', 'Consolas', 'monospace'],
+        fontWeight: 700,
+        rows: 37,
+        cols: 74,
+        cursorBlink: true,
+        theme: {
+          background: '#303030',
+          foreground: '#ffffff',
+          cursor: '#ffffff'
+        },
+        convertEol: true,
+      });
+
+      // spuštění terminálu
+      xterm.open(document.getElementById('terminal'));
+      // vytvoření objektů master/slave (xterm-pty)
+      const { master, slave } = openpty();
+      // napojení objektu master (xterm-pty) k Xterm.js
+      xterm.loadAddon(master);
+      // napojení objektu slave (xterm-pty) k Emscriptenu
+      await sibeniceWasm({ pty: slave });
+      </script>
+  </body>
+</html>
