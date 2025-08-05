@@ -21,7 +21,7 @@
 - **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-setupwin.exe)**
 - ⬇️&nbsp;Stáhnout All-in-1 balíček (všechny binárky): 
   [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-bin.tar.gz)&nbsp;📦, 
-  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-bin.zip)&nbsp;📦&nbsp;&nbsp;|&nbsp;&nbsp;*[v1.1.0 pro macOS&nbsp;🍎](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0)*<br>
+  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-bin.zip)&nbsp;📦&nbsp;&nbsp;|&nbsp;&nbsp;<span title="verze 1.1.0 s binárkou pro macOS">*[v1.1.0 pro macOS](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0)*&nbsp;🍎</span><br>
   (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.3.1/bin/#readme) dle vaší platformy):
 
 | Platforma       | <span title="Instalátor">💽</span> | x86-64          | x86<br>32-bit  | x86<br>16-bit      | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
