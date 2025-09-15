@@ -71,7 +71,7 @@ Nativní 16-bit verze běží samostatně.
   - 😈&nbsp;FreeBSD 14.3 *(Clang 19.1.7) &ndash; [x86] [x86-64] [AArch64]*
   - 🤖&nbsp;Android 14/Termux 0.118.3 *(Clang 20.1.7) &ndash; [AArch64]*
 - 🪟&nbsp;Win:
-  - Windows 11 *(MSVC 19.44.35215) &ndash; [x86] [x86-64] [AArch64]*
+  - Windows 11 *(MSVC 19.44.35216) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
