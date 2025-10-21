@@ -18,7 +18,7 @@
 
 /* nastaví nové slovo
    k hádání a vynuluje stav */
-void ukazatelslov_nastav(char slovo[]);
+void ukazatelslov_nastav(char string[]);
 
 /* nastaví text v pravém okénku */
 void ukazatelslov_hlaska(char slovo[]);

@@ -5,15 +5,13 @@
 
 
 5) [v1.3.0]
-   d) nejsou vyřešeny možné kombinace přepínačů (-wc, -cw, ...)
-   c) ne zcela správně implementovaný převod atributů příkazové řádky
+   c) nejsou vyřešeny možné kombinace přepínačů (-wc, -cw, ...)
+   b) ne zcela správně implementovaný převod atributů příkazové řádky
       ve fci. main() na malá písmena (lépe změnit fce. porovnávání)
-   b) při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
+   a) při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
       podbarvení terminálu (při aktuálně vykresleném textu), poté se
       text vymaže a vykreslí nový (alespoň při použití příkazu color
       v MS-DOS
-   a) při pomalém HW (např. v DOSBox-X) pozorováno jiné chování při
-      změně pozadí na zelenou během hry (u jiných barev ne)
 
 4) [v1.2.1]
    poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
@@ -30,6 +28,10 @@
 
 
 Hotovo:
+
+6) [v1.3.2]
+   a) zřejmě opraveno mírné probliknutí obrazovky při změně pozadí
+      na zelenou (slovo uhodnuto) 
 
 5) [v1.3.1]
    a) v UN*Xu je po spuštění hry zobrazeno běžné písmo a v jejím

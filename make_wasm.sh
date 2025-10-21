@@ -3,8 +3,8 @@
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
 # Testovane prostredi pro sestaveni:
-#   - Ubuntu 24.04.2 LTS + Emscripten v4.0.10,
-#   - npm v11.4.2: [xterm v5.5.0, xterm-pty v0.11.1]
+#   - Ubuntu 24.04.3 LTS + Emscripten v4.0.17,
+#   - npm v11.6.2: [xterm v5.5.0, xterm-pty v0.11.1]
 
 ######################################
 #                                    #
@@ -12,7 +12,7 @@
 #  (UN*X / BASH|ZSH / EMSCRIPTEN     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-07-10                #
+#  datum:  2025-10-21                #
 #                                    #
 ######################################
 

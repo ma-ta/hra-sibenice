@@ -1,5 +1,21 @@
 ```
 +--------+------------+
+| v1.3.2 | 2025-10-21 |
++--------+------------+
+
+
+OPRAVENÉ CHYBY:
+
+1) slovník se do paměti nově načítá šifrovaný
+   (urychlí spuštění a znesnadní hacking :-)
+
+2) mírné probliknutí obrazovky při změně pozadí
+   na zelenou (slovo uhodnuto)
+
+3) opravy slov ve slovníku
+
+
++--------+------------+
 | v1.3.1 | 2025-07-10 |
 +--------+------------+
 

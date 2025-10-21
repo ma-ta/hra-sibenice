@@ -5,9 +5,9 @@
          |            games            S I _ E _ I C E         |
          |                                                     |
          +--------------------------+--------------------------+
-         |    (c) 2025  Freeware    |          v1.3.1          |
+         |    (c) 2025  Freeware    |          v1.3.2          |
          +--------------------------+--------------------------+
-         |    SESTAVENI PROJEKTU    |        2025-07-10        |
+         |    SESTAVENI PROJEKTU    |        2025-10-21        |
          +--------------------------+--------------------------+
 
 
@@ -38,7 +38,7 @@
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
       - Ubuntu  24.04 LTS  -> [sudo apt install build-essentials -y]
-      - Fedora  42         -> [sudo dnf install gcc]
+      - Fedora  43         -> [sudo dnf install gcc]
       - FreeBSD 14         -> [pkg install -y bash]
       - macOS   15         -> [xcode-select --install]
     - spustit [sh make.sh]

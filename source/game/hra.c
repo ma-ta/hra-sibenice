@@ -8,7 +8,9 @@
 #include "./game_tui/game_tui.h"
 #include "./hra.h"
 #include "../libs/ansi_fmt.h"
+/*
 #include "../libs/krypto.h"
+*/
 #include "../tui/hlavicka.h"
 #include "../help/napoveda.h"
 #include "../stats/stats.h"
@@ -371,7 +373,10 @@ static bool nacti_slova(void)
       continue;
     }
 
-    /* dešifrování slova */
+    /* dešifrování slova
+       upraveno: slovník bude načten do paměti v šifrované podobě
+       (zrychlení a částečná ochrana před hackery :-) */
+    /*
     #if HRA_SLOVA_SIF_ZAP == 1
       if (!sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo, sizeof(slovo))) {
         vymaz_obr();
@@ -381,6 +386,7 @@ static bool nacti_slova(void)
         goto f_nacti_slova_konec;
       }
     #endif
+    */
 
     if (slova_duplicita(slovo, slova, slova_size)) {
       fprintf(stderr, ERR_SIGN "Slovo \"%s\" se ve slovniku opakuje...\n", slovo);
@@ -578,6 +584,7 @@ static int hra_kolo(void) {
         putchar('\a');
       #endif
       if (term_color_zap) {
+        vymaz_obr();  /* pokus o eliminaci probliknutí obrazovky */
         term_barvy(TERM_GREEN, TERM_LWHITE);
         vymaz_obr();
         ukazatele_vykresli();

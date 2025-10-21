@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include "../../libs/ansi_fmt.h"
+#include "../../libs/krypto.h"
+
 
 static int  i, j      = 0;  /* pomocný iterátor */
 static bool nastaveno = false;  /* určuje, zda je modul inicializován */
@@ -28,9 +30,25 @@ static int  pocet_hlasek_ne   = 0;
 static int  stav_nalezeno     = (-1);
 
 
-void ukazatelslov_nastav(char slovo[])
+void ukazatelslov_nastav(char string[])
 {
-  if (strlen(slovo) > 0 && strlen(slovo) <= UKAZATELSLOV_DELKA_MAX) {
+  char slovo[UKAZATELSLOV_DELKA_MAX + 1] = "";
+
+  if (strlen(string) > 0 && strlen(string) <= UKAZATELSLOV_DELKA_MAX) {
+
+    strcpy(slovo, string);
+
+    /* dešifrování hádaného slova */
+    #if HRA_SLOVA_SIF_ZAP == 1
+      if (!sifrovani_slov(0, HRA_SLOVA_SIF_KEY, slovo, sizeof(slovo))) {
+        vymaz_obr();
+        fputs(ERR_SIGN "Nacitane slovo nelze desifrovat...\n", stderr);
+        fputs(PROMPT_ENTER_POKRAC, stdout);
+        fflush(stdout);
+        cekej_enter();
+        goto nenastaveno;
+      }
+    #endif
 
     pocet_hlasek_ano = sizeof(hlasky_ano) / sizeof(hlasky_ano[0]);
     pocet_hlasek_ne  = sizeof(hlasky_ne) / sizeof(hlasky_ne[0]);
@@ -55,6 +73,7 @@ void ukazatelslov_nastav(char slovo[])
     nastaveno = true;
   }
   else {
+nenastaveno:
     nastaveno = false;
     fputs(ERR_SIGN "Modul ukazatele slov nebyl inicializovan...\n", stderr);
   }

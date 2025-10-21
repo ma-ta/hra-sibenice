@@ -2,7 +2,7 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Testovane OS: Ubuntu 24.04.2 LTS
+# Testovane OS: Ubuntu 24.04.3 LTS
 
 # Skript umožňuje cross kompilaci MS-DOS binárky pomocí Open Watcom v Ubuntu
 # a je vhodný spíše pro testovací sestavení - např. za využití Ubuntu WSL
@@ -15,7 +15,7 @@
 #  (UBUNTU / BASH / OPEN WATCOM)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-06-09                #
+#  datum:  2025-10-21                #
 #                                    #
 ######################################
 

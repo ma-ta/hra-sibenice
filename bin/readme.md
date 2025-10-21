@@ -5,7 +5,7 @@
         |            games            S I _ E _ I C E         |
         |                                                     |
         +--------------------------+--------------------------+
-        |    (c) 2025  Freeware    |          v1.3.1          |
+        |    (c) 2025  Freeware    |          v1.3.2          |
         +--------------------------+--------------------------+
 
                              V i t e j t e
@@ -38,6 +38,9 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibenice-fbsd64      - platforma FreeBSD   (64-bit, x86-64)   (program)
  sibenice-fbsd32      - platforma FreeBSD   (32-bit, x86)      (program)
  sibenice-fbsdArm64   - platforma FreeBSD   (64-bit, AArch64)  (program)
+ sibenice-macUni      - platforma macOS     (Intel & Silicon)  (program)
+ sibenice-macArm64    - platforma macOS     (64-bit, AArch64)  (program)
+ sibenice-mac64       - platforma macOS     (64-bit, x86-64)   (program)
  sibenice-win64.exe   - platforma Windows   (64-bit, x86-64)   (program)
  sibenice-win32.exe   - platforma Windows   (32-bit, x86)      (program)
  sibenice-winArm64    - platforma Windows   (64-bit, AArch64)  (program)
