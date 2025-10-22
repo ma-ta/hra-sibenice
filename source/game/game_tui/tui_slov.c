@@ -34,6 +34,8 @@ void ukazatelslov_nastav(char string[])
 {
   char slovo[UKAZATELSLOV_DELKA_MAX + 1] = "";
 
+  /* (nevhodné pro zašifrovaná slova - s Caesarovou šifrou použitelné
+      jelikož se délka slova nemění) */
   if (strlen(string) > 0 && strlen(string) <= UKAZATELSLOV_DELKA_MAX) {
 
     strcpy(slovo, string);
