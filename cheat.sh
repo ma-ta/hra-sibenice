@@ -3,8 +3,8 @@
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
 # Cheat pro vypsani aktualne hadaneho slova
-# Použití: ./cheat.sh <nazev_procesu>
-# (spustit v průběhu hry)
+# Pouziti: ./cheat.sh <nazev_procesu>
+# (spustit v prubehu hry)
 
 
 if [ -z "$1" ]; then
