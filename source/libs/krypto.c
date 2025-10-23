@@ -20,7 +20,8 @@
 
 /* klasická Caesarova šifra (zvážena i XOR šifra, kde je problém s uložením
    výsledných bajtů (znaků) do textového souboru -> řešením je zápis v HEX
-   (délka zašifrovaného a odšifrovaného slova se poté liší) */
+   (délka zašifrovaného a odšifrovaného slova se poté liší:
+    POZOR - je třeba upravit buffer ve fci. ukazatelslov_nastav) */
 bool sifrovani_slov(int rezim, int klic, char *buffer, int buffer_size)
 {
   char *p_znak = buffer;  /* zpracovávaný znak */
