@@ -15,7 +15,7 @@
 #  (UBUNTU / BASH / OPEN WATCOM)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2025-10-23                #
+#  datum:  2025-10-25                #
 #                                    #
 ######################################
 

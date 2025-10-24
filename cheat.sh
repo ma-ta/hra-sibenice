@@ -2,7 +2,8 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Upraveno     :  2025-10-23
+# Upraveno     :  2025-10-25
+# Prerekvizity :  GNU gdb
 # Testovane OS :  Ubuntu 24.04.3 LTS, Fedora 43
 
 ######################################
@@ -30,7 +31,7 @@ if [[ -n "$PID" ]]; then
     echo pid: $PID
     # vycteni retezce hadane_slovo->slovo z pameti RAM
     # (funguje, protoze retezec je prvni polozka struktury)
-    gdb --batch -p $PID -ex 'x/s &hadane_slovo' -ex quit | grep hadane_slovo
+    sudo gdb --batch -p $PID -ex 'x/s &hadane_slovo' -ex quit | grep hadane_slovo
 else
     # ukonceni v pripade, ze proces s danym nazvem neexistuje
     echo "(!) Proces nebyl nalezen..." >&2
