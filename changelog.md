@@ -6,8 +6,8 @@
 
 OPRAVENÉ CHYBY:
 
-1) slovník se do paměti nově načítá šifrovaný
-   (urychlí spuštění a znesnadní hacking :-)
+1) slovník se do paměti načte šifrovaný
+   (urychlí načtení hry a znesnadní hacking :)
 
 2) mírné probliknutí obrazovky při změně pozadí
    na zelenou (slovo uhodnuto)
