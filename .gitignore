@@ -1,4 +1,5 @@
 bin/data/stats.sav
+bin/data/STATS.SAV
 bin/test-unix
 bin/test-win.exe
 bin/test-dos.exe
