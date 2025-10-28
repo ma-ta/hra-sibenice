@@ -3,7 +3,7 @@
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
 # Testovane OS: Ubuntu 24.04.3 LTS, Fedora 43, macOS 15.6, FreeBSD 14.3,
-#               Android 14/Termux v0.119.0
+#               Android 14/Termux v0.118.3
 
 ######################################
 #                                    #

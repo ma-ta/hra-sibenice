@@ -2,12 +2,14 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Testovane OS: Ubuntu 24.04.3 LTS
+# Testovane OS: Ubuntu 24.04.3 LTS, Fedora 43
 
 # Skript umožňuje cross kompilaci MS-DOS binárky pomocí Open Watcom v Ubuntu
 # a je vhodný spíše pro testovací sestavení - např. za využití Ubuntu WSL
 # a DOSBox-X (pro finální binárku lépe využít FreeDOS - viz [mk_dos16.bat]).
-# Prerekvitizy:  [sudo snap install open-watcom --beta]
+# Prerekvitizy:
+#   Ubuntu: [sudo snap install open-watcom --beta]
+#   Fedora: [sudo dnf install snap && sudo snap install open-watcom --beta]
 
 ######################################
 #                                    #
@@ -35,7 +37,9 @@
   cc_param='-k 16384'
 
 # prikaz pro spusteni prekladace vc. parametru (cc/gcc/clang apod.)
-  CC='/snap/bin/open-watcom.owcc-dos '$cc_param
+  # Ubuntu: '/snap/bin/open-watcom.owcc-dos '
+  # Fedora: 'open-watcom.owcc-dos '
+  CC='open-watcom.owcc-dos '$cc_param
 
 # korenovy adresar se zdrojovymi kody
   src_dir=`pwd`'/source'
