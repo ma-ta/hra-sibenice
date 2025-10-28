@@ -11,6 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Print macOS version
+        run: sw_vers
+      - name: Print Xcode version
+        run: xcodebuild -version
+
       - name: Verify .iconset exists
         run: |
           if [ ! -d "res/icons/mac/mac-ico.iconset" ]; then
