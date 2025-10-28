@@ -14,6 +14,6 @@
 4. použít CLI utilitu [iconutil -c icns mac-ico.iconset] pro finální ikonu
 
 ### Použitý software
-- Sketch Production Templates *(ver. January 3, 2025&nbsp;&ndash;&nbsp;macOS Sequoia)*
+- Sketch Production Templates *(ver. January 3, 2025&nbsp;&ndash;&nbsp;macOS 15 Sequoia)*
 - Figma Desktop App *(ver. 125.3.5)*
-- GitHub Action [workflow](//github.com/ma-ta/hra-sibenice/actions/workflows/build-macicon.yml)&nbsp;&ndash;&nbsp;vytvoření [mac-ico.icns](mac-ico.icns) ze zdrojových PNG v [mac-ico.iconset](mac-ico.iconset) *(runner: macOS 14.7.4 | Xcode CLT 16.2)*
+- GitHub Action [workflow](//github.com/ma-ta/hra-sibenice/actions/workflows/build-macicon.yml)&nbsp;&ndash;&nbsp;vytvoření [mac-ico.icns](mac-ico.icns) ze zdrojových PNG v [mac-ico.iconset](mac-ico.iconset) *(runner: macOS 15.7.1 | Xcode CLT 16.4)*
