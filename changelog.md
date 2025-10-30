@@ -1,13 +1,13 @@
 ```
 +--------+------------+
-| v1.3.2 | 2025-10-25 |
+| v1.3.2 | 2025-10-30 |
 +--------+------------+
 
 
 OPRAVENÉ CHYBY:
 
 1) slovník se do paměti načte šifrovaný
-   (urychlí načtení hry a znesnadní hacking :)
+   (urychlí spuštění hry a znesnadní hacking :)
 
 2) mírné probliknutí obrazovky při změně pozadí
    na zelenou (slovo uhodnuto)

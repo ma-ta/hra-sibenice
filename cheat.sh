@@ -2,7 +2,7 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Upraveno     :  2025-10-25
+# Upraveno     :  2025-10-30
 # Prerekvizity :  GNU gdb
 # Testovane OS :  Ubuntu 24.04.3 LTS, Fedora 43
 
