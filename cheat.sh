@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
-
-# Upraveno     :  2025-10-31
-# Prerekvizity :  GNU gdb
-# Testovane OS :  Ubuntu 24.04.3 LTS, Fedora 43
+# Prerekvizity: GNU gdb
 
 ######################################
 #                                    #
@@ -15,6 +12,11 @@
 #  ./cheat.sh <nazev_procesu>        #
 #                                    #
 ######################################
+
+# Verze        :  Hra Šibenice v1.3.2
+# Testovane OS :  Ubuntu 24.04.3 LTS, Fedora 43
+# Autor        :  Martin TABOR (Ma-TA)
+# Upraveno     :  2025-10-31
 
 
 # kontrola pritomnosti argumentu <nazev_procesu>

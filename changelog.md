@@ -6,19 +6,21 @@
 
 NOVINKY:
 
-1) Linux:
-     binárka jako AppImage [x86-64] [AArch64]
+1) UN*X:
+   - binárka zabalená jako AppImage  [x86-64] [AArch64]
+   - cheat skript např. pro účely testování
+     (vypíše aktuálně hádané slovo)
 
 
 OPRAVENÉ CHYBY:
 
 1) slovník se do paměti načte šifrovaný
-   (urychlí spuštění hry a znesnadní hacking :)
+   (urychlí spuštění hry)
 
 2) mírné probliknutí obrazovky při změně pozadí
    na zelenou (slovo uhodnuto)
 
-3) opravy slov ve slovníku
+3) vyměněna některá slova ve slovníku
 
 
 +--------+------------+
