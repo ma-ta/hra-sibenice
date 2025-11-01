@@ -1,21 +1,21 @@
 ```
 +--------+------------+
-| v1.3.2 | 2025-10-31 |
+| v1.3.2 | 2025-11-01 |
 +--------+------------+
 
 
 NOVINKY:
 
 1) UN*X:
-   - binárka zabalená jako AppImage  [x86-64] [AArch64]
+   - binárky zabalené jako AppImage  [x86-64] [AArch64]
    - cheat skript např. pro účely testování
      (vypíše aktuálně hádané slovo)
 
 
 OPRAVENÉ CHYBY:
 
-1) slovník se do paměti načte šifrovaný
-   (urychlí spuštění hry)
+1) slova se do paměti nově načítají zašifrovaná
+   (resp. v původní podobě ze souboru)
 
 2) mírné probliknutí obrazovky při změně pozadí
    na zelenou (slovo uhodnuto)

@@ -5,6 +5,7 @@
 
 
 5) [v1.3.0]
+   d) (hádané slovo je v paměti dešifrované)
    c) nejsou vyřešeny možné kombinace přepínačů (-wc, -cw, ...)
    b) ne zcela správně implementovaný převod atributů příkazové řádky
       ve fci. main() na malá písmena (lépe změnit fce. porovnávání)
@@ -30,8 +31,9 @@
 Hotovo:
 
 6) [v1.3.2]
-   a) zřejmě opraveno mírné probliknutí obrazovky při změně pozadí
-      na zelenou (slovo uhodnuto) 
+   a) [! draft] redukováno probliknutí obrazovky při změně pozadí na zelenou
+      (slovo uhodnuto) => text se vykreslí až po změně barvy, nicméně
+      stále není chování optimální
 
 5) [v1.3.1]
    a) v UN*Xu je po spuštění hry zobrazeno běžné písmo a v jejím

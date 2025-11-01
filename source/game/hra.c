@@ -584,7 +584,7 @@ static int hra_kolo(void) {
         putchar('\a');
       #endif
       if (term_color_zap) {
-        vymaz_obr();  /* POKUS o eliminaci probliknutí obrazovky */
+        vymaz_obr();  /* POKUS o redukci probliknutí obrazovky */
         term_barvy(TERM_GREEN, TERM_LWHITE);
         vymaz_obr();
         ukazatele_vykresli();

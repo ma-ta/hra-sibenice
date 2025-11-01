@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Hra Šibenice"
-#define MyAppVersion "1.3.1"
+#define MyAppVersion "1.3.2"
 #define MyAppPublisher "Martin TÁBOR (alias Ma-TA)"
 #define MyAppURL "https://github.com/ma-ta/hra-sibenice"
 #define MyAppExeName "sibenice"
@@ -59,4 +59,3 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}-win64.exe";
 
 [Run]
 Filename: "{app}\{#MyAppExeName}-win64.exe"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
-
