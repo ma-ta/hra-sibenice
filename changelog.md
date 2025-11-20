@@ -1,13 +1,13 @@
 ```
 +--------+------------+
-| v1.3.2 | 2025-11-01 |
+| v1.3.2 | ????-??-?? |
 +--------+------------+
 
 
 NOVINKY:
 
 1) UN*X:
-   - binárky zabalené jako AppImage  [x86-64] [AArch64]
+   - binárky zabalené jako Flatpak  [x86-64] [AArch64]
    - cheat skript např. pro účely testování
      (vypíše aktuálně hádané slovo)
 
