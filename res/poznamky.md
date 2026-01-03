@@ -12,7 +12,9 @@
    a) při velmi pomalém vykreslování je zřejmé, že se nejdříve změní
       podbarvení terminálu (při aktuálně vykresleném textu), poté se
       text vymaže a vykreslí nový (alespoň při použití příkazu color
-      v MS-DOS
+      v MS-DOS,
+      => vysoká režie u volání příkazu system() v DOSu
+      => tj. využít raději conio.h nebo graph.h (Open Watcom)!
 
 4) [v1.2.1]
    poslední slovo ve slovníku musí být ukončeno novým řádkem ('\n'),
