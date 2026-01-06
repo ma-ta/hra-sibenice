@@ -5,7 +5,7 @@
         |            games            S I _ E _ I C E         |
         |                                                     |
         +--------------------------+--------------------------+
-        |    (c) 2025  Freeware    |          v1.3.1          |
+        |    (c) 2026  Freeware    |          v1.3.2          |
         +--------------------------+--------------------------+
 
                              V i t e j t e
@@ -62,7 +62,7 @@ wasm/                 - platforma WebAssembly
 
 ------------------------------------------------------------------------
 
-Autor         :  (c) 2022-25  Martin TABOR
+Autor         :  (c) 2022-26  Martin TABOR
 Licence       :  GNU GPLv3+ (Freeware & Open source)
 Zdrojove kody :  https://github.com/ma-ta/hra-sibenice
 ```

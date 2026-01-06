@@ -83,5 +83,5 @@ a uveden jejich vyznam.
 -------------------------------------------------------------------------
 
                                                             Hodne stesti!
-                                                (c) 2022-25  Martin TABOR
+                                                (c) 2022-26  Martin TABOR
 ```

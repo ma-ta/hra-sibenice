@@ -1,6 +1,9 @@
 @echo off
 
 :: Nutno spustit v prostredi Developer Command Prompt (for MS Visual Studio)
+:: Prerekvitizy:
+   :: MSVC Build Tools
+   :: Windows 11 SDK (obsahuje rc.exe pro VERSIONINFO resource)
 
 ::::::::::::::::::::::::::::::::::::::::
 ::                                    ::

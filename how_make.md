@@ -39,7 +39,7 @@
     - predem instalovat vyvojove nastroje:
       - Ubuntu  24.04 LTS  -> [sudo apt install build-essentials -y]
       - Fedora  43         -> [sudo dnf install gcc]
-      - FreeBSD 14         -> [pkg install -y bash]
+      - FreeBSD 15         -> [pkg install -y bash]
       - macOS   15         -> [xcode-select --install]
     - spustit [sh make.sh]
 
