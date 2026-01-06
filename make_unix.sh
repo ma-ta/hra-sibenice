@@ -55,14 +55,14 @@
       # riscv64 (RV64, RISC-V 64-bit):
         #sudo apt install gcc-riscv64-linux-gnu
         #CC='riscv64-linux-gnu-gcc '$cc_param
-    # cross-kompilace pod FreeBSD 14.3 x86_64 (od-komentovat radky nize)
+    # cross-kompilace pod FreeBSD 15.0 x86_64 (od-komentovat radky nize)
       # x86 (i386, 32-bit):
         #CC='clang -m32 '$cc_param
       # AArch64:
-        #fetch https://download.freebsd.org/ftp/releases/arm64/14.3-RELEASE/base.txz
+        #fetch https://download.freebsd.org/ftp/releases/arm64/15.0-RELEASE/base.txz
         #mkdir -p /opt/sysroot-aarch64
         #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
-        #CC='clang --target=aarch64-unknown-freebsd14.3 --sysroot=/opt/sysroot-aarch64'
+        #CC='clang --target=aarch64-unknown-freebsd15.0 --sysroot=/opt/sysroot-aarch64'
 
 
 # korenovy adresar se zdrojovymi kody

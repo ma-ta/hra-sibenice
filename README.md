@@ -26,16 +26,16 @@
 
 | Platforma       | <span title="Instalátor">💽</span> | x86-64          | x86<br>32-bit  | x86<br>16-bit      | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
 |-----------------|------------------------------------|-----------------|----------------|--------------------|--------------------|-----------------------|---------------------|--------------------------------------------------
-| 🪟&nbsp;Windows | ✅                                 | ✅             | ✅             |                    | ✅                 |                       |                     |
+| 🪟&nbsp;Windows | ✅                                 | ✅             | ✅             |                    | ☑️                 |                       |                     |
 | 🍎&nbsp;macOS   |                                    | ☑️&nbsp;v1.1.0  |                |                    | ☑️&nbsp;v1.1.0     |                       |                     |
 | 🐧&nbsp;Linux   |                                    | ✅              | ✅            |                    | ✅                 | ✅                   | ✅                  |
-| 🤖&nbsp;Android |                                    |                 |                |                    | ✅                 |                       |                     |
-| 😈&nbsp;FreeBSD |                                    | ✅              | ✅            |                    | ✅                 |                       |                     |
-| 💾&nbsp;DOS     |                                    |                 | ✅             | ✅                 |                    |                       |                     |
+| 🤖&nbsp;Android |                                    |                 |                |                    | ☑️                 |                       |                     |
+| 😈&nbsp;FreeBSD |                                    | ☑️              | ☑️            |                    | ☑️                 |                       |                     |
+| 💾&nbsp;DOS     |                                    |                 | ☑️             | ☑️                 |                    |                       |                     |
 | 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | ✅
 
 > **Legenda:**  
-✅&nbsp;–&nbsp;aktuální sestavení: **v1.3.1 (2025-07-10)**,  
+✅&nbsp;–&nbsp;aktuální sestavení: **v1.3.2 (2026-01-07)**,  
 ☑️&nbsp;–&nbsp;starší sestavení,  
 💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.3.1/bin-setup).
 
@@ -66,18 +66,18 @@ Nativní 16-bit verze běží samostatně.
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
-  - 🐧&nbsp;Ubuntu 24.04.2 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
+  - 🐧&nbsp;Ubuntu 24.04.3 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
   - 😈&nbsp;FreeBSD 14.3 *(Clang 19.1.7) &ndash; [x86] [x86-64] [AArch64]*
   - 🤖&nbsp;Android 14/Termux 0.118.3 *(Clang 20.1.7) &ndash; [AArch64]*
 - 🪟&nbsp;Win:
-  - Windows 11 *(MSVC 19.44.35217) &ndash; [x86] [x86-64] [AArch64]*
+  - Windows 11 25H2 *(MSVC 19.50.35721) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
     - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
 - 🌐&nbsp;Web:
-  - Wasm *(Emscripten 4.0.10) &ndash; [wasm32]*
+  - Wasm *(Emscripten 4.0.22) &ndash; [wasm32]*
 
 ### Snímky obrazovky
 
