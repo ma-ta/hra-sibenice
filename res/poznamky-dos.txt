@@ -7,3 +7,5 @@ NUTNÉ ZMĚNY PRO KOMPATIBILITU S (FREE)DOSEM:
        - [ok] obdobně je třeba zkrátit vypisovaný počet řádek u nápovědy
        - [  ] ve FreeDOS nefunguje hlavičkový soubor ansi_fmt
               (prozatím vypnuto) => prozkoumat možnosti nativní knihovny ansi.sys
+- [  ] vysoka rezie pri volani fce. system()
+       => v term_set.c vyuzit knihovnu conio.h nebo graph.h (u Open Watcom)
