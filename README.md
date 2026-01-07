@@ -58,7 +58,7 @@ Např. příkazem: [xattr -d com.apple.quarantine sibenice-macUni].
 
 #### Pozn. pro systém 🤖&nbsp;Android
 Hra byla sestavena a otestována v emulátoru terminálu [Termux](https://termux.dev/en/), který je možné
-nainstalovat přes alternativní obchod [F-Droid](https://f-droid.org/en/packages/com.termux/).
+nainstalovat z [Google Play](https://play.google.com/store/apps/details?id=com.termux&hl=cs) nebo přes alternativní obchod [F-Droid](https://f-droid.org/en/packages/com.termux/).
 
 #### Pozn. pro systémy typu 💾&nbsp;DOS
 U 32-bit binárky v případě zobrazení hlášky *"Load error: no DPMI - Get csdpmi\*.zip"* umístěte soubor [CWSDPMI.EXE](/bin/CWSDPMI.EXE) do stejného adresáře jako spustitelný soubor hry. Více o problematice např. [zde](//en.wikipedia.org/wiki/CWSDPMI) nebo [zde](https://sandmann.dotster.com/cwsdpmi/).  
