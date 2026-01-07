@@ -29,9 +29,9 @@
 | 🪟&nbsp;Windows | ✅                                 | ✅             | ✅             |                    | ✅️                 |                       |                     |
 | 🍎&nbsp;macOS   |                                    | ☑️&nbsp;v1.1.0  |                |                    | ☑️&nbsp;v1.1.0     |                       |                     |
 | 🐧&nbsp;Linux   |                                    | ✅              | ✅            |                    | ✅                 | ✅                   | ✅                  |
-| 🤖&nbsp;Android |                                    |                 |                |                    | ☑️                 |                       |                     |
-| 😈&nbsp;FreeBSD |                                    | ☑️              | ☑️            |                    | ☑️                 |                       |                     |
-| 💾&nbsp;DOS     |                                    |                 | ✅️             | ✅️                 |                    |                       |                     |
+| 🤖&nbsp;Android |                                    |                 |                |                    | ✅                 |                       |                     |
+| 😈&nbsp;FreeBSD |                                    | ✅️              | ✅️            |                    | ✅️                 |                       |                     |
+| 💾&nbsp;DOS     |                                    |                 |                | ✅️                 |                    |                       |                     |
 | 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | ✅
 
 > **Legenda:**  
@@ -68,14 +68,13 @@ Nativní 16-bit verze běží samostatně.
 - UN*X:
   - 🐧&nbsp;Ubuntu 24.04.3 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
-  - 😈&nbsp;FreeBSD 14.3 *(Clang 19.1.7) &ndash; [x86] [x86-64] [AArch64]*
+  - 😈&nbsp;FreeBSD 15.0 *(Clang 19.1.7) &ndash; [x86] [x86-64] [AArch64]*
   - 🤖&nbsp;Android 16/Termux 2026.01.07 *(Clang 21.1.8) &ndash; [AArch64]*
 - 🪟&nbsp;Win:
   - Windows 11 25H2 *(MSVC 19.50.35721) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
-    - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
 - 🌐&nbsp;Web:
   - Wasm *(Emscripten 4.0.22) &ndash; [wasm32]*
 
