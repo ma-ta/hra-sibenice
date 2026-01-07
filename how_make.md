@@ -137,7 +137,7 @@
     Idealne virtualni PC s FreeDOS [www.freedos.org/download].
     Cely system je vhodne aktualizovat on-line pomoci [fdnpkg update].
 
-    varianta 1 - OPEN WATCOM
+    varianta 1 - OPEN WATCOM  (preferovana -> 16-bit)
     {
       {
         - pripojit BonusCD do virtualni mechaniky (FD14BNS.iso)
@@ -153,7 +153,7 @@
       }
     }
 
-    varianta 2 - DJGPP GCC
+    varianta 2 - DJGPP GCC  (netestovano -> 32-bit)
     {
       - nainstalovat prekladac z on-line repozitare
         (od FreeDOS 1.4 se DJGPP nenachazi na BonusCD)
