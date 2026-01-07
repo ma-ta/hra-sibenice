@@ -13,15 +13,27 @@
       html, body {
         font-size: 15pt;
         color: white;
-        font-family: 'JetBrains Mono', 'Consolas', 'monospace';
+        font-family: 'JetBrains Mono', 'Cascadia Mono', 'Consolas', 'monospace';
         margin: 0;
         padding: 1em;
         background-color: #212121;
         text-align: center;
       }
+      .vertical-txt {
+          writing-mode: vertical-rl;
+          text-orientation: upright;
+      }
+      #logo {
+        position: fixed;
+        left: 7rem;
+        width: 175px;
+        cursor: pointer;
+      }
       h1 {
+        font-size: 20pt;
+        float: left;
+        position: fixed;
         letter-spacing: 10px;
-        margin: 3rem;
       }
       .terminal {
         text-align: left;
@@ -53,14 +65,31 @@
         margin: 2em;
         z-index: 1000;
       }
+      #icons {
+        cursor: pointer;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
     </style>
   </head>
   <body>
-    <h1>Hra Šibenice</h1>
+    <header>
+      <a href="//github.com/ma-ta/hra-sibenice" target="_blank" title="GitHub">
+        <img alt="logo" id="logo" src="ico-256-1024.svg">
+      </a>
+      <h1 class="vertical-txt">Hra Šibenice</h1>
+    </header>
     <div id="terminal"></div>
     <button id="restart">Restart</button>
-    <div id="ver_info">Šibenice Web v1.3.2 (2026-01)</div>
-
+    <div id="ver_info">
+      Šibenice Web v1.3.2 (2026-01)
+      <br>
+      &copy;&nbsp;2022&ndash;26&nbsp;&nbsp;Martin TÁBOR
+    </div>
+    <a href="https://webassembly.org" target="_blank" title="Na bázi Web Assembly">
+      <img id="icons" src="ico-wasm-32px.png" alt="Wasm logo">
+    </a>
     <!-- hlavní JS skript -->
     <script type="module">
       import './node_modules/@xterm/xterm/lib/xterm.js';  // Xterm.js

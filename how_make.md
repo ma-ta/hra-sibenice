@@ -66,7 +66,7 @@
 
 
   Spustit skript [make_win.bat] z vyvojarske konzole
-  (tj. Native Tools Command Prompt for VS 2022).
+  (tj. Native Tools Command Prompt for VS 2026).
 
 
   Prerekvizity:
@@ -75,7 +75,8 @@
   Poznamky:
     - predem instalovat vyvojove nastroje:
       - Visual Studio Community s podporou vyvoje pro C/C++
-         (tj. minimalne kompilator MSVC)
+        - tj. MSVC Build Tools + Win 11 SDK kvůli rc.exe
+          (zpracovává VERSIONINFO resource -> ikona aplikace atd.)
       - skript je treba spustit z vyvojarske konzole
          v nabidce Start:
            x86 Native Tools Command Prompt for VS (x86)
