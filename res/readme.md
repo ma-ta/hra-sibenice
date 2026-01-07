@@ -35,18 +35,10 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibenice-linuxArm    - platforma GNU/Linux (32-bit, armhf)    (program)
  sibenice-linuxRV64   - platforma GNU/Linux (64-bit, riscv64)  (program)
  sibenice-android     - platforma Android   (64-bit, AArch64)  (program)
- sibenice-fbsd64      - platforma FreeBSD   (64-bit, x86-64)   (program)
- sibenice-fbsd32      - platforma FreeBSD   (32-bit, x86)      (program)
- sibenice-fbsdArm64   - platforma FreeBSD   (64-bit, AArch64)  (program)
- sibenice-macUni      - platforma macOS     (Intel & Silicon)  (program)
- sibenice-macArm64    - platforma macOS     (64-bit, AArch64)  (program)
- sibenice-mac64       - platforma macOS     (64-bit, x86-64)   (program)
  sibenice-win64.exe   - platforma Windows   (64-bit, x86-64)   (program)
  sibenice-win32.exe   - platforma Windows   (32-bit, x86)      (program)
  sibenice-winArm64    - platforma Windows   (64-bit, AArch64)  (program)
  sibe-dos.exe         - platforma DOS       (16-bit, x86)      (program)
- sibe-d32.exe         - platforma DOS       (32-bit, x86)      (program)
- CWSDPMI.EXE          - nutne pro beh 32-bit verze v MS-DOS    (32-DPMI)
 
 data/
  (stats.sav)          - soubor s ulozenymi statistikami        (binarni)
