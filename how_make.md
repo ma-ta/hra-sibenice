@@ -175,7 +175,7 @@
 |                   |                               |                   |
 +-------------------+-------------------------------+-------------------+
 +-----+-----------------------------------------------------------------+
-|  4  |  WEB (EMSCRIPTEN - WASM)                                        |
+|  4  |  WEB (Emscripten + Wasm)                                        |
 +-----+-----------------------------------------------------------------+
 
 
@@ -187,6 +187,30 @@
     - nainstalovane a nastavene EMSDK [source emsdk/emsdk_env.sh]
       pro sestavovani Wasm pres Emscripten (obsahuje i potrebne npm)
       [https://emscripten.org/docs/getting_started/downloads.html].
+
+
+
++-------------------+-------------------------------+-------------------+
+|                   |                               |                   |
+|     ooooooooo     | +---+---+---+---+             |     ooooooooo     |
+|   oo   o o   oo   | | A | R | M | D |             |   oo   O o   oo   |
+|  ooo    |    ooo  | +---+---+---+---+---+---+---+ |  ooo    |    ooo  |
+|  oo  ~~ - ~~  oo  |             | R | O | I | D | |  oo  ~~ O ~~  oo  |
+|   ooooooooooooo   |             +---+---+---+---+ |   ooooooooooooo   |
+|                   |                               |                   |
++-------------------+-------------------------------+-------------------+
++-----+-----------------------------------------------------------------+
+|  5  |  ANDROID (Termux + Clang)                                       |
++-----+-----------------------------------------------------------------+
+
+
+  Spustit skript [make_unix.sh].
+
+
+  Prerekvizity:
+    - aplikace Termux (na Google Play či F-Droid),
+    - provest [pkg update] a [pkg install clang],
+    - pote spustit sestavovaci skript pro UN*X [./make_unix.sh].
 
 
 ```
