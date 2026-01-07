@@ -204,13 +204,13 @@
 +-----+-----------------------------------------------------------------+
 
 
-  Spustit skript [make_unix.sh].
+  Spustit skript [make_unix.sh],
+  binarku z uloziste Termuxu lze ziskat pres [termux-setup-storage].
 
 
   Prerekvizity:
     - aplikace Termux (na Google Play či F-Droid),
-    - provest [pkg update] a [pkg install clang],
-    - pote spustit sestavovaci skript pro UN*X [./make_unix.sh].
+    - provest [pkg update] a [pkg install clang].
 
 
 ```
