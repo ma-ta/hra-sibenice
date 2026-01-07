@@ -93,7 +93,7 @@ Nativní 16-bit verze běží samostatně.
 </figure>
 
 <figure>
-  <figcaption>Webové rozhraní (Google Chrome 138):</figcaption>
+  <figcaption>Webové rozhraní (Google Chrome 143):</figcaption>
   <img src="res/screenshots/hra-web.png" alt="Šibenice - webový prohlížeč">
 </figure>
 
