@@ -75,6 +75,7 @@ Nativní 16-bit verze běží samostatně.
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
     - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
+    - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
 - 🌐&nbsp;Web:
   - Wasm *(Emscripten 4.0.22) &ndash; [wasm32]*
 
