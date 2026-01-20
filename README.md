@@ -18,11 +18,11 @@
 
 ### Binárky ke stažení
 
-- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-setupwin.exe)**
+- **⬇️&nbsp;[Stáhnout instalátor pro Windows&nbsp;🪟](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.2/sibenice-setupwin.exe)**
 - ⬇️&nbsp;Stáhnout All-in-1 balíček (všechny binárky): 
-  [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-bin.tar.gz)&nbsp;📦, 
-  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.1/sibenice-bin.zip)&nbsp;📦&nbsp;&nbsp;|&nbsp;&nbsp;<span title="verze 1.1.0 s binárkou pro macOS">*[v1.1.0 pro macOS](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0)*&nbsp;🍎</span><br>
-  (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.3.1/bin/#readme) dle vaší platformy):
+  [TAR.GZ](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.2/sibenice-bin.tar.gz)&nbsp;📦, 
+  [ZIP](//github.com/ma-ta/hra-sibenice/releases/download/v1.3.2/sibenice-bin.zip)&nbsp;📦&nbsp;&nbsp;|&nbsp;&nbsp;<span title="verze 1.1.0 s binárkou pro macOS">*[v1.1.0 pro macOS](https://github.com/ma-ta/hra-sibenice/releases/tag/v1.1.0)*&nbsp;🍎</span><br>
+  (rozbalte stažený archiv a zvolte spustitelný [soubor](https://github.com/ma-ta/hra-sibenice/blob/v1.3.2/bin/#readme) dle vaší platformy):
 
 | Platforma       | <span title="Instalátor">💽</span> | x86-64          | x86<br>32-bit  | x86<br>16-bit      | ARM64<br>(AArch64) | ARM 32-bit<br>(armhf) | RISC-V<br>(riscv64) | <span title="WebAssembly">Wasm<br>(wasm32)</span>
 |-----------------|------------------------------------|-----------------|----------------|--------------------|--------------------|-----------------------|---------------------|--------------------------------------------------
@@ -37,20 +37,20 @@
 > **Legenda:**  
 ✅&nbsp;–&nbsp;aktuální sestavení: **v1.3.2 (2026-01-07)**,  
 ☑️&nbsp;–&nbsp;starší sestavení,  
-💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.3.1/bin-setup).
+💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.3.2/bin-setup).
 
 **Další odkazy:**
 - [Přehled verzí &amp; changelog](//github.com/ma-ta/hra-sibenice/releases)
-- [Adresář s binárkami](https://github.com/ma-ta/hra-sibenice/tree/v1.3.1/bin)
+- [Adresář s binárkami](https://github.com/ma-ta/hra-sibenice/tree/v1.3.2/bin)
 
 
 ### Popis a stručné instrukce
 Známá <a title="Wikipedie" href="//cs.wikipedia.org/wiki/%C5%A0ibenice_(hra)">slovní hra</a> (alias Oběšenec, Kat, Hangman) založená na hádání jednotlivých písmen tajného slova.
 Program je napsán v jazyce C a pro jeho spuštění či sestavení by neměly být potřeba žádné dodatečné komponenty.
 
-- **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.3.1/how_make.md)**
-- [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.3.1/res/napoveda.md)
-- [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.3.1/res/poznamky.md)
+- **[Základní instrukce k sestavení](https://github.com/ma-ta/hra-sibenice/blob/v1.3.2/how_make.md)**
+- [Nápověda ke hře](https://github.com/ma-ta/hra-sibenice/blob/v1.3.2/res/napoveda.md)
+- [Známé chyby a nápady na další vývoj](https://github.com/ma-ta/hra-sibenice/blob/v1.3.2/res/poznamky.md)
 
 #### Pozn. pro systém 🍎&nbsp;macOS
 Stažené binární soubory nejsou podepsané, proto je pravděpodobně bude možné spustit až po odebrání příslušného příznaku.<br>
@@ -81,7 +81,7 @@ Nativní 16-bit verze běží samostatně.
 
 ### Snímky obrazovky
 
-[Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.3.1/res/screenshots)
+[Všechny dostupné screenshoty zde](https://github.com/ma-ta/hra-sibenice/tree/v1.3.2/res/screenshots)
 
 <figure>
   <figcaption>macOS 15.4 (Sequoia) Terminal&nbsp;&ndash;&nbsp;obrazovka hry (v1.1.0):</figcaption>
