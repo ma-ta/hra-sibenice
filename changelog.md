@@ -9,7 +9,6 @@ NOVINKY:
 1) Web: vylepšen vzhled webového rozhraní
 
 2) UN*X:
-   - binárky zabalené jako Flatpak  [x86-64] [AArch64]
    - cheat skript např. pro účely testování
      (vypíše aktuálně hádané slovo)
 
