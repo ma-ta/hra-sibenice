@@ -1,14 +1,14 @@
 +--------------+--------+------------+
-| Hra Sibenice | v1.3.2 | 2026-01-07 |
+| Hra Sibenice | v1.3.2 | 2026-02-18 |
 +--------------+--------+------------+
 
 ./sibe-dos.exe:             MS-DOS executable, MZ for MS-DOS
 ./sibenice-android:         ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /system/bin/linker64, for Android 30, built by NDK r29 (14206865), not stripped
-./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel i386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=27fb677993ba434b9662bf681e7e22fcc4d3ec5f, for GNU/Linux 3.2.0, not stripped
-./sibenice-linux64:         ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=114a85bb8de3bb28dfe97e916b26dbf44b17e2e5, for GNU/Linux 3.2.0, not stripped
-./sibenice-linuxArm:        ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=7e23901b8160475a004d7327e8a3330aea8db0b9, for GNU/Linux 3.2.0, not stripped
-./sibenice-linuxArm64:      ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=bb92ffdafbcbda75960c5ab4803a57f41e011790, for GNU/Linux 3.7.0, not stripped
-./sibenice-linuxRV64:       ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=47254dfd441ef697f49a9176047e3c3b1441af47, for GNU/Linux 4.15.0, not stripped
+./sibenice-linux32:         ELF 32-bit LSB pie executable, Intel i386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=5ab364c985b087ec5e2828160d35f9f5fa634dcc, for GNU/Linux 3.2.0, not stripped
+./sibenice-linux64:         ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=4294c1aacadd1338ce0686f4b885146e9a30c22c, for GNU/Linux 3.2.0, not stripped
+./sibenice-linuxArm:        ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=7ecec50d88a416e1084bcae14ac69324ab52452a, for GNU/Linux 3.2.0, not stripped
+./sibenice-linuxArm64:      ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=d33ff7988ef1abb183b6b103ad81b9541c757ee9, for GNU/Linux 3.7.0, not stripped
+./sibenice-linuxRV64:       ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=2e759479cfb8950e2bc67b9b67c06096ab97c1a9, for GNU/Linux 4.15.0, not stripped
 ./sibenice-win32.exe:       PE32 executable for MS Windows 6.00 (GUI), Intel i386, 6 sections
 ./sibenice-win64.exe:       PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
 ./sibenice-winArm64.exe:    PE32+ executable for MS Windows 6.02 (GUI), ARM64, 7 sections

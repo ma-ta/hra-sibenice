@@ -2,7 +2,7 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Testovane OS: Ubuntu 24.04.3 LTS, Fedora 43, macOS 15.6, FreeBSD 15,
+# Testovane OS: Ubuntu 26.04 LTS, Fedora 43, macOS 15.6, FreeBSD 15,
 #               Android 16/Termux v2026-01-07
 
 ######################################
@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-01-07                #
+#  datum:  2026-02-18                #
 #                                    #
 ######################################
 

@@ -35,8 +35,8 @@
 | 🌐&nbsp;Web     |                                    |                 |                |                    |                    |                       |                     | ✅
 
 > **Legenda:**  
-✅&nbsp;–&nbsp;aktuální sestavení: **v1.3.2 (2026-01-07)**,  
-☑️&nbsp;–&nbsp;starší sestavení,  
+✅&nbsp;–&nbsp;aktuální verze: **1.3.2**,  
+☑️&nbsp;–&nbsp;starší verze,  
 💽&nbsp;–&nbsp;dostupný user-friendly (🐤 BFU) instalátor ve složce [bin-setup](https://github.com/ma-ta/hra-sibenice/tree/v1.3.2/bin-setup).
 
 **Další odkazy:**
@@ -66,18 +66,18 @@ Nativní 16-bit verze běží samostatně.
 
 #### Použité kompilátory *(platformy)*:
 - UN*X:
-  - 🐧&nbsp;Ubuntu 24.04.3 LTS *(GCC 13.3.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
+  - 🐧&nbsp;(2026-02-18)&nbsp;&nbsp;Ubuntu 26.04 LTS *(GCC 15.2.0) &ndash; [x86] [x86-64] [AArch64] [armhf] [riscv64]*
   - 🍎&nbsp;macOS 15.4 *(Apple Clang 17.0.0) &ndash; [x86-64] [AArch64] [Universal]*
   - 😈&nbsp;FreeBSD 14.3 *(Clang 19.1.7) &ndash; [x86] [x86-64] [AArch64]*
   - 🤖&nbsp;Android 16/Termux 2026.01.07 *(Clang 21.1.8) &ndash; [AArch64]*
 - 🪟&nbsp;Win:
-  - Windows 11 25H2 *(MSVC 19.50.35721) &ndash; [x86] [x86-64] [AArch64]*
+  - (2026-02-18)&nbsp;&nbsp;Windows 11 25H2 *(MSVC 19.50.35724) &ndash; [x86] [x86-64] [AArch64]*
 - 💾&nbsp;DOS:
   - FreeDOS 1.4:
-    - *(Open Watcom 1.9) &ndash; [x86 16-bit]*
-    - *(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
+    - (2026-01-07)&nbsp;&nbsp;*(Open Watcom 1.9) &ndash; [x86 16-bit]*
+    - (2025-07-04)&nbsp;&nbsp;*(DJGPP GCC 12.2.0) &ndash; [x86 32-bit]*
 - 🌐&nbsp;Web:
-  - Wasm *(Emscripten 4.0.22) &ndash; [wasm32]*
+  - (2026-02-18)&nbsp;&nbsp;Wasm *(Emscripten 5.0.1) &ndash; [wasm32]*
 
 ### Snímky obrazovky
 

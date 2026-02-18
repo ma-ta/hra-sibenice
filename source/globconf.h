@@ -58,9 +58,9 @@
 #ifndef CCNAME
   #if defined (__EMSCRIPTEN__)
     #define CCNAME  "Emscripten"
-    #define CCVER   __EMSCRIPTEN_major__
-    #define CCMINOR __EMSCRIPTEN_minor__
-    #define CCTINY  __EMSCRIPTEN_tiny__
+    #define CCVER   __EMSCRIPTEN_MAJOR__
+    #define CCMINOR __EMSCRIPTEN_MINOR__
+    #define CCTINY  __EMSCRIPTEN_TINY__
   #elif defined(_MSC_VER)
     #define CCNAME  "MSVC"
     #define CCVER   _MSC_VER
