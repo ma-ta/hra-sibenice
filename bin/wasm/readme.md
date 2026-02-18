@@ -5,7 +5,7 @@ ale je nutný přístup přes jakýkoli jednoduchý webový server.
 
 Např.
 - Python:  
-  [python -m http.server]
+  [python -m http.server],
 - Node.js (npm):  
   [npx http-server .],
 - Live Preview pro VS Code  
