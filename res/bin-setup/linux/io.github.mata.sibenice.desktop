@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.5
+Type=Application
+Terminal=true
+Name=Hra Šibenice
+Comment=Slovní hra šibenice pro terminál
+TryExec=sibenice
+Exec=sibenice
+Icon=io.github.mata.sibenice
+Categories=Game;LogicGame;ConsoleOnly;
+Keywords=šibenice;oběšenec;hangman;hra;

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+	<id>io.github.mata.sibenice</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>GPL-3.0-or-later</project_license>
+	<name>Hra Šibenice</name>
+	<summary>Slovní hra šibenice pro terminál</summary>
+	<description>
+		<p>
+			Multiplatformní implementace známé slovní hry Šibenice pro terminál.
+			Hádejte skryté slovo písmeno po písmenu, než vám dojdou pokusy.
+		</p>
+		<p>V aplikaci najdete:</p>
+		<ul>
+			<li>nevšední retro vzhled plně textového rozhraní,</li>
+			<li>1000 českých slov k hádání,</li>
+			<li>herní kroniku nejlepších hráčů.</li>
+		</ul>
+	</description>
+	<categories>
+		<category>Game</category>
+		<category>LogicGame</category>
+		<category>ConsoleOnly</category>
+    </categories>
+	<keywords>
+		<keyword>šibenice</keyword>
+		<keyword>oběšenec</keyword>
+		<keyword>hangman</keyword>
+		<keyword>hra</keyword>
+	</keywords>
+	<supports>
+		<control>keyboard</control>
+		<control>console</control>
+	</supports>
+	<requires>
+  		<internet>offline-only</internet>
+	</requires>
+	<content_rating type="oars-1.1"/>
+	<launchable type="desktop-id">io.github.mata.sibenice.desktop</launchable>
+	<url type="homepage">https://github.com/ma-ta/hra-sibenice</url>
+	<url type="help">https://github.com/ma-ta/hra-sibenice/blob/v1.3.2/res/napoveda.md</url>
+	<branding>
+		<color type="primary" scheme_preference="light">#ffffff</color>
+		<color type="primary" scheme_preference="dark">#000000</color>
+	</branding>
+	<screenshots>
+		<screenshot type="default">
+			<caption>Banner hry</caption>
+			<image type="source" width="1280" height="640">https://raw.githubusercontent.com/ma-ta/hra-sibenice/refs/heads/main/res/github.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Herní kronika</caption>
+			<image type="source" width="810" height="620">https://raw.githubusercontent.com/ma-ta/hra-sibenice/refs/heads/main/res/screenshots/kronika.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Hlavní menu</caption>
+			<image type="source" width="800" height="600">https://raw.githubusercontent.com/ma-ta/hra-sibenice/refs/heads/main/res/screenshots/menu-dos.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Probíhající hra</caption>
+			<image type="source" width="800" height="600">https://raw.githubusercontent.com/ma-ta/hra-sibenice/refs/heads/main/res/screenshots/hra-dos.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Obrazovka prohry</caption>
+			<image type="source" width="800" height="600">https://raw.githubusercontent.com/ma-ta/hra-sibenice/refs/heads/main/res/screenshots/neuhodl-dos.png</image>
+		</screenshot>
+	</screenshots>
+	<languages>
+		<lang percentage="100">cs</lang>
+	</languages>
+	<provides>
+		<binary>sibenice</binary>
+	</provides>
+	<developer id="io.github.mata">
+  		<name>Martin Tábor</name>
+	</developer>
+    <releases>
+        <release version="1.3.2" date="2026-01-20">
+			<description>
+				<p>Vydání s drobnými opravami a zlepšeními.</p>
+			</description>
+			<url>https://github.com/ma-ta/hra-sibenice/releases/tag/v1.3.2</url>
+		</release>
+    </releases>
+</component>
