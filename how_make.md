@@ -5,9 +5,9 @@
          |            games            S I _ E _ I C E         |
          |                                                     |
          +--------------------------+--------------------------+
-         |    (c) 2026  Freeware    |          v1.3.2          |
+         |    (c) 2022-26  GPLv3    |          v1.3.3          |
          +--------------------------+--------------------------+
-         |    SESTAVENI PROJEKTU    |        2026-01-07        |
+         |    SESTAVENI PROJEKTU    |        ????-??-??        |
          +--------------------------+--------------------------+
 
 
@@ -37,10 +37,10 @@
   Poznamky:
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
-      - Ubuntu  24.04 LTS  -> [sudo apt install build-essentials -y]
-      - Fedora  43         -> [sudo dnf install gcc]
+      - Ubuntu  26.04 LTS  -> [sudo apt install build-essentials -y]
+      - Fedora  44         -> [sudo dnf install gcc]
       - FreeBSD 15         -> [pkg install -y bash]
-      - macOS   15         -> [xcode-select --install]
+      - macOS   26         -> [xcode-select --install]
     - spustit [sh make.sh]
 
     V macOS je mozne vyuzit prepinace:

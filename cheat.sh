@@ -13,10 +13,10 @@
 #                                    #
 ######################################
 
-# Verze        :  Hra Šibenice v1.3.2
-# Testovane OS :  Ubuntu 24.04.3 LTS, Fedora 43
+# Verze        :  Hra Šibenice v1.3.3
+# Testovane OS :  Ubuntu 26.04 LTS, Fedora 44
 # Autor        :  Martin TABOR (Ma-TA)
-# Upraveno     :  2026-01-07
+# Upraveno     :  2026-03-15
 
 
 # kontrola pritomnosti argumentu <nazev_procesu>

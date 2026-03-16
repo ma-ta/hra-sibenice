@@ -149,7 +149,7 @@
 /*******************************************/
 
 #define NAZEV    "Hra Sibenice"
-#define VERZE    "1.3.2"
+#define VERZE    "1.3.3"
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
 #define LICENCE  "GPLv3+"
@@ -312,7 +312,7 @@
 
 /* tui - hlavička */
 
-#define TUI_HLAVICKA_TXT_L       "(c) 2026  Freeware"  /* text v levé dolní buňce */
+#define TUI_HLAVICKA_TXT_L       "(c) 2022-26  GPLv3"  /* text v levé dolní buňce */
 #define TUI_HLAVICKA_TXT_P       "v" VERZE             /* text v pravé dolní buňce */
 #define TUI_HLAVICKA_TXT_KONEC   "Na shledanou"  /* (sudý počet zn. pro zarovnání na střed) */
 #define TUI_HLAVICKA_BUNKA_L     26  /* šířka levé dolní buňky */

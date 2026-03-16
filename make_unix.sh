@@ -2,8 +2,8 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
 
-# Testovane OS: Ubuntu 26.04 LTS, Fedora 43, macOS 15.6, FreeBSD 15,
-#               Android 16/Termux v2026-01-07
+# Testovane OS: Ubuntu 26.04 LTS, Fedora 44, macOS 26.4, FreeBSD 15.0,
+#               Android 16/Termux v2026-02-11
 
 ######################################
 #                                    #
@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-02-18                #
+#  datum:  2026-03-15                #
 #                                    #
 ######################################
 
@@ -42,7 +42,7 @@
   CC='cc '$cc_param
 
   # CROSS KOMPILACE:
-    # cross-kompilace pod Ubuntu 24.04 LTS x86-64 (od-komentovat radky nize)
+    # cross-kompilace pod Ubuntu x86-64 (od-komentovat radky nize)
       # x86 (i386, 32-bit):
         #sudo apt install gcc-multilib
         #CC='gcc -m32 '$cc_param
@@ -55,7 +55,7 @@
       # riscv64 (RV64, RISC-V 64-bit):
         #sudo apt install gcc-riscv64-linux-gnu
         #CC='riscv64-linux-gnu-gcc '$cc_param
-    # cross-kompilace pod FreeBSD 15.0 x86_64 (od-komentovat radky nize)
+    # cross-kompilace pod FreeBSD x86-64 (od-komentovat radky nize)
       # x86 (i386, 32-bit):
         #CC='clang -m32 '$cc_param
       # AArch64:

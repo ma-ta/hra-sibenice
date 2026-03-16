@@ -1,6 +1,26 @@
 ```
 +--------+------------+
-| v1.3.2 | 2026-01-07 |
+| v1.3.3 | ????-??-?? |  -  V PLÁNU
++--------+------------+
+
+
+NOVINKY:
+
+1) nové instalační balíčky k distribuci:
+   - Linux:
+       .deb  [x86-64] [AArch64]
+       .rpm  [x86-64] [AArch64]
+   - macOS:
+       .app bundle  [Universal]
+
+
+OPRAVENÉ CHYBY:
+
+1) drobné změny a aktualizace
+
+
++--------+------------+
+| v1.3.2 | 2026-01-20 |
 +--------+------------+
 
 
