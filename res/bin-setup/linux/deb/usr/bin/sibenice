@@ -1,4 +1,50 @@
 #!/usr/bin/env sh
 
-cd /usr/share/sibenice
+# Minimální požadované rozměry okna
+MIN_ROWS=37
+MIN_COLS=74
+
+printf "\x1b[?25l"
+stty -echo
+
+# Úkony po skončení skriptu (reset terminálu)
+konec() {
+    printf "\x1b[?25h"
+    stty echo
+    clear
+    exit
+}
+
+# SIGINT (Ctrl+C), SIGTERM (ukončení procesu), EXIT (normální konec)
+trap konec SIGINT SIGTERM EXIT
+
+# Průběžná kontrola velikosti okna
+while true; do
+    # Získání aktuálních rozměrů
+    read -r ROWS COLS < <(stty size < /dev/tty 2>/dev/null)
+
+    # Kontrola, zda jsou rozměry dostatečné
+    if [ "$ROWS" -ge "$MIN_ROWS" ] && [ "$COLS" -ge "$MIN_COLS" ]; then
+        break
+    fi
+
+    # Pokud je okno malé, vymažeme obrazovku a vypíšeme varování
+    clear
+    echo "+-----------------------------------------------------+"
+    echo "| >>>----->  OKNO TERMINALU JE PRILIS MALE  <-----<<< |"
+    echo "+-----------------------------------------------------+"
+    echo ""
+    echo " Aktualni velikost: ${COLS} x ${ROWS}"
+    echo " POTREBNA velikost: ${MIN_COLS} x ${MIN_ROWS}"
+    echo ""
+    echo " Prosim, roztahnete okno pro spusteni hry..."
+    echo ""
+    echo " <Ctrl+C pro ukonceni>"
+
+    # Počkáme sekundu před další kontrolou, abychom nevytěžovali CPU
+    sleep 0.5
+done
+
+# Spuštění samotné aplikace (nahradí tento skript)
+cd ~/sibenice  #/usr/share/sibenice
 exec ./sibenice "$@"

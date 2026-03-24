@@ -4,7 +4,7 @@
 
 # Testovane prostredi pro sestaveni:
 #   - Ubuntu 26.04 LTS, Fedora 44 + Emscripten v5.0.3,
-#   - npm v11.11.1: [xterm v6.0.0, xterm-pty v0.11.1]
+#   - npm v11.12.0: [xterm v6.0.0, xterm-pty v0.11.1]
 
 ######################################
 #                                    #
