@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-# Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
+# Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
 
 # Testovane prostredi pro sestaveni:
-#   - Ubuntu 26.04 LTS, Fedora 44 + Emscripten v5.0.3,
-#   - npm v11.12.0: [xterm v6.0.0, xterm-pty v0.11.1]
+#   - Ubuntu 26.04 LTS, Fedora 44 + Emscripten v5.0.5,
+#   - npm v11.12.1: [xterm v6.0.0, xterm-pty v0.11.1]
 
 ######################################
 #                                    #
@@ -12,7 +12,7 @@
 #  (UN*X / BASH|ZSH / EMSCRIPTEN     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-03-15                #
+#  datum:  2026-04-05                #
 #                                    #
 ######################################
 
@@ -22,7 +22,7 @@
 ######################################
 
 # ulozeni vychoziho adresare
-  top_dir=`pwd`
+  top_dir=$(pwd)
 
 # nazev spustitelneho souboru
   # -wasm.js / -wasm.mjs / -wasm.html

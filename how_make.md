@@ -210,7 +210,7 @@
 
   Prerekvizity:
     - aplikace Termux (na Google Play či F-Droid),
-    - provest [pkg update] a [pkg install clang].
+    - provest [pkg update && pkg upgrade] a [pkg install clang].
 
 
 ```

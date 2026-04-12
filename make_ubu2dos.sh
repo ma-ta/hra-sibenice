@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Konce radku v souboru musi byt reprezentovany znakem LF ( !! nikoli CRLF !! )
+# Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
 
 # Testovane OS: Ubuntu 26.04 LTS, Fedora 44
 
@@ -17,7 +17,7 @@
 #  (UBUNTU / BASH / OPEN WATCOM)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-03-15                #
+#  datum:  2026-04-05                #
 #                                    #
 ######################################
 
@@ -42,10 +42,10 @@
   CC='open-watcom.owcc-dos '$cc_param
 
 # korenovy adresar se zdrojovymi kody
-  src_dir=`pwd`'/source'
+  src_dir=$(pwd)'/source'
 
 # korenovy adresar pro binarni soubory
-  out_dir=`pwd`'/bin'
+  out_dir=$(pwd)'/bin'
 
 
 # oramovani (pouze pro vystup skriptu)
