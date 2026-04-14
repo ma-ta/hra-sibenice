@@ -273,7 +273,7 @@
                        "    Pro napovedu spustte s prepinacem\n"  \
                        "    \"-?\" nebo \"--help\"."
 
-#define arg_hlp_text()  printf("Pouziti: %s [PREPINAC] [...]\n" ARG_HLP_TEXT "\n", argv[0])
+#define arg_hlp_text()  printf("Pouziti:\n  %s [PREPINAC] [...]\n\n" ARG_HLP_TEXT "\n", argv[0])
 
 
 /**********************/

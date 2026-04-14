@@ -10,13 +10,12 @@ NOVINKY:
    - Linux:
        .deb  [x86-64] [AArch64]
        .rpm  [x86-64] [AArch64]
-   - macOS:
-       .app bundle  [Universal]
 
 
 OPRAVENÉ CHYBY:
 
-1) drobné změny a aktualizace
+1) zprovozněny možné kombinace přepínačů:
+   [-wc | -cw [COLS ROWS]]
 
 
 +--------+------------+

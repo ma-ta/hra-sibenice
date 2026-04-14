@@ -1,0 +1,20 @@
++-----------------------------------------------------+
+|                                                     |
+|         Ma-TA {}       H R A                        |
+|            games            S I _ E _ I C E         |
+|                                                     |
++--------------------------+--------------------------+
+|         Napoveda         |          v1.3.3          |
++--------------------------+--------------------------+
+
+Pouziti:
+  ./bin/test-unix [PREPINAC] [...]
+
+Seznam dostupnych prepinacu:
+  -?, --help    zobrazi (tento) seznam prepinacu
+  -m, --manual  zobrazi hlavni napovedu hry
+  -s, --stats   zobrazi herni statistiky
+  -v, --version zobrazi informace o sestaveni
+  -c, --cli     vynuti spusteni v rezimu 25 x 80 znaku
+  -w, --window  vypne nastaveni barev, pisma atd.,
+                pripadne s [x y] konkretni rozmery okna

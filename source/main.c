@@ -267,6 +267,7 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     #endif
 
     arg_hlp_text();
+    putchar('\n');
 
     #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
       puts("\n");
@@ -302,7 +303,8 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     vymaz_obr();
     hlavicka_vykresli("Napoveda", TUI_HLAVICKA_TXT_P);
     putchar('\n');
-    puts(ARG_HLP_TEXT "\n");
+    arg_hlp_text();
+    putchar('\n');
     #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
       puts("");
       fputs(PROMPT_ENTER_KONEC, stdout);
@@ -374,6 +376,7 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       }
     #endif
     printf(ARG_VER_TEXT);
+    putchar('\n');
 
     #if (defined(OS_WIN) && TERM_SET == 1)  /* čekání před zavřením okna */
       puts("\n");
