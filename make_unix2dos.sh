@@ -7,6 +7,7 @@
 # Skript umožňuje cross kompilaci MS-DOS binárky pomocí Open Watcom v Ubuntu
 # a je vhodný spíše pro testovací sestavení - např. za využití Ubuntu WSL
 # a DOSBox-X (pro finální binárku lépe využít FreeDOS - viz [mk_dos16.bat]).
+#
 # Prerekvitizy:
 #   Ubuntu: [sudo snap install open-watcom --beta]
 #   Fedora: [sudo dnf install snap && sudo snap install open-watcom --beta]
@@ -14,10 +15,10 @@
 ######################################
 #                                    #
 #  SKRIPT NA SESTAVENI HRY SIBENICE  #
-#  (UBUNTU / BASH / OPEN WATCOM)     #
+#  (UN*X / BASH / OPEN WATCOM)       #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-04-05                #
+#  datum:  2026-04-14                #
 #                                    #
 ######################################
 
