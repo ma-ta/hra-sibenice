@@ -8,13 +8,14 @@
 +--------------------------+--------------------------+
 
 Pouziti:
-  ./bin/test-unix [PREPINAC] [...]
+  ./sibenice [PREPINAC]
 
 Seznam dostupnych prepinacu:
-  -?, --help    zobrazi (tento) seznam prepinacu
-  -m, --manual  zobrazi hlavni napovedu hry
-  -s, --stats   zobrazi herni statistiky
-  -v, --version zobrazi informace o sestaveni
-  -c, --cli     vynuti spusteni v rezimu 25 x 80 znaku
-  -w, --window  vypne nastaveni barev, pisma atd.,
-                pripadne s [x y] konkretni rozmery okna
+  -?, --help      vypise (tento) seznam prepinacu
+  -v, --ver       vypise informace o sestaveni
+  -n, --navod     zobrazi hlavni napovedu hry
+  -k, --kronika   vypise herni statistiky
+  -m, --min       vynuti rezim 25 x 80 znaku
+  -b, --barvy     vypne nastaveni barev, pisma apod.
+  -r, --rozmery   <pocet_sloupcu> <pocet_radku>
+                  nastavi konkretni rozmery okna

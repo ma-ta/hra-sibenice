@@ -221,18 +221,20 @@
 #define ARG_SIGN_2  "--"
 #define ARG_SIGN_3  "/"
 /* definice krátkých a dlouhých přepínačů */
-#define ARG_HLP_SIGN_1  "?"       /* zobrazí seznam přepínačů */
+#define ARG_HLP_SIGN_1  "?"       /* vypíše seznam přepínačů */
 #define ARG_HLP_SIGN_2  "help"
-#define ARG_MAN_SIGN_1  "m"       /* zobrazí hlavní nápovědu hry */
-#define ARG_MAN_SIGN_2  "manual"
-#define ARG_STA_SIGN_1  "s"       /* zobrazí herní statistiky */
-#define ARG_STA_SIGN_2  "stats"
-#define ARG_VER_SIGN_1  "v"       /* zobarzí informace o sestavení */
-#define ARG_VER_SIGN_2  "version"
-#define ARG_DOS_SIGN_1  "c"       /* vynutí režim CLI s max. 25 řádky (DOS) */
-#define ARG_DOS_SIGN_2  "cli"
-#define ARG_TER_SIGN_1  "w"       /* vypíná term_set, s [x y] nastaví rozměry */
-#define ARG_TER_SIGN_2  "window"
+#define ARG_MAN_SIGN_1  "n"       /* zobrazí hlavní nápovědu hry */
+#define ARG_MAN_SIGN_2  "navod"
+#define ARG_STA_SIGN_1  "k"       /* vypíše herní statistiky */
+#define ARG_STA_SIGN_2  "kronika"
+#define ARG_VER_SIGN_1  "v"       /* vypíše informace o sestavení */
+#define ARG_VER_SIGN_2  "ver"
+#define ARG_DOS_SIGN_1  "m"       /* vynuti rezim 25 x 80 znaku */
+#define ARG_DOS_SIGN_2  "min"
+#define ARG_ROZ_SIGN_1  "r"       /* s <x> <y> nastaví rozměry okna */
+#define ARG_ROZ_SIGN_2  "rozmery"
+#define ARG_TER_SIGN_1  "b"       /* vypne nastaveni barev, pisma apod. */
+#define ARG_TER_SIGN_2  "barvy"
 
 /* výpis informací o verzi (sestavení) */
 #define ARG_VER_TEXT  "%s\n"  \
@@ -251,29 +253,35 @@
                       , AUTOR, LICENCE
 /* výpis dostupných přepínačů */
 #define ARG_HLP_TXT1  "Seznam dostupnych prepinacu:\n"  \
-                      "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\tzobrazi (tento) seznam prepinacu\n"  \
-                      "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\tzobrazi hlavni napovedu hry\n"  \
-                      "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\tzobrazi herni statistiky\n"  \
-                      "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\tzobrazi informace o sestaveni"
-#define ARG_HLP_TXT2  "\n"  \
-                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\tvynuti spusteni v rezimu 25 x 80 znaku"
-#define ARG_HLP_TXT3  "\n"  \
-                      "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\tvypne nastaveni barev, pisma atd.,\n"  \
-                      "\t        pripadne s [x y] konkretni rozmery okna"
+                      /* [-? | --help] */  \
+                      "  -" ARG_HLP_SIGN_1 ", --" ARG_HLP_SIGN_2 "\t  vypise (tento) seznam prepinacu\n"  \
+                      /* [-v | --ver] */  \
+                      "  -" ARG_VER_SIGN_1 ", --" ARG_VER_SIGN_2 "\t  vypise informace o sestaveni\n"  \
+                      /* [-n | --navod] */  \
+                      "  -" ARG_MAN_SIGN_1 ", --" ARG_MAN_SIGN_2 "\t  zobrazi hlavni napovedu hry\n"  \
+                      /* [-k | --kronika] */  \
+                      "  -" ARG_STA_SIGN_1 ", --" ARG_STA_SIGN_2 "\t  vypise herni statistiky"
+#define ARG_HLP_TXT2  "\n"  /* [-m | --min] */  \
+                      "  -" ARG_DOS_SIGN_1 ", --" ARG_DOS_SIGN_2 "\t  vynuti rezim 25 x 80 znaku"
+#define ARG_HLP_TXT3  "\n"  /* [-b | --barvy] */  \
+                      "  -" ARG_TER_SIGN_1 ", --" ARG_TER_SIGN_2 "\t  vypne nastaveni barev, pisma apod."
+#define ARG_HLP_TXT4  "\n"  /* [-r | --rozmery] */  \
+                      "  -" ARG_ROZ_SIGN_1 ", --" ARG_ROZ_SIGN_2 "\t  <pocet_sloupcu> <pocet_radku>\n"  \
+                      "\t          nastavi konkretni rozmery okna"
 
-#if defined(OS_DOS)  /* vynechá se [-c] */
+#if defined(OS_DOS)  /* vynechá se [--min] [--rozmery] */
   #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT3
-#elif TERM_SET == 0  /* vynechá se [-w] */
+#elif TERM_SET == 0  /* vynechá se [--barvy] [--rozmery] */
   #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2
 #else
-  #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2 ARG_HLP_TXT3
+  #define ARG_HLP_TEXT  ARG_HLP_TXT1 ARG_HLP_TXT2 ARG_HLP_TXT3 ARG_HLP_TXT4
 #endif
 
 #define ERR_ARGUMENTY  "Chybne argumenty prikazove radky...\n" \
                        "    Pro napovedu spustte s prepinacem\n"  \
                        "    \"-?\" nebo \"--help\"."
 
-#define arg_hlp_text()  printf("Pouziti:\n  %s [PREPINAC] [...]\n\n" ARG_HLP_TEXT "\n", argv[0])
+#define arg_hlp_text()  printf("Pouziti:\n  %s [PREPINAC]\n\n" ARG_HLP_TEXT "\n", argv[0])
 
 
 /**********************/

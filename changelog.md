@@ -14,8 +14,9 @@ NOVINKY:
 
 OPRAVENÉ CHYBY:
 
-1) zprovozněny možné kombinace přepínačů:
-   [-wc | -cw [COLS ROWS]]
+1) úpravy v názvech a zkratkách přepínačů
+
+2) vylepšen cheat skript (určen pro testování)
 
 
 +--------+------------+

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# SKRIPT NEFUNGUJE U STRIPPED BINAREK
+# SKRIPT NEFUNGUJE U PRODUKCNICH STRIPPED BINAREK !!!
 
 # Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
 # Prerekvizity: GNU gdb
@@ -11,14 +11,14 @@
 #  HADANEHO TAJNEHO SLOVA            #
 #                                    #
 #  V prubehu hry spustit:            #
-#  ./cheat.sh <nazev_procesu>        #
+#  ./cheat_unix.sh <nazev_procesu>   #
 #                                    #
 ######################################
 
 # Verze        :  Hra Šibenice v1.3.3
 # Testovane OS :  Ubuntu 26.04 LTS, Fedora 44
 # Autor        :  Martin TABOR (Ma-TA)
-# Upraveno     :  2026-04-05
+# Upraveno     :  2026-04-19
 
 
 NAZEV="$1"  # nazev procesu

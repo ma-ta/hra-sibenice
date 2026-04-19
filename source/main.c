@@ -182,6 +182,28 @@ int main(int argc, char *argv[])
 /* definice lokálních funkcí */
 
 
+/* aktivuje přepínač [-m | --min] */
+static void zapni_arg_min(void)
+{
+  nastaveni_tabskore = 1;  /* zobrazi mensi herni obrazovku pro 80x25 zn. */
+  #if TERM_SET == 1
+    if (term_set == 1) {
+      term_rozmery[0]  = TERM_SIRKA_DOS;  /* rozmery okna jako v DOS */
+      term_rozmery[1]  = TERM_VYSKA_DOS;
+    }
+  #endif
+}
+
+/* aktivuje přepínač [-b | --barvy] */
+static void zapni_arg_barvy(void)
+{
+  #if TERM_SET == 1
+    term_set = 0;
+  #endif
+}
+
+
+/* parsuje přítomné argumenty CLI */
 static void zpracuj_argumenty(int argc, char *argv_orig[])
 {
   int i, j, buffer_pozice = 0;
@@ -247,9 +269,11 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     /* // DEBUG */
   }  /* // if (argc > 1) */
 
+
   /* implementace přepínačů */
 
-  /* vypíše seznam dostupných přepínačů */
+
+  /* vypíše seznam dostupných přepínačů [-? | --help] */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_HLP_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_2 ARG_HLP_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_HLP_SIGN_1, argv[1]) == 0
@@ -276,7 +300,8 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     #endif
     exit(0);
   }
-  /* zobrazení hlavní nápovědy */
+
+  /* zobrazení hlavní nápovědy [-n | --navod] */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_MAN_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_2 ARG_MAN_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_MAN_SIGN_1, argv[1]) == 0
@@ -312,7 +337,8 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     #endif
     exit(0);
   }
-  /* zobrazení herních statistik */
+
+  /* zobrazení herních statistik [-k | --kronika] */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_STA_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_2 ARG_STA_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_STA_SIGN_1, argv[1]) == 0
@@ -360,7 +386,8 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     #endif
     exit(0);
   }
-  /* vypíše informace o sestavení */
+
+  /* vypíše informace o sestavení [-v | --ver] */
   if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_VER_SIGN_1, argv[1]) == 0
                     || strcmp(ARG_SIGN_2 ARG_VER_SIGN_2, argv[1]) == 0
                     || strcmp(ARG_SIGN_3 ARG_VER_SIGN_1, argv[1]) == 0
@@ -386,35 +413,32 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
     exit(0);
   }
 
-  /* vynutí spuštění v režimu malé herní obrazovky (80x25 znaků) */
+  /* vynutí spuštění v režimu malé herní obrazovky 80 x 25 zn. */
+  /* [-m | --min] */
   if      (argc == 2 && (strcmp(ARG_SIGN_1 ARG_DOS_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_2 ARG_DOS_SIGN_2, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_DOS_SIGN_2, argv[1]) == 0)) {
 
-    nastaveni_tabskore = 1;   /* zobrazi mensi herni obrazovku pro 80x25 zn. */
-    #if TERM_SET == 1
-      if (term_set == 1) {
-        term_rozmery[0]  = TERM_SIRKA_DOS;  /* rozmery okna jako DOS shell */
-        term_rozmery[1]  = TERM_VYSKA_DOS;
-      }
-    #endif
+    zapni_arg_min();
   }
+
   /* vypne term_set: automatické nastavení velikosti okna, písma, barev */
+  /* [-b | --barvy] */
   else if (argc == 2 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_2 ARG_TER_SIGN_2, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_TER_SIGN_1, argv[1]) == 0
                          || strcmp(ARG_SIGN_3 ARG_TER_SIGN_2, argv[1]) == 0)) {
 
-    #if TERM_SET == 1
-      term_set = 0;
-    #endif
+    zapni_arg_barvy();
   }
+
   /* nastavi konkretni velikost okna terminalu */
-  else if (argc == 4 && (strcmp(ARG_SIGN_1 ARG_TER_SIGN_1, argv[1]) == 0
-                         || strcmp(ARG_SIGN_2 ARG_TER_SIGN_2, argv[1]) == 0
-                         || strcmp(ARG_SIGN_3 ARG_TER_SIGN_1, argv[1]) == 0
-                         || strcmp(ARG_SIGN_3 ARG_TER_SIGN_2, argv[1]) == 0)) {
+  /* [-r | --rozmery] */
+  else if (argc == 4 && (strcmp(ARG_SIGN_1 ARG_ROZ_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_2 ARG_ROZ_SIGN_2, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_ROZ_SIGN_1, argv[1]) == 0
+                         || strcmp(ARG_SIGN_3 ARG_ROZ_SIGN_2, argv[1]) == 0)) {
 
     /* byl zadán přepínač pro změnu chování term_set a zbývají dva argumenty,
        zjistíme tedy, zda se jedná o parsovatelné a správné hodnoty
@@ -425,7 +449,7 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
       term_set = 1;
 
       for (i = 0; i < 2; i++) {  /* načtení X y Y */
-        /* argumenty jsou 4: "PATH -w X Y" */
+        /* argumenty jsou 4: "PATH [-r <X> <Y>]" */
         int argument = i + 2;
         if (sscanf(argv[argument], "%d", term_rozmery + i) != 1) {
           goto chybne_argumenty;
@@ -437,6 +461,7 @@ static void zpracuj_argumenty(int argc, char *argv_orig[])
 
     #endif
   }
+
   /* chybné argumenty */
   else if (argc > 1) {
     #if TERM_SET == 1
