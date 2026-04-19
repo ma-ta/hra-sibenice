@@ -138,17 +138,23 @@ void hra_nastav(int kol, int zivotu) {
   zbyva_zivotu = zivotu;
   hlaska_fmt   = -1;      /* reset (odbarvení) formátu hlášky před novou hrou */
 
-  if (!nacti_slova()) {
+  if (   !nacti_slova()
+      || !ukazatelsibenice_nastav(zbyva_zivotu, celkem_bodu)
+  ) {
     hra_probiha = false;
     fputs(ERR_SIGN "Hru nelze spustit.\n", stderr);
-    fputs(ansi_format(ANSI_INVER) "\n(Enter pro ukonceni...)" ansi_format(ANSI_RESET), stdout);
+    fputs(
+      ansi_format(ANSI_INVER)
+      "\n(Enter pro ukonceni...)"
+      ansi_format(ANSI_RESET)
+      , stdout
+    );
     cekej_enter();
     vymaz_obr();
     konec();
     exit(1);
   }
 
-  ukazatelsibenice_nastav(zbyva_zivotu, celkem_bodu);
   ukazatelkol_nastav(kolo_hry, pocet_kol, UKAZATELE_SIRKA_BUNKY);
   #if (DEBUG == 2)
     ukazatelslov_nastav(DEBUG_HADANE_SLOVO);

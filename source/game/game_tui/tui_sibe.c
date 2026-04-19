@@ -201,7 +201,7 @@ void ukazatelsibenice_vycisti(void)
   }
 }
 
-void ukazatelsibenice_nastav(int zivoty, int body)
+bool ukazatelsibenice_nastav(int zivoty, int body)
 {
   tabskore_obr = (zivoty < zbyvajici_zivoty) ? true : false;
   zbyvajici_zivoty = zivoty;
@@ -211,11 +211,12 @@ void ukazatelsibenice_nastav(int zivoty, int body)
   if (!nastaveno) {
     if (!ukazatelsibenice_nahrajobr()) {
       nastaveno = false;
-      return;
+      return false;
     }
   }
 
   nastaveno = true;
+  return true;
 }
 
 int ukazatelsibenice_zjisti_zivoty(void) {

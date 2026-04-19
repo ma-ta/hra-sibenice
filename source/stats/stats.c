@@ -89,10 +89,13 @@ static bool nahraj_sablonu(void)
 
   /* otevření souboru */
   if ((f_sablona = fopen(STATISTIKY_OBRSAB_SOUBOR, "r")) == NULL) {
-    fprintf(stderr,
-            ERR_SIGN "Nelze otevrit sablonu obrazovky statistik:\n"
-            "    %s\n\n"
-            , STATISTIKY_OBRSAB_SOUBOR);
+    fprintf(stderr, ERR_SIGN ERR_SOUBOR "\n", STATISTIKY_SOUBOR);
+    printf("\n"
+           ansi_format(ANSI_INVER)
+           "(Enter pro navrat...)"
+           ansi_format(ANSI_RESET));
+    cekej_enter();
+    vymaz_obr();
     return false;
   }
 

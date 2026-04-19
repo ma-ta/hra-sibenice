@@ -11,10 +11,13 @@ NOVINKY:
        .deb  [x86-64] [AArch64]
        .rpm  [x86-64] [AArch64]
 
+2) úpravy v názvech a zkratkách přepínačů
+
 
 OPRAVENÉ CHYBY:
 
-1) úpravy v názvech a zkratkách přepínačů
+1) vylepšeno chování při problémech s načítáním
+   externích souborů
 
 2) vylepšen cheat skript (určen pro testování)
 

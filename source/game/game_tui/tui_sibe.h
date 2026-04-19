@@ -13,7 +13,7 @@
 #define UKAZATEL_SIBENICE_H
 
 
-void
+bool
 ukazatelsibenice_nastav(int zivoty, int body);
 
 void
