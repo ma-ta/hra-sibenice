@@ -267,6 +267,7 @@ static bool nacti_slova(void)
   if ((f_slova = fopen(HRA_SLOVA_SOUBOR, "r")) == NULL) {
     vymaz_obr();
     fprintf(stderr, "\n" ERR_SIGN ERR_SOUBOR "\n", HRA_SLOVA_SOUBOR);
+    ret_val = false;
     goto f_nacti_slova_konec;
   }
 
