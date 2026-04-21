@@ -596,6 +596,8 @@ bool stats_vypis(bool jednoduchy_vypis)
   }
   else {
     fputs(ERR_SIGN "Modul statistik neni nastaven...\n\n", stderr);
+    fputs(ansi_format(ANSI_INVER) PROMPT_ENTER_NAVRAT ansi_format(ANSI_RESET), stdout);
+    cekej_enter();
     return false;
   }
 }

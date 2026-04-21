@@ -259,6 +259,7 @@ static bool nacti_slova(void)
       ansi_format(ANSI_BLICK)
         "Nacitam slova ze slovniku..."
       ansi_format(ANSI_RESET)
+      "\n"  /* kvuli prip. chybovemu vypisu (max. 80 zn. na radek) */
     );
     fflush(stdout);
   }
