@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-04-05                #
+#  datum:  2026-04-23                #
 #                                    #
 ######################################
 
@@ -28,10 +28,17 @@
   # -android (Termux)    / -...
   bin_nazev='test-unix'
 
-# parametry prekladace
-  # debug:   '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address'
-  # release: '-O3 -Wno-unused-result'
-  cc_param='-O3 -Wno-unused-result'  # pro testovani cross-kompilace pridat [-static]
+# parametry prekladace (prevezme i argumenty skriptu $1, $2, ...)
+  # debug:
+    # '-Wall -Wextra -Wpedantic -Wno-deprecated-declarations -g -fsanitize=address $*'
+  # release:
+    # '-O3 -Wno-unused-result $*'
+  cc_param="-O3 -Wno-unused-result $*"  # pro testovani cross-kompilace pridat:
+                                          # [-static]
+                                        # cesta k souborum
+                                          # [-DSOUBORY_PATH=\"./data/\"] apod.
+                                        # verze
+                                          # [-DVERZE=\"X.Y.Z\"]
 
   # pro macOS je mozne vyuzit prepinace:
     # [-arch arm64] pro Silicon, [-arch x86_64] pro Intel,

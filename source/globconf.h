@@ -149,19 +149,32 @@
 /*******************************************/
 
 #define NAZEV    "Hra Sibenice"
-#define VERZE    "1.3.3"
+#ifndef VERZE
+  #define VERZE  "1.3.X"
+#endif
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"
 #define LICENCE  "GPLv3+"
 
 /* externí soubory */
-#define HRA_SLOVA_SOUBOR          "./data/dict_cs.dat"  /* seznam slov k hádání        (textový) */
-#define UKAZATELSIBENICE_SOUBOR   "./data/game.dat"     /* šablona s obrázky šibenice  (textový) */
-#define NAPOVEDA_SOUBOR           "./data/help.dat"     /* šablona české nápovědy      (textový) */
-#define STATISTIKY_OBRSAB_SOUBOR  "./data/stats.dat"    /* šablona obrazovky statistik (textový) */
-#define STATISTIKY_SOUBOR         "./data/stats.sav"    /* uložené herní statistiky    (binární) */
 
-#define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."  /* informace o chybějícím souboru */
+/* cesta k souborům               (PATH)    */
+#ifndef SOUBORY_PATH
+  #define SOUBORY_PATH            "./data/"
+#endif
+/* seznam slov k hádání           (textový) */
+#define HRA_SLOVA_SOUBOR          SOUBORY_PATH "dict_cs.dat"
+/* šablona s obrázky šibenice     (textový) */
+#define UKAZATELSIBENICE_SOUBOR   SOUBORY_PATH "game.dat"
+/* šablona české nápovědy         (textový) */
+#define NAPOVEDA_SOUBOR           SOUBORY_PATH "help.dat"
+/* šablona obrazovky statistik    (textový) */
+#define STATISTIKY_OBRSAB_SOUBOR  SOUBORY_PATH "stats.dat"
+/* uložené herní statistiky       (binární) */
+#define STATISTIKY_SOUBOR         SOUBORY_PATH "stats.sav"
+
+/* informace o chybějícím souboru */
+#define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."
 
 #define ANSI_FORMAT  0    /* zapne formátování ESC sekvencemi */
 #define TERM_COLOR   1    /* zapne obarvování pomocí modulu term_set */
