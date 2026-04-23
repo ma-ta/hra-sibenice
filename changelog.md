@@ -1,12 +1,12 @@
 ```
 +--------+------------+
-| v1.3.3 | ????-??-?? |  -  V PLÁNU
+| v1.4.0 | ????-??-?? |  -  V PLÁNU
 +--------+------------+
 
 
 NOVINKY:
 
-1) nové instalační balíčky k distribuci:
+1) nové instalační balíčky:
    - Linux:
        .deb  [x86-64] [AArch64]
        .rpm  [x86-64] [AArch64]
@@ -16,8 +16,8 @@ NOVINKY:
 
 OPRAVENÉ CHYBY:
 
-1) vylepšeno chování při problémech s načítáním
-   externích souborů
+1) robustnější implementace načítání, ukládání
+   a zpracování chyb u externích souborů
 
 2) vylepšen cheat skript (určen pro testování)
 

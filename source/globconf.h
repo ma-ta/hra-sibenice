@@ -150,7 +150,7 @@
 
 #define NAZEV    "Hra Sibenice"
 #ifndef VERZE
-  #define VERZE  "1.3.X"
+  #define VERZE  "1.4.X"
 #endif
 #define WEB      "github.com/ma-ta/hra-sibenice"
 #define AUTOR    "Martin TABOR"

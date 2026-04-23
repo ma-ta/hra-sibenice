@@ -15,10 +15,10 @@
 #                                    #
 ######################################
 
-# Verze        :  Hra Šibenice v1.3.3
+# Verze        :  Hra Šibenice v1.4.0
 # Testovane OS :  Ubuntu 26.04 LTS, Fedora 44
 # Autor        :  Martin TABOR (Ma-TA)
-# Upraveno     :  2026-04-19
+# Upraveno     :  2026-04-23
 
 
 NAZEV="$1"  # nazev procesu
