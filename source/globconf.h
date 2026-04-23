@@ -163,15 +163,15 @@
   #define SOUBORY_PATH            "./data/"
 #endif
 /* seznam slov k hádání           (textový) */
-#define HRA_SLOVA_SOUBOR          SOUBORY_PATH "dict_cs.dat"
+#define HRA_SLOVA_SOUBOR          SOUBORY_PATH "dict-cs.dat"
 /* šablona s obrázky šibenice     (textový) */
-#define UKAZATELSIBENICE_SOUBOR   SOUBORY_PATH "game.dat"
+#define UKAZATELSIBENICE_SOUBOR   SOUBORY_PATH "game-cs.dat"
 /* šablona české nápovědy         (textový) */
-#define NAPOVEDA_SOUBOR           SOUBORY_PATH "help.dat"
+#define NAPOVEDA_SOUBOR           SOUBORY_PATH "help-cs.dat"
 /* šablona obrazovky statistik    (textový) */
-#define STATISTIKY_OBRSAB_SOUBOR  SOUBORY_PATH "stats.dat"
+#define STATISTIKY_OBRSAB_SOUBOR  SOUBORY_PATH "stat-cs.dat"
 /* uložené herní statistiky       (binární) */
-#define STATISTIKY_SOUBOR         SOUBORY_PATH "stats.sav"
+#define STATISTIKY_SOUBOR         SOUBORY_PATH "stat.sav"
 
 /* informace o chybějícím souboru */
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."

@@ -5,7 +5,7 @@
         |            games            S I _ E _ I C E         |
         |                                                     |
         +--------------------------+--------------------------+
-        |    (c) 2022-26  GPLv3    |          v1.3.3          |
+        |    (c) 2022-26  GPLv3    |          v1.4.0          |
         +--------------------------+--------------------------+
 
                              V i t e j t e
@@ -41,12 +41,12 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibe-dos.exe         - platforma DOS       (16-bit, x86)      (program)
 
 data/
- (stats.sav)          - soubor s ulozenymi statistikami        (binarni)
+ (stat.sav)           - soubor s ulozenymi statistikami        (binarni)
                         (vytvoren az po prvnim spusteni hry)
- dict_cs.dat          - slovnik 1000 nahodnych ceskych slov    (textovy)
- game.dat             - zdrojovy soubor ascii-artu sibenice    (textovy)
- help.dat             - zdrojovy soubor napovedy pro aplikaci  (textovy)
- stats.dat            - zdrojovy soubor obrazovky statistik    (textovy)
+ dict-cs.dat          - slovnik 1000 nahodnych ceskych slov    (textovy)
+ game-cs.dat          - zdrojovy soubor ascii-artu sibenice    (textovy)
+ help-cs.dat          - zdrojovy soubor napovedy pro aplikaci  (textovy)
+ stat-cs.dat          - zdrojovy soubor obrazovky statistik    (textovy)
 
 wasm/                 - platforma WebAssembly
  index.html           - hlavni stranka (vyzaduje http server)  (webpage)
