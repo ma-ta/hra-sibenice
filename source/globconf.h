@@ -158,7 +158,7 @@
 
 /* externí soubory */
 
-/* cesta k souborům               (PATH)    */
+/* výchozí cesta k souborům       (PATH)    */
 #ifndef SOUBORY_PATH
   #define SOUBORY_PATH            "./data/"
 #endif
@@ -526,4 +526,5 @@
 "|                   |                               |                   |\n"  \
 "+-------------------+-------------------------------+-------------------+\n"
 
-#endif
+
+#endif  /* #ifndef KONFIGURACE_H */
