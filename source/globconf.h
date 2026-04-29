@@ -158,20 +158,25 @@
 
 /* externí soubory */
 
-/* výchozí cesta k souborům       (PATH)    */
-#ifndef SOUBORY_PATH
-  #define SOUBORY_PATH            "./data/"
+/* výchozí cesty                  (path) */
+#ifndef SOUBORY_RES_PATH
+  /* neměnné načítané soubory */
+  #define SOUBORY_RES_PATH        "./data/"
+#endif
+#ifndef SOUBORY_VAR_PATH
+  /* uložená skóre, nastavení apod. */
+  #define SOUBORY_VAR_PATH        SOUBORY_RES_PATH
 #endif
 /* seznam slov k hádání           (textový) */
-#define HRA_SLOVA_SOUBOR          SOUBORY_PATH "dict-cs.dat"
+#define HRA_SLOVA_SOUBOR          SOUBORY_RES_PATH "dict-cs.dat"
 /* šablona s obrázky šibenice     (textový) */
-#define UKAZATELSIBENICE_SOUBOR   SOUBORY_PATH "game-cs.dat"
+#define UKAZATELSIBENICE_SOUBOR   SOUBORY_RES_PATH "game-cs.dat"
 /* šablona české nápovědy         (textový) */
-#define NAPOVEDA_SOUBOR           SOUBORY_PATH "help-cs.dat"
+#define NAPOVEDA_SOUBOR           SOUBORY_RES_PATH "help-cs.dat"
 /* šablona obrazovky statistik    (textový) */
-#define STATISTIKY_OBRSAB_SOUBOR  SOUBORY_PATH "stat-cs.dat"
+#define STATISTIKY_OBRSAB_SOUBOR  SOUBORY_RES_PATH "stat-cs.dat"
 /* uložené herní statistiky       (binární) */
-#define STATISTIKY_SOUBOR         SOUBORY_PATH "stat.sav"
+#define STATISTIKY_SOUBOR         SOUBORY_VAR_PATH "stat.sav"
 
 /* informace o chybějícím souboru */
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."

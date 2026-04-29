@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-04-23                #
+#  datum:  2026-04-29                #
 #                                    #
 ######################################
 
@@ -36,7 +36,9 @@
   cc_param="-O3 -Wno-unused-result $*"  # pro testovani cross-kompilace pridat:
                                           # [-static]
                                         # cesta k souborum
-                                          # [-DSOUBORY_PATH=\"./data/\"] apod.
+                                          # [-DSOUBORY_RES_PATH=\"./data/\"]
+                                          # [-DSOUBORY_VAR_PATH=\"./data/\"]
+                                          # apod.
                                         # verze
                                           # [-DVERZE=\"X.Y.Z\"]
 
