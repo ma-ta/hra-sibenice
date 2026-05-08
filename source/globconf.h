@@ -19,121 +19,13 @@
 #include "./libs/term_set.h"
 
 /* detekce operačního systému */
-#ifndef OSNAME
-  #if defined(__ANDROID__)
-    #define OSNAME "Android"
-    #define OS_UNIX
-    #define OS_ANDROID
-  #elif defined (__EMSCRIPTEN__)
-    #define OSNAME "Web"
-    #define OS_WEB
-    #include <emscripten/emscripten.h>
-  #elif defined(__DOS__) || defined(__MSDOS__) || defined(MSDOS)
-    #define OSNAME  "DOS"
-    #define OS_DOS
-  #elif defined(_WIN32) || defined(_WIN64)
-    #define OSNAME  "Windows"
-    #define OS_WIN
-  #elif defined(__APPLE__)
-    #define OSNAME  "macOS"
-    #define OS_UNIX
-    #define OS_MAC
-  #elif defined(__linux__)
-    #define OSNAME  "Linux"
-    #define OS_UNIX
-    #define OS_LINUX
-  #elif defined(__FreeBSD__)
-    #define OSNAME  "FreeBSD"
-    #define OS_UNIX
-    #define OS_BSD
-  #elif defined(__unix__)
-    #define OSNAME  "UN*X"
-    #define OS_UNIX
-  #else
-    #define OSNAME  "?"
-  #endif
-#endif
+#include "./libs/osname.h"
 
 /* detekce překladače */
-#ifndef CCNAME
-  #if defined (__EMSCRIPTEN__)
-    #define CCNAME  "Emscripten"
-    #define CCVER   __EMSCRIPTEN_MAJOR__
-    #define CCMINOR __EMSCRIPTEN_MINOR__
-    #define CCTINY  __EMSCRIPTEN_TINY__
-  #elif defined(_MSC_VER)
-    #define CCNAME  "MSVC"
-    #define CCVER   _MSC_VER
-  #elif defined(__WATCOMC__)
-    #define CCNAME  "Watcom"
-    #ifdef WATCOMC_VER
-      #define CCVER  WATCOMC_VER
-    #else
-      #define CCVER  __WATCOMC__
-    #endif
-  #elif defined(__clang__)
-    #define CCNAME   "Clang"
-    #define CCVER    __clang_major__
-    #define CCMINOR  __clang_minor__
-    #define CCTINY   __clang_patchlevel__
-  #elif defined(__GNUC__)
-    #if defined(__DJGPP__)
-      #define CCNAME  "DJGPP"
-    #else
-      #define CCNAME  "GCC"
-    #endif
-    #define CCVER    __GNUC__
-    #define CCMINOR  __GNUC_MINOR__
-    #define CCTINY   __GNUC_PATCHLEVEL__
-  #else
-    #define CCNAME  "?"
-    #define CCVER  (-1)
-  #endif
-
-  #ifndef CCMINOR
-    #define CCMINOR  (-1)
-  #endif
-  #ifndef CCTINY
-    #define CCTINY  (-1)
-  #endif
-#else
-  #ifndef CCVER
-    #define CCVER  (-1)
-  #endif
-#endif
+#include "./libs/ccname.h"
 
 /* detekce architektury */
-#if defined(__EMSCRIPTEN__)
-  #if defined(__wasm64__)
-    #define ARCH  "wasm64"
-  #elif defined(__wasm32__)
-    #define ARCH  "wasm32"
-  #elif defined(__wasm__)
-    #define ARCH  "Wasm"
-  #else
-    #define ARCH  "?"
-  #endif
-#elif defined(__x86_64__) || defined(_M_X64) || defined(_M_AMD64)
-  #define ARCH  "x86-64"
-#elif defined(_M_I86)  /* 16-bit: MSVC, Watcom */
-  #define ARCH  "x86 16-bit"
-#elif defined(__i386__) || defined(_M_IX86)
-  #define ARCH  "x86"
-#elif defined(__aarch64__) || defined(_M_ARM64)
-  #define ARCH  "arm64"
-#elif defined(__arm__) || defined(_M_ARM)
-  #define ARCH  "arm 32-bit"
-#elif defined(__riscv)
-  #if __riscv_xlen == 64
-    #define ARCH  "riscv64"
-  #elif __riscv_xlen == 32
-    #define ARCH  "riscv32"
-  #else
-    #define ARCH  "risc-v"
-  #endif
-#else
-  #define ARCH  "?"
-#endif
+#include "./libs/archname.h"
 
 
 /* GLOBÁLNÍ NASTAVENÍ */

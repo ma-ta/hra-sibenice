@@ -1,6 +1,3 @@
-#ifdef POKUS  /* vyřazení souboru z kompilace */
-
-
 /*
  *  (TESTOVACÍ SOUBOR - rozpracováno)
  *
@@ -9,6 +6,9 @@
  *  (funguje pouze v GNOME Terminal (nikoli [kgx]) a XTerm ...)
  *
  */
+
+
+#ifdef POKUS_ROZMERY_C  /* vyřazení souboru z kompilace projektu */
 
 
 #include <stdio.h>
@@ -58,4 +58,4 @@ int main(void)
 }
 
 
-#endif
+#endif  /* POKUS_ROZMERY_C */
