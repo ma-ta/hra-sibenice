@@ -8,18 +8,24 @@ NOVINKY:
 
 1) nové instalační balíčky:
    - Linux:
-       .deb  [x86-64] [AArch64]
-       .rpm  [x86-64] [AArch64]
+       DEB      [x86-64] [AArch64]
+       RPM      [x86-64] [AArch64]
+       Flatpak  [x86-64] [AArch64]
 
-2) úpravy v názvech a zkratkách přepínačů
+2) externí soubory načítány a ukládány do
+   standardizovaných adresářů v každém
+   z podporovaných OS
+
+3) úpravy v názvech a zkratkách přepínačů,
+   vylepšené zpracování argumentů (kombinace)
+
+4) vylepšen cheat skript (určen jen pro testování)
 
 
 OPRAVENÉ CHYBY:
 
-1) robustnější implementace načítání, ukládání
-   a zpracování chyb u externích souborů
-
-2) vylepšen cheat skript (určen pro testování)
+1) zpracování chyb u externích souborů
+   (když soubor nelze najít)
 
 
 +--------+------------+
