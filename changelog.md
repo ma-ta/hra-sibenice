@@ -12,9 +12,8 @@ NOVINKY:
        RPM      [x86-64] [AArch64]
        Flatpak  [x86-64] [AArch64]
 
-2) externí soubory načítány a ukládány do
-   standardizovaných adresářů v každém
-   z podporovaných OS
+2) externí soubory ve standardních adresářích
+   ve všech podporovaných OS
 
 3) úpravy v názvech a zkratkách přepínačů,
    vylepšené zpracování argumentů (kombinace)
@@ -24,8 +23,8 @@ NOVINKY:
 
 OPRAVENÉ CHYBY:
 
-1) zpracování chyb u externích souborů
-   (když soubor nelze najít)
+1) vylepšené chování v případech, kdy nelze otevřít
+   externí soubor
 
 
 +--------+------------+

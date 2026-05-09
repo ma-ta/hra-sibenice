@@ -1,8 +1,7 @@
 /*
- *  (TESTOVACÍ SOUBOR - rozpracováno)
+ *  (SOUBOR URČENÝ K EXPERIMENTOVÁNÍ)
  *
  *  Nastavení velikosti okna emulátoru terminálu v UN*X systémech
- *  -> k implementaci do term_set.c
  *  (funguje pouze v GNOME Terminal (nikoli [kgx]) a XTerm ...)
  *
  */
