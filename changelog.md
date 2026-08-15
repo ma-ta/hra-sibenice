@@ -7,6 +7,9 @@
 NOVINKY:
 
 1) nové instalační balíčky:
+   - macOS:
+       DMG      [Universal: [AArch64] [x86-64]]
+       App      [Universal: [AArch64] [x86-64]]
    - Linux:
        DEB      [x86-64] [AArch64]
        RPM      [x86-64] [AArch64]
@@ -18,13 +21,15 @@ NOVINKY:
 3) úpravy v názvech a zkratkách přepínačů,
    vylepšené zpracování argumentů (kombinace)
 
-4) vylepšen cheat skript (určen jen pro testování)
+4) Linux: vylepšen cheat skript (určen jen pro testování)
 
 
 OPRAVENÉ CHYBY:
 
 1) vylepšené chování v případech, kdy nelze otevřít
    externí soubor
+
+2) macOS: vyřešen problém s kompilací knihovny term_set.c
 
 
 +--------+------------+

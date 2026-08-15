@@ -138,7 +138,7 @@
 #define ARG_STA_SIGN_1  "k"       /* vypíše herní statistiky */
 #define ARG_STA_SIGN_2  "kronika"
 #define ARG_VER_SIGN_1  "v"       /* vypíše informace o sestavení */
-#define ARG_VER_SIGN_2  "ver"
+#define ARG_VER_SIGN_2  "version"
 #define ARG_DOS_SIGN_1  "m"       /* vynuti rezim 25 x 80 znaku */
 #define ARG_DOS_SIGN_2  "min"
 #define ARG_ROZ_SIGN_1  "r"       /* s <x> <y> nastaví rozměry okna */
