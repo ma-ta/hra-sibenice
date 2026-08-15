@@ -1,6 +1,6 @@
 /*
- *  (c) 2025  Martin TÁBOR
- *      Hra Šibenice v1.3.0
+ *  (c) 2025-26  Martin TÁBOR (github.com/ma-ta)
+ *      Hra Šibenice v1.4.0
  *
  *  MODUL JE TŘEBA AKTIVOVAT DEFINOVÁNÍM SYMBOLICKÉ KONSTANTY:
  *  TERM_SET  1  (řešeno v globconf.h)
@@ -9,10 +9,10 @@
  *  - nastavení titulku okna (panelu)
  *  - nastavení velikost okna (znaků na výšku a šířku,
  *    testováno na:
- *    - (1) Windows 11 (24H2):
+ *    - (1) Windows 11 (25H2):
  *          - Windows Console Host (ConHost.exe) via příkaz [mode]
  *            (moderní Windows Terminal není podporován)
- *    - (2) macOS 15.4:
+ *    - (2) macOS 26.6.1:
  *          - Terminal via AppleScript
  *  - nastavení typu fontu:
  *    pouze Windows Console Host (via WinAPI)
@@ -42,6 +42,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+
+/* pro macOS: velikost terminálu po ukončení aplikace
+   (zjištění výchozí velikosti zatím není pro macOS implementováno) */
+#define TERM_SET_RESET_HEIGHT  120
+#define TERM_SET_RESET_WIDTH   30
 
 typedef enum {
    #if (defined(_WIN32) || defined(_WIN64) || defined(__DOS__) || defined(__MSDOS__) || defined(MSDOS))
@@ -112,7 +117,7 @@ bool term_title(const char *novy_titulek);
        Následující přepínače kompilátoru cl.exe zajistí otevření ConHost:
        [/link /subsystem:windows /entry:mainCRTStartup user32.lib].
        Více komentáře ve zdrojovém kódu. Změna velikosti pomocí [mode]
-   (2) macOS 15 - Terminal. Změna velikosti pomocí AppleScript
+   (2) macOS - Terminal. Změna velikosti pomocí AppleScript
    (3) Linux - funguje pouze v GNOME Terminal (ne v kgx) a XTerm */
 bool term_size(int x, int y);
 

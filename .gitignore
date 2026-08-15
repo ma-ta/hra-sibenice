@@ -5,6 +5,10 @@ bin/test-win.exe
 bin/test-dos.exe
 
 
+# macOS
+.DS_Store
+
+
 # GitHub - výchozí hodnoty (2025-06)
 
 # Prerequisites

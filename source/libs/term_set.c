@@ -53,7 +53,9 @@ static char system_prikaz[1000] = "";  /* textový buffer */
 
 #ifdef OS_UNIX
   static int xy_vychozi[2];  /* výchozí rozměry terminálu */
-  static struct winsize w_size;  /* struktura pro změnu velikosti UN*X terminálu */
+  #ifndef OS_MAC
+    static struct winsize w_size;  /* struktura pro změnu velikosti UN*X terminálu */
+  #endif
 #endif
 
 static term_color_bgfg term_bgfg = {
@@ -219,9 +221,9 @@ bool term_title(const char *novy_titulek)
       }
       /* obecný UN*X terminál
          testováno v:
-         - GNOME 48 Terminal/Console
+         - GNOME 50 Terminal/Console
          - KDE Konsole 24.12.3
-         - macOS 15.4 Terminal */
+         - macOS 26.6.1 Terminal (v2.15) */
       else {
         printf(ansi_osc_title, novy_titulek);
       }
@@ -356,7 +358,12 @@ void term_size_reset(void)
 {
   #if TERM_SET == 1
 
-    #ifdef OS_UNIX
+    #ifdef OS_MAC
+
+      /* změna velikosti okna (AppleScript) */
+      term_size(xy_vychozi[1], xy_vychozi[0]);
+
+    #elif OS_UNIX
 
       /* změna velikosti okna (řídicí sekvence XTerm a Gnome Terminal) */
       printf("\033[8;%d;%dt", xy_vychozi[1], xy_vychozi[0]);
@@ -393,12 +400,13 @@ void term_init(void)
         if (hwnd) {
         SetForegroundWindow(hwnd);
         }
+      #elif defined(OS_MAC)
+          xy_vychozi[0] = TERM_SET_RESET_WIDTH;   /* výchozí šířka terminálu */
+          xy_vychozi[1] = TERM_SET_RESET_HEIGHT;  /* výchozí výška terminálu */
       #elif defined(OS_UNIX)
-
-        ioctl(STDOUT_FILENO, TIOCGWINSZ, &w_size);  /* inicializace struktury winsize */
-        xy_vychozi[0] = w_size.ws_col;  /* výchozí šířka terminálu */
-        xy_vychozi[1] = w_size.ws_row;  /* výchozí výška terminálu */
-
+          ioctl(STDOUT_FILENO, TIOCGWINSZ, &w_size);  /* inicializace struktury winsize */
+          xy_vychozi[0] = w_size.ws_col;  /* výchozí šířka terminálu */
+          xy_vychozi[1] = w_size.ws_row;  /* výchozí výška terminálu */
       #endif
    #endif
 }
