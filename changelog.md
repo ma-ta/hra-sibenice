@@ -31,6 +31,9 @@ OPRAVENÉ CHYBY:
 
 2) macOS: vyřešen problém s kompilací knihovny term_set.c
 
+3) macOS: dva různé odstíny barvy pozadí v Terminálu
+   (obarvování přepnuto na původní ANSI escape kódy)
+
 
 +--------+------------+
 | v1.3.2 | 2026-01-20 |
