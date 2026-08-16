@@ -73,15 +73,24 @@
 /* informace o chybějícím souboru */
 #define ERR_SOUBOR  "Nelze nacist externi soubor \"%s\"..."
 
-#define ANSI_FORMAT  0    /* zapne formátování ESC sekvencemi */
-#define TERM_COLOR   1    /* zapne obarvování pomocí modulu term_set */
+#define ANSI_FORMAT  0    /* vypne formátování ESC sekvencemi */
+/* zapne obarvování pomocí modulu term_set */
+#define TERM_COLOR   1
+#ifdef OS_MAC
+/* v macOS 26 Terminal se objevují neestetické barevné artefakty
+   při obarvování pozadí - tj. světlejší a tmavší části */
+   #undef  TERM_COLOR
+   #define TERM_COLOR   0  /* vypne obarvování pomocí modulu term_set */
+   #undef  ANSI_FORMAT
+   #define ANSI_FORMAT  1  /* zapne formátování ESC sekvencemi */
+#endif
 
 /* nastavení okna terminálu */
 
 /* zapne nastavení titulku a velikosti terminálu
    (je potřeba upravit i make_win.bat pro Windows) */
 /***************************************************/
-#define TERM_SET     1
+#define TERM_SET       1
 /***************************************************/
 
 #if defined(OS_DOS)
