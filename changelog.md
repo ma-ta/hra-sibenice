@@ -8,8 +8,9 @@ NOVINKY:
 
 1) nové instalační balíčky:
    - macOS:
-       DMG      [Universal: [AArch64] [x86-64]]
-       App      [Universal: [AArch64] [x86-64]]
+       DMG      [Universal] [AArch64] [x86-64]
+       APP      [Universal] [AArch64] [x86-64]
+       binárky  [Universal] [AArch64] [x86-64]
    - Linux:
        DEB      [x86-64] [AArch64]
        RPM      [x86-64] [AArch64]

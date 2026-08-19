@@ -12,7 +12,7 @@ Pouziti:
 
 Seznam dostupnych prepinacu:
   -?, --help      vypise (tento) seznam prepinacu
-  -v, --ver       vypise informace o sestaveni
+  -v, --version   vypise informace o sestaveni
   -n, --navod     zobrazi hlavni napovedu hry
   -k, --kronika   vypise herni statistiky
   -m, --min       vynuti rezim 25 x 80 znaku

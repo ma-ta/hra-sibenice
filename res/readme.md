@@ -34,10 +34,13 @@ Obsah aktualni slozky (nemusi byt kompletni):
  sibenice-linuxArm64  - platforma GNU/Linux (64-bit, AArch64)  (program)
  sibenice-linuxArm    - platforma GNU/Linux (32-bit, armhf)    (program)
  sibenice-linuxRV64   - platforma GNU/Linux (64-bit, riscv64)  (program)
- sibenice-android     - platforma Android   (64-bit, AArch64)  (program)
+ sibenice-macArm64    - platforma macOS     (Apple, AArch64)   (program)
+ sibenice-mac64       - platforma macOS     (Intel, x86-64)    (program)
+ sibenice-macUni      - platforma macOS     (Universal)        (program)
  sibenice-win64.exe   - platforma Windows   (64-bit, x86-64)   (program)
  sibenice-win32.exe   - platforma Windows   (32-bit, x86)      (program)
  sibenice-winArm64    - platforma Windows   (64-bit, AArch64)  (program)
+ sibenice-android     - platforma Android   (64-bit, AArch64)  (program)
  sibe-dos.exe         - platforma DOS       (16-bit, x86)      (program)
 
 data/
