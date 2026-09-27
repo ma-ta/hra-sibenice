@@ -363,7 +363,7 @@ void term_size_reset(void)
       /* změna velikosti okna (AppleScript) */
       term_size(xy_vychozi[1], xy_vychozi[0]);
 
-    #elif OS_UNIX
+    #elif defined(OS_UNIX)
 
       /* změna velikosti okna (řídicí sekvence XTerm a Gnome Terminal) */
       printf("\033[8;%d;%dt", xy_vychozi[1], xy_vychozi[0]);
