@@ -1,6 +1,6 @@
 ## Sada ikon
 
-> Jednotlivá designová řešení dle velikosti ikony (k dispozici je [SVG](ico.svg))
+> Jednotlivá designová řešení dle velikosti ikony
 
 <table>
   <tr>
