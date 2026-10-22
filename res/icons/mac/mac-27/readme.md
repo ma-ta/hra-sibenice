@@ -11,7 +11,7 @@
      [https://developer.apple.com/design/resources/#macos-apps]&nbsp;&ndash;&nbsp;otevře např. Figma nebo GIMP (nutné převést na sRGB profil)
 2.
    - vytvořit vizuálně vyhovující sadu ikon
-   - jednotlivé ikony vyexportovat jako PNG do složky [mac-ico.iconset]
+   - jednotlivé ikony vyexportovat jako PNG do složky [mac-ico.iconset](mac-ico.iconset)
      se správnými názvy pro macOS utilitu [iconutil]
 3. PNG ideálně převést na barevný profil P3 pomocí ColorSync Utility v macOS
 4. použít CLI utilitu [iconutil -c icns mac-ico.iconset] pro finální ikonu
