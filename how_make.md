@@ -38,9 +38,9 @@
     - ohlidat ukoncovani radku v make.sh (nastavit na LF)
     - predem instalovat vyvojove nastroje:
       - Ubuntu  26.04 LTS  -> [sudo apt install build-essentials -y]
-      - Fedora  44         -> [sudo dnf install gcc]
-      - FreeBSD 15         -> [pkg install -y bash]
-      - macOS   26         -> [xcode-select --install]
+      - Fedora  45         -> [sudo dnf install gcc]
+      - FreeBSD 15.1       -> [pkg install -y bash]
+      - macOS   27         -> [xcode-select --install]
     - spustit [sh make.sh]
 
     V macOS je mozne vyuzit prepinace:

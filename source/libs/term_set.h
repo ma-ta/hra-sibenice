@@ -9,10 +9,10 @@
  *  - nastavení titulku okna (panelu)
  *  - nastavení velikost okna (znaků na výšku a šířku,
  *    testováno na:
- *    - (1) Windows 11 (25H2):
+ *    - (1) Windows 11 (26H2):
  *          - Windows Console Host (ConHost.exe) via příkaz [mode]
  *            (moderní Windows Terminal není podporován)
- *    - (2) macOS 26.6.1:
+ *    - (2) macOS 27:
  *          - Terminal via AppleScript
  *  - nastavení typu fontu:
  *    pouze Windows Console Host (via WinAPI)
@@ -45,8 +45,8 @@
 
 /* pro macOS: velikost terminálu po ukončení aplikace
    (zjištění výchozí velikosti zatím není pro macOS implementováno) */
-#define TERM_SET_RESET_HEIGHT  120
-#define TERM_SET_RESET_WIDTH   30
+#define TERM_SET_RESET_HEIGHT  80
+#define TERM_SET_RESET_WIDTH   24
 
 typedef enum {
    #if (defined(_WIN32) || defined(_WIN64) || defined(__DOS__) || defined(__MSDOS__) || defined(MSDOS))

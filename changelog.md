@@ -7,20 +7,19 @@
 NOVINKY:
 
 1) nové instalační balíčky:
-   - macOS:
+   - macOS (+ ikona pro macOS 27):
        DMG      [Universal] [AArch64] [x86-64]
        APP      [Universal] [AArch64] [x86-64]
        binárky  [Universal] [AArch64] [x86-64]
    - Linux:
        DEB      [x86-64] [AArch64]
        RPM      [x86-64] [AArch64]
-       Flatpak  [x86-64] [AArch64]
 
 2) externí soubory ve standardních adresářích
-   ve všech podporovaných OS
+   (Windows, Linux, macOS)
 
 3) úpravy v názvech a zkratkách přepínačů,
-   vylepšené zpracování argumentů (kombinace)
+   vylepšené zpracování argumentů
 
 4) Linux: vylepšen cheat skript (určen jen pro testování)
 

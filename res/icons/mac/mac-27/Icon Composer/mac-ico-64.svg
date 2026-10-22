@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 270.93333 270.93333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   sodipodi:docname="mac-ico-64.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.76609751"
+     inkscape:cx="362.22543"
+     inkscape:cy="494.06243"
+     inkscape:window-width="2056"
+     inkscape:window-height="1204"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <color-profile
+       name="Display-P3"
+       xlink:href="file:///System/Library/ColorSync/Profiles/Display%20P3.icc"
+       id="color-profile2" />
+  </defs>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-81.227075,-122.2375)">
+    <g
+       id="text7-8"
+       style="font-weight:bold;font-size:4.75351px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#ffffff;stroke-width:0.222823"
+       inkscape:label="popředí"
+       aria-label="O o&#10; |"
+       transform="matrix(15.880145,0,0,15.880145,-1209.9204,-1817.897)">
+      <path
+         style="font-weight:800;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff"
+         d="m 86.984235,129.27092 q -0.522886,0 -0.831864,-0.29471 -0.308979,-0.29472 -0.308979,-0.79859 v -1.37852 q 0,-0.50863 0.308979,-0.79859 0.308978,-0.29472 0.831864,-0.29472 0.522886,0 0.831864,0.29472 0.308978,0.28996 0.308978,0.79859 v 1.37852 q 0,0.50387 -0.308978,0.79859 -0.308978,0.29471 -0.831864,0.29471 z m 0,-0.61795 q 0.427816,0 0.427816,-0.42782 v -1.47359 q 0,-0.42781 -0.427816,-0.42781 -0.427816,0 -0.427816,0.42781 v 1.47359 q 0,0.42782 0.427816,0.42782 z m 5.704215,0.61795 q -0.347006,0 -0.603695,-0.12834 -0.25669,-0.1331 -0.399295,-0.36602 -0.137852,-0.23768 -0.137852,-0.55141 v -0.61795 q 0,-0.31374 0.137852,-0.54666 0.142605,-0.23767 0.399295,-0.36602 0.256689,-0.1331 0.603695,-0.1331 0.35176,0 0.603696,0.1331 0.25669,0.12835 0.394541,0.36602 0.142606,0.23292 0.142606,0.54666 v 0.61795 q 0,0.31373 -0.142606,0.55141 -0.137851,0.23292 -0.394541,0.36602 -0.251936,0.12834 -0.603696,0.12834 z m 0,-0.61795 q 0.209155,0 0.318485,-0.10933 0.109331,-0.11409 0.109331,-0.31849 v -0.61795 q 0,-0.20916 -0.109331,-0.31849 -0.10933,-0.10933 -0.318485,-0.10933 -0.204401,0 -0.318485,0.10933 -0.109331,0.10933 -0.109331,0.31849 v 0.61795 q 0,0.2044 0.109331,0.31849 0.114084,0.10933 0.318485,0.10933 z"
+         id="path2" />
+      <path
+         style="font-weight:800;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Ultra-Bold';fill:#ffffff"
+         d="m 89.479829,135.70255 v -4.4683 h 0.713027 v 4.4683 z"
+         id="path3" />
+    </g>
+  </g>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:date>2025-05-15</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

@@ -2,8 +2,8 @@
 
 # Konce radku v souboru musi byt reprezentovany znakem LF (nikoli CRLF)
 
-# Testovane OS: Ubuntu 26.04 LTS, Fedora 44, macOS 26, FreeBSD 15.0,
-#               Android 16/Termux v2026-02-11
+# Testovane OS: Ubuntu 26.04 LTS, Fedora 45, FreeBSD 15.1, macOS 27,
+#               Android 17/Termux v2026-10-09
 
 ######################################
 #                                    #
@@ -11,7 +11,7 @@
 #  (UN*X / BASH|ZSH / GCC|CLANG)     #
 #                                    #
 #  autor:  Martin TABOR (Ma-TA)      #
-#  datum:  2026-08-15                #
+#  datum:  2026-10-21                #
 #                                    #
 ######################################
 
@@ -68,10 +68,10 @@
       # x86 (i386, 32-bit):
         #CC='clang -m32 '$cc_param
       # AArch64:
-        #fetch https://download.freebsd.org/ftp/releases/arm64/15.0-RELEASE/base.txz
+        #fetch https://download.freebsd.org/ftp/releases/arm64/15.1-RELEASE/base.txz
         #mkdir -p /opt/sysroot-aarch64
         #tar -xf base.txz --strip-components=1 -C /opt/sysroot-aarch64
-        #CC='clang --target=aarch64-unknown-freebsd15.0 --sysroot=/opt/sysroot-aarch64'
+        #CC='clang --target=aarch64-unknown-freebsd15.1 --sysroot=/opt/sysroot-aarch64'
 
 
 # korenovy adresar se zdrojovymi kody
