@@ -13,8 +13,7 @@
    - vytvořit vizuálně vyhovující sadu ikon
    - jednotlivé ikony vyexportovat jako PNG do složky [mac-ico.iconset](mac-ico.iconset)
      se správnými názvy pro macOS utilitu [iconutil]
-3. PNG ideálně převést na barevný profil P3 pomocí ColorSync Utility v macOS
-4. použít CLI utilitu [iconutil -c icns mac-ico.iconset] pro finální ikonu
+3. použít CLI utilitu [iconutil -c icns mac-ico.iconset] pro finální ikonu
 
 ### Použitý software
 - Icon Composer *(ver. 27.1&nbsp;&ndash;&nbsp;Xcode 27.1)*
