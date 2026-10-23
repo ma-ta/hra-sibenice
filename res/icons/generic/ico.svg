@@ -7,7 +7,7 @@
    viewBox="0 0 203.2 135.46666"
    version="1.1"
    id="svg1"
-   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    sodipodi:docname="ico.svg"
    inkscape:export-filename="ico.png"
    inkscape:export-xdpi="96"
@@ -32,12 +32,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0378437"
-     inkscape:cx="484.65872"
+     inkscape:cx="484.17695"
      inkscape:cy="316.52165"
-     inkscape:window-width="2560"
-     inkscape:window-height="1351"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-width="2056"
+     inkscape:window-height="1204"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      showgrid="false" />
@@ -198,11 +198,11 @@
          rdf:about="">
         <dc:creator>
           <cc:Agent>
-            <dc:title>Martin TÁBOR (Ma-TA)</dc:title>
+            <dc:title>Ma-TA</dc:title>
           </cc:Agent>
         </dc:creator>
         <dc:title>Hra Šibenice</dc:title>
-        <dc:date>2025-05-15</dc:date>
+        <dc:date>2026-10-23</dc:date>
       </cc:Work>
     </rdf:RDF>
   </metadata>
